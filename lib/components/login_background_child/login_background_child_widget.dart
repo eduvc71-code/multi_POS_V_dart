@@ -99,43 +99,20 @@ class _LoginBackgroundChildWidgetState
                 children: [
                   Text(
                     'MultiPOS',
-                    style:
-                        FlutterFlowTheme.of(context).headlineLarge.copyWith(
-                              fontFamily: "Urbanist",
-                                fontWeight: FontWeight.w900,
-                                fontStyle: FlutterFlowTheme.of(context)
-                                    .headlineLarge
-                                    .fontStyle,
-                              ),
-                              color: FlutterFlowTheme.of(context).onPrimary,
-                              letterSpacing: 0.0,
-                              fontWeight: FontWeight.w900,
-                              fontStyle: FlutterFlowTheme.of(context)
-                              )
-                                  .headlineLarge
-                                  .fontStyle,
-                              height: 1.2,
-                            ),
+                    style: FlutterFlowTheme.of(context).headlineLarge.copyWith(
+                          fontFamily: "Urbanist",
+                          fontWeight: FontWeight.w900,
+                          color: FlutterFlowTheme.of(context).onPrimary,
+                          letterSpacing: 0.0,
+                          height: 1.2,
+                        ),
                   ),
                   Text(
                     'Punto de Venta Inteligente',
                     style: FlutterFlowTheme.of(context).bodyMedium.copyWith(
                           fontFamily: "Poppins",
-                            fontWeight: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .fontWeight,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .fontStyle,
-                          ),
                           color: FlutterFlowTheme.of(context).secondaryText,
                           letterSpacing: 0.0,
-                          fontWeight: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .fontWeight,
-                          fontStyle: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .fontStyle,
                           height: 1.5,
                         ),
                   ),
@@ -177,18 +154,10 @@ class _LoginBackgroundChildWidgetState
                               .titleLarge
                               .copyWith(
                                 fontFamily: "Urbanist",
-                                  fontWeight: FontWeight.bold,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .titleLarge
-                                      .fontStyle,
-                                ),
+                                fontWeight: FontWeight.bold,
                                 color: FlutterFlowTheme.of(context)
                                     .primaryText,
                                 letterSpacing: 0.0,
-                                fontWeight: FontWeight.bold,
-                                fontStyle: FlutterFlowTheme.of(context)
-                                    .titleLarge
-                                    .fontStyle,
                                 height: 1.3,
                               ),
                         ),
@@ -332,9 +301,6 @@ class _LoginBackgroundChildWidgetState
                         fontWeight: FlutterFlowTheme.of(context)
                             .bodySmall
                             .fontWeight,
-                        fontStyle: FlutterFlowTheme.of(context)
-                            .bodySmall
-                            .fontStyle,
                       ),
                       color: FlutterFlowTheme.of(context).secondaryText,
                       letterSpacing: 0.0,
@@ -393,18 +359,12 @@ class _LoginBackgroundChildWidgetState
                             fontWeight: FlutterFlowTheme.of(context)
                                 .labelSmall
                                 .fontWeight,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .labelSmall
-                                .fontStyle,
                           ),
                           color: FlutterFlowTheme.of(context).secondaryText,
                           letterSpacing: 0.0,
                           fontWeight: FlutterFlowTheme.of(context)
                               .labelSmall
                               .fontWeight,
-                          fontStyle: FlutterFlowTheme.of(context)
-                              .labelSmall
-                              .fontStyle,
                           height: 1.2,
                         ),
                   ),
@@ -417,9 +377,6 @@ class _LoginBackgroundChildWidgetState
                         fontWeight: FlutterFlowTheme.of(context)
                             .labelSmall
                             .fontWeight,
-                        fontStyle: FlutterFlowTheme.of(context)
-                            .labelSmall
-                            .fontStyle,
                       ),
                       color: FlutterFlowTheme.of(context).accent3,
                       letterSpacing: 0.0,

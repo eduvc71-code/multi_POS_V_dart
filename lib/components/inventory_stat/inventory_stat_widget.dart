@@ -99,9 +99,6 @@ class _InventoryStatWidgetState extends State<InventoryStatWidget> {
                             fontWeight: FlutterFlowTheme.of(context)
                                 .labelSmall
                                 .fontWeight,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .labelSmall
-                                .fontStyle,
                           ),
                           color: FlutterFlowTheme.of(context).secondaryText,
                           letterSpacing: 0.0,
@@ -121,16 +118,10 @@ class _InventoryStatWidgetState extends State<InventoryStatWidget> {
                     style: FlutterFlowTheme.of(context).titleMedium.copyWith(
                           fontFamily: "Urbanist",
                             fontWeight: FontWeight.bold,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .titleMedium
-                                .fontStyle,
                           ),
                           color: FlutterFlowTheme.of(context).primaryText,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.bold,
-                          fontStyle: FlutterFlowTheme.of(context)
-                              .titleMedium
-                              .fontStyle,
                           height: 1.4,
                         ),
                   ),

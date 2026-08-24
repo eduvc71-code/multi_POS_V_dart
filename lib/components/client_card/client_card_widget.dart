@@ -85,9 +85,6 @@ class _ClientCardWidgetState extends State<ClientCardWidget> {
                   style: FlutterFlowTheme.of(context).labelMedium.copyWith(
                         fontFamily: "Space Grotesk",
                           fontWeight: FontWeight.w600,
-                          fontStyle: FlutterFlowTheme.of(context)
-                              .labelMedium
-                              .fontStyle,
                         ),
                         color: FlutterFlowTheme.of(context).primary,
                         fontSize: 18.24,
@@ -115,16 +112,10 @@ class _ClientCardWidgetState extends State<ClientCardWidget> {
                       style: FlutterFlowTheme.of(context).bodyLarge.copyWith(
                             fontFamily: "Poppins",
                               fontWeight: FontWeight.bold,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .bodyLarge
-                                  .fontStyle,
                             ),
                             color: FlutterFlowTheme.of(context).primaryText,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.bold,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .bodyLarge
-                                .fontStyle,
                             height: 1.5,
                           ),
                     ),
@@ -142,9 +133,6 @@ class _ClientCardWidgetState extends State<ClientCardWidget> {
                                   fontWeight: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .fontWeight,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .bodySmall
-                                      .fontStyle,
                                 ),
                                 color:
                                     FlutterFlowTheme.of(context).secondaryText,
@@ -152,9 +140,6 @@ class _ClientCardWidgetState extends State<ClientCardWidget> {
                                 fontWeight: FlutterFlowTheme.of(context)
                                     .bodySmall
                                     .fontWeight,
-                                fontStyle: FlutterFlowTheme.of(context)
-                                    .bodySmall
-                                    .fontStyle,
                                 height: 1.4,
                               ),
                         ),
@@ -167,9 +152,6 @@ class _ClientCardWidgetState extends State<ClientCardWidget> {
                               FlutterFlowTheme.of(context).bodySmall.copyWith(
                                     fontFamily: "Poppins",
                                       fontWeight: FontWeight.w600,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodySmall
-                                          .fontStyle,
                                     ),
                                     color: valueOrDefault<Color>(
                                     )
@@ -184,9 +166,6 @@ class _ClientCardWidgetState extends State<ClientCardWidget> {
                                     ),
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodySmall
-                                        .fontStyle,
                                     height: 1.4,
                                   ),
                         ),
@@ -220,9 +199,6 @@ class _ClientCardWidgetState extends State<ClientCardWidget> {
                             fontWeight: FlutterFlowTheme.of(context)
                                 .labelSmall
                                 .fontWeight,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .labelSmall
-                                .fontStyle,
                           ),
                           color: FlutterFlowTheme.of(context).secondaryText,
                           letterSpacing: 0.0,

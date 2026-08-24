@@ -116,18 +116,12 @@ class _StatCardWidgetState extends State<StatCardWidget> {
                             fontWeight: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .fontWeight,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .labelMedium
-                                .fontStyle,
                           ),
                           color: FlutterFlowTheme.of(context).secondaryText,
                           letterSpacing: 0.0,
                           fontWeight: FlutterFlowTheme.of(context)
                               .labelMedium
                               .fontWeight,
-                          fontStyle: FlutterFlowTheme.of(context)
-                              .labelMedium
-                              .fontStyle,
                           height: 1.3,
                         ),
                   ),
@@ -139,9 +133,6 @@ class _StatCardWidgetState extends State<StatCardWidget> {
                     style: FlutterFlowTheme.of(context).titleLarge.copyWith(
                           font: GoogleFonts.urbanist(
                             fontWeight: FontWeight.w800,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .titleLarge
-                                .fontStyle,
                           ),
                           color: FlutterFlowTheme.of(context).primaryText,
                           letterSpacing: 0.0,
@@ -201,9 +192,6 @@ class _StatCardWidgetState extends State<StatCardWidget> {
                     style: FlutterFlowTheme.of(context).labelSmall.copyWith(
                           font: GoogleFonts.spaceGrotesk(
                             fontWeight: FontWeight.w600,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .labelSmall
-                                .fontStyle,
                           ),
                           color: valueOrDefault<Color>(
                             valueOrDefault<bool>(

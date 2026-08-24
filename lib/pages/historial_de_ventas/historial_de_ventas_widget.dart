@@ -129,15 +129,9 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
                                     .copyWith(
                                   font: GoogleFonts.urbanist(
                                     fontWeight: FontWeight.bold,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .titleLarge
-                                        .fontStyle,
                                   ),
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.bold,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .titleLarge
-                                      .fontStyle,
                                   height: 1.3,
                                 ),
                               ),
@@ -581,9 +575,6 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .fontStyle,
                                     height: 1.3,
                                   ),
                                 ),
@@ -660,9 +651,6 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .fontStyle,
                                     height: 1.3,
                                   ),
                                 ),

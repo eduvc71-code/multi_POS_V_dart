@@ -86,17 +86,11 @@ class _GestiNDeCajaWidgetState extends State<GestiNDeCajaWidget> {
                                     .copyWith(
                                   font: GoogleFonts.urbanist(
                                     fontWeight: FontWeight.bold,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .headlineMedium
-                                        .fontStyle,
                                   ),
                                   color: FlutterFlowTheme.of(context)
                                       .primaryText,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.bold,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .headlineMedium
-                                      .fontStyle,
                                   height: 1.25,
                                 ),
                               ),

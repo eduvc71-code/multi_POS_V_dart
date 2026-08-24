@@ -123,16 +123,10 @@ export 'registro_de_negocio_model.dart';
                                      .copyWith(
                                        font: GoogleFonts.urbanist(
                                          fontWeight: FontWeight.w900,
-                                         fontStyle: FlutterFlowTheme.of(context)
-                                             .headlineLarge
-                                             .fontStyle,
                                        ),
                                        color: FlutterFlowTheme.of(context).primary,
                                        letterSpacing: 0.0,
                                        fontWeight: FontWeight.w900,
-                                       fontStyle: FlutterFlowTheme.of(context)
-                                           .headlineLarge
-                                           .fontStyle,
                                        height: 1.2,
                                      ),
                                ),
@@ -145,9 +139,6 @@ export 'registro_de_negocio_model.dart';
                                          fontWeight: FlutterFlowTheme.of(context)
                                              .bodyMedium
                                              .fontWeight,
-                                         fontStyle: FlutterFlowTheme.of(context)
-                                             .bodyMedium
-                                             .fontStyle,
                                        ),
                                        color: FlutterFlowTheme.of(context)
                                            .secondaryText,
@@ -155,9 +146,6 @@ export 'registro_de_negocio_model.dart';
                                        fontWeight: FlutterFlowTheme.of(context)
                                            .bodyMedium
                                            .fontWeight,
-                                       fontStyle: FlutterFlowTheme.of(context)
-                                           .bodyMedium
-                                           .fontStyle,
                                        height: 1.5,
                                      ),
                                ),
@@ -197,17 +185,11 @@ export 'registro_de_negocio_model.dart';
                                      .copyWith(
                                        font: GoogleFonts.urbanist(
                                          fontWeight: FontWeight.bold,
-                                         fontStyle: FlutterFlowTheme.of(context)
-                                             .titleMedium
-                                             .fontStyle,
                                        ),
                                        color: FlutterFlowTheme.of(context)
                                            .primaryText,
                                        letterSpacing: 0.0,
                                        fontWeight: FontWeight.bold,
-                                       fontStyle: FlutterFlowTheme.of(context)
-                                           .titleMedium
-                                           .fontStyle,
                                        height: 1.4,
                                      ),
                                ),
@@ -235,17 +217,11 @@ export 'registro_de_negocio_model.dart';
                                      .copyWith(
                                        font: GoogleFonts.spaceGrotesk(
                                          fontWeight: FontWeight.w600,
-                                         fontStyle: FlutterFlowTheme.of(context)
-                                             .labelMedium
-                                             .fontStyle,
                                        ),
                                        color: FlutterFlowTheme.of(context)
                                            .secondaryText,
                                        letterSpacing: 0.0,
                                        fontWeight: FontWeight.w600,
-                                       fontStyle: FlutterFlowTheme.of(context)
-                                           .labelMedium
-                                           .fontStyle,
                                        height: 1.3,
                                      ),
                                ),
@@ -433,17 +409,11 @@ export 'registro_de_negocio_model.dart';
                                      .copyWith(
                                        font: GoogleFonts.urbanist(
                                          fontWeight: FontWeight.bold,
-                                         fontStyle: FlutterFlowTheme.of(context)
-                                             .titleMedium
-                                             .fontStyle,
                                        ),
                                        color: FlutterFlowTheme.of(context)
                                            .primaryText,
                                        letterSpacing: 0.0,
                                        fontWeight: FontWeight.bold,
-                                       fontStyle: FlutterFlowTheme.of(context)
-                                           .titleMedium
-                                           .fontStyle,
                                        height: 1.4,
                                      ),
                                ),
@@ -554,9 +524,6 @@ export 'registro_de_negocio_model.dart';
                                            fontWeight: FlutterFlowTheme.of(context)
                                                .bodySmall
                                                .fontWeight,
-                                           fontStyle: FlutterFlowTheme.of(context)
-                                               .bodySmall
-                                               .fontStyle,
                                          ),
                                          color: FlutterFlowTheme.of(context)
                                              .secondaryText,
@@ -564,9 +531,6 @@ export 'registro_de_negocio_model.dart';
                                          fontWeight: FlutterFlowTheme.of(context)
                                              .bodySmall
                                              .fontWeight,
-                                         fontStyle: FlutterFlowTheme.of(context)
-                                             .bodySmall
-                                             .fontStyle,
                                          height: 1.4,
                                        ),
                              ),

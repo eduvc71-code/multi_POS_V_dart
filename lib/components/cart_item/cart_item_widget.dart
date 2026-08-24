@@ -86,9 +86,6 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                       style: FlutterFlowTheme.of(context).bodyLarge.copyWith(
                             fontFamily: "Poppins",
                             fontWeight: FontWeight.w600,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .bodyLarge
-                                .fontStyle,
                             color: FlutterFlowTheme.of(context).primaryText,
                             letterSpacing: 0.0,
                             height: 1.5,
@@ -104,9 +101,6 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                             fontWeight: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .fontWeight,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .labelMedium
-                                .fontStyle,
                             color: FlutterFlowTheme.of(context).primary,
                             letterSpacing: 0.0,
                             height: 1.3,
@@ -146,9 +140,6 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                       style: FlutterFlowTheme.of(context).titleMedium.copyWith(
                             fontFamily: "Urbanist",
                             fontWeight: FontWeight.bold,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .titleMedium
-                                .fontStyle,
                             color: FlutterFlowTheme.of(context).primaryText,
                             letterSpacing: 0.0,
                             height: 1.4,

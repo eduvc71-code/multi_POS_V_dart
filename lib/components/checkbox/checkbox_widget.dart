@@ -168,18 +168,12 @@ class _CheckboxWidgetState extends State<CheckboxWidget> {
                                   fontWeight: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .fontWeight,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .fontStyle,
                                 ),
                                 color: FlutterFlowTheme.of(context).primaryText,
                                 letterSpacing: 0.0,
                                 fontWeight: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .fontWeight,
-                                fontStyle: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .fontStyle,
                                 height: 1.5,
                               ),
                           overflow: TextOverflow.ellipsis,
@@ -199,9 +193,6 @@ class _CheckboxWidgetState extends State<CheckboxWidget> {
                                       fontWeight: FlutterFlowTheme.of(context)
                                           .bodySmall
                                           .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodySmall
-                                          .fontStyle,
                                     ),
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryText,
@@ -209,9 +200,6 @@ class _CheckboxWidgetState extends State<CheckboxWidget> {
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .bodySmall
                                         .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodySmall
-                                        .fontStyle,
                                     height: 1.4,
                                   ),
                               overflow: TextOverflow.ellipsis,

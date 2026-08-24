@@ -136,15 +136,9 @@ class _SaleRowWidgetState extends State<SaleRowWidget> {
                               FlutterFlowTheme.of(context).titleSmall.copyWith(
                                     font: GoogleFonts.urbanist(
                                       fontWeight: FontWeight.bold,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .fontStyle,
                                     ),
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .fontStyle,
                                     height: 1.4,
                                   ),
                         ),
@@ -158,16 +152,10 @@ class _SaleRowWidgetState extends State<SaleRowWidget> {
                               .copyWith(
                                 font: GoogleFonts.urbanist(
                                   fontWeight: FontWeight.bold,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .fontStyle,
                                 ),
                                 color: FlutterFlowTheme.of(context).primaryText,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.bold,
-                                fontStyle: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .fontStyle,
                                 height: 1.4,
                               ),
                         ),
@@ -195,9 +183,6 @@ class _SaleRowWidgetState extends State<SaleRowWidget> {
                                       fontWeight: FlutterFlowTheme.of(context)
                                           .bodySmall
                                           .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodySmall
-                                          .fontStyle,
                                     ),
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryText,
@@ -205,9 +190,6 @@ class _SaleRowWidgetState extends State<SaleRowWidget> {
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .bodySmall
                                         .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodySmall
-                                        .fontStyle,
                                     height: 1.4,
                                   ),
                             ),
@@ -220,9 +202,6 @@ class _SaleRowWidgetState extends State<SaleRowWidget> {
                                       fontWeight: FlutterFlowTheme.of(context)
                                           .bodySmall
                                           .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodySmall
-                                          .fontStyle,
                                     ),
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryText,
@@ -230,9 +209,6 @@ class _SaleRowWidgetState extends State<SaleRowWidget> {
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .bodySmall
                                         .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodySmall
-                                        .fontStyle,
                                     height: 1.4,
                                   ),
                             ),
@@ -248,9 +224,6 @@ class _SaleRowWidgetState extends State<SaleRowWidget> {
                                       fontWeight: FlutterFlowTheme.of(context)
                                           .bodySmall
                                           .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodySmall
-                                          .fontStyle,
                                     ),
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryText,
@@ -258,9 +231,6 @@ class _SaleRowWidgetState extends State<SaleRowWidget> {
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .bodySmall
                                         .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodySmall
-                                        .fontStyle,
                                     height: 1.4,
                                   ),
                             ),
@@ -288,9 +258,6 @@ class _SaleRowWidgetState extends State<SaleRowWidget> {
                                     .copyWith(
                                       font: GoogleFonts.spaceGrotesk(
                                         fontWeight: FontWeight.bold,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .labelSmall
-                                            .fontStyle,
                                       ),
                                       color: valueOrDefault<Color>(
                                         widget!.statusColor,
@@ -298,9 +265,6 @@ class _SaleRowWidgetState extends State<SaleRowWidget> {
                                       ),
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .labelSmall
-                                          .fontStyle,
                                       height: 1.2,
                                     ),
                               ),

@@ -95,9 +95,6 @@ class _CreditStatWidgetState extends State<CreditStatWidget> {
                               fontWeight: FlutterFlowTheme.of(context)
                                   .labelSmall
                                   .fontWeight,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .labelSmall
-                                  .fontStyle,
                             ),
                             color: valueOrDefault<Color>(
                               widget!.tone,
@@ -107,9 +104,6 @@ class _CreditStatWidgetState extends State<CreditStatWidget> {
                             fontWeight: FlutterFlowTheme.of(context)
                                 .labelSmall
                                 .fontWeight,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .labelSmall
-                                .fontStyle,
                             height: 1.2,
                           ),
                     ),

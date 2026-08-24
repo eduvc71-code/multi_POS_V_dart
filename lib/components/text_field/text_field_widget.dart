@@ -381,8 +381,6 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
                               font: GoogleFonts.poppins(
                                 fontWeight: FlutterFlowTheme.of(context)
                                     .bodyMedium.fontWeight,
-                                fontStyle: FlutterFlowTheme.of(context)
-                                    .bodyMedium.fontStyle,
                               ),
                               color: valueOrDefault<Color>(
                                 () {
@@ -407,8 +405,6 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
                               letterSpacing: 0.0,
                               fontWeight: FlutterFlowTheme.of(context)
                                   .bodyMedium.fontWeight,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .bodyMedium.fontStyle,
                               height: 1.5,
                             ),
                         enabledBorder: InputBorder.none,
@@ -420,8 +416,6 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
                             font: GoogleFonts.poppins(
                               fontWeight: FlutterFlowTheme.of(context)
                                   .bodyMedium.fontWeight,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .bodyMedium.fontStyle,
                             ),
                             color: valueOrDefault<Color>(
                               () {
@@ -449,8 +443,6 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
                             letterSpacing: 0.0,
                             fontWeight: FlutterFlowTheme.of(context)
                                 .bodyMedium.fontWeight,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .bodyMedium.fontStyle,
                             height: 1.5,
                           ),
                       validator: _model.inputTextControllerValidator

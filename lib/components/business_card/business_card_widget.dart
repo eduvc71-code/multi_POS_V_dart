@@ -153,9 +153,6 @@ class _BusinessCardWidgetState extends State<BusinessCardWidget> {
                             color: FlutterFlowTheme.of(context).primaryText,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.bold,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .titleMedium
-                                .fontStyle,
                             height: 1.4,
                           ),
                     ),
@@ -171,9 +168,6 @@ class _BusinessCardWidgetState extends State<BusinessCardWidget> {
                             fontWeight: FlutterFlowTheme.of(context)
                                 .labelSmall
                                 .fontWeight,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .labelSmall
-                                .fontStyle,
                             height: 1.2,
                           ),
                     ),
@@ -201,9 +195,6 @@ class _BusinessCardWidgetState extends State<BusinessCardWidget> {
                             color: FlutterFlowTheme.of(context).onSuccess,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.bold,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .labelSmall
-                                .fontStyle,
                             height: 1.2,
                           ),
                     ),

@@ -107,16 +107,10 @@ class _SettingsTileWidgetState extends State<SettingsTileWidget> {
                       style: FlutterFlowTheme.of(context).bodyLarge.copyWith(
                             font: GoogleFonts.urbanist(
                               fontWeight: FontWeight.bold,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .bodyLarge
-                                  .fontStyle,
                             ),
                             color: FlutterFlowTheme.of(context).primaryText,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.bold,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .bodyLarge
-                                .fontStyle,
                             height: 1.4,
                           ),
                     ),
@@ -127,18 +121,12 @@ class _SettingsTileWidgetState extends State<SettingsTileWidget> {
                               fontWeight: FlutterFlowTheme.of(context)
                                   .labelSmall
                                   .fontWeight,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .labelSmall
-                                  .fontStyle,
                             ),
                             color: FlutterFlowTheme.of(context).secondaryText,
                             letterSpacing: 0.0,
                             fontWeight: FlutterFlowTheme.of(context)
                                 .labelSmall
                                 .fontWeight,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .labelSmall
-                                .fontStyle,
                             height: 1.2,
                           ),
                     ),

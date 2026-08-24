@@ -90,17 +90,11 @@ class _ConfiguraciNYEmpresasWidgetState
                                     .copyWith(
                                   font: GoogleFonts.urbanist(
                                     fontWeight: FontWeight.bold,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .headlineMedium
-                                        .fontStyle,
                                   ),
                                   color: FlutterFlowTheme.of(context)
                                       .primaryText,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.bold,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .headlineMedium
-                                      .fontStyle,
                                   height: 1.25,
                                 ),
                               ),
@@ -113,9 +107,6 @@ class _ConfiguraciNYEmpresasWidgetState
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .bodySmall
                                         .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodySmall
-                                        .fontStyle,
                                   ),
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryText,
@@ -123,9 +114,6 @@ class _ConfiguraciNYEmpresasWidgetState
                                   fontWeight: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .fontWeight,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .bodySmall
-                                      .fontStyle,
                                   height: 1.4,
                                 ),
                               ),
@@ -279,9 +267,6 @@ class _ConfiguraciNYEmpresasWidgetState
                                     ),
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .titleLarge
-                                        .fontStyle,
                                     height: 1.3,
                                   ),
                                 ),
@@ -341,9 +326,6 @@ class _ConfiguraciNYEmpresasWidgetState
                                     ),
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .titleLarge
-                                        .fontStyle,
                                     height: 1.3,
                                   ),
                                 ),

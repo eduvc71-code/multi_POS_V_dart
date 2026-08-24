@@ -333,9 +333,6 @@ class _ButtonWidgetState extends State<ButtonWidget> {
                             fontWeight: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .fontWeight,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .labelMedium
-                                .fontStyle,
                             color: valueOrDefault<Color>(
                               () {
                                 if (valueOrDefault<String>(

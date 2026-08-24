@@ -84,16 +84,10 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                 .copyWith(
                               font: GoogleFonts.urbanist(
                                 fontWeight: FontWeight.w900,
-                                fontStyle: FlutterFlowTheme.of(context)
-                                    .titleLarge
-                                    .fontStyle,
                               ),
                               color: FlutterFlowTheme.of(context).primary,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w900,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .titleLarge
-                                  .fontStyle,
                               height: 1.3,
                             ),
                           ),
@@ -117,9 +111,6 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .labelSmall
                                         .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .labelSmall
-                                        .fontStyle,
                                   ),
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryText,
@@ -127,9 +118,6 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                   fontWeight: FlutterFlowTheme.of(context)
                                       .labelSmall
                                       .fontWeight,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .labelSmall
-                                      .fontStyle,
                                   height: 1.2,
                                 ),
                               ),
@@ -557,9 +545,6 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                     ),
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w800,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .titleMedium
-                                        .fontStyle,
                                     height: 1.4,
                                   ),
                                 ),

@@ -542,9 +542,6 @@ class _ClientesYCrDitosWidgetState extends State<ClientesYCrDitosWidget> {
                                         .primaryText,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .titleMedium
-                                        .fontStyle,
                                     height: 1.4,
                                   ),
                                 ),

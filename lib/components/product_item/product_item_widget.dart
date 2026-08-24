@@ -106,13 +106,6 @@ class _ProductItemWidgetState extends State<ProductItemWidget> {
                       style: FlutterFlowTheme.of(context).bodyLarge.copyWith(
                             fontFamily: GoogleFonts.poppins().fontFamily,
                                   fontWeight: FontWeight.bold,
-                                  fontStyle: FlutterFlowTheme.of(context),,
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            letterSpacing: 0.0,
-                            fontWeight: FontWeight.bold,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .bodyLarge
-                                .fontStyle,
                             height: 1.5,
                           ),
                       overflow: TextOverflow.ellipsis,
@@ -129,16 +122,6 @@ class _ProductItemWidgetState extends State<ProductItemWidget> {
                               .copyWith(
                                 fontFamily: GoogleFonts.spaceGrotesk().fontFamily,
                                   fontWeight: FlutterFlowTheme.of(context),
-                                  fontStyle: FlutterFlowTheme.of(context),,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                letterSpacing: 0.0,
-                                fontWeight: FlutterFlowTheme.of(context)
-                                    .labelSmall
-                                    .fontWeight,
-                                fontStyle: FlutterFlowTheme.of(context)
-                                    .labelSmall
-                                    .fontStyle,
                                 height: 1.2,
                               ),
                         ),
@@ -152,13 +135,6 @@ class _ProductItemWidgetState extends State<ProductItemWidget> {
                               .copyWith(
                                 fontFamily: GoogleFonts.spaceGrotesk().fontFamily,
                                   fontWeight: FontWeight.w600,
-                                  fontStyle: FlutterFlowTheme.of(context),,
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                letterSpacing: 0.0,
-                                fontWeight: FontWeight.w600,
-                                fontStyle: FlutterFlowTheme.of(context)
-                                    .labelSmall
-                                    .fontStyle,
                                 height: 1.2,
                               ),
                         ),
@@ -180,12 +156,6 @@ class _ProductItemWidgetState extends State<ProductItemWidget> {
                     style: FlutterFlowTheme.of(context).bodyLarge.copyWith(
                           fontFamily: GoogleFonts.poppins().fontFamily,
                                   fontWeight: FontWeight.bold,
-                                  fontStyle: FlutterFlowTheme.of(context),,
-                          color: FlutterFlowTheme.of(context).primary,
-                          letterSpacing: 0.0,
-                          fontWeight: FontWeight.bold,
-                          fontStyle:
-                              FlutterFlowTheme.of(context).bodyLarge.fontStyle,
                           height: 1.5,
                         ),
                   ),
@@ -214,15 +184,6 @@ class _ProductItemWidgetState extends State<ProductItemWidget> {
                         style: FlutterFlowTheme.of(context).bodyMedium.copyWith(
                               fontFamily: GoogleFonts.poppins().fontFamily,
                                   fontWeight: FlutterFlowTheme.of(context),
-                                  fontStyle: FlutterFlowTheme.of(context),,
-                              color: FlutterFlowTheme.of(context).secondaryText,
-                              letterSpacing: 0.0,
-                              fontWeight: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .fontWeight,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .fontStyle,
                               height: 1.5,
                             ),
                       ),

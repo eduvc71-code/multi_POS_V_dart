@@ -1071,9 +1071,6 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                 fontWeight: FlutterFlowTheme.of(context)
                                     .labelSmall
                                     .fontWeight,
-                                fontStyle: FlutterFlowTheme.of(context)
-                                    .labelSmall
-                                    .fontStyle,
                               ),
                               color: FlutterFlowTheme.of(context)
                                   .secondaryText,
@@ -1081,9 +1078,6 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                               fontWeight: FlutterFlowTheme.of(context)
                                   .labelSmall
                                   .fontWeight,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .labelSmall
-                                  .fontStyle,
                               height: 1.2,
                             ),
                           ),

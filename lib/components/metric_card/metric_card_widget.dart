@@ -156,9 +156,6 @@ class _MetricCardWidgetState extends State<MetricCardWidget> {
                                   .fontSize,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.bold,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .labelSmall
-                                  .fontStyle,
                               height: 1.2,
                             ),
                       ),

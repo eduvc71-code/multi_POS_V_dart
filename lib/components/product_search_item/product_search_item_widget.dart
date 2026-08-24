@@ -111,13 +111,6 @@ class _ProductSearchItemWidgetState extends State<ProductSearchItemWidget> {
                       style: FlutterFlowTheme.of(context).titleMedium.copyWith(
                             fontFamily: GoogleFonts.urbanist().fontFamily,
                                   fontWeight: FontWeight.bold,
-                                  fontStyle: FlutterFlowTheme.of(context),,
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            letterSpacing: 0.0,
-                            fontWeight: FontWeight.bold,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .titleMedium
-                                .fontStyle,
                             height: 1.4,
                           ),
                       overflow: TextOverflow.ellipsis,
@@ -130,15 +123,6 @@ class _ProductSearchItemWidgetState extends State<ProductSearchItemWidget> {
                       style: FlutterFlowTheme.of(context).labelSmall.copyWith(
                             fontFamily: GoogleFonts.spaceGrotesk().fontFamily,
                                   fontWeight: FlutterFlowTheme.of(context),
-                                  fontStyle: FlutterFlowTheme.of(context),,
-                            color: FlutterFlowTheme.of(context).secondaryText,
-                            letterSpacing: 0.0,
-                            fontWeight: FlutterFlowTheme.of(context)
-                                .labelSmall
-                                .fontWeight,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .labelSmall
-                                .fontStyle,
                             height: 1.2,
                           ),
                     ),
@@ -158,12 +142,6 @@ class _ProductSearchItemWidgetState extends State<ProductSearchItemWidget> {
                     style: FlutterFlowTheme.of(context).titleSmall.copyWith(
                           fontFamily: GoogleFonts.urbanist().fontFamily,
                                   fontWeight: FontWeight.bold,
-                                  fontStyle: FlutterFlowTheme.of(context),,
-                          color: FlutterFlowTheme.of(context).primary,
-                          letterSpacing: 0.0,
-                          fontWeight: FontWeight.bold,
-                          fontStyle:
-                              FlutterFlowTheme.of(context).titleSmall.fontStyle,
                           height: 1.4,
                         ),
                   ),
@@ -175,14 +153,6 @@ class _ProductSearchItemWidgetState extends State<ProductSearchItemWidget> {
                     style: FlutterFlowTheme.of(context).labelSmall.copyWith(
                           fontFamily: GoogleFonts.spaceGrotesk().fontFamily,
                                   fontWeight: FlutterFlowTheme.of(context),
-                                  fontStyle: FlutterFlowTheme.of(context),,
-                          color: FlutterFlowTheme.of(context).success,
-                          letterSpacing: 0.0,
-                          fontWeight: FlutterFlowTheme.of(context)
-                              .labelSmall
-                              .fontWeight,
-                          fontStyle:
-                              FlutterFlowTheme.of(context).labelSmall.fontStyle,
                           height: 1.2,
                         ),
                   ),

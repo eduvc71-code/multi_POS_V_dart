@@ -89,17 +89,11 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                     .copyWith(
                                   fontFamily: GoogleFonts.urbanist(
                                     fontWeight: FontWeight.w800,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .headlineMedium
-                                        .fontStyle,
                                   ),
                                   color: FlutterFlowTheme.of(context)
                                       .primaryText,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w800,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .headlineMedium
-                                      .fontStyle,
                                   height: 1.25,
                                 ),
                               ),
@@ -112,9 +106,6 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .bodySmall
                                         .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodySmall
-                                        .fontStyle,
                                   ),
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryText,
@@ -122,9 +113,6 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                   fontWeight: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .fontWeight,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .bodySmall
-                                      .fontStyle,
                                   height: 1.4,
                                 ),
                               ),

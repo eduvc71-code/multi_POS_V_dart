@@ -190,16 +190,10 @@ class _PieChartWidgetState extends State<PieChartWidget> {
                                   fontFamily: GoogleFonts.spaceGrotesk().fontFamily,
                                   fontSize: FlutterFlowTheme.of(context).labelSmall.fontSize,
                                     fontWeight: FontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .labelSmall
-                                        .fontStyle,,
                                   color: Colors.white,
                                   fontSize: 10,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.bold,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .labelSmall
-                                      .fontStyle,
                                   height: 1,
                                 ),
                         sectionsSpace: valueOrDefault<double>(
@@ -310,16 +304,10 @@ class _PieChartWidgetState extends State<PieChartWidget> {
                                   fontFamily: GoogleFonts.spaceGrotesk().fontFamily,
                                   fontSize: FlutterFlowTheme.of(context).labelSmall.fontSize,
                                     fontWeight: FontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .labelSmall
-                                        .fontStyle,,
                                   color: Colors.white,
                                   fontSize: 10,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.bold,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .labelSmall
-                                      .fontStyle,
                                   height: 1,
                                 ),
                         sectionsSpace: valueOrDefault<double>(
@@ -369,17 +357,11 @@ class _PieChartWidgetState extends State<PieChartWidget> {
                                 fontFamily: GoogleFonts.urbanist().fontFamily,
                                   fontSize: FlutterFlowTheme.of(context).labelSmall.fontSize,
                                     fontWeight: FlutterFlowTheme,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                      .titleMedium
-                                      .fontStyle,,
                                 color: FlutterFlowTheme.of(context).primaryText,
                                 letterSpacing: 0.0,
                                 fontWeight: FlutterFlowTheme.of(context)
                                     .titleMedium
                                     .fontWeight,
-                                fontStyle: FlutterFlowTheme.of(context)
-                                    .titleMedium
-                                    .fontStyle,
                                 height: 1.4,
                               ),
                         ),
@@ -392,18 +374,12 @@ class _PieChartWidgetState extends State<PieChartWidget> {
                                 fontFamily: GoogleFonts.spaceGrotesk().fontFamily,
                                   fontSize: FlutterFlowTheme.of(context).labelSmall.fontSize,
                                     fontWeight: FlutterFlowTheme,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                      .labelSmall
-                                      .fontStyle,,
                                 color:
                                     FlutterFlowTheme.of(context).secondaryText,
                                 letterSpacing: 0.0,
                                 fontWeight: FlutterFlowTheme.of(context)
                                     .labelSmall
                                     .fontWeight,
-                                fontStyle: FlutterFlowTheme.of(context)
-                                    .labelSmall
-                                    .fontStyle,
                                 height: 1.2,
                               ),
                         ),

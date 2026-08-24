@@ -110,9 +110,6 @@ class _MovementItemWidgetState extends State<MovementItemWidget> {
                                 color: FlutterFlowTheme.of(context).primaryText,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.bold,
-                                fontStyle: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .fontStyle,
                                 height: 1.5,
                               ),
                         ),
@@ -132,9 +129,6 @@ class _MovementItemWidgetState extends State<MovementItemWidget> {
                                 fontWeight: FlutterFlowTheme.of(context)
                                     .labelSmall
                                     .fontWeight,
-                                fontStyle: FlutterFlowTheme.of(context)
-                                    .labelSmall
-                                    .fontStyle,
                                 height: 1.2,
                               ),
                         ),

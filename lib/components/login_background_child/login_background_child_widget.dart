@@ -111,6 +111,7 @@ class _LoginBackgroundChildWidgetState
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w900,
                               fontStyle: FlutterFlowTheme.of(context)
+                              )
                                   .headlineLarge
                                   .fontStyle,
                               lineHeight: 1.2,

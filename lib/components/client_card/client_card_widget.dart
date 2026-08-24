@@ -172,6 +172,7 @@ class _ClientCardWidgetState extends State<ClientCardWidget> {
                                           .fontStyle,
                                     ),
                                     color: valueOrDefault<Color>(
+                                    )
                                       valueOrDefault<bool>(
                                         widget!.isOverdue,
                                         false,

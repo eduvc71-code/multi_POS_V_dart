@@ -330,13 +330,12 @@ class _ButtonWidgetState extends State<ButtonWidget> {
                       maxLines: 1,
                       style: FlutterFlowTheme.of(context).labelMedium.override(
                             fontFamily: "Space Grotesk",
-                              fontWeight: FlutterFlowTheme.of(context)
-                                  .labelMedium
-                                  .fontWeight,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .labelMedium
-                                  .fontStyle,
-                            ),
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .fontStyle,
                             color: valueOrDefault<Color>(
                               () {
                                 if (valueOrDefault<String>(
@@ -372,15 +371,8 @@ class _ButtonWidgetState extends State<ButtonWidget> {
                               FlutterFlowTheme.of(context).onPrimary,
                             ),
                             letterSpacing: 0.0,
-                            fontWeight: FlutterFlowTheme.of(context)
-                                .labelMedium
-                                .fontWeight,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .labelMedium
-                                .fontStyle,
                             lineHeight: 1.3,
                           ),
-                      overflow: TextOverflow.clip,
                     ),
                     widget!.iconEnd!,
                   ].divide(SizedBox(width: 8)),

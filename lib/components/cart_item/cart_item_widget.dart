@@ -85,20 +85,14 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                       maxLines: 1,
                       style: FlutterFlowTheme.of(context).bodyLarge.override(
                             fontFamily: "Poppins",
-                              fontWeight: FontWeight.w600,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .bodyLarge
-                                  .fontStyle,
-                            ),
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            letterSpacing: 0.0,
                             fontWeight: FontWeight.w600,
                             fontStyle: FlutterFlowTheme.of(context)
                                 .bodyLarge
                                 .fontStyle,
+                            color: FlutterFlowTheme.of(context).primaryText,
+                            letterSpacing: 0.0,
                             lineHeight: 1.5,
                           ),
-                      overflow: TextOverflow.ellipsis,
                     ),
                     Text(
                       valueOrDefault<String>(
@@ -107,21 +101,14 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                       ),
                       style: FlutterFlowTheme.of(context).labelMedium.override(
                             fontFamily: "Space Grotesk",
-                              fontWeight: FlutterFlowTheme.of(context)
-                                  .labelMedium
-                                  .fontWeight,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .labelMedium
-                                  .fontStyle,
-                            ),
-                            color: FlutterFlowTheme.of(context).primary,
-                            letterSpacing: 0.0,
                             fontWeight: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .fontWeight,
                             fontStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .fontStyle,
+                            color: FlutterFlowTheme.of(context).primary,
+                            letterSpacing: 0.0,
                             lineHeight: 1.3,
                           ),
                     ),
@@ -158,17 +145,12 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                       ),
                       style: FlutterFlowTheme.of(context).titleMedium.override(
                             fontFamily: "Urbanist",
-                              fontWeight: FontWeight.bold,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .titleMedium
-                                  .fontStyle,
-                            ),
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            letterSpacing: 0.0,
                             fontWeight: FontWeight.bold,
                             fontStyle: FlutterFlowTheme.of(context)
                                 .titleMedium
                                 .fontStyle,
+                            color: FlutterFlowTheme.of(context).primaryText,
+                            letterSpacing: 0.0,
                             lineHeight: 1.4,
                           ),
                     ),

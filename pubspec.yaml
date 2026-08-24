@@ -2,7 +2,7 @@ name: multi_p_o_s
 description: A new Flutter project.
 
 environment:
-  sdk: ">=3.0.0 <4.0.0"
+  sdk: ">=3.10.0 <4.0.0"
 
 dependencies:
   flutter:

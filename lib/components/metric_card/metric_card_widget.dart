@@ -138,12 +138,7 @@ class _MetricCardWidgetState extends State<MetricCardWidget> {
                           '+12.5%',
                         ),
                         style: FlutterFlowTheme.of(context).labelSmall.override(
-                              font: GoogleFonts.spaceGrotesk(
-                                fontWeight: FontWeight.bold,
-                                fontStyle: FlutterFlowTheme.of(context)
-                                    .labelSmall
-                                    .fontStyle,
-                              ),
+                              fontFamily: GoogleFonts.spaceGrotesk().fontFamily,
                               color: valueOrDefault<Color>(
                                 valueOrDefault<bool>(
                                   widget!.isUp,
@@ -153,6 +148,9 @@ class _MetricCardWidgetState extends State<MetricCardWidget> {
                                     : FlutterFlowTheme.of(context).error,
                                 FlutterFlowTheme.of(context).success,
                               ),
+                              fontSize: FlutterFlowTheme.of(context)
+                                  .labelSmall
+                                  .fontSize,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.bold,
                               fontStyle: FlutterFlowTheme.of(context)
@@ -171,12 +169,8 @@ class _MetricCardWidgetState extends State<MetricCardWidget> {
                   'Ventas Totales',
                 ),
                 style: FlutterFlowTheme.of(context).labelSmall.override(
-                      font: GoogleFonts.spaceGrotesk(
-                        fontWeight:
-                            FlutterFlowTheme.of(context).labelSmall.fontWeight,
-                        fontStyle:
-                            FlutterFlowTheme.of(context).labelSmall.fontStyle,
-                      ),
+                      fontFamily: GoogleFonts.spaceGrotesk().fontFamily,
+                      fontSize: FlutterFlowTheme.of(context).labelSmall.fontSize,
                       color: FlutterFlowTheme.of(context).secondaryText,
                       letterSpacing: 0.0,
                       fontWeight:
@@ -192,11 +186,8 @@ class _MetricCardWidgetState extends State<MetricCardWidget> {
                   'Bs. 42.850',
                 ),
                 style: FlutterFlowTheme.of(context).titleLarge.override(
-                      font: GoogleFonts.urbanist(
-                        fontWeight: FontWeight.w800,
-                        fontStyle:
-                            FlutterFlowTheme.of(context).titleLarge.fontStyle,
-                      ),
+                      fontFamily: GoogleFonts.urbanist().fontFamily,
+                      fontSize: FlutterFlowTheme.of(context).titleLarge.fontSize,
                       color: FlutterFlowTheme.of(context).primaryText,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.w800,

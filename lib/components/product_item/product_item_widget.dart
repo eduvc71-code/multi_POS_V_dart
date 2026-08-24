@@ -104,12 +104,9 @@ class _ProductItemWidgetState extends State<ProductItemWidget> {
                       ),
                       maxLines: 1,
                       style: FlutterFlowTheme.of(context).bodyLarge.override(
-                            font: GoogleFonts.poppins(
-                              fontWeight: FontWeight.bold,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .bodyLarge
-                                  .fontStyle,
-                            ),
+                            fontFamily: GoogleFonts.poppins().fontFamily,
+                                  fontWeight: FontWeight.bold,
+                                  fontStyle: FlutterFlowTheme.of(context),,
                             color: FlutterFlowTheme.of(context).primaryText,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.bold,
@@ -130,14 +127,9 @@ class _ProductItemWidgetState extends State<ProductItemWidget> {
                           style: FlutterFlowTheme.of(context)
                               .labelSmall
                               .override(
-                                font: GoogleFonts.spaceGrotesk(
-                                  fontWeight: FlutterFlowTheme.of(context)
-                                      .labelSmall
-                                      .fontWeight,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .labelSmall
-                                      .fontStyle,
-                                ),
+                                fontFamily: GoogleFonts.spaceGrotesk().fontFamily,
+                                  fontWeight: FlutterFlowTheme.of(context),
+                                  fontStyle: FlutterFlowTheme.of(context),,
                                 color:
                                     FlutterFlowTheme.of(context).secondaryText,
                                 letterSpacing: 0.0,
@@ -158,12 +150,9 @@ class _ProductItemWidgetState extends State<ProductItemWidget> {
                           style: FlutterFlowTheme.of(context)
                               .labelSmall
                               .override(
-                                font: GoogleFonts.spaceGrotesk(
+                                fontFamily: GoogleFonts.spaceGrotesk().fontFamily,
                                   fontWeight: FontWeight.w600,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .labelSmall
-                                      .fontStyle,
-                                ),
+                                  fontStyle: FlutterFlowTheme.of(context),,
                                 color: FlutterFlowTheme.of(context).primaryText,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.w600,
@@ -189,12 +178,9 @@ class _ProductItemWidgetState extends State<ProductItemWidget> {
                       'Bs. 85,00',
                     ),
                     style: FlutterFlowTheme.of(context).bodyLarge.override(
-                          font: GoogleFonts.poppins(
-                            fontWeight: FontWeight.bold,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .bodyLarge
-                                .fontStyle,
-                          ),
+                          fontFamily: GoogleFonts.poppins().fontFamily,
+                                  fontWeight: FontWeight.bold,
+                                  fontStyle: FlutterFlowTheme.of(context),,
                           color: FlutterFlowTheme.of(context).primary,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.bold,
@@ -226,14 +212,9 @@ class _ProductItemWidgetState extends State<ProductItemWidget> {
                           '45 u.',
                         ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              font: GoogleFonts.poppins(
-                                fontWeight: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .fontWeight,
-                                fontStyle: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .fontStyle,
-                              ),
+                              fontFamily: GoogleFonts.poppins().fontFamily,
+                                  fontWeight: FlutterFlowTheme.of(context),
+                                  fontStyle: FlutterFlowTheme.of(context),,
                               color: FlutterFlowTheme.of(context).secondaryText,
                               letterSpacing: 0.0,
                               fontWeight: FlutterFlowTheme.of(context)

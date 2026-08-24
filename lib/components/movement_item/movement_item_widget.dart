@@ -105,12 +105,8 @@ class _MovementItemWidgetState extends State<MovementItemWidget> {
                           style: FlutterFlowTheme.of(context)
                               .bodyMedium
                               .override(
-                                font: GoogleFonts.poppins(
-                                  fontWeight: FontWeight.bold,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .fontStyle,
-                                ),
+                                fontFamily: GoogleFonts.poppins().fontFamily,
+                                fontSize: FlutterFlowTheme.of(context).bodyMedium.fontSize,
                                 color: FlutterFlowTheme.of(context).primaryText,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.bold,
@@ -128,14 +124,8 @@ class _MovementItemWidgetState extends State<MovementItemWidget> {
                           style: FlutterFlowTheme.of(context)
                               .labelSmall
                               .override(
-                                font: GoogleFonts.spaceGrotesk(
-                                  fontWeight: FlutterFlowTheme.of(context)
-                                      .labelSmall
-                                      .fontWeight,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .labelSmall
-                                      .fontStyle,
-                                ),
+                                fontFamily: GoogleFonts.spaceGrotesk().fontFamily,
+                                fontSize: FlutterFlowTheme.of(context).labelSmall.fontSize,
                                 color:
                                     FlutterFlowTheme.of(context).secondaryText,
                                 letterSpacing: 0.0,
@@ -157,12 +147,8 @@ class _MovementItemWidgetState extends State<MovementItemWidget> {
                       '+ Bs. 150,00',
                     ),
                     style: FlutterFlowTheme.of(context).titleSmall.override(
-                          font: GoogleFonts.urbanist(
-                            fontWeight: FontWeight.bold,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .fontStyle,
-                          ),
+                          fontFamily: GoogleFonts.urbanist().fontFamily,
+                          fontSize: FlutterFlowTheme.of(context).titleSmall.fontSize,
                           color: valueOrDefault<Color>(
                             widget!.tone,
                             FlutterFlowTheme.of(context).success,

@@ -67,12 +67,8 @@ class _NavItemWidgetState extends State<NavItemWidget> {
               'Inicio',
             ),
             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                  font: GoogleFonts.poppins(
-                    fontWeight:
-                        FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                    fontStyle:
-                        FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                  ),
+                  fontFamily: GoogleFonts.poppins().fontFamily,
+                  fontSize: FlutterFlowTheme.of(context).bodyMedium.fontSize,
                   color: valueOrDefault<Color>(
                     valueOrDefault<bool>(
                       widget!.selected,

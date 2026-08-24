@@ -59,7 +59,7 @@ class _QuickActionWidgetState extends State<QuickActionWidget> {
       hoverColor: Colors.transparent,
       highlightColor: Colors.transparent,
       onTap: () async {
-        context.pushNamed(widget.target);
+        BuildContextExtensions(context).pushNamed(widget.target);
       },
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -84,10 +84,9 @@ class _QuickActionWidgetState extends State<QuickActionWidget> {
             widget.label,
             textAlign: TextAlign.center,
             style: FlutterFlowTheme.of(context).labelSmall.override(
-                  font: GoogleFonts.spaceGrotesk(
-                    fontWeight: FontWeight.w600,
-                    fontStyle: FlutterFlowTheme.of(context).labelSmall.fontStyle,
-                  ),
+                  fontFamily: GoogleFonts.spaceGrotesk().fontFamily,
+                                  fontWeight: FontWeight.w600,
+                                  fontStyle: FlutterFlowTheme.of(context).labelSmall.fontStyle,,
                   color: FlutterFlowTheme.of(context).primaryText,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.w600,

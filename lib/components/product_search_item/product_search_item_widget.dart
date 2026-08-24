@@ -109,12 +109,9 @@ class _ProductSearchItemWidgetState extends State<ProductSearchItemWidget> {
                       ),
                       maxLines: 1,
                       style: FlutterFlowTheme.of(context).titleMedium.override(
-                            font: GoogleFonts.urbanist(
-                              fontWeight: FontWeight.bold,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .titleMedium
-                                  .fontStyle,
-                            ),
+                            fontFamily: GoogleFonts.urbanist().fontFamily,
+                                  fontWeight: FontWeight.bold,
+                                  fontStyle: FlutterFlowTheme.of(context),,
                             color: FlutterFlowTheme.of(context).primaryText,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.bold,
@@ -131,14 +128,9 @@ class _ProductSearchItemWidgetState extends State<ProductSearchItemWidget> {
                         'Código: MOT-001',
                       ),
                       style: FlutterFlowTheme.of(context).labelSmall.override(
-                            font: GoogleFonts.spaceGrotesk(
-                              fontWeight: FlutterFlowTheme.of(context)
-                                  .labelSmall
-                                  .fontWeight,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .labelSmall
-                                  .fontStyle,
-                            ),
+                            fontFamily: GoogleFonts.spaceGrotesk().fontFamily,
+                                  fontWeight: FlutterFlowTheme.of(context),
+                                  fontStyle: FlutterFlowTheme.of(context),,
                             color: FlutterFlowTheme.of(context).secondaryText,
                             letterSpacing: 0.0,
                             fontWeight: FlutterFlowTheme.of(context)
@@ -164,12 +156,9 @@ class _ProductSearchItemWidgetState extends State<ProductSearchItemWidget> {
                       'Bs. 85,00',
                     ),
                     style: FlutterFlowTheme.of(context).titleSmall.override(
-                          font: GoogleFonts.urbanist(
-                            fontWeight: FontWeight.bold,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .fontStyle,
-                          ),
+                          fontFamily: GoogleFonts.urbanist().fontFamily,
+                                  fontWeight: FontWeight.bold,
+                                  fontStyle: FlutterFlowTheme.of(context),,
                           color: FlutterFlowTheme.of(context).primary,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.bold,
@@ -184,14 +173,9 @@ class _ProductSearchItemWidgetState extends State<ProductSearchItemWidget> {
                       '12 disponibles',
                     ),
                     style: FlutterFlowTheme.of(context).labelSmall.override(
-                          font: GoogleFonts.spaceGrotesk(
-                            fontWeight: FlutterFlowTheme.of(context)
-                                .labelSmall
-                                .fontWeight,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .labelSmall
-                                .fontStyle,
-                          ),
+                          fontFamily: GoogleFonts.spaceGrotesk().fontFamily,
+                                  fontWeight: FlutterFlowTheme.of(context),
+                                  fontStyle: FlutterFlowTheme.of(context),,
                           color: FlutterFlowTheme.of(context).success,
                           letterSpacing: 0.0,
                           fontWeight: FlutterFlowTheme.of(context)

@@ -101,7 +101,7 @@ class _LoginBackgroundChildWidgetState
                     'MultiPOS',
                     style:
                         FlutterFlowTheme.of(context).headlineLarge.override(
-                              font: GoogleFonts.urbanist(
+                              fontFamily: "Urbanist",
                                 fontWeight: FontWeight.w900,
                                 fontStyle: FlutterFlowTheme.of(context)
                                     .headlineLarge
@@ -119,7 +119,7 @@ class _LoginBackgroundChildWidgetState
                   Text(
                     'Punto de Venta Inteligente',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          font: GoogleFonts.poppins(
+                          fontFamily: "Poppins",
                             fontWeight: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .fontWeight,
@@ -175,7 +175,7 @@ class _LoginBackgroundChildWidgetState
                           style: FlutterFlowTheme.of(context)
                               .titleLarge
                               .override(
-                                font: GoogleFonts.urbanist(
+                                fontFamily: "Urbanist",
                                   fontWeight: FontWeight.bold,
                                   fontStyle: FlutterFlowTheme.of(context)
                                       .titleLarge
@@ -327,7 +327,7 @@ class _LoginBackgroundChildWidgetState
               Text(
                 '¿Eres nuevo?',
                 style: FlutterFlowTheme.of(context).bodySmall.override(
-                      font: GoogleFonts.poppins(
+                      fontFamily: "Poppins",
                         fontWeight: FlutterFlowTheme.of(context)
                             .bodySmall
                             .fontWeight,
@@ -388,7 +388,7 @@ class _LoginBackgroundChildWidgetState
                   Text(
                     'Conexión Segura Encriptada',
                     style: FlutterFlowTheme.of(context).labelSmall.override(
-                          font: GoogleFonts.spaceGrotesk(
+                          fontFamily: "Space Grotesk",
                             fontWeight: FlutterFlowTheme.of(context)
                                 .labelSmall
                                 .fontWeight,
@@ -412,7 +412,7 @@ class _LoginBackgroundChildWidgetState
               Text(
                 'v2.4.0 • MultiPOS Bolivia',
                 style: FlutterFlowTheme.of(context).labelSmall.override(
-                      font: GoogleFonts.spaceGrotesk(
+                      fontFamily: "Space Grotesk",
                         fontWeight: FlutterFlowTheme.of(context)
                             .labelSmall
                             .fontWeight,

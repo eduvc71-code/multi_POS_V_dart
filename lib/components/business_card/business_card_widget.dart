@@ -116,12 +116,7 @@ class _BusinessCardWidgetState extends State<BusinessCardWidget> {
                   textAlign: TextAlign.center,
                   maxLines: 1,
                   style: FlutterFlowTheme.of(context).labelMedium.override(
-                        font: GoogleFonts.spaceGrotesk(
-                          fontWeight: FontWeight.w600,
-                          fontStyle: FlutterFlowTheme.of(context)
-                              .labelMedium
-                              .fontStyle,
-                        ),
+                        fontFamily: "Space Grotesk",
                         color: valueOrDefault<Color>(
                           valueOrDefault<bool>(
                             widget!.isActive,
@@ -154,12 +149,7 @@ class _BusinessCardWidgetState extends State<BusinessCardWidget> {
                         'Ferretería El Tornillo',
                       ),
                       style: FlutterFlowTheme.of(context).titleMedium.override(
-                            font: GoogleFonts.urbanist(
-                              fontWeight: FontWeight.bold,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .titleMedium
-                                  .fontStyle,
-                            ),
+                            fontFamily: "Urbanist",
                             color: FlutterFlowTheme.of(context).primaryText,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.bold,
@@ -175,14 +165,7 @@ class _BusinessCardWidgetState extends State<BusinessCardWidget> {
                         'Ferretería',
                       ),
                       style: FlutterFlowTheme.of(context).labelSmall.override(
-                            font: GoogleFonts.spaceGrotesk(
-                              fontWeight: FlutterFlowTheme.of(context)
-                                  .labelSmall
-                                  .fontWeight,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .labelSmall
-                                  .fontStyle,
-                            ),
+                            fontFamily: "Space Grotesk",
                             color: FlutterFlowTheme.of(context).secondaryText,
                             letterSpacing: 0.0,
                             fontWeight: FlutterFlowTheme.of(context)
@@ -214,12 +197,7 @@ class _BusinessCardWidgetState extends State<BusinessCardWidget> {
                     child: Text(
                       'ACTIVA',
                       style: FlutterFlowTheme.of(context).labelSmall.override(
-                            font: GoogleFonts.spaceGrotesk(
-                              fontWeight: FontWeight.bold,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .labelSmall
-                                  .fontStyle,
-                            ),
+                            fontFamily: "Space Grotesk",
                             color: FlutterFlowTheme.of(context).onSuccess,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.bold,

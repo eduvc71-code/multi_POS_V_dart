@@ -44,3 +44,11 @@ extension BuildContextExtensions on BuildContext {
   void goNamed(String name, {Map<String, String> pathParameters = const {}, Map<String, String> queryParameters = const {}}) =>
       GoRouter.of(this).goNamed(name, pathParameters: pathParameters, queryParameters: queryParameters);
 }
+
+Widget wrapWithModel<T extends FlutterFlowModel>({
+  required T model,
+  required VoidCallback updateCallback,
+  required Widget child,
+}) {
+  return child;
+}

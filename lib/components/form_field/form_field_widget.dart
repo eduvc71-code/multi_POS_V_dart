@@ -66,7 +66,7 @@ class _FormFieldWidgetState extends State<FormFieldWidget> {
             'Nombre Comercial',
           ),
           style: FlutterFlowTheme.of(context).labelMedium.override(
-                font: GoogleFonts.spaceGrotesk(
+                fontFamily: "Space Grotesk",
                   fontWeight: FontWeight.w600,
                   fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
                 ),

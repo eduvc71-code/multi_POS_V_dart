@@ -105,7 +105,7 @@ class _BusinessTypeCardWidgetState extends State<BusinessTypeCardWidget> {
                   'Tienda',
                 ),
                 style: FlutterFlowTheme.of(context).labelMedium.override(
-                      font: GoogleFonts.spaceGrotesk(
+                      fontFamily: "Space Grotesk",
                         fontWeight: FontWeight.bold,
                         fontStyle:
                             FlutterFlowTheme.of(context).labelMedium.fontStyle,

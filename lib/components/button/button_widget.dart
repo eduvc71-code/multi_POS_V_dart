@@ -329,7 +329,7 @@ class _ButtonWidgetState extends State<ButtonWidget> {
                       ),
                       maxLines: 1,
                       style: FlutterFlowTheme.of(context).labelMedium.override(
-                            font: GoogleFonts.spaceGrotesk(
+                            fontFamily: "Space Grotesk",
                               fontWeight: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .fontWeight,

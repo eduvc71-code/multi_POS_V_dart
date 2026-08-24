@@ -91,7 +91,7 @@ class _CreditStatWidgetState extends State<CreditStatWidget> {
                         'Por Cobrar',
                       ),
                       style: FlutterFlowTheme.of(context).labelSmall.override(
-                            font: GoogleFonts.spaceGrotesk(
+                            fontFamily: "Space Grotesk",
                               fontWeight: FlutterFlowTheme.of(context)
                                   .labelSmall
                                   .fontWeight,
@@ -122,7 +122,7 @@ class _CreditStatWidgetState extends State<CreditStatWidget> {
                   'Bs. 12.450,00',
                 ),
                 style: FlutterFlowTheme.of(context).titleLarge.override(
-                      font: GoogleFonts.urbanist(
+                      fontFamily: "Urbanist",
                         fontWeight: FontWeight.bold,
                         fontStyle:
                             FlutterFlowTheme.of(context).titleLarge.fontStyle,

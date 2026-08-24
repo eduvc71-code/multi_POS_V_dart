@@ -164,7 +164,7 @@ class _CheckboxWidgetState extends State<CheckboxWidget> {
                           style: FlutterFlowTheme.of(context)
                               .bodyMedium
                               .override(
-                                font: GoogleFonts.poppins(
+                                fontFamily: "Poppins",
                                   fontWeight: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .fontWeight,
@@ -195,7 +195,7 @@ class _CheckboxWidgetState extends State<CheckboxWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
-                                    font: GoogleFonts.poppins(
+                                    fontFamily: "Poppins",
                                       fontWeight: FlutterFlowTheme.of(context)
                                           .bodySmall
                                           .fontWeight,

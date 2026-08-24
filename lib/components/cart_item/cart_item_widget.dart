@@ -84,7 +84,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                       ),
                       maxLines: 1,
                       style: FlutterFlowTheme.of(context).bodyLarge.override(
-                            font: GoogleFonts.poppins(
+                            fontFamily: "Poppins",
                               fontWeight: FontWeight.w600,
                               fontStyle: FlutterFlowTheme.of(context)
                                   .bodyLarge
@@ -106,7 +106,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                         'Bs. 170,00',
                       ),
                       style: FlutterFlowTheme.of(context).labelMedium.override(
-                            font: GoogleFonts.spaceGrotesk(
+                            fontFamily: "Space Grotesk",
                               fontWeight: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .fontWeight,
@@ -157,7 +157,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                         '2',
                       ),
                       style: FlutterFlowTheme.of(context).titleMedium.override(
-                            font: GoogleFonts.urbanist(
+                            fontFamily: "Urbanist",
                               fontWeight: FontWeight.bold,
                               fontStyle: FlutterFlowTheme.of(context)
                                   .titleMedium

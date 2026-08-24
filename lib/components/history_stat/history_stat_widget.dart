@@ -86,7 +86,7 @@ class _HistoryStatWidgetState extends State<HistoryStatWidget> {
                       ),
                       maxLines: 1,
                       style: FlutterFlowTheme.of(context).labelSmall.override(
-                            font: GoogleFonts.spaceGrotesk(
+                            fontFamily: "Space Grotesk",
                               fontWeight: FlutterFlowTheme.of(context)
                                   .labelSmall
                                   .fontWeight,
@@ -115,7 +115,7 @@ class _HistoryStatWidgetState extends State<HistoryStatWidget> {
                   'Bs. 4.250,00',
                 ),
                 style: FlutterFlowTheme.of(context).titleLarge.override(
-                      font: GoogleFonts.urbanist(
+                      fontFamily: "Urbanist",
                         fontWeight: FontWeight.bold,
                         fontStyle:
                             FlutterFlowTheme.of(context).titleLarge.fontStyle,

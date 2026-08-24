@@ -83,7 +83,7 @@ class _ClientCardWidgetState extends State<ClientCardWidget> {
                   textAlign: TextAlign.center,
                   maxLines: 1,
                   style: FlutterFlowTheme.of(context).labelMedium.override(
-                        font: GoogleFonts.spaceGrotesk(
+                        fontFamily: "Space Grotesk",
                           fontWeight: FontWeight.w600,
                           fontStyle: FlutterFlowTheme.of(context)
                               .labelMedium
@@ -113,7 +113,7 @@ class _ClientCardWidgetState extends State<ClientCardWidget> {
                         'Carlos Rodríguez',
                       ),
                       style: FlutterFlowTheme.of(context).bodyLarge.override(
-                            font: GoogleFonts.poppins(
+                            fontFamily: "Poppins",
                               fontWeight: FontWeight.bold,
                               fontStyle: FlutterFlowTheme.of(context)
                                   .bodyLarge
@@ -138,7 +138,7 @@ class _ClientCardWidgetState extends State<ClientCardWidget> {
                           style: FlutterFlowTheme.of(context)
                               .bodySmall
                               .override(
-                                font: GoogleFonts.poppins(
+                                fontFamily: "Poppins",
                                   fontWeight: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .fontWeight,
@@ -165,7 +165,7 @@ class _ClientCardWidgetState extends State<ClientCardWidget> {
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodySmall.override(
-                                    font: GoogleFonts.poppins(
+                                    fontFamily: "Poppins",
                                       fontWeight: FontWeight.w600,
                                       fontStyle: FlutterFlowTheme.of(context)
                                           .bodySmall
@@ -215,7 +215,7 @@ class _ClientCardWidgetState extends State<ClientCardWidget> {
                   Text(
                     'Ver detalle',
                     style: FlutterFlowTheme.of(context).labelSmall.override(
-                          font: GoogleFonts.spaceGrotesk(
+                          fontFamily: "Space Grotesk",
                             fontWeight: FlutterFlowTheme.of(context)
                                 .labelSmall
                                 .fontWeight,

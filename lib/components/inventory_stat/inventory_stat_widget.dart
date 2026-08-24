@@ -95,7 +95,7 @@ class _InventoryStatWidgetState extends State<InventoryStatWidget> {
                       'Total Items',
                     ),
                     style: FlutterFlowTheme.of(context).labelSmall.override(
-                          font: GoogleFonts.spaceGrotesk(
+                          fontFamily: "Space Grotesk",
                             fontWeight: FlutterFlowTheme.of(context)
                                 .labelSmall
                                 .fontWeight,
@@ -119,7 +119,7 @@ class _InventoryStatWidgetState extends State<InventoryStatWidget> {
                       '1,284',
                     ),
                     style: FlutterFlowTheme.of(context).titleMedium.override(
-                          font: GoogleFonts.urbanist(
+                          fontFamily: "Urbanist",
                             fontWeight: FontWeight.bold,
                             fontStyle: FlutterFlowTheme.of(context)
                                 .titleMedium

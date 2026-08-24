@@ -82,7 +82,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .titleLarge
                                 .copyWith(
-                              font: GoogleFonts.urbanist(
+                              fontFamily: GoogleFonts.urbanist(
                                 fontWeight: FontWeight.w900,
                               ),
                               color: FlutterFlowTheme.of(context).primary,
@@ -107,7 +107,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .labelSmall
                                     .copyWith(
-                                  font: GoogleFonts.spaceGrotesk(
+                                  fontFamily: GoogleFonts.spaceGrotesk(
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .labelSmall
                                         .fontWeight,
@@ -227,8 +227,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .labelLarge
                                                 .copyWith(
-                                              font:
-                                              GoogleFonts.spaceGrotesk(
+                                              fontFamily: GoogleFonts.spaceGrotesk(
                                                 fontWeight:
                                                 FlutterFlowTheme.of(
                                                     context)
@@ -311,7 +310,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .copyWith(
-                                          font: GoogleFonts.poppins(
+                                          fontFamily: GoogleFonts.poppins(
                                             fontWeight: FontWeight.w900,
                                             fontStyle:
                                             FlutterFlowTheme.of(context)
@@ -395,7 +394,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                     context)
                                                     .bodyMedium
                                                     .copyWith(
-                                                  font: GoogleFonts.poppins(
+                                                  fontFamily: GoogleFonts.poppins(
                                                     fontWeight:
                                                     FontWeight.w600,
                                                     fontStyle:
@@ -536,7 +535,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .titleMedium
                                       .copyWith(
-                                    font: GoogleFonts.urbanist(
+                                    fontFamily: GoogleFonts.urbanist(
                                       fontWeight: FontWeight.w800,
                                       fontStyle:
                                       FlutterFlowTheme.of(context)
@@ -763,7 +762,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                   context)
                                                   .bodySmall
                                                   .copyWith(
-                                                font: GoogleFonts.poppins(
+                                                fontFamily: GoogleFonts.poppins(
                                                   fontWeight:
                                                   FlutterFlowTheme.of(
                                                       context)
@@ -831,7 +830,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .titleMedium
                                           .copyWith(
-                                        font: GoogleFonts.urbanist(
+                                        fontFamily: GoogleFonts.urbanist(
                                           fontWeight: FontWeight.w800,
                                           fontStyle:
                                           FlutterFlowTheme.of(context)
@@ -1006,7 +1005,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                     context)
                                                     .bodyLarge
                                                     .copyWith(
-                                                  font: GoogleFonts.poppins(
+                                                  fontFamily: GoogleFonts.poppins(
                                                     fontWeight:
                                                     FontWeight.w800,
                                                     fontStyle:
@@ -1152,7 +1151,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                     context)
                                                     .bodyLarge
                                                     .copyWith(
-                                                  font: GoogleFonts.poppins(
+                                                  fontFamily: GoogleFonts.poppins(
                                                     fontWeight:
                                                     FontWeight.w800,
                                                     fontStyle:

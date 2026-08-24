@@ -88,7 +88,7 @@ class _ConfiguraciNYEmpresasWidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .headlineMedium
                                     .copyWith(
-                                  font: GoogleFonts.urbanist(
+                                  fontFamily: GoogleFonts.urbanist(
                                     fontWeight: FontWeight.bold,
                                   ),
                                   color: FlutterFlowTheme.of(context)
@@ -103,7 +103,7 @@ class _ConfiguraciNYEmpresasWidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodySmall
                                     .copyWith(
-                                  font: GoogleFonts.poppins(
+                                  fontFamily: GoogleFonts.poppins(
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .bodySmall
                                         .fontWeight,
@@ -179,7 +179,7 @@ class _ConfiguraciNYEmpresasWidgetState
                                       style: FlutterFlowTheme.of(context)
                                           .titleLarge
                                           .copyWith(
-                                        font: GoogleFonts.urbanist(
+                                        fontFamily: GoogleFonts.urbanist(
                                           fontWeight: FontWeight.bold,
                                           fontStyle:
                                           FlutterFlowTheme.of(context)
@@ -258,7 +258,7 @@ class _ConfiguraciNYEmpresasWidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .titleLarge
                                       .copyWith(
-                                    font: GoogleFonts.urbanist(
+                                    fontFamily: GoogleFonts.urbanist(
                                       fontWeight: FontWeight.bold,
                                       fontStyle:
                                       FlutterFlowTheme.of(context)
@@ -317,7 +317,7 @@ class _ConfiguraciNYEmpresasWidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .titleLarge
                                       .copyWith(
-                                    font: GoogleFonts.urbanist(
+                                    fontFamily: GoogleFonts.urbanist(
                                       fontWeight: FontWeight.bold,
                                       fontStyle:
                                       FlutterFlowTheme.of(context)
@@ -449,8 +449,7 @@ class _ConfiguraciNYEmpresasWidgetState
                                                     context)
                                                     .titleMedium
                                                     .copyWith(
-                                                  font:
-                                                  GoogleFonts.urbanist(
+                                                  fontFamily: GoogleFonts.urbanist(
                                                     fontWeight:
                                                     FontWeight.bold,
                                                     fontStyle:
@@ -567,7 +566,7 @@ class _ConfiguraciNYEmpresasWidgetState
                                     style: FlutterFlowTheme.of(context)
                                         .labelSmall
                                         .copyWith(
-                                      font: GoogleFonts.spaceGrotesk(
+                                      fontFamily: GoogleFonts.spaceGrotesk(
                                         fontWeight:
                                         FlutterFlowTheme.of(context)
                                             .labelSmall
@@ -596,7 +595,7 @@ class _ConfiguraciNYEmpresasWidgetState
                                     style: FlutterFlowTheme.of(context)
                                         .labelSmall
                                         .copyWith(
-                                      font: GoogleFonts.spaceGrotesk(
+                                      fontFamily: GoogleFonts.spaceGrotesk(
                                         fontWeight:
                                         FlutterFlowTheme.of(context)
                                             .labelSmall

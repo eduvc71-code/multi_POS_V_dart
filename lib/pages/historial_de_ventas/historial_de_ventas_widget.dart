@@ -67,7 +67,7 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
           label: Text(
             'Reporte del Día',
             style: FlutterFlowTheme.of(context).labelLarge.copyWith(
-              font: GoogleFonts.spaceGrotesk(
+              fontFamily: GoogleFonts.spaceGrotesk(
                 fontWeight:
                 FlutterFlowTheme.of(context).labelLarge.fontWeight,
                 fontStyle:
@@ -127,7 +127,7 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .titleLarge
                                     .copyWith(
-                                  font: GoogleFonts.urbanist(
+                                  fontFamily: GoogleFonts.urbanist(
                                     fontWeight: FontWeight.bold,
                                   ),
                                   letterSpacing: 0.0,
@@ -322,8 +322,7 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .labelMedium
                                                 .copyWith(
-                                              font:
-                                              GoogleFonts.spaceGrotesk(
+                                              fontFamily: GoogleFonts.spaceGrotesk(
                                                 fontWeight:
                                                 FlutterFlowTheme.of(
                                                     context)
@@ -385,8 +384,7 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .labelMedium
                                                 .copyWith(
-                                              font:
-                                              GoogleFonts.spaceGrotesk(
+                                              fontFamily: GoogleFonts.spaceGrotesk(
                                                 fontWeight:
                                                 FlutterFlowTheme.of(
                                                     context)
@@ -448,8 +446,7 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .labelMedium
                                                 .copyWith(
-                                              font:
-                                              GoogleFonts.spaceGrotesk(
+                                              fontFamily: GoogleFonts.spaceGrotesk(
                                                 fontWeight:
                                                 FlutterFlowTheme.of(
                                                     context)
@@ -511,8 +508,7 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .labelMedium
                                                 .copyWith(
-                                              font:
-                                              GoogleFonts.spaceGrotesk(
+                                              fontFamily: GoogleFonts.spaceGrotesk(
                                                 fontWeight:
                                                 FlutterFlowTheme.of(
                                                     context)
@@ -559,7 +555,7 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .copyWith(
-                                    font: GoogleFonts.spaceGrotesk(
+                                    fontFamily: GoogleFonts.spaceGrotesk(
                                       fontWeight:
                                       FlutterFlowTheme.of(context)
                                           .labelMedium
@@ -635,7 +631,7 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .copyWith(
-                                    font: GoogleFonts.spaceGrotesk(
+                                    fontFamily: GoogleFonts.spaceGrotesk(
                                       fontWeight:
                                       FlutterFlowTheme.of(context)
                                           .labelMedium

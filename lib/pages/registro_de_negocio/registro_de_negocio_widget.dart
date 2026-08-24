@@ -121,7 +121,7 @@ export 'registro_de_negocio_model.dart';
                                  style: FlutterFlowTheme.of(context)
                                      .headlineLarge
                                      .copyWith(
-                                       font: GoogleFonts.urbanist(
+                                       fontFamily: GoogleFonts.urbanist(
                                          fontWeight: FontWeight.w900,
                                        ),
                                        color: FlutterFlowTheme.of(context).primary,
@@ -135,7 +135,7 @@ export 'registro_de_negocio_model.dart';
                                  style: FlutterFlowTheme.of(context)
                                      .bodyMedium
                                      .copyWith(
-                                       font: GoogleFonts.poppins(
+                                       fontFamily: GoogleFonts.poppins(
                                          fontWeight: FlutterFlowTheme.of(context)
                                              .bodyMedium
                                              .fontWeight,
@@ -183,7 +183,7 @@ export 'registro_de_negocio_model.dart';
                                  style: FlutterFlowTheme.of(context)
                                      .titleMedium
                                      .copyWith(
-                                       font: GoogleFonts.urbanist(
+                                       fontFamily: GoogleFonts.urbanist(
                                          fontWeight: FontWeight.bold,
                                        ),
                                        color: FlutterFlowTheme.of(context)
@@ -215,7 +215,7 @@ export 'registro_de_negocio_model.dart';
                                  style: FlutterFlowTheme.of(context)
                                      .labelMedium
                                      .copyWith(
-                                       font: GoogleFonts.spaceGrotesk(
+                                       fontFamily: GoogleFonts.spaceGrotesk(
                                          fontWeight: FontWeight.w600,
                                        ),
                                        color: FlutterFlowTheme.of(context)
@@ -407,7 +407,7 @@ export 'registro_de_negocio_model.dart';
                                  style: FlutterFlowTheme.of(context)
                                      .titleMedium
                                      .copyWith(
-                                       font: GoogleFonts.urbanist(
+                                       fontFamily: GoogleFonts.urbanist(
                                          fontWeight: FontWeight.bold,
                                        ),
                                        color: FlutterFlowTheme.of(context)
@@ -520,7 +520,7 @@ export 'registro_de_negocio_model.dart';
                                '¿Ya tienes un negocio?',
                                style:
                                    FlutterFlowTheme.of(context).bodySmall.copyWith(
-                                         font: GoogleFonts.poppins(
+                                         fontFamily: GoogleFonts.poppins(
                                            fontWeight: FlutterFlowTheme.of(context)
                                                .bodySmall
                                                .fontWeight,

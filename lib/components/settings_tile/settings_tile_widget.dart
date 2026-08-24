@@ -105,7 +105,7 @@ class _SettingsTileWidgetState extends State<SettingsTileWidget> {
                     Text(
                       widget.title,
                       style: FlutterFlowTheme.of(context).bodyLarge.copyWith(
-                            font: GoogleFonts.urbanist(
+                            fontFamily: GoogleFonts.urbanist(
                               fontWeight: FontWeight.bold,
                             ),
                             color: FlutterFlowTheme.of(context).primaryText,
@@ -117,7 +117,7 @@ class _SettingsTileWidgetState extends State<SettingsTileWidget> {
                     Text(
                       widget.subtitle,
                       style: FlutterFlowTheme.of(context).labelSmall.copyWith(
-                            font: GoogleFonts.spaceGrotesk(
+                            fontFamily: GoogleFonts.spaceGrotesk(
                               fontWeight: FlutterFlowTheme.of(context)
                                   .labelSmall
                                   .fontWeight,

@@ -94,7 +94,7 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
           Text(
             widget!.label,
             style: FlutterFlowTheme.of(context).labelMedium.copyWith(
-                  font: GoogleFonts.spaceGrotesk(
+                  fontFamily: GoogleFonts.spaceGrotesk(
                     fontWeight:
                         FlutterFlowTheme.of(context).labelMedium.fontWeight,
                     fontStyle:
@@ -378,7 +378,7 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
                         hintStyle: FlutterFlowTheme.of(context)
                             .bodyMedium
                             .copyWith(
-                              font: GoogleFonts.poppins(
+                              fontFamily: GoogleFonts.poppins(
                                 fontWeight: FlutterFlowTheme.of(context)
                                     .bodyMedium.fontWeight,
                               ),
@@ -413,7 +413,7 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
                         focusedErrorBorder: InputBorder.none,
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.copyWith(
-                            font: GoogleFonts.poppins(
+                            fontFamily: GoogleFonts.poppins(
                               fontWeight: FlutterFlowTheme.of(context)
                                   .bodyMedium.fontWeight,
                             ),
@@ -457,7 +457,7 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
           Text(
             widget!.helper,
             style: FlutterFlowTheme.of(context).bodySmall.copyWith(
-                  font: GoogleFonts.poppins(
+                  fontFamily: GoogleFonts.poppins(
                     fontWeight:
                         FlutterFlowTheme.of(context).bodySmall.fontWeight,
                     

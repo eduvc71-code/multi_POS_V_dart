@@ -112,7 +112,7 @@ class _StatCardWidgetState extends State<StatCardWidget> {
                       'Créditos Hoy',
                     ),
                     style: FlutterFlowTheme.of(context).labelMedium.copyWith(
-                          font: GoogleFonts.spaceGrotesk(
+                          fontFamily: GoogleFonts.spaceGrotesk(
                             fontWeight: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .fontWeight,
@@ -131,7 +131,7 @@ class _StatCardWidgetState extends State<StatCardWidget> {
                       'Bs. 1.200',
                     ),
                     style: FlutterFlowTheme.of(context).titleLarge.copyWith(
-                          font: GoogleFonts.urbanist(
+                          fontFamily: GoogleFonts.urbanist(
                             fontWeight: FontWeight.w800,
                           ),
                           color: FlutterFlowTheme.of(context).primaryText,
@@ -190,7 +190,7 @@ class _StatCardWidgetState extends State<StatCardWidget> {
                       '+12%',
                     ),
                     style: FlutterFlowTheme.of(context).labelSmall.copyWith(
-                          font: GoogleFonts.spaceGrotesk(
+                          fontFamily: GoogleFonts.spaceGrotesk(
                             fontWeight: FontWeight.w600,
                           ),
                           color: valueOrDefault<Color>(

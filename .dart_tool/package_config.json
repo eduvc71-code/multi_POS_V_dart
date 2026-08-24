@@ -545,7 +545,7 @@
       "name": "multi_p_o_s",
       "rootUri": "../",
       "packageUri": "lib/",
-      "languageVersion": "3.0"
+      "languageVersion": "3.10"
     }
   ],
   "generator": "pub",

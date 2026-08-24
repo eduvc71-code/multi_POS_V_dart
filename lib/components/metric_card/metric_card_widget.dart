@@ -139,6 +139,9 @@ class _MetricCardWidgetState extends State<MetricCardWidget> {
                         ),
                         style: FlutterFlowTheme.of(context).labelSmall.override(
                               fontFamily: GoogleFonts.spaceGrotesk().fontFamily,
+                              fontSize: FlutterFlowTheme.of(context)
+                                  .labelSmall
+                                  .fontSize,
                               color: valueOrDefault<Color>(
                                 valueOrDefault<bool>(
                                   widget!.isUp,

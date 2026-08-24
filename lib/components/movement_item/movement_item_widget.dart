@@ -1,10 +1,6 @@
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
-import 'package:multi_p_o_s/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 import 'movement_item_model.dart';
 export 'movement_item_model.dart';
@@ -16,10 +12,10 @@ class MovementItemWidget extends StatefulWidget {
     String? time,
     Color? tone,
     String? type,
-  })  : this.amount = amount ?? '+ Bs. 150,00',
-        this.time = time ?? '10:45 AM',
-        this.tone = tone ?? const Color(0x00000000),
-        this.type = type ?? 'Venta #1024';
+  })  : amount = amount ?? '+ Bs. 150,00',
+        time = time ?? '10:45 AM',
+        tone = tone ?? const Color(0x00000000),
+        type = type ?? 'Venta #1024';
 
   final String amount;
   final String time;
@@ -105,8 +101,7 @@ class _MovementItemWidgetState extends State<MovementItemWidget> {
                           style: FlutterFlowTheme.of(context)
                               .bodyMedium
                               .copyWith(
-                                fontFamily: GoogleFonts.poppins().fontFamily,
-                                fontSize: FlutterFlowTheme.of(context).bodyMedium.fontSize,
+                                fontFamily: "Poppins",
                                 color: FlutterFlowTheme.of(context).primaryText,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.bold,
@@ -121,14 +116,11 @@ class _MovementItemWidgetState extends State<MovementItemWidget> {
                           style: FlutterFlowTheme.of(context)
                               .labelSmall
                               .copyWith(
-                                fontFamily: GoogleFonts.spaceGrotesk().fontFamily,
-                                fontSize: FlutterFlowTheme.of(context).labelSmall.fontSize,
+                                fontFamily: "Space Grotesk",
                                 color:
                                     FlutterFlowTheme.of(context).secondaryText,
                                 letterSpacing: 0.0,
-                                fontWeight: FlutterFlowTheme.of(context)
-                                    .labelSmall
-                                    .fontWeight,
+                                fontWeight: FlutterFlowTheme.of(context).labelSmall.fontWeight,
                                 height: 1.2,
                               ),
                         ),
@@ -141,12 +133,8 @@ class _MovementItemWidgetState extends State<MovementItemWidget> {
                       '+ Bs. 150,00',
                     ),
                     style: FlutterFlowTheme.of(context).titleSmall.copyWith(
-                          fontFamily: GoogleFonts.urbanist().fontFamily,
-                          fontSize: FlutterFlowTheme.of(context).titleSmall.fontSize,
-                          color: valueOrDefault<Color>(
-                            widget!.tone,
-                            FlutterFlowTheme.of(context).success,
-                          ),
+                          fontFamily: "Urbanist",
+                          color: widget!.tone,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.bold,
                           fontStyle:

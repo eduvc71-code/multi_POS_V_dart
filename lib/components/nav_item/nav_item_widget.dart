@@ -1,10 +1,6 @@
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
-import 'package:multi_p_o_s/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 import 'nav_item_model.dart';
 export 'nav_item_model.dart';
@@ -16,9 +12,9 @@ class NavItemWidget extends StatefulWidget {
     this.icon,
     String? target,
     bool? selected,
-  })  : this.label = label ?? 'Inicio',
-        this.target = target ?? 'PanelPrincipal',
-        this.selected = selected ?? true;
+  })  : label = label ?? 'Inicio',
+        target = target ?? 'PanelPrincipal',
+        selected = selected ?? true;
 
   final String label;
   final Widget? icon;
@@ -67,21 +63,13 @@ class _NavItemWidgetState extends State<NavItemWidget> {
               'Inicio',
             ),
             style: FlutterFlowTheme.of(context).bodyMedium.copyWith(
-                  fontFamily: GoogleFonts.poppins().fontFamily,
-                  fontSize: FlutterFlowTheme.of(context).bodyMedium.fontSize,
-                  color: valueOrDefault<Color>(
-                    valueOrDefault<bool>(
-                      widget!.selected,
-                      true,
-                    )
-                        ? FlutterFlowTheme.of(context).primary
-                        : FlutterFlowTheme.of(context).secondaryText,
-                    FlutterFlowTheme.of(context).primary,
-                  ),
+                  fontFamily: "Poppins",
+                  color: widget!.selected
+                      ? FlutterFlowTheme.of(context).primary
+                      : FlutterFlowTheme.of(context).secondaryText,
                   letterSpacing: 0.0,
                   fontWeight:
                       FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                  
                   height: 1.5,
                 ),
           ),

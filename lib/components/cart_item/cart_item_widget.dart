@@ -1,11 +1,7 @@
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_icon_button.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
-import 'package:multi_p_o_s/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 import 'cart_item_model.dart';
 export 'cart_item_model.dart';
@@ -16,9 +12,9 @@ class CartItemWidget extends StatefulWidget {
     String? name,
     String? qty,
     String? subtotal,
-  })  : this.name = name ?? 'Aceite de Motor 20W-50',
-        this.qty = qty ?? '2',
-        this.subtotal = subtotal ?? '170,00';
+  })  : name = name ?? 'Aceite de Motor 20W-50',
+        qty = qty ?? '2',
+        subtotal = subtotal ?? '170,00';
 
   final String name;
   final String qty;
@@ -98,9 +94,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                       ),
                       style: FlutterFlowTheme.of(context).labelMedium.copyWith(
                             fontFamily: "Space Grotesk",
-                            fontWeight: FlutterFlowTheme.of(context)
-                                .labelMedium
-                                .fontWeight,
+                            fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
                             color: FlutterFlowTheme.of(context).primary,
                             letterSpacing: 0.0,
                             height: 1.3,
@@ -124,7 +118,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                       size: 20,
                     ),
                     onPressed: () {
-                      print('IconButton pressed ...');
+                      debugPrint('IconButton pressed ...');
                     },
                   ),
                   Container(
@@ -156,7 +150,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                       size: 20,
                     ),
                     onPressed: () {
-                      print('IconButton pressed ...');
+                      debugPrint('IconButton pressed ...');
                     },
                   ),
                 ].divide(SizedBox(width: 8)),

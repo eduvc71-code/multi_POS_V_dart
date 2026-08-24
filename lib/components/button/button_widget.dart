@@ -1,11 +1,7 @@
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:percent_indicator/percent_indicator.dart';
-import 'package:provider/provider.dart';
 
 import 'button_model.dart';
 export 'button_model.dart';
@@ -23,14 +19,14 @@ class ButtonWidget extends StatefulWidget {
     bool? fullWidth,
     bool? loading,
     bool? disabled,
-  })  : this.iconPresent = iconPresent ?? true,
-        this.iconEndPresent = iconEndPresent ?? false,
-        this.content = content ?? 'Finalizar Registro',
-        this.variant = variant ?? 'primary',
-        this.size = size ?? 'large',
-        this.fullWidth = fullWidth ?? true,
-        this.loading = loading ?? false,
-        this.disabled = disabled ?? false;
+  })  : iconPresent = iconPresent ?? true,
+        iconEndPresent = iconEndPresent ?? false,
+        content = content ?? 'Finalizar Registro',
+        variant = variant ?? 'primary',
+        size = size ?? 'large',
+        fullWidth = fullWidth ?? true,
+        loading = loading ?? false,
+        disabled = disabled ?? false;
 
   final Widget? icon;
   final bool iconPresent;
@@ -330,9 +326,6 @@ class _ButtonWidgetState extends State<ButtonWidget> {
                       maxLines: 1,
                       style: FlutterFlowTheme.of(context).labelMedium.copyWith(
                             fontFamily: "Space Grotesk",
-                            fontWeight: FlutterFlowTheme.of(context)
-                                .labelMedium
-                                .fontWeight,
                             color: valueOrDefault<Color>(
                               () {
                                 if (valueOrDefault<String>(
@@ -368,6 +361,7 @@ class _ButtonWidgetState extends State<ButtonWidget> {
                               FlutterFlowTheme.of(context).onPrimary,
                             ),
                             letterSpacing: 0.0,
+                            fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
                             height: 1.3,
                           ),
                     ),

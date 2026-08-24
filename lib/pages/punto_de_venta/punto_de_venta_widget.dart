@@ -6,11 +6,8 @@ import 'package:multi_p_o_s/flutter_flow/flutter_flow_icon_button.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import 'package:multi_p_o_s/index.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 import 'punto_de_venta_model.dart';
 export 'punto_de_venta_model.dart';
@@ -91,7 +88,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                   size: 24,
                                 ),
                                 onPressed: () async {
-                                  context
+                                  GoRouter.of(context)
                                       .goNamed(PanelPrincipalWidget.routeName);
                                 },
                               ),
@@ -105,21 +102,11 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .titleLarge
                                         .copyWith(
-                                      fontFamily: GoogleFonts.urbanist(
-                                        fontWeight: FontWeight.bold,
-                                        fontStyle:
-                                        FlutterFlowTheme.of(context)
-                                            .titleLarge
-                                            .fontStyle,
-                                      ),
+                                      fontFamily: "Urbanist",
                                       color: FlutterFlowTheme.of(context)
                                           .primaryText,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
-                                      fontStyle:
-                                      FlutterFlowTheme.of(context)
-                                          .titleLarge
-                                          .fontStyle,
                                       height: 1.3,
                                     ),
                                   ),
@@ -128,16 +115,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .labelSmall
                                         .copyWith(
-                                      fontFamily: GoogleFonts.spaceGrotesk(
-                                        fontWeight:
-                                        FlutterFlowTheme.of(context)
-                                            .labelSmall
-                                            .fontWeight,
-                                        fontStyle:
-                                        FlutterFlowTheme.of(context)
-                                            .labelSmall
-                                            .fontStyle,
-                                      ),
+                                      fontFamily: "Space Grotesk",
                                       color: FlutterFlowTheme.of(context)
                                           .onSurface,
                                       letterSpacing: 0.0,
@@ -145,10 +123,6 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                       FlutterFlowTheme.of(context)
                                           .labelSmall
                                           .fontWeight,
-                                      fontStyle:
-                                      FlutterFlowTheme.of(context)
-                                          .labelSmall
-                                          .fontStyle,
                                       height: 1.2,
                                     ),
                                   ),
@@ -172,7 +146,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                   size: 24,
                                 ),
                                 onPressed: () {
-                                  print('IconButton pressed ...');
+                                  debugPrint('IconButton pressed ...');
                                 },
                               ),
                               FlutterFlowIconButton(
@@ -186,7 +160,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                   size: 24,
                                 ),
                                 onPressed: () {
-                                  print('IconButton pressed ...');
+                                  debugPrint('IconButton pressed ...');
                                 },
                               ),
                             ].divide(SizedBox(width: 8)),
@@ -259,16 +233,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .copyWith(
-                                        fontFamily: GoogleFonts.spaceGrotesk(
-                                          fontWeight:
-                                          FlutterFlowTheme.of(context)
-                                              .labelMedium
-                                              .fontWeight,
-                                          fontStyle:
-                                          FlutterFlowTheme.of(context)
-                                              .labelMedium
-                                              .fontStyle,
-                                        ),
+                                        fontFamily: "Space Grotesk",
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
                                         letterSpacing: 0.0,
@@ -276,10 +241,6 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                         FlutterFlowTheme.of(context)
                                             .labelMedium
                                             .fontWeight,
-                                        fontStyle:
-                                        FlutterFlowTheme.of(context)
-                                            .labelMedium
-                                            .fontStyle,
                                         height: 1.3,
                                       ),
                                     ),
@@ -386,19 +347,9 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .titleMedium
                                             .copyWith(
-                                          fontFamily: GoogleFonts.urbanist(
-                                            fontWeight: FontWeight.bold,
-                                            fontStyle:
-                                            FlutterFlowTheme.of(context)
-                                                .titleMedium
-                                                .fontStyle,
-                                          ),
+                                          fontFamily: "Urbanist",
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
-                                          fontStyle:
-                                          FlutterFlowTheme.of(context)
-                                              .titleMedium
-                                              .fontStyle,
                                           height: 1.4,
                                         ),
                                       ),
@@ -526,29 +477,13 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                                     context)
                                                     .bodyMedium
                                                     .copyWith(
-                                                  fontFamily: GoogleFonts.poppins(
-                                                    fontWeight:
-                                                    FlutterFlowTheme.of(
-                                                        context)
-                                                        .bodyMedium
-                                                        .fontWeight,
-                                                    fontStyle:
-                                                    FlutterFlowTheme.of(
-                                                        context)
-                                                        .bodyMedium
-                                                        .fontStyle,
-                                                  ),
+                                                  fontFamily: "Poppins",
                                                   letterSpacing: 0.0,
                                                   fontWeight:
                                                   FlutterFlowTheme.of(
                                                       context)
                                                       .bodyMedium
                                                       .fontWeight,
-                                                  fontStyle:
-                                                  FlutterFlowTheme.of(
-                                                      context)
-                                                      .bodyMedium
-                                                      .fontStyle,
                                                   height: 1.5,
                                                 ),
                                               ),
@@ -583,18 +518,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .copyWith(
-                                              fontFamily: GoogleFonts.poppins(
-                                                fontWeight:
-                                                FlutterFlowTheme.of(
-                                                    context)
-                                                    .bodyMedium
-                                                    .fontWeight,
-                                                fontStyle:
-                                                FlutterFlowTheme.of(
-                                                    context)
-                                                    .bodyMedium
-                                                    .fontStyle,
-                                              ),
+                                              fontFamily: "Poppins",
                                               color: FlutterFlowTheme.of(
                                                   context)
                                                   .secondaryText,
@@ -604,11 +528,6 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                                   context)
                                                   .bodyMedium
                                                   .fontWeight,
-                                              fontStyle:
-                                              FlutterFlowTheme.of(
-                                                  context)
-                                                  .bodyMedium
-                                                  .fontStyle,
                                               height: 1.5,
                                             ),
                                           ),
@@ -617,18 +536,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .copyWith(
-                                              fontFamily: GoogleFonts.poppins(
-                                                fontWeight:
-                                                FlutterFlowTheme.of(
-                                                    context)
-                                                    .bodyMedium
-                                                    .fontWeight,
-                                                fontStyle:
-                                                FlutterFlowTheme.of(
-                                                    context)
-                                                    .bodyMedium
-                                                    .fontStyle,
-                                              ),
+                                              fontFamily: "Poppins",
                                               color: FlutterFlowTheme.of(
                                                   context)
                                                   .primaryText,
@@ -638,11 +546,6 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                                   context)
                                                   .bodyMedium
                                                   .fontWeight,
-                                              fontStyle:
-                                              FlutterFlowTheme.of(
-                                                  context)
-                                                  .bodyMedium
-                                                  .fontStyle,
                                               height: 1.5,
                                             ),
                                           ),
@@ -660,18 +563,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .copyWith(
-                                              fontFamily: GoogleFonts.poppins(
-                                                fontWeight:
-                                                FlutterFlowTheme.of(
-                                                    context)
-                                                    .bodyMedium
-                                                    .fontWeight,
-                                                fontStyle:
-                                                FlutterFlowTheme.of(
-                                                    context)
-                                                    .bodyMedium
-                                                    .fontStyle,
-                                              ),
+                                              fontFamily: "Poppins",
                                               color: FlutterFlowTheme.of(
                                                   context)
                                                   .secondaryText,
@@ -681,11 +573,6 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                                   context)
                                                   .bodyMedium
                                                   .fontWeight,
-                                              fontStyle:
-                                              FlutterFlowTheme.of(
-                                                  context)
-                                                  .bodyMedium
-                                                  .fontStyle,
                                               height: 1.5,
                                             ),
                                           ),
@@ -694,18 +581,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .copyWith(
-                                              fontFamily: GoogleFonts.poppins(
-                                                fontWeight:
-                                                FlutterFlowTheme.of(
-                                                    context)
-                                                    .bodyMedium
-                                                    .fontWeight,
-                                                fontStyle:
-                                                FlutterFlowTheme.of(
-                                                    context)
-                                                    .bodyMedium
-                                                    .fontStyle,
-                                              ),
+                                              fontFamily: "Poppins",
                                               color: FlutterFlowTheme.of(
                                                   context)
                                                   .primaryText,
@@ -715,11 +591,6 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                                   context)
                                                   .bodyMedium
                                                   .fontWeight,
-                                              fontStyle:
-                                              FlutterFlowTheme.of(
-                                                  context)
-                                                  .bodyMedium
-                                                  .fontStyle,
                                               height: 1.5,
                                             ),
                                           ),
@@ -751,24 +622,12 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .titleLarge
                                                 .copyWith(
-                                              fontFamily: GoogleFonts.urbanist(
-                                                fontWeight: FontWeight.w900,
-                                                fontStyle:
-                                                FlutterFlowTheme.of(
-                                                    context)
-                                                    .titleLarge
-                                                    .fontStyle,
-                                              ),
+                                              fontFamily: "Urbanist",
                                               color: FlutterFlowTheme.of(
                                                   context)
                                                   .primaryText,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w900,
-                                              fontStyle:
-                                              FlutterFlowTheme.of(
-                                                  context)
-                                                  .titleLarge
-                                                  .fontStyle,
                                               height: 1.3,
                                             ),
                                           ),
@@ -777,24 +636,12 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .titleLarge
                                                 .copyWith(
-                                              fontFamily: GoogleFonts.urbanist(
-                                                fontWeight: FontWeight.w900,
-                                                fontStyle:
-                                                FlutterFlowTheme.of(
-                                                    context)
-                                                    .titleLarge
-                                                    .fontStyle,
-                                              ),
+                                              fontFamily: "Urbanist",
                                               color: FlutterFlowTheme.of(
                                                   context)
                                                   .primary,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w900,
-                                              fontStyle:
-                                              FlutterFlowTheme.of(
-                                                  context)
-                                                  .titleLarge
-                                                  .fontStyle,
                                               height: 1.3,
                                             ),
                                           ),
@@ -895,18 +742,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .labelMedium
                                                 .copyWith(
-                                              fontFamily: GoogleFonts.spaceGrotesk(
-                                                fontWeight:
-                                                FlutterFlowTheme.of(
-                                                    context)
-                                                    .labelMedium
-                                                    .fontWeight,
-                                                fontStyle:
-                                                FlutterFlowTheme.of(
-                                                    context)
-                                                    .labelMedium
-                                                    .fontStyle,
-                                              ),
+                                              fontFamily: "Space Grotesk",
                                               color: FlutterFlowTheme.of(
                                                   context)
                                                   .primaryText,
@@ -917,11 +753,6 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                                   context)
                                                   .labelMedium
                                                   .fontWeight,
-                                              fontStyle:
-                                              FlutterFlowTheme.of(
-                                                  context)
-                                                  .labelMedium
-                                                  .fontStyle,
                                               height: 1.3,
                                             ),
                                           ),
@@ -958,18 +789,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .labelMedium
                                                 .copyWith(
-                                              fontFamily: GoogleFonts.spaceGrotesk(
-                                                fontWeight:
-                                                FlutterFlowTheme.of(
-                                                    context)
-                                                    .labelMedium
-                                                    .fontWeight,
-                                                fontStyle:
-                                                FlutterFlowTheme.of(
-                                                    context)
-                                                    .labelMedium
-                                                    .fontStyle,
-                                              ),
+                                              fontFamily: "Space Grotesk",
                                               color: FlutterFlowTheme.of(
                                                   context)
                                                   .primaryText,
@@ -980,11 +800,6 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                                   context)
                                                   .labelMedium
                                                   .fontWeight,
-                                              fontStyle:
-                                              FlutterFlowTheme.of(
-                                                  context)
-                                                  .labelMedium
-                                                  .fontStyle,
                                               height: 1.3,
                                             ),
                                           ),
@@ -1021,18 +836,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .labelMedium
                                                 .copyWith(
-                                              fontFamily: GoogleFonts.spaceGrotesk(
-                                                fontWeight:
-                                                FlutterFlowTheme.of(
-                                                    context)
-                                                    .labelMedium
-                                                    .fontWeight,
-                                                fontStyle:
-                                                FlutterFlowTheme.of(
-                                                    context)
-                                                    .labelMedium
-                                                    .fontStyle,
-                                              ),
+                                              fontFamily: "Space Grotesk",
                                               color: FlutterFlowTheme.of(
                                                   context)
                                                   .primaryText,
@@ -1043,11 +847,6 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                                   context)
                                                   .labelMedium
                                                   .fontWeight,
-                                              fontStyle:
-                                              FlutterFlowTheme.of(
-                                                  context)
-                                                  .labelMedium
-                                                  .fontStyle,
                                               height: 1.3,
                                             ),
                                           ),
@@ -1064,11 +863,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .labelSmall
                                 .copyWith(
-                              fontFamily: GoogleFonts.spaceGrotesk(
-                                fontWeight: FlutterFlowTheme.of(context)
-                                    .labelSmall
-                                    .fontWeight,
-                              ),
+                              fontFamily: "Space Grotesk",
                               color: FlutterFlowTheme.of(context)
                                   .secondaryText,
                               letterSpacing: 0.0,

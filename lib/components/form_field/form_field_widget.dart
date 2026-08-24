@@ -1,11 +1,7 @@
 import 'package:multi_p_o_s/components/text_field/text_field_widget.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
-import 'package:multi_p_o_s/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 import 'form_field_model.dart';
 export 'form_field_model.dart';
@@ -17,10 +13,10 @@ class FormFieldWidget extends StatefulWidget {
     String? icon,
     String? label,
     bool? isPassword,
-  })  : this.hint = hint ?? 'Ej. Mi Tienda Express',
-        this.icon = icon ?? 'store_rounded',
-        this.label = label ?? 'Nombre Comercial',
-        this.isPassword = isPassword ?? true;
+  })  : hint = hint ?? 'Ej. Mi Tienda Express',
+        icon = icon ?? 'store_rounded',
+        label = label ?? 'Nombre Comercial',
+        isPassword = isPassword ?? true;
 
   final String hint;
   final String icon;
@@ -67,13 +63,9 @@ class _FormFieldWidgetState extends State<FormFieldWidget> {
           ),
           style: FlutterFlowTheme.of(context).labelMedium.copyWith(
                 fontFamily: "Space Grotesk",
-                  fontWeight: FontWeight.w600,
-                  
-                ),
                 color: FlutterFlowTheme.of(context).secondaryText,
                 letterSpacing: 0.0,
                 fontWeight: FontWeight.w600,
-                
                 height: 1.3,
               ),
         ),
@@ -103,7 +95,7 @@ class _FormFieldWidgetState extends State<FormFieldWidget> {
             error: false,
           ),
         ),
-      ].divide(SizedBox(height: 4)),
+      ].divide(const SizedBox(height: 4)),
     );
   }
 }

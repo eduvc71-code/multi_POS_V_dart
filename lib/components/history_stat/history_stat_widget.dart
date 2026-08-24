@@ -1,10 +1,6 @@
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
-import 'package:multi_p_o_s/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 import 'history_stat_model.dart';
 export 'history_stat_model.dart';
@@ -16,9 +12,9 @@ class HistoryStatWidget extends StatefulWidget {
     String? label,
     Color? tone,
     String? value,
-  })  : this.label = label ?? 'Ventas Hoy',
-        this.tone = tone ?? const Color(0x00000000),
-        this.value = value ?? 'Bs. 4.250,00';
+  })  : label = label ?? 'Ventas Hoy',
+        tone = tone ?? const Color(0x00000000),
+        value = value ?? 'Bs. 4.250,00';
 
   final Widget? icon;
   final String label;
@@ -64,66 +60,52 @@ class _HistoryStatWidgetState extends State<HistoryStatWidget> {
         ),
       ),
       child: Padding(
-        padding: EdgeInsets.all(24),
-        child: Container(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  widget!.icon!,
-                  Flexible(
-                    flex: 1,
-                    child: Text(
-                      valueOrDefault<String>(
-                        widget!.label,
-                        'Ventas Hoy',
-                      ),
-                      maxLines: 1,
-                      style: FlutterFlowTheme.of(context).labelSmall.copyWith(
-                            fontFamily: "Space Grotesk",
-                              fontWeight: FlutterFlowTheme.of(context)
-                                  .labelSmall
-                                  .fontWeight,
-                            ),
-                            color: FlutterFlowTheme.of(context).secondaryText,
-                            letterSpacing: 0.0,
-                            fontWeight: FlutterFlowTheme.of(context)
-                                .labelSmall
-                                .fontWeight,
-                            height: 1.2,
-                          ),
-                      overflow: TextOverflow.ellipsis,
+        padding: const EdgeInsets.all(24),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                if (widget.icon != null) widget.icon!,
+                Flexible(
+                  child: Text(
+                    valueOrDefault<String>(
+                      widget.label,
+                      'Ventas Hoy',
                     ),
+                    maxLines: 1,
+                    style: FlutterFlowTheme.of(context).labelSmall.copyWith(
+                          fontFamily: "Space Grotesk",
+                          color: FlutterFlowTheme.of(context).secondaryText,
+                          letterSpacing: 0.0,
+                          fontWeight: FlutterFlowTheme.of(context).labelSmall.fontWeight,
+                          height: 1.2,
+                        ),
+                    overflow: TextOverflow.ellipsis,
                   ),
-                ],
-              ),
-              Text(
-                valueOrDefault<String>(
-                  widget!.value,
-                  'Bs. 4.250,00',
                 ),
-                style: FlutterFlowTheme.of(context).titleLarge.copyWith(
-                      fontFamily: "Urbanist",
-                        fontWeight: FontWeight.bold,
-                        fontStyle:
-                            FlutterFlowTheme.of(context).titleLarge.fontStyle,
-                      ),
-                      color: FlutterFlowTheme.of(context).primaryText,
-                      letterSpacing: 0.0,
-                      fontWeight: FontWeight.bold,
-                      fontStyle:
-                          FlutterFlowTheme.of(context).titleLarge.fontStyle,
-                      height: 1.3,
-                    ),
+              ],
+            ),
+            Text(
+              valueOrDefault<String>(
+                widget.value,
+                'Bs. 4.250,00',
               ),
-            ].divide(SizedBox(height: 4)),
-          ),
+              style: FlutterFlowTheme.of(context).titleLarge.copyWith(
+                    fontFamily: "Urbanist",
+                    color: FlutterFlowTheme.of(context).primaryText,
+                    letterSpacing: 0.0,
+                    fontWeight: FontWeight.bold,
+                    fontStyle: FlutterFlowTheme.of(context).titleLarge.fontStyle,
+                    height: 1.3,
+                  ),
+            ),
+          ].divide(const SizedBox(height: 4)),
         ),
       ),
     );

@@ -7,11 +7,8 @@ import 'package:multi_p_o_s/flutter_flow/flutter_flow_icon_button.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import 'package:multi_p_o_s/index.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 import 'configuraci_n_y_empresas_model.dart';
 export 'configuraci_n_y_empresas_model.dart';
@@ -88,9 +85,7 @@ class _ConfiguraciNYEmpresasWidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .headlineMedium
                                     .copyWith(
-                                  fontFamily: GoogleFonts.urbanist(
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                                  fontFamily: "Urbanist",
                                   color: FlutterFlowTheme.of(context)
                                       .primaryText,
                                   letterSpacing: 0.0,
@@ -103,17 +98,10 @@ class _ConfiguraciNYEmpresasWidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodySmall
                                     .copyWith(
-                                  fontFamily: GoogleFonts.poppins(
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .bodySmall
-                                        .fontWeight,
-                                  ),
+                                  fontFamily: "Poppins",
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryText,
                                   letterSpacing: 0.0,
-                                  fontWeight: FlutterFlowTheme.of(context)
-                                      .bodySmall
-                                      .fontWeight,
                                   height: 1.4,
                                 ),
                               ),
@@ -129,7 +117,7 @@ class _ConfiguraciNYEmpresasWidgetState
                               size: 24,
                             ),
                             onPressed: () {
-                              print('IconButton pressed ...');
+                              debugPrint('IconButton pressed ...');
                             },
                           ),
                         ],
@@ -179,19 +167,9 @@ class _ConfiguraciNYEmpresasWidgetState
                                       style: FlutterFlowTheme.of(context)
                                           .titleLarge
                                           .copyWith(
-                                        fontFamily: GoogleFonts.urbanist(
-                                          fontWeight: FontWeight.bold,
-                                          fontStyle:
-                                          FlutterFlowTheme.of(context)
-                                              .titleLarge
-                                              .fontStyle,
-                                        ),
+                                        fontFamily: "Urbanist",
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.bold,
-                                        fontStyle:
-                                        FlutterFlowTheme.of(context)
-                                            .titleLarge
-                                            .fontStyle,
                                         height: 1.3,
                                       ),
                                     ),
@@ -200,10 +178,10 @@ class _ConfiguraciNYEmpresasWidgetState
                                       focusColor: Colors.transparent,
                                       hoverColor: Colors.transparent,
                                       highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        context.goNamed(
-                                            RegistroDeNegocioWidget.routeName);
-                                      },
+                                        onTap: () async {
+                                          GoRouter.of(context).goNamed(
+                                              RegistroDeNegocioWidget.routeName);
+                                        },
                                       child: wrapWithModel(
                                         model: _model.buttonModel1,
                                         updateCallback: () =>
@@ -258,13 +236,7 @@ class _ConfiguraciNYEmpresasWidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .titleLarge
                                       .copyWith(
-                                    fontFamily: GoogleFonts.urbanist(
-                                      fontWeight: FontWeight.bold,
-                                      fontStyle:
-                                      FlutterFlowTheme.of(context)
-                                          .titleLarge
-                                          .fontStyle,
-                                    ),
+                                    fontFamily: "Urbanist",
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                     height: 1.3,
@@ -317,13 +289,7 @@ class _ConfiguraciNYEmpresasWidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .titleLarge
                                       .copyWith(
-                                    fontFamily: GoogleFonts.urbanist(
-                                      fontWeight: FontWeight.bold,
-                                      fontStyle:
-                                      FlutterFlowTheme.of(context)
-                                          .titleLarge
-                                          .fontStyle,
-                                    ),
+                                    fontFamily: "Urbanist",
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                     height: 1.3,
@@ -410,30 +376,16 @@ class _ConfiguraciNYEmpresasWidgetState
                                                   context)
                                                   .labelMedium
                                                   .copyWith(
-                                                font: GoogleFonts
-                                                    .spaceGrotesk(
-                                                  fontWeight:
-                                                  FontWeight.w600,
-                                                  fontStyle:
-                                                  FlutterFlowTheme.of(
-                                                      context)
-                                                      .labelMedium
-                                                      .fontStyle,
-                                                ),
+                                                fontFamily: "Space Grotesk",
                                                 color: FlutterFlowTheme.of(
                                                     context)
                                                     .onAccent,
                                                 fontSize: 15.2,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
-                                                fontStyle:
-                                                FlutterFlowTheme.of(
-                                                    context)
-                                                    .labelMedium
-                                                    .fontStyle,
                                                 height: 1.3,
+                                                overflow: TextOverflow.clip,
                                               ),
-                                              overflow: TextOverflow.clip,
                                             ),
                                           ),
                                           Column(
@@ -449,23 +401,10 @@ class _ConfiguraciNYEmpresasWidgetState
                                                     context)
                                                     .titleMedium
                                                     .copyWith(
-                                                  fontFamily: GoogleFonts.urbanist(
-                                                    fontWeight:
-                                                    FontWeight.bold,
-                                                    fontStyle:
-                                                    FlutterFlowTheme.of(
-                                                        context)
-                                                        .titleMedium
-                                                        .fontStyle,
-                                                  ),
+                                                  fontFamily: "Urbanist",
                                                   letterSpacing: 0.0,
                                                   fontWeight:
                                                   FontWeight.bold,
-                                                  fontStyle:
-                                                  FlutterFlowTheme.of(
-                                                      context)
-                                                      .titleMedium
-                                                      .fontStyle,
                                                   height: 1.4,
                                                 ),
                                               ),
@@ -475,19 +414,7 @@ class _ConfiguraciNYEmpresasWidgetState
                                                 FlutterFlowTheme.of(context)
                                                     .labelSmall
                                                     .copyWith(
-                                                  font: GoogleFonts
-                                                      .spaceGrotesk(
-                                                    fontWeight:
-                                                    FlutterFlowTheme.of(
-                                                        context)
-                                                        .labelSmall
-                                                        .fontWeight,
-                                                    fontStyle:
-                                                    FlutterFlowTheme.of(
-                                                        context)
-                                                        .labelSmall
-                                                        .fontStyle,
-                                                  ),
+                                                  fontFamily: "Space Grotesk",
                                                   color: FlutterFlowTheme
                                                       .of(context)
                                                       .secondaryText,
@@ -497,11 +424,6 @@ class _ConfiguraciNYEmpresasWidgetState
                                                       context)
                                                       .labelSmall
                                                       .fontWeight,
-                                                  fontStyle:
-                                                  FlutterFlowTheme.of(
-                                                      context)
-                                                      .labelSmall
-                                                      .fontStyle,
                                                   height: 1.2,
                                                 ),
                                               ),
@@ -523,7 +445,7 @@ class _ConfiguraciNYEmpresasWidgetState
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
-                                          context.goNamed(
+                                          GoRouter.of(context).goNamed(
                                               InicioDeSesiNWidget.routeName);
                                         },
                                         child: wrapWithModel(
@@ -566,16 +488,7 @@ class _ConfiguraciNYEmpresasWidgetState
                                     style: FlutterFlowTheme.of(context)
                                         .labelSmall
                                         .copyWith(
-                                      fontFamily: GoogleFonts.spaceGrotesk(
-                                        fontWeight:
-                                        FlutterFlowTheme.of(context)
-                                            .labelSmall
-                                            .fontWeight,
-                                        fontStyle:
-                                        FlutterFlowTheme.of(context)
-                                            .labelSmall
-                                            .fontStyle,
-                                      ),
+                                      fontFamily: "Space Grotesk",
                                       color: FlutterFlowTheme.of(context)
                                           .onBackground,
                                       letterSpacing: 0.0,
@@ -583,10 +496,6 @@ class _ConfiguraciNYEmpresasWidgetState
                                       FlutterFlowTheme.of(context)
                                           .labelSmall
                                           .fontWeight,
-                                      fontStyle:
-                                      FlutterFlowTheme.of(context)
-                                          .labelSmall
-                                          .fontStyle,
                                       height: 1.2,
                                     ),
                                   ),
@@ -595,16 +504,7 @@ class _ConfiguraciNYEmpresasWidgetState
                                     style: FlutterFlowTheme.of(context)
                                         .labelSmall
                                         .copyWith(
-                                      fontFamily: GoogleFonts.spaceGrotesk(
-                                        fontWeight:
-                                        FlutterFlowTheme.of(context)
-                                            .labelSmall
-                                            .fontWeight,
-                                        fontStyle:
-                                        FlutterFlowTheme.of(context)
-                                            .labelSmall
-                                            .fontStyle,
-                                      ),
+                                      fontFamily: "Space Grotesk",
                                       color: FlutterFlowTheme.of(context)
                                           .onBackground,
                                       letterSpacing: 0.0,
@@ -612,10 +512,6 @@ class _ConfiguraciNYEmpresasWidgetState
                                       FlutterFlowTheme.of(context)
                                           .labelSmall
                                           .fontWeight,
-                                      fontStyle:
-                                      FlutterFlowTheme.of(context)
-                                          .labelSmall
-                                          .fontStyle,
                                       height: 1.2,
                                     ),
                                   ),

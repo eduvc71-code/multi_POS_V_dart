@@ -1,11 +1,7 @@
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_icon_button.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
-import 'package:multi_p_o_s/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 import 'client_card_model.dart';
 export 'client_card_model.dart';
@@ -16,9 +12,9 @@ class ClientCardWidget extends StatefulWidget {
     String? debt,
     String? name,
     bool? isOverdue,
-  })  : this.debt = debt ?? 'Bs. 450,00',
-        this.name = name ?? 'Carlos Rodríguez',
-        this.isOverdue = isOverdue ?? false;
+  })  : debt = debt ?? 'Bs. 450,00',
+        name = name ?? 'Carlos Rodríguez',
+        isOverdue = isOverdue ?? false;
 
   final String debt;
   final String name;
@@ -63,157 +59,120 @@ class _ClientCardWidgetState extends State<ClientCardWidget> {
         ),
       ),
       child: Padding(
-        padding: EdgeInsets.all(16),
-        child: Container(
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(
-                width: 48,
-                height: 48,
-                decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).secondaryBackground,
-                  shape: BoxShape.circle,
-                ),
-                alignment: AlignmentDirectional(0, 0),
-                child: Text(
-                  'JD',
-                  textAlign: TextAlign.center,
-                  maxLines: 1,
-                  style: FlutterFlowTheme.of(context).labelMedium.copyWith(
-                        fontFamily: "Space Grotesk",
-                          fontWeight: FontWeight.w600,
-                        ),
-                        color: FlutterFlowTheme.of(context).primary,
-                        fontSize: 18.24,
-                        letterSpacing: 0.0,
-                        fontWeight: FontWeight.w600,
-                        fontStyle:
-                            FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                        height: 1.3,
-                      ),
-                  overflow: TextOverflow.clip,
-                ),
+        padding: const EdgeInsets.all(16),
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              width: 48,
+              height: 48,
+              decoration: BoxDecoration(
+                color: FlutterFlowTheme.of(context).primary10,
+                shape: BoxShape.circle,
               ),
-              Expanded(
-                flex: 1,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      valueOrDefault<String>(
-                        widget!.name,
-                        'Carlos Rodríguez',
-                      ),
-                      style: FlutterFlowTheme.of(context).bodyLarge.copyWith(
-                            fontFamily: "Poppins",
-                              fontWeight: FontWeight.bold,
-                            ),
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            letterSpacing: 0.0,
-                            fontWeight: FontWeight.bold,
-                            height: 1.5,
-                          ),
+              alignment: const AlignmentDirectional(0, 0),
+              child: Text(
+                'JD',
+                textAlign: TextAlign.center,
+                maxLines: 1,
+                style: FlutterFlowTheme.of(context).labelMedium.copyWith(
+                      fontFamily: "Space Grotesk",
+                      color: FlutterFlowTheme.of(context).primary,
+                      fontSize: 18.0,
+                      letterSpacing: 0.0,
+                      fontWeight: FontWeight.w600,
+                      height: 1.3,
+                      overflow: TextOverflow.clip,
                     ),
-                    Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Deuda:',
-                          style: FlutterFlowTheme.of(context)
-                              .bodySmall
-                              .copyWith(
-                                fontFamily: "Poppins",
-                                  fontWeight: FlutterFlowTheme.of(context)
-                                      .bodySmall
-                                      .fontWeight,
-                                ),
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                letterSpacing: 0.0,
-                                fontWeight: FlutterFlowTheme.of(context)
-                                    .bodySmall
-                                    .fontWeight,
-                                height: 1.4,
-                              ),
-                        ),
-                        Text(
-                          valueOrDefault<String>(
-                            widget!.debt,
-                            'Bs. 450,00',
-                          ),
-                          style:
-                              FlutterFlowTheme.of(context).bodySmall.copyWith(
-                                    fontFamily: "Poppins",
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                    color: valueOrDefault<Color>(
-                                    )
-                                      valueOrDefault<bool>(
-                                        widget!.isOverdue,
-                                        false,
-                                      )
-                                          ? FlutterFlowTheme.of(context).error
-                                          : FlutterFlowTheme.of(context)
-                                              .primaryText,
-                                      FlutterFlowTheme.of(context).primaryText,
-                                    ),
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w600,
-                                    height: 1.4,
-                                  ),
-                        ),
-                      ].divide(SizedBox(width: 4)),
-                    ),
-                  ].divide(SizedBox(height: 4)),
-                ),
               ),
-              Column(
+            ),
+            Expanded(
+              child: Column(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  FlutterFlowIconButton(
-                    borderRadius: 9999,
-                    buttonSize: 40,
-                    fillColor: FlutterFlowTheme.of(context).primary10,
-                    icon: Icon(
-                      Icons.qr_code_2_rounded,
-                      color: FlutterFlowTheme.of(context).primary,
-                      size: 24,
-                    ),
-                    onPressed: () {
-                      print('IconButton pressed ...');
-                    },
-                  ),
                   Text(
-                    'Ver detalle',
-                    style: FlutterFlowTheme.of(context).labelSmall.copyWith(
-                          fontFamily: "Space Grotesk",
-                            fontWeight: FlutterFlowTheme.of(context)
-                                .labelSmall
-                                .fontWeight,
-                          ),
-                          color: FlutterFlowTheme.of(context).secondaryText,
+                    valueOrDefault<String>(
+                      widget.name,
+                      'Carlos Rodríguez',
+                    ),
+                    style: FlutterFlowTheme.of(context).bodyLarge.copyWith(
+                          fontFamily: "Poppins",
+                          color: FlutterFlowTheme.of(context).primaryText,
                           letterSpacing: 0.0,
-                          fontWeight: FlutterFlowTheme.of(context)
-                                .labelSmall
-                                .fontWeight,
-                          fontStyle:
-                              FlutterFlowTheme.of(context).labelSmall.fontStyle,
-                          height: 1.2,
+                          fontWeight: FontWeight.bold,
+                          height: 1.5,
                         ),
                   ),
-                ].divide(SizedBox(height: 8)),
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Deuda:',
+                        style: FlutterFlowTheme.of(context).bodySmall.copyWith(
+                              fontFamily: "Poppins",
+                              color: FlutterFlowTheme.of(context).secondaryText,
+                              letterSpacing: 0.0,
+                              fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                              height: 1.4,
+                            ),
+                      ),
+                      Text(
+                        valueOrDefault<String>(
+                          widget.debt,
+                          'Bs. 450,00',
+                        ),
+                        style: FlutterFlowTheme.of(context).bodySmall.copyWith(
+                              fontFamily: "Poppins",
+                              color: widget.isOverdue
+                                  ? FlutterFlowTheme.of(context).error
+                                  : FlutterFlowTheme.of(context).primaryText,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.w600,
+                              height: 1.4,
+                            ),
+                      ),
+                    ].divide(const SizedBox(width: 4)),
+                  ),
+                ].divide(const SizedBox(height: 4)),
               ),
-            ].divide(SizedBox(width: 16)),
-          ),
+            ),
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                FlutterFlowIconButton(
+                  borderRadius: 9999,
+                  buttonSize: 40,
+                  fillColor: FlutterFlowTheme.of(context).primary10,
+                  icon: Icon(
+                    Icons.qr_code_2_rounded,
+                    color: FlutterFlowTheme.of(context).primary,
+                    size: 24,
+                  ),
+                  onPressed: () {
+                    debugPrint('IconButton pressed ...');
+                  },
+                ),
+                Text(
+                  'Ver detalle',
+                  style: FlutterFlowTheme.of(context).labelSmall.copyWith(
+                        fontFamily: "Space Grotesk",
+                        color: FlutterFlowTheme.of(context).secondaryText,
+                        letterSpacing: 0.0,
+                        fontWeight: FlutterFlowTheme.of(context).labelSmall.fontWeight,
+                        height: 1.2,
+                      ),
+                ),
+              ].divide(const SizedBox(height: 8)),
+            ),
+          ].divide(const SizedBox(width: 16)),
         ),
       ),
     );

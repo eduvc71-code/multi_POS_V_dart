@@ -1,10 +1,6 @@
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
-import 'package:multi_p_o_s/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 import 'product_search_item_model.dart';
 export 'product_search_item_model.dart';
@@ -17,11 +13,11 @@ class ProductSearchItemWidget extends StatefulWidget {
     String? price,
     Color? tone,
     String? stock,
-  })  : this.code = code ?? 'MOT-001',
-        this.name = name ?? 'Aceite de Motor 20W-50',
-        this.price = price ?? '85,00',
-        this.tone = tone ?? const Color(0x00000000),
-        this.stock = stock ?? '12';
+  })  : code = code ?? 'MOT-001',
+        name = name ?? 'Aceite de Motor 20W-50',
+        price = price ?? '85,00',
+        tone = tone ?? const Color(0x00000000),
+        stock = stock ?? '12';
 
   final String code;
   final String name;
@@ -69,97 +65,99 @@ class _ProductSearchItemWidgetState extends State<ProductSearchItemWidget> {
         ),
       ),
       child: Padding(
-        padding: EdgeInsets.all(16),
-        child: Container(
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(
-                width: 48,
-                height: 48,
-                decoration: BoxDecoration(
-                  color: valueOrDefault<Color>(
-                    widget!.tone,
-                    FlutterFlowTheme.of(context).tertiary,
-                  ),
-                  shape: BoxShape.rectangle,
+        padding: const EdgeInsets.all(16),
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              width: 48,
+              height: 48,
+              decoration: BoxDecoration(
+                color: valueOrDefault<Color>(
+                  widget.tone,
+                  FlutterFlowTheme.of(context).tertiary,
                 ),
-                child: Icon(
-                  Icons.inventory_2_rounded,
-                  color: valueOrDefault<Color>(
-                    widget!.tone,
-                    FlutterFlowTheme.of(context).tertiary,
-                  ),
-                  size: 24,
-                ),
+                shape: BoxShape.rectangle,
               ),
-              Expanded(
-                flex: 1,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      valueOrDefault<String>(
-                        widget!.name,
-                        'Aceite de Motor 20W-50',
-                      ),
-                      maxLines: 1,
-                      style: FlutterFlowTheme.of(context).titleMedium.copyWith(
-                            fontFamily: GoogleFonts.urbanist().fontFamily,
-                                  fontWeight: FontWeight.bold,
-                            height: 1.4,
-                          ),
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                    Text(
-                      valueOrDefault<String>(
-                        'Código: ${widget!.code}',
-                        'Código: MOT-001',
-                      ),
-                      style: FlutterFlowTheme.of(context).labelSmall.copyWith(
-                            fontFamily: GoogleFonts.spaceGrotesk().fontFamily,
-                                  fontWeight: FlutterFlowTheme.of(context),
-                            height: 1.2,
-                          ),
-                    ),
-                  ].divide(SizedBox(height: 4)),
+              child: Icon(
+                Icons.inventory_2_rounded,
+                color: valueOrDefault<Color>(
+                  widget.tone,
+                  FlutterFlowTheme.of(context).tertiary,
                 ),
+                size: 24,
               ),
-              Column(
+            ),
+            Expanded(
+              flex: 1,
+              child: Column(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     valueOrDefault<String>(
-                      'Bs. ${widget!.price}',
-                      'Bs. 85,00',
+                      widget.name,
+                      'Aceite de Motor 20W-50',
                     ),
-                    style: FlutterFlowTheme.of(context).titleSmall.copyWith(
-                          fontFamily: GoogleFonts.urbanist().fontFamily,
-                                  fontWeight: FontWeight.bold,
+                    maxLines: 1,
+                    style: FlutterFlowTheme.of(context).titleMedium.copyWith(
+                          fontFamily: "Urbanist",
+                          color: FlutterFlowTheme.of(context).primaryText,
+                          fontWeight: FontWeight.bold,
                           height: 1.4,
                         ),
+                    overflow: TextOverflow.ellipsis,
                   ),
                   Text(
                     valueOrDefault<String>(
-                      '${widget!.stock} disponibles',
-                      '12 disponibles',
+                      'Código: ${widget.code}',
+                      'Código: MOT-001',
                     ),
                     style: FlutterFlowTheme.of(context).labelSmall.copyWith(
-                          fontFamily: GoogleFonts.spaceGrotesk().fontFamily,
-                                  fontWeight: FlutterFlowTheme.of(context),
+                          fontFamily: "Space Grotesk",
+                          color: FlutterFlowTheme.of(context).secondaryText,
+                          fontWeight: FlutterFlowTheme.of(context).labelSmall.fontWeight,
                           height: 1.2,
                         ),
                   ),
-                ].divide(SizedBox(height: 4)),
+                ].divide(const SizedBox(height: 4)),
               ),
-            ].divide(SizedBox(width: 16)),
-          ),
+            ),
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Text(
+                  valueOrDefault<String>(
+                    'Bs. ${widget.price}',
+                    'Bs. 85,00',
+                  ),
+                  style: FlutterFlowTheme.of(context).titleSmall.copyWith(
+                        fontFamily: "Urbanist",
+                        color: FlutterFlowTheme.of(context).primaryText,
+                        fontWeight: FontWeight.bold,
+                        height: 1.4,
+                      ),
+                ),
+                Text(
+                  valueOrDefault<String>(
+                    '${widget.stock} disponibles',
+                    '12 disponibles',
+                  ),
+                  style: FlutterFlowTheme.of(context).labelSmall.copyWith(
+                        fontFamily: "Space Grotesk",
+                        color: FlutterFlowTheme.of(context).secondaryText,
+                        fontWeight: FlutterFlowTheme.of(context).labelSmall.fontWeight,
+                        height: 1.2,
+                      ),
+                ),
+              ].divide(const SizedBox(height: 4)),
+            ),
+          ].divide(const SizedBox(width: 16)),
         ),
       ),
     );

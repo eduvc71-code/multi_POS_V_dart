@@ -1,10 +1,6 @@
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
-import 'package:multi_p_o_s/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 import 'text_field_model.dart';
 export 'text_field_model.dart';
@@ -26,18 +22,18 @@ class TextFieldWidget extends StatefulWidget {
     String? onSubmit,
     String? variant,
     bool? error,
-  })  : this.label = label ?? '',
-        this.labelPresent = labelPresent ?? false,
-        this.helper = helper ?? '',
-        this.helperPresent = helperPresent ?? false,
-        this.leadingIconPresent = leadingIconPresent ?? false,
-        this.trailingIconPresent = trailingIconPresent ?? false,
-        this.hint = hint ?? 'SlotValue(\$hint)',
-        this.value = value ?? '',
-        this.onChange = onChange ?? '',
-        this.onSubmit = onSubmit ?? '',
-        this.variant = variant ?? 'outlined',
-        this.error = error ?? false;
+  })  : label = label ?? '',
+        labelPresent = labelPresent ?? false,
+        helper = helper ?? '',
+        helperPresent = helperPresent ?? false,
+        leadingIconPresent = leadingIconPresent ?? false,
+        trailingIconPresent = trailingIconPresent ?? false,
+        hint = hint ?? 'SlotValue($hint)',
+        value = value ?? '',
+        onChange = onChange ?? '',
+        onSubmit = onSubmit ?? '',
+        variant = variant ?? 'outlined',
+        error = error ?? false;
 
   final String label;
   final bool labelPresent;
@@ -72,7 +68,7 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
     super.initState();
     _model = createModel(context, () => TextFieldModel());
 
-    _model.inputTextController ??= TextEditingController(text: widget!.value);
+    _model.inputTextController ??= TextEditingController(text: widget.value);
     _model.inputFocusNode ??= FocusNode();
   }
 
@@ -85,400 +81,132 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        if (widget.labelPresent)
           Text(
-            widget!.label,
+            widget.label,
             style: FlutterFlowTheme.of(context).labelMedium.copyWith(
-                  fontFamily: GoogleFonts.spaceGrotesk(
-                    fontWeight:
-                        FlutterFlowTheme.of(context).labelMedium.fontWeight,
-                    fontStyle:
-                        FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                  ),
-                  color: valueOrDefault<Color>(
-                    valueOrDefault<bool>(
-                      widget!.error,
-                      false,
-                    )
-                        ? FlutterFlowTheme.of(context).error
-                        : FlutterFlowTheme.of(context).primaryText,
-                    FlutterFlowTheme.of(context).primaryText,
-                  ),
+                  fontFamily: "Space Grotesk",
+                  color: widget.error
+                      ? FlutterFlowTheme.of(context).error
+                      : FlutterFlowTheme.of(context).primaryText,
                   letterSpacing: 0.0,
-                  fontWeight:
-                      FlutterFlowTheme.of(context).labelMedium.fontWeight,
-                  
+                  fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
                   height: 1.3,
                 ),
           ),
-          Container(
-            height: 40,
-            decoration: BoxDecoration(
+        Container(
+          height: 40,
+          decoration: BoxDecoration(
+            color: valueOrDefault<Color>(
+              () {
+                if (valueOrDefault<String>(widget.variant, 'outlined') == 'filled') {
+                  return FlutterFlowTheme.of(context).secondaryBackground;
+                } else if (valueOrDefault<String>(widget.variant, 'outlined') == 'ghost') {
+                  return Colors.transparent;
+                } else {
+                  return Colors.transparent;
+                }
+              }(),
+              Colors.transparent,
+            ),
+            borderRadius: BorderRadius.circular(8.0),
+            shape: BoxShape.rectangle,
+            border: Border.all(
               color: valueOrDefault<Color>(
                 () {
-                  if (valueOrDefault<String>(
-                        widget!.variant,
-                        'outlined',
-                      ) ==
-                      'filled') {
-                    return FlutterFlowTheme.of(context).secondaryBackground;
-                  } else if (valueOrDefault<String>(
-                        widget!.variant,
-                        'outlined',
-                      ) ==
-                      'ghost') {
+                  if (widget.error) {
+                    return FlutterFlowTheme.of(context).error;
+                  } else if (valueOrDefault<String>(widget.variant, 'outlined') == 'filled') {
+                    return Colors.transparent;
+                  } else if (valueOrDefault<String>(widget.variant, 'outlined') == 'ghost') {
                     return Colors.transparent;
                   } else {
-                    return Colors.transparent;
+                    return FlutterFlowTheme.of(context).alternate;
                   }
                 }(),
-                Colors.transparent,
+                FlutterFlowTheme.of(context).alternate,
               ),
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(valueOrDefault<double>(
-                  () {
-                    if (valueOrDefault<String>(
-                          widget!.variant,
-                          'outlined',
-                        ) ==
-                        'filled') {
-                      return 8.0;
-                    } else if (valueOrDefault<String>(
-                          widget!.variant,
-                          'outlined',
-                        ) ==
-                        'ghost') {
-                      return 8.0;
-                    } else {
-                      return 8.0;
-                    }
-                  }(),
-                  8.0,
-                )),
-                topRight: Radius.circular(valueOrDefault<double>(
-                  () {
-                    if (valueOrDefault<String>(
-                          widget!.variant,
-                          'outlined',
-                        ) ==
-                        'filled') {
-                      return 8.0;
-                    } else if (valueOrDefault<String>(
-                          widget!.variant,
-                          'outlined',
-                        ) ==
-                        'ghost') {
-                      return 8.0;
-                    } else {
-                      return 8.0;
-                    }
-                  }(),
-                  8.0,
-                )),
-                bottomLeft: Radius.circular(valueOrDefault<double>(
-                  () {
-                    if (valueOrDefault<String>(
-                          widget!.variant,
-                          'outlined',
-                        ) ==
-                        'filled') {
-                      return 8.0;
-                    } else if (valueOrDefault<String>(
-                          widget!.variant,
-                          'outlined',
-                        ) ==
-                        'ghost') {
-                      return 8.0;
-                    } else {
-                      return 8.0;
-                    }
-                  }(),
-                  8.0,
-                )),
-                bottomRight: Radius.circular(valueOrDefault<double>(
-                  () {
-                    if (valueOrDefault<String>(
-                          widget!.variant,
-                          'outlined',
-                        ) ==
-                        'filled') {
-                      return 8.0;
-                    } else if (valueOrDefault<String>(
-                          widget!.variant,
-                          'outlined',
-                        ) ==
-                        'ghost') {
-                      return 8.0;
-                    } else {
-                      return 8.0;
-                    }
-                  }(),
-                  8.0,
-                )),
-              ),
-              shape: BoxShape.rectangle,
-              border: Border.all(
-                color: valueOrDefault<Color>(
-                  () {
-                    if (valueOrDefault<bool>(
-                      widget!.error,
-                      false,
-                    )) {
-                      return FlutterFlowTheme.of(context).error;
-                    } else if (valueOrDefault<String>(
-                          widget!.variant,
-                          'outlined',
-                        ) ==
-                        'filled') {
-                      return Colors.transparent;
-                    } else if (valueOrDefault<String>(
-                          widget!.variant,
-                          'outlined',
-                        ) ==
-                        'ghost') {
-                      return Colors.transparent;
-                    } else {
-                      return FlutterFlowTheme.of(context).alternate;
-                    }
-                  }(),
-                  FlutterFlowTheme.of(context).alternate,
-                ),
-                width: valueOrDefault<double>(
-                  () {
-                    if (valueOrDefault<bool>(
-                      widget!.error,
-                      false,
-                    )) {
-                      return 1.0;
-                    } else if (valueOrDefault<String>(
-                          widget!.variant,
-                          'outlined',
-                        ) ==
-                        'filled') {
-                      return 1.0;
-                    } else if (valueOrDefault<String>(
-                          widget!.variant,
-                          'outlined',
-                        ) ==
-                        'ghost') {
-                      return 0.0;
-                    } else {
-                      return 1.0;
-                    }
-                  }(),
-                  1.0,
-                ),
-              ),
-            ),
-            child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(
-                  valueOrDefault<double>(
-                    () {
-                      if (valueOrDefault<String>(
-                            widget!.variant,
-                            'outlined',
-                          ) ==
-                          'filled') {
-                        return 8.0;
-                      } else if (valueOrDefault<String>(
-                            widget!.variant,
-                            'outlined',
-                          ) ==
-                          'ghost') {
-                        return 8.0;
-                      } else {
-                        return 8.0;
-                      }
-                    }(),
-                    8.0,
-                  ),
-                  valueOrDefault<double>(
-                    () {
-                      if (valueOrDefault<String>(
-                            widget!.variant,
-                            'outlined',
-                          ) ==
-                          'filled') {
-                        return 8.0;
-                      } else if (valueOrDefault<String>(
-                            widget!.variant,
-                            'outlined',
-                          ) ==
-                          'ghost') {
-                        return 8.0;
-                      } else {
-                        return 8.0;
-                      }
-                    }(),
-                    8.0,
-                  ),
-                  valueOrDefault<double>(
-                    () {
-                      if (valueOrDefault<String>(
-                            widget!.variant,
-                            'outlined',
-                          ) ==
-                          'filled') {
-                        return 8.0;
-                      } else if (valueOrDefault<String>(
-                            widget!.variant,
-                            'outlined',
-                          ) ==
-                          'ghost') {
-                        return 8.0;
-                      } else {
-                        return 8.0;
-                      }
-                    }(),
-                    8.0,
-                  ),
-                  valueOrDefault<double>(
-                    () {
-                      if (valueOrDefault<String>(
-                            widget!.variant,
-                            'outlined',
-                          ) ==
-                          'filled') {
-                        return 8.0;
-                      } else if (valueOrDefault<String>(
-                            widget!.variant,
-                            'outlined',
-                          ) ==
-                          'ghost') {
-                        return 8.0;
-                      } else {
-                        return 8.0;
-                      }
-                    }(),
-                    8.0,
-                  )),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  widget!.leadingIcon!,
-                  Expanded(
-                    flex: 1,
-                    child: TextFormField(
-                      controller: _model.inputTextController,
-                      focusNode: _model.inputFocusNode,
-                      obscureText: false,
-                      decoration: InputDecoration(
-                        isDense: true,
-                        hintText: valueOrDefault<String>(
-                          widget!.hint,
-                          'SlotValue(\$hint)',
-                        ),
-                        hintStyle: FlutterFlowTheme.of(context)
-                            .bodyMedium
-                            .copyWith(
-                              fontFamily: GoogleFonts.poppins(
-                                fontWeight: FlutterFlowTheme.of(context)
-                                    .bodyMedium.fontWeight,
-                              ),
-                              color: valueOrDefault<Color>(
-                                () {
-                                  if (valueOrDefault<String>(
-                                        widget!.variant,
-                                        'outlined',
-                                      ) ==
-                                      'filled') {
-                                    return FlutterFlowTheme.of(context).accent3;
-                                  } else if (valueOrDefault<String>(
-                                        widget!.variant,
-                                        'outlined',
-                                      ) ==
-                                      'ghost') {
-                                    return FlutterFlowTheme.of(context).accent3;
-                                  } else {
-                                    return FlutterFlowTheme.of(context).accent3;
-                                  }
-                                }(),
-                                FlutterFlowTheme.of(context).accent3,
-                              ),
-                              letterSpacing: 0.0,
-                              fontWeight: FlutterFlowTheme.of(context)
-                                  .bodyMedium.fontWeight,
-                              height: 1.5,
-                            ),
-                        enabledBorder: InputBorder.none,
-                        focusedBorder: InputBorder.none,
-                        errorBorder: InputBorder.none,
-                        focusedErrorBorder: InputBorder.none,
-                      ),
-                      style: FlutterFlowTheme.of(context).bodyMedium.copyWith(
-                            fontFamily: GoogleFonts.poppins(
-                              fontWeight: FlutterFlowTheme.of(context)
-                                  .bodyMedium.fontWeight,
-                            ),
-                            color: valueOrDefault<Color>(
-                              () {
-                                if (valueOrDefault<String>(
-                                      widget!.variant,
-                                      'outlined',
-                                    ) ==
-                                    'filled') {
-                                  return FlutterFlowTheme.of(context)
-                                      .primaryText;
-                                } else if (valueOrDefault<String>(
-                                      widget!.variant,
-                                      'outlined',
-                                    ) ==
-                                    'ghost') {
-                                  return FlutterFlowTheme.of(context)
-                                      .primaryText;
-                                } else {
-                                  return FlutterFlowTheme.of(context)
-                                      .primaryText;
-                                }
-                              }(),
-                              FlutterFlowTheme.of(context).primaryText,
-                            ),
-                            letterSpacing: 0.0,
-                            fontWeight: FlutterFlowTheme.of(context)
-                                .bodyMedium.fontWeight,
-                            height: 1.5,
-                          ),
-                      validator: _model.inputTextControllerValidator
-                          .asValidator(context),
-                    ),
-                  ),
-                  widget!.trailingIcon!,
-                ],
+              width: valueOrDefault<double>(
+                () {
+                  if (widget.error) {
+                    return 1.0;
+                  } else if (valueOrDefault<String>(widget.variant, 'outlined') == 'filled') {
+                    return 1.0;
+                  } else if (valueOrDefault<String>(widget.variant, 'outlined') == 'ghost') {
+                    return 0.0;
+                  } else {
+                    return 1.0;
+                  }
+                }(),
+                1.0,
               ),
             ),
           ),
+          child: Padding(
+            padding: const EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                if (widget.leadingIconPresent && widget.leadingIcon != null)
+                  widget.leadingIcon!,
+                Expanded(
+                  flex: 1,
+                  child: TextFormField(
+                    controller: _model.inputTextController,
+                    focusNode: _model.inputFocusNode,
+                    obscureText: false,
+                    decoration: InputDecoration(
+                      isDense: true,
+                      hintText: valueOrDefault<String>(widget.hint, 'Ingrese texto...'),
+                      hintStyle: FlutterFlowTheme.of(context).bodyMedium.copyWith(
+                            fontFamily: "Poppins",
+                            color: FlutterFlowTheme.of(context).secondaryText,
+                            letterSpacing: 0.0,
+                            fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                            height: 1.5,
+                          ),
+                      enabledBorder: InputBorder.none,
+                      focusedBorder: InputBorder.none,
+                      errorBorder: InputBorder.none,
+                      focusedErrorBorder: InputBorder.none,
+                    ),
+                    style: FlutterFlowTheme.of(context).bodyMedium.copyWith(
+                          fontFamily: "Poppins",
+                          color: FlutterFlowTheme.of(context).primaryText,
+                          letterSpacing: 0.0,
+                          fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                          height: 1.5,
+                        ),
+                    validator: _model.inputTextControllerValidator,
+                  ),
+                ),
+                if (widget.trailingIconPresent && widget.trailingIcon != null)
+                  widget.trailingIcon!,
+              ],
+            ),
+          ),
+        ),
+        if (widget.helperPresent)
           Text(
-            widget!.helper,
+            widget.helper,
             style: FlutterFlowTheme.of(context).bodySmall.copyWith(
-                  fontFamily: GoogleFonts.poppins(
-                    fontWeight:
-                        FlutterFlowTheme.of(context).bodySmall.fontWeight,
-                    
-                  ),
-                  color: valueOrDefault<Color>(
-                    valueOrDefault<bool>(
-                      widget!.error,
-                      false,
-                    )
-                        ? FlutterFlowTheme.of(context).error
-                        : FlutterFlowTheme.of(context).secondaryText,
-                    FlutterFlowTheme.of(context).secondaryText,
-                  ),
+                  fontFamily: "Poppins",
+                  color: widget.error
+                      ? FlutterFlowTheme.of(context).error
+                      : FlutterFlowTheme.of(context).secondaryText,
                   letterSpacing: 0.0,
                   fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
-                  
                   height: 1.4,
                 ),
           ),
-        ].divide(SizedBox(height: 6)),
-      ),
+      ].divide(const SizedBox(height: 6)),
     );
   }
 }

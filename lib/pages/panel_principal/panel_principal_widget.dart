@@ -7,11 +7,8 @@ import 'package:multi_p_o_s/flutter_flow/flutter_flow_icon_button.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import 'package:multi_p_o_s/index.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 import 'panel_principal_model.dart';
 export 'panel_principal_model.dart';
@@ -82,9 +79,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .titleLarge
                                 .copyWith(
-                              fontFamily: GoogleFonts.urbanist(
-                                fontWeight: FontWeight.w900,
-                              ),
+                              fontFamily: "Urbanist",
                               color: FlutterFlowTheme.of(context).primary,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w900,
@@ -107,11 +102,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .labelSmall
                                     .copyWith(
-                                  fontFamily: GoogleFonts.spaceGrotesk(
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .labelSmall
-                                        .fontWeight,
-                                  ),
+                                  fontFamily: "Space Grotesk",
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryText,
                                   letterSpacing: 0.0,
@@ -140,7 +131,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                               size: 24,
                             ),
                             onPressed: () {
-                              print('IconButton pressed ...');
+                              debugPrint('IconButton pressed ...');
                             },
                           ),
                           FlutterFlowIconButton(
@@ -153,7 +144,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                               size: 24,
                             ),
                             onPressed: () {
-                              print('IconButton pressed ...');
+                              debugPrint('IconButton pressed ...');
                             },
                           ),
                         ].divide(SizedBox(width: 8)),
@@ -227,18 +218,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .labelLarge
                                                 .copyWith(
-                                              fontFamily: GoogleFonts.spaceGrotesk(
-                                                fontWeight:
-                                                FlutterFlowTheme.of(
-                                                    context)
-                                                    .labelLarge
-                                                    .fontWeight,
-                                                fontStyle:
-                                                FlutterFlowTheme.of(
-                                                    context)
-                                                    .labelLarge
-                                                    .fontStyle,
-                                              ),
+                                              fontFamily: "Space Grotesk",
                                               color: FlutterFlowTheme.of(
                                                   context)
                                                   .onBackground80,
@@ -248,11 +228,6 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                   context)
                                                   .labelLarge
                                                   .fontWeight,
-                                              fontStyle:
-                                              FlutterFlowTheme.of(
-                                                  context)
-                                                  .labelLarge
-                                                  .fontStyle,
                                               height: 1.3,
                                             ),
                                           ),
@@ -275,16 +250,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                       context)
                                                       .labelSmall
                                                       .copyWith(
-                                                    font: GoogleFonts
-                                                        .spaceGrotesk(
-                                                      fontWeight:
-                                                      FontWeight.bold,
-                                                      fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                          context)
-                                                          .labelSmall
-                                                          .fontStyle,
-                                                    ),
+                                                    fontFamily: "Space Grotesk",
                                                     color:
                                                     FlutterFlowTheme.of(
                                                         context)
@@ -292,11 +258,6 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                     letterSpacing: 0.0,
                                                     fontWeight:
                                                     FontWeight.bold,
-                                                    fontStyle:
-                                                    FlutterFlowTheme.of(
-                                                        context)
-                                                        .labelSmall
-                                                        .fontStyle,
                                                     height: 1.2,
                                                   ),
                                                 ),
@@ -310,23 +271,13 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .copyWith(
-                                          fontFamily: GoogleFonts.poppins(
-                                            fontWeight: FontWeight.w900,
-                                            fontStyle:
-                                            FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .fontStyle,
-                                          ),
+                                          fontFamily: "Poppins",
                                           color:
                                           FlutterFlowTheme.of(context)
                                               .onBackground,
                                           fontSize: 36,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w900,
-                                          fontStyle:
-                                          FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .fontStyle,
                                           height: 1.5,
                                         ),
                                       ),
@@ -358,19 +309,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                 FlutterFlowTheme.of(context)
                                                     .labelSmall
                                                     .copyWith(
-                                                  font: GoogleFonts
-                                                      .spaceGrotesk(
-                                                    fontWeight:
-                                                    FlutterFlowTheme.of(
-                                                        context)
-                                                        .labelSmall
-                                                        .fontWeight,
-                                                    fontStyle:
-                                                    FlutterFlowTheme.of(
-                                                        context)
-                                                        .labelSmall
-                                                        .fontStyle,
-                                                  ),
+                                                  fontFamily: "Space Grotesk",
                                                   color: FlutterFlowTheme
                                                       .of(context)
                                                       .onBackground70,
@@ -380,11 +319,6 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                       context)
                                                       .labelSmall
                                                       .fontWeight,
-                                                  fontStyle:
-                                                  FlutterFlowTheme.of(
-                                                      context)
-                                                      .labelSmall
-                                                      .fontStyle,
                                                   height: 1.2,
                                                 ),
                                               ),
@@ -394,15 +328,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                     context)
                                                     .bodyMedium
                                                     .copyWith(
-                                                  fontFamily: GoogleFonts.poppins(
-                                                    fontWeight:
-                                                    FontWeight.w600,
-                                                    fontStyle:
-                                                    FlutterFlowTheme.of(
-                                                        context)
-                                                        .bodyMedium
-                                                        .fontStyle,
-                                                  ),
+                                                  fontFamily: "Poppins",
                                                   color:
                                                   FlutterFlowTheme.of(
                                                       context)
@@ -410,11 +336,6 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                   letterSpacing: 0.0,
                                                   fontWeight:
                                                   FontWeight.w600,
-                                                  fontStyle:
-                                                  FlutterFlowTheme.of(
-                                                      context)
-                                                      .bodyMedium
-                                                      .fontStyle,
                                                   height: 1.5,
                                                 ),
                                               ),
@@ -433,19 +354,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                 FlutterFlowTheme.of(context)
                                                     .labelSmall
                                                     .copyWith(
-                                                  font: GoogleFonts
-                                                      .spaceGrotesk(
-                                                    fontWeight:
-                                                    FlutterFlowTheme.of(
-                                                        context)
-                                                        .labelSmall
-                                                        .fontWeight,
-                                                    fontStyle:
-                                                    FlutterFlowTheme.of(
-                                                        context)
-                                                        .labelSmall
-                                                        .fontStyle,
-                                                  ),
+                                                  fontFamily: "Space Grotesk",
                                                   color: FlutterFlowTheme
                                                       .of(context)
                                                       .onBackground70,
@@ -455,11 +364,6 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                       context)
                                                       .labelSmall
                                                       .fontWeight,
-                                                  fontStyle:
-                                                  FlutterFlowTheme.of(
-                                                      context)
-                                                      .labelSmall
-                                                      .fontStyle,
                                                   height: 1.2,
                                                 ),
                                               ),
@@ -490,27 +394,13 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                         context)
                                                         .bodyMedium
                                                         .copyWith(
-                                                      font: GoogleFonts
-                                                          .poppins(
-                                                        fontWeight:
-                                                        FontWeight.w600,
-                                                        fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                            context)
-                                                            .bodyMedium
-                                                            .fontStyle,
-                                                      ),
+                                                      fontFamily: "Poppins",
                                                       color: FlutterFlowTheme
                                                           .of(context)
                                                           .onBackground,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
                                                       FontWeight.w600,
-                                                      fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                          context)
-                                                          .bodyMedium
-                                                          .fontStyle,
                                                       height: 1.5,
                                                     ),
                                                   ),
@@ -535,13 +425,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .titleMedium
                                       .copyWith(
-                                    fontFamily: GoogleFonts.urbanist(
-                                      fontWeight: FontWeight.w800,
-                                      fontStyle:
-                                      FlutterFlowTheme.of(context)
-                                          .titleMedium
-                                          .fontStyle,
-                                    ),
+                                    fontFamily: "Urbanist",
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w800,
                                     height: 1.4,
@@ -733,26 +617,12 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                   context)
                                                   .labelLarge
                                                   .copyWith(
-                                                font: GoogleFonts
-                                                    .spaceGrotesk(
-                                                  fontWeight:
-                                                  FontWeight.w800,
-                                                  fontStyle:
-                                                  FlutterFlowTheme.of(
-                                                      context)
-                                                      .labelLarge
-                                                      .fontStyle,
-                                                ),
+                                                fontFamily: "Space Grotesk",
                                                 color: FlutterFlowTheme.of(
                                                     context)
                                                     .onSurface,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w800,
-                                                fontStyle:
-                                                FlutterFlowTheme.of(
-                                                    context)
-                                                    .labelLarge
-                                                    .fontStyle,
                                                 height: 1.3,
                                               ),
                                             ),
@@ -762,32 +632,14 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                   context)
                                                   .bodySmall
                                                   .copyWith(
-                                                fontFamily: GoogleFonts.poppins(
-                                                  fontWeight:
-                                                  FlutterFlowTheme.of(
-                                                      context)
-                                                      .bodySmall
-                                                      .fontWeight,
-                                                  fontStyle:
-                                                  FlutterFlowTheme.of(
-                                                      context)
-                                                      .bodySmall
-                                                      .fontStyle,
-                                                ),
+                                                fontFamily: "Poppins",
                                                 color: FlutterFlowTheme.of(
                                                     context)
                                                     .primaryText,
                                                 letterSpacing: 0.0,
-                                                fontWeight:
-                                                FlutterFlowTheme.of(
-                                                    context)
+                                                fontWeight: FlutterFlowTheme.of(context)
                                                     .bodySmall
                                                     .fontWeight,
-                                                fontStyle:
-                                                FlutterFlowTheme.of(
-                                                    context)
-                                                    .bodySmall
-                                                    .fontStyle,
                                                 height: 1.4,
                                               ),
                                             ),
@@ -804,7 +656,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                           size: 16,
                                         ),
                                         onPressed: () async {
-                                          context.goNamed(
+                                          GoRouter.of(context).goNamed(
                                               InventarioDeProductosWidget
                                                   .routeName);
                                         },
@@ -830,19 +682,9 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .titleMedium
                                           .copyWith(
-                                        fontFamily: GoogleFonts.urbanist(
-                                          fontWeight: FontWeight.w800,
-                                          fontStyle:
-                                          FlutterFlowTheme.of(context)
-                                              .titleMedium
-                                              .fontStyle,
-                                        ),
+                                        fontFamily: "Urbanist",
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w800,
-                                        fontStyle:
-                                        FlutterFlowTheme.of(context)
-                                            .titleMedium
-                                            .fontStyle,
                                         height: 1.4,
                                       ),
                                     ),
@@ -852,7 +694,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                       hoverColor: Colors.transparent,
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
-                                        context.goNamed(
+                                        GoRouter.of(context).goNamed(
                                             HistorialDeVentasWidget.routeName);
                                       },
                                       child: wrapWithModel(
@@ -940,25 +782,10 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                           .of(context)
                                                           .bodyMedium
                                                           .copyWith(
-                                                        font: GoogleFonts
-                                                            .poppins(
-                                                          fontWeight:
-                                                          FontWeight
-                                                              .bold,
-                                                          fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                              context)
-                                                              .bodyMedium
-                                                              .fontStyle,
-                                                        ),
+                                                        fontFamily: "Poppins",
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                         FontWeight.bold,
-                                                        fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                            context)
-                                                            .bodyMedium
-                                                            .fontStyle,
                                                         height: 1.5,
                                                       ),
                                                     ),
@@ -969,17 +796,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                           context)
                                                           .labelSmall
                                                           .copyWith(
-                                                        font: GoogleFonts
-                                                            .spaceGrotesk(
-                                                          fontWeight: FlutterFlowTheme.of(
-                                                              context)
-                                                              .labelSmall
-                                                              .fontWeight,
-                                                          fontStyle: FlutterFlowTheme.of(
-                                                              context)
-                                                              .labelSmall
-                                                              .fontStyle,
-                                                        ),
+                                                        fontFamily: "Space Grotesk",
                                                         color: FlutterFlowTheme.of(
                                                             context)
                                                             .secondaryText,
@@ -989,10 +806,6 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                             context)
                                                             .labelSmall
                                                             .fontWeight,
-                                                        fontStyle: FlutterFlowTheme.of(
-                                                            context)
-                                                            .labelSmall
-                                                            .fontStyle,
                                                         height: 1.2,
                                                       ),
                                                     ),
@@ -1005,15 +818,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                     context)
                                                     .bodyLarge
                                                     .copyWith(
-                                                  fontFamily: GoogleFonts.poppins(
-                                                    fontWeight:
-                                                    FontWeight.w800,
-                                                    fontStyle:
-                                                    FlutterFlowTheme.of(
-                                                        context)
-                                                        .bodyLarge
-                                                        .fontStyle,
-                                                  ),
+                                                  fontFamily: "Poppins",
                                                   color:
                                                   FlutterFlowTheme.of(
                                                       context)
@@ -1021,11 +826,6 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                   letterSpacing: 0.0,
                                                   fontWeight:
                                                   FontWeight.w800,
-                                                  fontStyle:
-                                                  FlutterFlowTheme.of(
-                                                      context)
-                                                      .bodyLarge
-                                                      .fontStyle,
                                                   height: 1.5,
                                                 ),
                                               ),
@@ -1086,25 +886,10 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                           .of(context)
                                                           .bodyMedium
                                                           .copyWith(
-                                                        font: GoogleFonts
-                                                            .poppins(
-                                                          fontWeight:
-                                                          FontWeight
-                                                              .bold,
-                                                          fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                              context)
-                                                              .bodyMedium
-                                                              .fontStyle,
-                                                        ),
+                                                        fontFamily: "Poppins",
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                         FontWeight.bold,
-                                                        fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                            context)
-                                                            .bodyMedium
-                                                            .fontStyle,
                                                         height: 1.5,
                                                       ),
                                                     ),
@@ -1115,17 +900,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                           context)
                                                           .labelSmall
                                                           .copyWith(
-                                                        font: GoogleFonts
-                                                            .spaceGrotesk(
-                                                          fontWeight: FlutterFlowTheme.of(
-                                                              context)
-                                                              .labelSmall
-                                                              .fontWeight,
-                                                          fontStyle: FlutterFlowTheme.of(
-                                                              context)
-                                                              .labelSmall
-                                                              .fontStyle,
-                                                        ),
+                                                        fontFamily: "Space Grotesk",
                                                         color: FlutterFlowTheme.of(
                                                             context)
                                                             .secondaryText,
@@ -1135,10 +910,6 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                             context)
                                                             .labelSmall
                                                             .fontWeight,
-                                                        fontStyle: FlutterFlowTheme.of(
-                                                            context)
-                                                            .labelSmall
-                                                            .fontStyle,
                                                         height: 1.2,
                                                       ),
                                                     ),
@@ -1151,15 +922,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                     context)
                                                     .bodyLarge
                                                     .copyWith(
-                                                  fontFamily: GoogleFonts.poppins(
-                                                    fontWeight:
-                                                    FontWeight.w800,
-                                                    fontStyle:
-                                                    FlutterFlowTheme.of(
-                                                        context)
-                                                        .bodyLarge
-                                                        .fontStyle,
-                                                  ),
+                                                  fontFamily: "Poppins",
                                                   color:
                                                   FlutterFlowTheme.of(
                                                       context)
@@ -1167,11 +930,6 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                   letterSpacing: 0.0,
                                                   fontWeight:
                                                   FontWeight.w800,
-                                                  fontStyle:
-                                                  FlutterFlowTheme.of(
-                                                      context)
-                                                      .bodyLarge
-                                                      .fontStyle,
                                                   height: 1.5,
                                                 ),
                                               ),

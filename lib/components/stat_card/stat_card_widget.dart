@@ -1,10 +1,6 @@
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
-import 'package:multi_p_o_s/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 import 'stat_card_model.dart';
 export 'stat_card_model.dart';
@@ -18,11 +14,11 @@ class StatCardWidget extends StatefulWidget {
     String? value,
     bool? isUp,
     String? trend,
-  })  : this.label = label ?? 'Créditos Hoy',
-        this.tone = tone ?? const Color(0xFFFF9100),
-        this.value = value ?? 'Bs. 1.200',
-        this.isUp = isUp ?? true,
-        this.trend = trend ?? '+12%';
+  })  : label = label ?? 'Créditos Hoy',
+        tone = tone ?? const Color(0xFFFF9100),
+        value = value ?? 'Bs. 1.200',
+        isUp = isUp ?? true,
+        trend = trend ?? '+12%';
 
   final Widget? icon;
   final String label;
@@ -66,10 +62,7 @@ class _StatCardWidgetState extends State<StatCardWidget> {
           BoxShadow(
             blurRadius: 12,
             color: FlutterFlowTheme.of(context).onAccent4,
-            offset: Offset(
-              0,
-              4,
-            ),
+            offset: const Offset(0, 4),
             spreadRadius: 0,
           )
         ],
@@ -81,138 +74,85 @@ class _StatCardWidgetState extends State<StatCardWidget> {
         ),
       ),
       child: Padding(
-        padding: EdgeInsets.all(24),
-        child: Container(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                width: 40,
-                height: 40,
-                decoration: BoxDecoration(
-                  color: valueOrDefault<Color>(
-                    widget!.tone,
-                    Color(0xFFFF9100),
-                  ),
-                  borderRadius: BorderRadius.circular(12),
-                  shape: BoxShape.rectangle,
+        padding: const EdgeInsets.all(24),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              width: 40,
+              height: 40,
+              decoration: BoxDecoration(
+                color: valueOrDefault<Color>(
+                  widget.tone,
+                  const Color(0xFFFF9100),
                 ),
-                child: widget!.icon!,
+                borderRadius: BorderRadius.circular(12),
+                shape: BoxShape.rectangle,
               ),
-              Column(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    valueOrDefault<String>(
-                      widget!.label,
-                      'Créditos Hoy',
-                    ),
-                    style: FlutterFlowTheme.of(context).labelMedium.copyWith(
-                          fontFamily: GoogleFonts.spaceGrotesk(
-                            fontWeight: FlutterFlowTheme.of(context)
-                                .labelMedium
-                                .fontWeight,
-                          ),
-                          color: FlutterFlowTheme.of(context).secondaryText,
-                          letterSpacing: 0.0,
-                          fontWeight: FlutterFlowTheme.of(context)
-                              .labelMedium
-                              .fontWeight,
-                          height: 1.3,
-                        ),
+              child: widget.icon!,
+            ),
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  widget.label,
+                  style: FlutterFlowTheme.of(context).labelMedium.copyWith(
+                        fontFamily: "Space Grotesk",
+                        color: FlutterFlowTheme.of(context).secondaryText,
+                        letterSpacing: 0.0,
+                        fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
+                        height: 1.3,
+                      ),
+                ),
+                Text(
+                  widget.value,
+                  style: FlutterFlowTheme.of(context).titleLarge.copyWith(
+                        fontFamily: "Urbanist",
+                        color: FlutterFlowTheme.of(context).primaryText,
+                        letterSpacing: 0.0,
+                        fontWeight: FontWeight.w800,
+                        fontStyle: FlutterFlowTheme.of(context).titleLarge.fontStyle,
+                        height: 1.3,
+                      ),
+                ),
+              ].divide(const SizedBox(height: 4)),
+            ),
+            Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: 14,
+                  height: 14,
+                  child: Icon(
+                    widget.isUp ? Icons.trending_up_rounded : Icons.trending_down_rounded,
+                    color: widget.isUp
+                        ? FlutterFlowTheme.of(context).success
+                        : FlutterFlowTheme.of(context).error,
+                    size: 14,
                   ),
-                  Text(
-                    valueOrDefault<String>(
-                      widget!.value,
-                      'Bs. 1.200',
-                    ),
-                    style: FlutterFlowTheme.of(context).titleLarge.copyWith(
-                          fontFamily: GoogleFonts.urbanist(
-                            fontWeight: FontWeight.w800,
-                          ),
-                          color: FlutterFlowTheme.of(context).primaryText,
-                          letterSpacing: 0.0,
-                          fontWeight: FontWeight.w800,
-                          fontStyle:
-                              FlutterFlowTheme.of(context).titleLarge.fontStyle,
-                          height: 1.3,
-                        ),
-                  ),
-                ].divide(SizedBox(height: 4)),
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    width: 14,
-                    height: 14,
-                    child: Stack(
-                      alignment: AlignmentDirectional(0, 0),
-                      children: [
-                        Icon(
-                          Icons.trending_up_rounded,
-                          color: valueOrDefault<Color>(
-                            valueOrDefault<bool>(
-                              widget!.isUp,
-                              true,
-                            )
-                                ? FlutterFlowTheme.of(context).success
-                                : FlutterFlowTheme.of(context).error,
-                            FlutterFlowTheme.of(context).success,
-                          ),
-                          size: 14,
-                        ),
-                        Icon(
-                          Icons.trending_down_rounded,
-                          color: valueOrDefault<Color>(
-                            valueOrDefault<bool>(
-                              widget!.isUp,
-                              true,
-                            )
-                                ? FlutterFlowTheme.of(context).success
-                                : FlutterFlowTheme.of(context).error,
-                            FlutterFlowTheme.of(context).success,
-                          ),
-                          size: 14,
-                        ),
-                      ],
-                    ),
-                  ),
-                  Text(
-                    valueOrDefault<String>(
-                      widget!.trend,
-                      '+12%',
-                    ),
-                    style: FlutterFlowTheme.of(context).labelSmall.copyWith(
-                          fontFamily: GoogleFonts.spaceGrotesk(
-                            fontWeight: FontWeight.w600,
-                          ),
-                          color: valueOrDefault<Color>(
-                            valueOrDefault<bool>(
-                              widget!.isUp,
-                              true,
-                            )
-                                ? FlutterFlowTheme.of(context).success
-                                : FlutterFlowTheme.of(context).error,
-                            FlutterFlowTheme.of(context).success,
-                          ),
-                          letterSpacing: 0.0,
-                          fontWeight: FontWeight.w600,
-                          fontStyle:
-                              FlutterFlowTheme.of(context).labelSmall.fontStyle,
-                          height: 1.2,
-                        ),
-                  ),
-                ].divide(SizedBox(width: 4)),
-              ),
-            ].divide(SizedBox(height: 8)),
-          ),
+                ),
+                Text(
+                  widget.trend,
+                  style: FlutterFlowTheme.of(context).labelSmall.copyWith(
+                        fontFamily: "Space Grotesk",
+                        color: widget.isUp
+                            ? FlutterFlowTheme.of(context).success
+                            : FlutterFlowTheme.of(context).error,
+                        letterSpacing: 0.0,
+                        fontWeight: FontWeight.w600,
+                        fontStyle: FlutterFlowTheme.of(context).labelSmall.fontStyle,
+                        height: 1.2,
+                      ),
+                ),
+              ].divide(const SizedBox(width: 4)),
+            ),
+          ].divide(const SizedBox(height: 8)),
         ),
       ),
     );

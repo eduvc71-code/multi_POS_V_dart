@@ -25,6 +25,9 @@ abstract class FlutterFlowTheme {
   late Color error;
   late Color info;
 
+  late Color secondary10;
+  late Color secondary20;
+
   late Color primary5;
   late Color primary10;
   late Color primary15;
@@ -135,6 +138,7 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color surfaceVariant30 = const Color(0x4DF1F4F8);
   late Color surface40 = const Color(0x66FFFFFF);
   late Color secondary10 = const Color(0x1AFF2D87);
+  late Color secondary20 = const Color(0x33FF2D87);
 }
 
 extension TextStyleHelper on TextStyle {

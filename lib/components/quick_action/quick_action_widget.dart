@@ -1,10 +1,6 @@
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
-import 'package:multi_p_o_s/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 import 'quick_action_model.dart';
 export 'quick_action_model.dart';
@@ -16,9 +12,9 @@ class QuickActionWidget extends StatefulWidget {
     String? label,
     String? target,
     Color? tone,
-  })  : this.label = label ?? 'Vender',
-        this.target = target ?? 'PuntoDeVenta',
-        this.tone = tone ?? const Color(0x00000000);
+  })  : label = label ?? 'Vender',
+        target = target ?? 'PuntoDeVenta',
+        tone = tone ?? const Color(0x00000000);
 
   final Widget? icon;
   final String label;
@@ -59,7 +55,7 @@ class _QuickActionWidgetState extends State<QuickActionWidget> {
       hoverColor: Colors.transparent,
       highlightColor: Colors.transparent,
       onTap: () async {
-        BuildContextExtensions(context).pushNamed(widget.target);
+        GoRouter.of(context).pushNamed(widget.target);
       },
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -84,17 +80,14 @@ class _QuickActionWidgetState extends State<QuickActionWidget> {
             widget.label,
             textAlign: TextAlign.center,
             style: FlutterFlowTheme.of(context).labelSmall.copyWith(
-                  fontFamily: GoogleFonts.spaceGrotesk().fontFamily,
-                                  fontWeight: FontWeight.w600,
-                                  ,
+                  fontFamily: "Space Grotesk",
                   color: FlutterFlowTheme.of(context).primaryText,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.w600,
-                  
                   height: 1.2,
                 ),
           ),
-        ].divide(SizedBox(height: 8)),
+        ].divide(const SizedBox(height: 8)),
       ),
     );
   }

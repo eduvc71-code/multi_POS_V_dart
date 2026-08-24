@@ -7,10 +7,7 @@ import 'package:multi_p_o_s/flutter_flow/flutter_flow_icon_button.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 import 'inventario_de_productos_model.dart';
 export 'inventario_de_productos_model.dart';
@@ -57,7 +54,7 @@ class _InventarioDeProductosWidgetState
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         floatingActionButton: FloatingActionButton.extended(
           onPressed: () {
-            print('FAB pressed ...');
+            debugPrint('FAB pressed ...');
           },
           backgroundColor: FlutterFlowTheme.of(context).primary,
           icon: Icon(
@@ -69,17 +66,11 @@ class _InventarioDeProductosWidgetState
           label: Text(
             'Nuevo Producto',
             style: FlutterFlowTheme.of(context).labelLarge.copyWith(
-              fontFamily: GoogleFonts.spaceGrotesk(
-                fontWeight:
-                FlutterFlowTheme.of(context).labelLarge.fontWeight,
-                fontStyle:
-                FlutterFlowTheme.of(context).labelLarge.fontStyle,
-              ),
+              fontFamily: "Space Grotesk",
               color: FlutterFlowTheme.of(context).onPrimary,
               letterSpacing: 0.0,
               fontWeight:
               FlutterFlowTheme.of(context).labelLarge.fontWeight,
-              
               height: 1.3,
             ),
           ),
@@ -121,21 +112,11 @@ class _InventarioDeProductosWidgetState
                                     style: FlutterFlowTheme.of(context)
                                         .headlineMedium
                                         .copyWith(
-                                      fontFamily: GoogleFonts.urbanist(
-                                        fontWeight: FontWeight.bold,
-                                        fontStyle:
-                                        FlutterFlowTheme.of(context)
-                                            .headlineMedium
-                                            .fontStyle,
-                                      ),
+                                      fontFamily: "Urbanist",
                                       color: FlutterFlowTheme.of(context)
                                           .primaryText,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
-                                      fontStyle:
-                                      FlutterFlowTheme.of(context)
-                                          .headlineMedium
-                                          .fontStyle,
                                       height: 1.25,
                                     ),
                                   ),
@@ -144,16 +125,7 @@ class _InventarioDeProductosWidgetState
                                     style: FlutterFlowTheme.of(context)
                                         .bodySmall
                                         .copyWith(
-                                      fontFamily: GoogleFonts.poppins(
-                                        fontWeight:
-                                        FlutterFlowTheme.of(context)
-                                            .bodySmall
-                                            .fontWeight,
-                                        fontStyle:
-                                        FlutterFlowTheme.of(context)
-                                            .bodySmall
-                                            .fontStyle,
-                                      ),
+                                      fontFamily: "Poppins",
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryText,
                                       letterSpacing: 0.0,
@@ -161,10 +133,6 @@ class _InventarioDeProductosWidgetState
                                       FlutterFlowTheme.of(context)
                                           .bodySmall
                                           .fontWeight,
-                                      fontStyle:
-                                      FlutterFlowTheme.of(context)
-                                          .bodySmall
-                                          .fontStyle,
                                       height: 1.4,
                                     ),
                                   ),
@@ -180,7 +148,7 @@ class _InventarioDeProductosWidgetState
                                   size: 24,
                                 ),
                                 onPressed: () {
-                                  print('IconButton pressed ...');
+                                  debugPrint('IconButton pressed ...');
                                 },
                               ),
                             ],
@@ -295,21 +263,11 @@ class _InventarioDeProductosWidgetState
                                     style: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .copyWith(
-                                      fontFamily: GoogleFonts.urbanist(
-                                        fontWeight: FontWeight.bold,
-                                        fontStyle:
-                                        FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .fontStyle,
-                                      ),
+                                      fontFamily: "Urbanist",
                                       color: FlutterFlowTheme.of(context)
                                           .primaryText,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
-                                      fontStyle:
-                                      FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .fontStyle,
                                       height: 1.4,
                                     ),
                                   ),
@@ -361,19 +319,7 @@ class _InventarioDeProductosWidgetState
                                                       context)
                                                       .labelMedium
                                                       .copyWith(
-                                                    font: GoogleFonts
-                                                        .spaceGrotesk(
-                                                      fontWeight:
-                                                      FlutterFlowTheme.of(
-                                                          context)
-                                                          .labelMedium
-                                                          .fontWeight,
-                                                      fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                          context)
-                                                          .labelMedium
-                                                          .fontStyle,
-                                                    ),
+                                                    fontFamily: "Space Grotesk",
                                                     color:
                                                     FlutterFlowTheme.of(
                                                         context)
@@ -385,11 +331,6 @@ class _InventarioDeProductosWidgetState
                                                         context)
                                                         .labelMedium
                                                         .fontWeight,
-                                                    fontStyle:
-                                                    FlutterFlowTheme.of(
-                                                        context)
-                                                        .labelMedium
-                                                        .fontStyle,
                                                     height: 1.3,
                                                   ),
                                                 ),
@@ -429,19 +370,7 @@ class _InventarioDeProductosWidgetState
                                                       context)
                                                       .labelMedium
                                                       .copyWith(
-                                                    font: GoogleFonts
-                                                        .spaceGrotesk(
-                                                      fontWeight:
-                                                      FlutterFlowTheme.of(
-                                                          context)
-                                                          .labelMedium
-                                                          .fontWeight,
-                                                      fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                          context)
-                                                          .labelMedium
-                                                          .fontStyle,
-                                                    ),
+                                                    fontFamily: "Space Grotesk",
                                                     color:
                                                     FlutterFlowTheme.of(
                                                         context)
@@ -453,11 +382,6 @@ class _InventarioDeProductosWidgetState
                                                         context)
                                                         .labelMedium
                                                         .fontWeight,
-                                                    fontStyle:
-                                                    FlutterFlowTheme.of(
-                                                        context)
-                                                        .labelMedium
-                                                        .fontStyle,
                                                     height: 1.3,
                                                   ),
                                                 ),
@@ -497,19 +421,7 @@ class _InventarioDeProductosWidgetState
                                                       context)
                                                       .labelMedium
                                                       .copyWith(
-                                                    font: GoogleFonts
-                                                        .spaceGrotesk(
-                                                      fontWeight:
-                                                      FlutterFlowTheme.of(
-                                                          context)
-                                                          .labelMedium
-                                                          .fontWeight,
-                                                      fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                          context)
-                                                          .labelMedium
-                                                          .fontStyle,
-                                                    ),
+                                                    fontFamily: "Space Grotesk",
                                                     color:
                                                     FlutterFlowTheme.of(
                                                         context)
@@ -521,11 +433,6 @@ class _InventarioDeProductosWidgetState
                                                         context)
                                                         .labelMedium
                                                         .fontWeight,
-                                                    fontStyle:
-                                                    FlutterFlowTheme.of(
-                                                        context)
-                                                        .labelMedium
-                                                        .fontStyle,
                                                     height: 1.3,
                                                   ),
                                                 ),
@@ -565,19 +472,7 @@ class _InventarioDeProductosWidgetState
                                                       context)
                                                       .labelMedium
                                                       .copyWith(
-                                                    font: GoogleFonts
-                                                        .spaceGrotesk(
-                                                      fontWeight:
-                                                      FlutterFlowTheme.of(
-                                                          context)
-                                                          .labelMedium
-                                                          .fontWeight,
-                                                      fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                          context)
-                                                          .labelMedium
-                                                          .fontStyle,
-                                                    ),
+                                                    fontFamily: "Space Grotesk",
                                                     color:
                                                     FlutterFlowTheme.of(
                                                         context)
@@ -589,11 +484,6 @@ class _InventarioDeProductosWidgetState
                                                         context)
                                                         .labelMedium
                                                         .fontWeight,
-                                                    fontStyle:
-                                                    FlutterFlowTheme.of(
-                                                        context)
-                                                        .labelMedium
-                                                        .fontStyle,
                                                     height: 1.3,
                                                   ),
                                                 ),
@@ -633,19 +523,7 @@ class _InventarioDeProductosWidgetState
                                                       context)
                                                       .labelMedium
                                                       .copyWith(
-                                                    font: GoogleFonts
-                                                        .spaceGrotesk(
-                                                      fontWeight:
-                                                      FlutterFlowTheme.of(
-                                                          context)
-                                                          .labelMedium
-                                                          .fontWeight,
-                                                      fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                          context)
-                                                          .labelMedium
-                                                          .fontStyle,
-                                                    ),
+                                                    fontFamily: "Space Grotesk",
                                                     color:
                                                     FlutterFlowTheme.of(
                                                         context)
@@ -657,11 +535,6 @@ class _InventarioDeProductosWidgetState
                                                         context)
                                                         .labelMedium
                                                         .fontWeight,
-                                                    fontStyle:
-                                                    FlutterFlowTheme.of(
-                                                        context)
-                                                        .labelMedium
-                                                        .fontStyle,
                                                     height: 1.3,
                                                   ),
                                                 ),
@@ -691,22 +564,12 @@ class _InventarioDeProductosWidgetState
                                         style: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .copyWith(
-                                          fontFamily: GoogleFonts.urbanist(
-                                            fontWeight: FontWeight.bold,
-                                            fontStyle:
-                                            FlutterFlowTheme.of(context)
-                                                .titleSmall
-                                                .fontStyle,
-                                          ),
+                                          fontFamily: "Urbanist",
                                           color:
                                           FlutterFlowTheme.of(context)
                                               .primaryText,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
-                                          fontStyle:
-                                          FlutterFlowTheme.of(context)
-                                              .titleSmall
-                                              .fontStyle,
                                           height: 1.4,
                                         ),
                                       ),
@@ -715,16 +578,7 @@ class _InventarioDeProductosWidgetState
                                         style: FlutterFlowTheme.of(context)
                                             .labelLarge
                                             .copyWith(
-                                          fontFamily: GoogleFonts.spaceGrotesk(
-                                            fontWeight:
-                                            FlutterFlowTheme.of(context)
-                                                .labelLarge
-                                                .fontWeight,
-                                            fontStyle:
-                                            FlutterFlowTheme.of(context)
-                                                .labelLarge
-                                                .fontStyle,
-                                          ),
+                                          fontFamily: "Space Grotesk",
                                           color:
                                           FlutterFlowTheme.of(context)
                                               .secondaryText,
@@ -733,10 +587,6 @@ class _InventarioDeProductosWidgetState
                                           FlutterFlowTheme.of(context)
                                               .labelLarge
                                               .fontWeight,
-                                          fontStyle:
-                                          FlutterFlowTheme.of(context)
-                                              .labelLarge
-                                              .fontStyle,
                                           height: 1.3,
                                         ),
                                       ),

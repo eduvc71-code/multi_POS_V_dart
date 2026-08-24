@@ -1,10 +1,6 @@
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
-import 'package:multi_p_o_s/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 import 'settings_tile_model.dart';
 export 'settings_tile_model.dart';
@@ -17,10 +13,10 @@ class SettingsTileWidget extends StatefulWidget {
     String? subtitle,
     String? target,
     String? title,
-  })  : this.iconBg = iconBg ?? const Color(0x00000000),
-        this.subtitle = subtitle ?? 'Subtitle',
-        this.target = target ?? 'Target',
-        this.title = title ?? 'Title';
+  })  : iconBg = iconBg ?? const Color(0x00000000),
+        subtitle = subtitle ?? 'Subtitle',
+        target = target ?? 'Target',
+        title = title ?? 'Title';
 
   final Widget? icon;
   final Color iconBg;
@@ -62,7 +58,7 @@ class _SettingsTileWidgetState extends State<SettingsTileWidget> {
       hoverColor: Colors.transparent,
       highlightColor: Colors.transparent,
       onTap: () async {
-        context.pushNamed(widget.target);
+        GoRouter.of(context).pushNamed(widget.target);
       },
       child: Container(
         decoration: BoxDecoration(
@@ -75,7 +71,7 @@ class _SettingsTileWidgetState extends State<SettingsTileWidget> {
           ),
         ),
         child: Padding(
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           child: Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.start,
@@ -92,7 +88,7 @@ class _SettingsTileWidgetState extends State<SettingsTileWidget> {
                   borderRadius: BorderRadius.circular(12),
                   shape: BoxShape.rectangle,
                 ),
-                alignment: AlignmentDirectional(0, 0),
+                alignment: const AlignmentDirectional(0, 0),
                 child: widget.icon,
               ),
               Expanded(
@@ -105,9 +101,7 @@ class _SettingsTileWidgetState extends State<SettingsTileWidget> {
                     Text(
                       widget.title,
                       style: FlutterFlowTheme.of(context).bodyLarge.copyWith(
-                            fontFamily: GoogleFonts.urbanist(
-                              fontWeight: FontWeight.bold,
-                            ),
+                            fontFamily: "Urbanist",
                             color: FlutterFlowTheme.of(context).primaryText,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.bold,
@@ -117,16 +111,10 @@ class _SettingsTileWidgetState extends State<SettingsTileWidget> {
                     Text(
                       widget.subtitle,
                       style: FlutterFlowTheme.of(context).labelSmall.copyWith(
-                            fontFamily: GoogleFonts.spaceGrotesk(
-                              fontWeight: FlutterFlowTheme.of(context)
-                                  .labelSmall
-                                  .fontWeight,
-                            ),
+                            fontFamily: "Space Grotesk",
                             color: FlutterFlowTheme.of(context).secondaryText,
                             letterSpacing: 0.0,
-                            fontWeight: FlutterFlowTheme.of(context)
-                                .labelSmall
-                                .fontWeight,
+                            fontWeight: FlutterFlowTheme.of(context).labelSmall.fontWeight,
                             height: 1.2,
                           ),
                     ),
@@ -138,7 +126,7 @@ class _SettingsTileWidgetState extends State<SettingsTileWidget> {
                 color: FlutterFlowTheme.of(context).secondaryText,
                 size: 24,
               ),
-            ].divide(SizedBox(width: 16)),
+            ].divide(const SizedBox(width: 16)),
           ),
         ),
       ),

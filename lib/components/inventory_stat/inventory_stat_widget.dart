@@ -1,10 +1,6 @@
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
-import 'package:multi_p_o_s/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 import 'inventory_stat_model.dart';
 export 'inventory_stat_model.dart';
@@ -16,9 +12,9 @@ class InventoryStatWidget extends StatefulWidget {
     this.icon,
     String? label,
     String? value,
-  })  : this.color = color ?? const Color(0x00000000),
-        this.label = label ?? 'Total Items',
-        this.value = value ?? '1,284';
+  })  : color = color ?? const Color(0x00000000),
+        label = label ?? 'Total Items',
+        value = value ?? '1,284';
 
   final Color color;
   final Widget? icon;
@@ -64,71 +60,59 @@ class _InventoryStatWidgetState extends State<InventoryStatWidget> {
         ),
       ),
       child: Padding(
-        padding: EdgeInsets.all(16),
-        child: Container(
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(
-                width: 40,
-                height: 40,
-                decoration: BoxDecoration(
-                  color: valueOrDefault<Color>(
-                    widget!.color,
-                    FlutterFlowTheme.of(context).primary,
-                  ),
-                  borderRadius: BorderRadius.circular(9999),
-                  shape: BoxShape.rectangle,
+        padding: const EdgeInsets.all(16),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              width: 40,
+              height: 40,
+              decoration: BoxDecoration(
+                color: valueOrDefault<Color>(
+                  widget.color,
+                  FlutterFlowTheme.of(context).primary,
                 ),
-                child: widget!.icon!,
+                borderRadius: BorderRadius.circular(9999),
+                shape: BoxShape.rectangle,
               ),
-              Column(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    valueOrDefault<String>(
-                      widget!.label,
-                      'Total Items',
-                    ),
-                    style: FlutterFlowTheme.of(context).labelSmall.copyWith(
-                          fontFamily: "Space Grotesk",
-                            fontWeight: FlutterFlowTheme.of(context)
-                                .labelSmall
-                                .fontWeight,
-                          ),
-                          color: FlutterFlowTheme.of(context).secondaryText,
-                          letterSpacing: 0.0,
-                          fontWeight: FlutterFlowTheme.of(context)
-                              .labelSmall
-                              .fontWeight,
-                          fontStyle:
-                              FlutterFlowTheme.of(context).labelSmall.fontStyle,
-                          height: 1.2,
-                        ),
+              child: widget.icon ?? const SizedBox.shrink(),
+            ),
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  valueOrDefault<String>(
+                    widget.label,
+                    'Total Items',
                   ),
-                  Text(
-                    valueOrDefault<String>(
-                      widget!.value,
-                      '1,284',
-                    ),
-                    style: FlutterFlowTheme.of(context).titleMedium.copyWith(
-                          fontFamily: "Urbanist",
-                            fontWeight: FontWeight.bold,
-                          ),
-                          color: FlutterFlowTheme.of(context).primaryText,
-                          letterSpacing: 0.0,
-                          fontWeight: FontWeight.bold,
-                          height: 1.4,
-                        ),
+                  style: FlutterFlowTheme.of(context).labelSmall.copyWith(
+                        fontFamily: "Space Grotesk",
+                        color: FlutterFlowTheme.of(context).secondaryText,
+                        letterSpacing: 0.0,
+                        fontWeight: FlutterFlowTheme.of(context).labelSmall.fontWeight,
+                        height: 1.2,
+                      ),
+                ),
+                Text(
+                  valueOrDefault<String>(
+                    widget.value,
+                    '1,284',
                   ),
-                ].divide(SizedBox(height: 4)),
-              ),
-            ].divide(SizedBox(width: 8)),
-          ),
+                  style: FlutterFlowTheme.of(context).titleMedium.copyWith(
+                        fontFamily: "Urbanist",
+                        color: FlutterFlowTheme.of(context).primaryText,
+                        letterSpacing: 0.0,
+                        fontWeight: FontWeight.bold,
+                        height: 1.4,
+                      ),
+                ),
+              ].divide(const SizedBox(height: 4)),
+            ),
+          ].divide(const SizedBox(width: 8)),
         ),
       ),
     );

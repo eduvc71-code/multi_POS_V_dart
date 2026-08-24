@@ -8,10 +8,7 @@ import 'package:multi_p_o_s/flutter_flow/flutter_flow_icon_button.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 import 'clientes_y_cr_ditos_model.dart';
 export 'clientes_y_cr_ditos_model.dart';
@@ -91,21 +88,11 @@ class _ClientesYCrDitosWidgetState extends State<ClientesYCrDitosWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .headlineMedium
                                         .copyWith(
-                                      fontFamily: GoogleFonts.urbanist(
-                                        fontWeight: FontWeight.bold,
-                                        fontStyle:
-                                        FlutterFlowTheme.of(context)
-                                            .headlineMedium
-                                            .fontStyle,
-                                      ),
+                                      fontFamily: "Urbanist",
                                       color: FlutterFlowTheme.of(context)
                                           .primaryText,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
-                                      fontStyle:
-                                      FlutterFlowTheme.of(context)
-                                          .headlineMedium
-                                          .fontStyle,
                                       height: 1.25,
                                     ),
                                   ),
@@ -114,16 +101,7 @@ class _ClientesYCrDitosWidgetState extends State<ClientesYCrDitosWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodySmall
                                         .copyWith(
-                                      fontFamily: GoogleFonts.poppins(
-                                        fontWeight:
-                                        FlutterFlowTheme.of(context)
-                                            .bodySmall
-                                            .fontWeight,
-                                        fontStyle:
-                                        FlutterFlowTheme.of(context)
-                                            .bodySmall
-                                            .fontStyle,
-                                      ),
+                                      fontFamily: "Poppins",
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryText,
                                       letterSpacing: 0.0,
@@ -131,10 +109,6 @@ class _ClientesYCrDitosWidgetState extends State<ClientesYCrDitosWidget> {
                                       FlutterFlowTheme.of(context)
                                           .bodySmall
                                           .fontWeight,
-                                      fontStyle:
-                                      FlutterFlowTheme.of(context)
-                                          .bodySmall
-                                          .fontStyle,
                                       height: 1.4,
                                     ),
                                   ),
@@ -150,7 +124,7 @@ class _ClientesYCrDitosWidgetState extends State<ClientesYCrDitosWidget> {
                                   size: 24,
                                 ),
                                 onPressed: () {
-                                  print('IconButton pressed ...');
+                                  debugPrint('IconButton pressed ...');
                                 },
                               ),
                             ],
@@ -294,18 +268,7 @@ class _ClientesYCrDitosWidgetState extends State<ClientesYCrDitosWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .labelMedium
                                                 .copyWith(
-                                              fontFamily: GoogleFonts.spaceGrotesk(
-                                                fontWeight:
-                                                FlutterFlowTheme.of(
-                                                    context)
-                                                    .labelMedium
-                                                    .fontWeight,
-                                                fontStyle:
-                                                FlutterFlowTheme.of(
-                                                    context)
-                                                    .labelMedium
-                                                    .fontStyle,
-                                              ),
+                                              fontFamily: "Space Grotesk",
                                               color: FlutterFlowTheme.of(
                                                   context)
                                                   .primaryText,
@@ -316,11 +279,6 @@ class _ClientesYCrDitosWidgetState extends State<ClientesYCrDitosWidget> {
                                                   context)
                                                   .labelMedium
                                                   .fontWeight,
-                                              fontStyle:
-                                              FlutterFlowTheme.of(
-                                                  context)
-                                                  .labelMedium
-                                                  .fontStyle,
                                               height: 1.3,
                                             ),
                                           ),
@@ -356,18 +314,7 @@ class _ClientesYCrDitosWidgetState extends State<ClientesYCrDitosWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .labelMedium
                                                 .copyWith(
-                                              fontFamily: GoogleFonts.spaceGrotesk(
-                                                fontWeight:
-                                                FlutterFlowTheme.of(
-                                                    context)
-                                                    .labelMedium
-                                                    .fontWeight,
-                                                fontStyle:
-                                                FlutterFlowTheme.of(
-                                                    context)
-                                                    .labelMedium
-                                                    .fontStyle,
-                                              ),
+                                              fontFamily: "Space Grotesk",
                                               color: FlutterFlowTheme.of(
                                                   context)
                                                   .primaryText,
@@ -378,11 +325,6 @@ class _ClientesYCrDitosWidgetState extends State<ClientesYCrDitosWidget> {
                                                   context)
                                                   .labelMedium
                                                   .fontWeight,
-                                              fontStyle:
-                                              FlutterFlowTheme.of(
-                                                  context)
-                                                  .labelMedium
-                                                  .fontStyle,
                                               height: 1.3,
                                             ),
                                           ),
@@ -418,18 +360,7 @@ class _ClientesYCrDitosWidgetState extends State<ClientesYCrDitosWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .labelMedium
                                                 .copyWith(
-                                              fontFamily: GoogleFonts.spaceGrotesk(
-                                                fontWeight:
-                                                FlutterFlowTheme.of(
-                                                    context)
-                                                    .labelMedium
-                                                    .fontWeight,
-                                                fontStyle:
-                                                FlutterFlowTheme.of(
-                                                    context)
-                                                    .labelMedium
-                                                    .fontStyle,
-                                              ),
+                                              fontFamily: "Space Grotesk",
                                               color: FlutterFlowTheme.of(
                                                   context)
                                                   .primaryText,
@@ -440,11 +371,6 @@ class _ClientesYCrDitosWidgetState extends State<ClientesYCrDitosWidget> {
                                                   context)
                                                   .labelMedium
                                                   .fontWeight,
-                                              fontStyle:
-                                              FlutterFlowTheme.of(
-                                                  context)
-                                                  .labelMedium
-                                                  .fontStyle,
                                               height: 1.3,
                                             ),
                                           ),
@@ -480,18 +406,7 @@ class _ClientesYCrDitosWidgetState extends State<ClientesYCrDitosWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .labelMedium
                                                 .copyWith(
-                                              fontFamily: GoogleFonts.spaceGrotesk(
-                                                fontWeight:
-                                                FlutterFlowTheme.of(
-                                                    context)
-                                                    .labelMedium
-                                                    .fontWeight,
-                                                fontStyle:
-                                                FlutterFlowTheme.of(
-                                                    context)
-                                                    .labelMedium
-                                                    .fontStyle,
-                                              ),
+                                              fontFamily: "Space Grotesk",
                                               color: FlutterFlowTheme.of(
                                                   context)
                                                   .primaryText,
@@ -502,11 +417,6 @@ class _ClientesYCrDitosWidgetState extends State<ClientesYCrDitosWidget> {
                                                   context)
                                                   .labelMedium
                                                   .fontWeight,
-                                              fontStyle:
-                                              FlutterFlowTheme.of(
-                                                  context)
-                                                  .labelMedium
-                                                  .fontStyle,
                                               height: 1.3,
                                             ),
                                           ),
@@ -527,13 +437,7 @@ class _ClientesYCrDitosWidgetState extends State<ClientesYCrDitosWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .titleMedium
                                       .copyWith(
-                                    fontFamily: GoogleFonts.urbanist(
-                                      fontWeight: FontWeight.bold,
-                                      fontStyle:
-                                      FlutterFlowTheme.of(context)
-                                          .titleMedium
-                                          .fontStyle,
-                                    ),
+                                    fontFamily: "Urbanist",
                                     color: FlutterFlowTheme.of(context)
                                         .primaryText,
                                     letterSpacing: 0.0,

@@ -1,10 +1,6 @@
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
-import 'package:multi_p_o_s/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 import 'business_card_model.dart';
 export 'business_card_model.dart';
@@ -16,9 +12,9 @@ class BusinessCardWidget extends StatefulWidget {
     String? type,
     bool? isActive,
     this.isActiveSlot,
-  })  : this.name = name ?? 'Ferretería El Tornillo',
-        this.type = type ?? 'Ferretería',
-        this.isActive = isActive ?? true;
+  })  : name = name ?? 'Ferretería El Tornillo',
+        type = type ?? 'Ferretería',
+        isActive = isActive ?? true;
 
   final String name;
   final String type;
@@ -132,8 +128,8 @@ class _BusinessCardWidgetState extends State<BusinessCardWidget> {
                         fontStyle:
                             FlutterFlowTheme.of(context).labelMedium.fontStyle,
                         height: 1.3,
+                        overflow: TextOverflow.clip,
                       ),
-                  overflow: TextOverflow.clip,
                 ),
               ),
               Expanded(
@@ -165,9 +161,7 @@ class _BusinessCardWidgetState extends State<BusinessCardWidget> {
                             fontFamily: "Space Grotesk",
                             color: FlutterFlowTheme.of(context).secondaryText,
                             letterSpacing: 0.0,
-                            fontWeight: FlutterFlowTheme.of(context)
-                                .labelSmall
-                                .fontWeight,
+                            fontWeight: FlutterFlowTheme.of(context).labelSmall.fontWeight,
                             height: 1.2,
                           ),
                     ),

@@ -8,10 +8,7 @@ import 'package:multi_p_o_s/flutter_flow/flutter_flow_icon_button.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'package:fl_chart/fl_chart.dart';
 
 import 'reportes_y_m_tricas_model.dart';
@@ -87,9 +84,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .headlineMedium
                                     .copyWith(
-                                  fontFamily: GoogleFonts.urbanist(
-                                    fontWeight: FontWeight.w800,
-                                  ),
+                                  fontFamily: "Urbanist",
                                   color: FlutterFlowTheme.of(context)
                                       .primaryText,
                                   letterSpacing: 0.0,
@@ -102,17 +97,11 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodySmall
                                     .copyWith(
-                                  fontFamily: GoogleFonts.poppins(
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .bodySmall
-                                        .fontWeight,
-                                  ),
+                                  fontFamily: "Poppins",
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryText,
                                   letterSpacing: 0.0,
-                                  fontWeight: FlutterFlowTheme.of(context)
-                                      .bodySmall
-                                      .fontWeight,
+                                  fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
                                   height: 1.4,
                                 ),
                               ),
@@ -128,7 +117,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                               size: 24,
                             ),
                             onPressed: () {
-                              print('IconButton pressed ...');
+                              debugPrint('IconButton pressed ...');
                             },
                           ),
                         ],
@@ -202,8 +191,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .labelLarge
                                                 .copyWith(
-                                              fontFamily:
-                                              GoogleFonts.spaceGrotesk().fontFamily,
+                                              fontFamily: "Space Grotesk",
                                               color: FlutterFlowTheme.of(
                                                   context)
                                                   .primaryText,
@@ -213,11 +201,6 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                                   context)
                                                   .labelLarge
                                                   .fontWeight,
-                                              fontStyle:
-                                              FlutterFlowTheme.of(
-                                                  context)
-                                                  .labelLarge
-                                                  .fontStyle,
                                               height: 1.3,
                                             ),
                                           ),
@@ -324,21 +307,9 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .titleMedium
                                                 .copyWith(
-                                              fontFamily: GoogleFonts.urbanist(
-                                                fontWeight: FontWeight.bold,
-                                                fontStyle:
-                                                FlutterFlowTheme.of(
-                                                    context)
-                                                    .titleMedium
-                                                    .fontStyle,
-                                              ),
+                                              fontFamily: "Urbanist",
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.bold,
-                                              fontStyle:
-                                              FlutterFlowTheme.of(
-                                                  context)
-                                                  .titleMedium
-                                                  .fontStyle,
                                               height: 1.4,
                                             ),
                                           ),
@@ -357,7 +328,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                           child: FlutterFlowLineChart(
                                             data: [
                                               FFLineChartData(
-                                                xData: ([
+                                                xData: [
                                                   0.0,
                                                   1.0,
                                                   2.0,
@@ -365,8 +336,8 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                                   4.0,
                                                   5.0,
                                                   6.0
-                                                ])!,
-                                                yData: ([
+                                                ],
+                                                yData: [
                                                   1200.0,
                                                   1800.0,
                                                   1500.0,
@@ -374,7 +345,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                                   2800.0,
                                                   2400.0,
                                                   3100.0
-                                                ])!,
+                                                ],
                                                 settings: LineChartBarData(
                                                   color: FlutterFlowTheme.of(
                                                       context)
@@ -401,7 +372,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                               maxX: 6,
                                               maxY: 3720,
                                             ),
-                                            xLabels: ([
+                                            xLabels: [
                                               'Sem 1',
                                               'Sem 2',
                                               'Sem 3',
@@ -409,15 +380,14 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                               'Sem 5',
                                               'Sem 6',
                                               'Sem 7'
-                                            ])!,
-                                            xAxisLabelInfo: fl.AxisLabelInfo(
+                                            ],
+                                            xAxisLabelInfo: AxisLabelInfo(
                                               showLabels: true,
                                               labelTextStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
                                                   .copyWith(
-                                                fontFamily:
-                                                GoogleFonts.poppins().fontFamily,
+                                                fontFamily: "Poppins",
                                                 color:
                                                 FlutterFlowTheme.of(
                                                     context)
@@ -429,16 +399,11 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                                     context)
                                                     .bodySmall
                                                     .fontWeight,
-                                                fontStyle:
-                                                FlutterFlowTheme.of(
-                                                    context)
-                                                    .bodySmall
-                                                    .fontStyle,
                                                 height: 1,
                                               ),
                                               reservedSize: 28,
                                             ),
-                                            yAxisLabelInfo: fl.AxisLabelInfo(
+                                            yAxisLabelInfo: AxisLabelInfo(
                                               reservedSize: 0,
                                             ),
                                           ),
@@ -474,19 +439,9 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .titleMedium
                                             .copyWith(
-                                          fontFamily: GoogleFonts.urbanist(
-                                            fontWeight: FontWeight.bold,
-                                            fontStyle:
-                                            FlutterFlowTheme.of(context)
-                                                .titleMedium
-                                                .fontStyle,
-                                          ),
+                                          fontFamily: "Urbanist",
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
-                                          fontStyle:
-                                          FlutterFlowTheme.of(context)
-                                              .titleMedium
-                                              .fontStyle,
                                           height: 1.4,
                                         ),
                                       ),
@@ -551,21 +506,9 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .titleMedium
                                                 .copyWith(
-                                              fontFamily: GoogleFonts.urbanist(
-                                                fontWeight: FontWeight.bold,
-                                                fontStyle:
-                                                FlutterFlowTheme.of(
-                                                    context)
-                                                    .titleMedium
-                                                    .fontStyle,
-                                              ),
+                                              fontFamily: "Urbanist",
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.bold,
-                                              fontStyle:
-                                              FlutterFlowTheme.of(
-                                                  context)
-                                                  .titleMedium
-                                                  .fontStyle,
                                               height: 1.4,
                                             ),
                                           ),
@@ -638,25 +581,10 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                                           .of(context)
                                                           .bodyMedium
                                                           .copyWith(
-                                                        fontFamily: GoogleFonts
-                                                            .poppins(
-                                                          fontWeight:
-                                                          FontWeight
-                                                              .bold,
-                                                          fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                              context)
-                                                              .bodyMedium
-                                                              .fontStyle,
-                                                        ),
+                                                        fontFamily: "Poppins",
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                         FontWeight.bold,
-                                                        fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                            context)
-                                                            .bodyMedium
-                                                            .fontStyle,
                                                         height: 1.5,
                                                       ),
                                                       overflow:
@@ -669,17 +597,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                                           context)
                                                           .labelSmall
                                                           .copyWith(
-                                                        fontFamily: GoogleFonts
-                                                            .spaceGrotesk(
-                                                          fontWeight: FlutterFlowTheme.of(
-                                                              context)
-                                                              .labelSmall
-                                                              .fontWeight,
-                                                          fontStyle: FlutterFlowTheme.of(
-                                                              context)
-                                                              .labelSmall
-                                                              .fontStyle,
-                                                        ),
+                                                        fontFamily: "Space Grotesk",
                                                         color: FlutterFlowTheme.of(
                                                             context)
                                                             .secondaryText,
@@ -689,10 +607,6 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                                             context)
                                                             .labelSmall
                                                             .fontWeight,
-                                                        fontStyle: FlutterFlowTheme.of(
-                                                            context)
-                                                            .labelSmall
-                                                            .fontStyle,
                                                         height: 1.2,
                                                       ),
                                                     ),
@@ -705,15 +619,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                                     context)
                                                     .bodyMedium
                                                     .copyWith(
-                                                  fontFamily: GoogleFonts.poppins(
-                                                    fontWeight:
-                                                    FontWeight.bold,
-                                                    fontStyle:
-                                                    FlutterFlowTheme.of(
-                                                        context)
-                                                        .bodyMedium
-                                                        .fontStyle,
-                                                  ),
+                                                  fontFamily: "Poppins",
                                                   color:
                                                   FlutterFlowTheme.of(
                                                       context)
@@ -721,11 +627,6 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                                   letterSpacing: 0.0,
                                                   fontWeight:
                                                   FontWeight.bold,
-                                                  fontStyle:
-                                                  FlutterFlowTheme.of(
-                                                      context)
-                                                      .bodyMedium
-                                                      .fontStyle,
                                                   height: 1.5,
                                                 ),
                                               ),
@@ -785,25 +686,10 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                                           .of(context)
                                                           .bodyMedium
                                                           .copyWith(
-                                                        fontFamily: GoogleFonts
-                                                            .poppins(
-                                                          fontWeight:
-                                                          FontWeight
-                                                              .bold,
-                                                          fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                              context)
-                                                              .bodyMedium
-                                                              .fontStyle,
-                                                        ),
+                                                        fontFamily: "Poppins",
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                         FontWeight.bold,
-                                                        fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                            context)
-                                                            .bodyMedium
-                                                            .fontStyle,
                                                         height: 1.5,
                                                       ),
                                                       overflow:
@@ -816,17 +702,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                                           context)
                                                           .labelSmall
                                                           .copyWith(
-                                                        fontFamily: GoogleFonts
-                                                            .spaceGrotesk(
-                                                          fontWeight: FlutterFlowTheme.of(
-                                                              context)
-                                                              .labelSmall
-                                                              .fontWeight,
-                                                          fontStyle: FlutterFlowTheme.of(
-                                                              context)
-                                                              .labelSmall
-                                                              .fontStyle,
-                                                        ),
+                                                        fontFamily: "Space Grotesk",
                                                         color: FlutterFlowTheme.of(
                                                             context)
                                                             .secondaryText,
@@ -836,10 +712,6 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                                             context)
                                                             .labelSmall
                                                             .fontWeight,
-                                                        fontStyle: FlutterFlowTheme.of(
-                                                            context)
-                                                            .labelSmall
-                                                            .fontStyle,
                                                         height: 1.2,
                                                       ),
                                                     ),
@@ -852,15 +724,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                                     context)
                                                     .bodyMedium
                                                     .copyWith(
-                                                  fontFamily: GoogleFonts.poppins(
-                                                    fontWeight:
-                                                    FontWeight.bold,
-                                                    fontStyle:
-                                                    FlutterFlowTheme.of(
-                                                        context)
-                                                        .bodyMedium
-                                                        .fontStyle,
-                                                  ),
+                                                  fontFamily: "Poppins",
                                                   color:
                                                   FlutterFlowTheme.of(
                                                       context)
@@ -868,11 +732,6 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                                   letterSpacing: 0.0,
                                                   fontWeight:
                                                   FontWeight.bold,
-                                                  fontStyle:
-                                                  FlutterFlowTheme.of(
-                                                      context)
-                                                      .bodyMedium
-                                                      .fontStyle,
                                                   height: 1.5,
                                                 ),
                                               ),
@@ -896,126 +755,92 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                 ),
                               ),
                               child: Padding(
-                                padding: EdgeInsets.all(24),
-                                child: Container(
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment:
-                                    CrossAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          borderRadius:
-                                          BorderRadius.circular(9999),
-                                          shape: BoxShape.rectangle,
+                                padding: const EdgeInsets.all(24),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment:
+                                  CrossAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        borderRadius:
+                                        BorderRadius.circular(9999),
+                                        shape: BoxShape.rectangle,
+                                      ),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(8),
+                                        child: Icon(
+                                          Icons.description_rounded,
+                                          color:
+                                          FlutterFlowTheme.of(context)
+                                              .onPrimary,
+                                          size: 24,
                                         ),
-                                        child: Padding(
-                                          padding: EdgeInsets.all(8),
-                                          child: Container(
-                                            child: Icon(
-                                              Icons.description_rounded,
-                                              color:
-                                              FlutterFlowTheme.of(context)
-                                                  .onPrimary,
-                                              size: 24,
+                                      ),
+                                    ),
+                                    Expanded(
+                                      flex: 1,
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        mainAxisAlignment:
+                                        MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            'Exportar Informe Profesional',
+                                            style: FlutterFlowTheme.of(
+                                                context)
+                                                .titleSmall
+                                                .copyWith(
+                                              fontFamily: "Urbanist",
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.bold,
+                                              height: 1.4,
                                             ),
                                           ),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        flex: 1,
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.min,
-                                          mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                          crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                          children: [
-                                            Text(
-                                              'Exportar Informe Profesional',
-                                              style: FlutterFlowTheme.of(
+                                          Text(
+                                            'PDF con gráficos y tablas detalladas',
+                                            style:
+                                            FlutterFlowTheme.of(context)
+                                                .labelSmall
+                                                .copyWith(
+                                              fontFamily: "Space Grotesk",
+                                              color:
+                                              FlutterFlowTheme.of(
                                                   context)
-                                                  .titleSmall
-                                                  .copyWith(
-                                                fontFamily: GoogleFonts.urbanist(
-                                                  fontWeight:
-                                                  FontWeight.bold,
-                                                  fontStyle:
-                                                  FlutterFlowTheme.of(
-                                                      context)
-                                                      .titleSmall
-                                                      .fontStyle,
-                                                ),
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.bold,
-                                                fontStyle:
-                                                FlutterFlowTheme.of(
-                                                    context)
-                                                    .titleSmall
-                                                    .fontStyle,
-                                                height: 1.4,
-                                              ),
-                                            ),
-                                            Text(
-                                              'PDF con gráficos y tablas detalladas',
-                                              style:
-                                              FlutterFlowTheme.of(context)
+                                                  .primaryText,
+                                              letterSpacing: 0.0,
+                                              fontWeight:
+                                              FlutterFlowTheme.of(
+                                                  context)
                                                   .labelSmall
-                                                  .copyWith(
-                                                fontFamily: GoogleFonts
-                                                    .spaceGrotesk(
-                                                  fontWeight:
-                                                  FlutterFlowTheme.of(
-                                                      context)
-                                                      .labelSmall
-                                                      .fontWeight,
-                                                  fontStyle:
-                                                  FlutterFlowTheme.of(
-                                                      context)
-                                                      .labelSmall
-                                                      .fontStyle,
-                                                ),
-                                                color:
-                                                FlutterFlowTheme.of(
-                                                    context)
-                                                    .onPrimary,
-                                                letterSpacing: 0.0,
-                                                fontWeight:
-                                                FlutterFlowTheme.of(
-                                                    context)
-                                                    .labelSmall
-                                                    .fontWeight,
-                                                fontStyle:
-                                                FlutterFlowTheme.of(
-                                                    context)
-                                                    .labelSmall
-                                                    .fontStyle,
-                                                height: 1.2,
-                                              ),
+                                                  .fontWeight,
+                                              height: 1.2,
                                             ),
-                                          ].divide(SizedBox(height: 4)),
-                                        ),
+                                          ),
+                                        ].divide(const SizedBox(height: 4)),
                                       ),
-                                      wrapWithModel(
-                                        model: _model.buttonModel3,
-                                        updateCallback: () =>
-                                            safeSetState(() {}),
-                                        child: ButtonWidget(
-                                          iconPresent: false,
-                                          iconEndPresent: false,
-                                          content: 'Generar',
-                                          variant: 'primary',
-                                          size: 'medium',
-                                          fullWidth: false,
-                                          loading: false,
-                                          disabled: false,
-                                        ),
+                                    ),
+                                    wrapWithModel(
+                                      model: _model.buttonModel3,
+                                      updateCallback: () =>
+                                          safeSetState(() {}),
+                                      child: ButtonWidget(
+                                        iconPresent: false,
+                                        iconEndPresent: false,
+                                        content: 'Generar',
+                                        variant: 'primary',
+                                        size: 'medium',
+                                        fullWidth: false,
+                                        loading: false,
+                                        disabled: false,
                                       ),
-                                    ].divide(SizedBox(width: 16)),
-                                  ),
+                                    ),
+                                  ].divide(const SizedBox(width: 16)),
                                 ),
                               ),
                             ),

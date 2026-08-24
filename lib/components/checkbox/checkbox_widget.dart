@@ -1,10 +1,6 @@
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
-import 'package:multi_p_o_s/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 import 'checkbox_model.dart';
 export 'checkbox_model.dart';
@@ -18,12 +14,12 @@ class CheckboxWidget extends StatefulWidget {
     bool? isChecked,
     bool? hasSubtitle,
     bool? disabled,
-  })  : this.label = label ?? 'Acepto los términos y condiciones de MultiPOS',
-        this.subtitle = subtitle ?? 'Receive weekly updates',
-        this.color = color ?? const Color(0x00000000),
-        this.isChecked = isChecked ?? true,
-        this.hasSubtitle = hasSubtitle ?? false,
-        this.disabled = disabled ?? false;
+  })  : label = label ?? 'Acepto los términos y condiciones de MultiPOS',
+        subtitle = subtitle ?? 'Receive weekly updates',
+        color = color ?? const Color(0x00000000),
+        isChecked = isChecked ?? true,
+        hasSubtitle = hasSubtitle ?? false,
+        disabled = disabled ?? false;
 
   final String label;
   final String subtitle;
@@ -62,157 +58,82 @@ class _CheckboxWidgetState extends State<CheckboxWidget> {
   Widget build(BuildContext context) {
     return Opacity(
       opacity: valueOrDefault<double>(
-        valueOrDefault<bool>(
-          widget!.disabled,
-          false,
-        )
-            ? 0.55
-            : 1.0,
+        widget.disabled ? 0.55 : 1.0,
         1.0,
       ),
-      child: Container(
-        child: Container(
-          child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 8),
-            child: Container(
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
+      child: Padding(
+        padding: const EdgeInsetsDirectional.fromSTEB(0, 8, 0, 8),
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              width: 20,
+              height: 20,
+              decoration: BoxDecoration(
+                color: widget.isChecked
+                    ? FlutterFlowTheme.of(context).primary
+                    : Colors.transparent,
+                borderRadius: BorderRadius.circular(8),
+                shape: BoxShape.rectangle,
+                border: Border.all(
+                  color: widget.isChecked
+                      ? Colors.transparent
+                      : FlutterFlowTheme.of(context).alternate,
+                  width: 1,
+                ),
+              ),
+              alignment: const AlignmentDirectional(0, 0),
+              child: widget.isChecked
+                  ? Icon(
+                      Icons.check_rounded,
+                      color: FlutterFlowTheme.of(context).onPrimary,
+                      size: 16,
+                    )
+                  : null,
+            ),
+            Expanded(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(
-                        valueOrDefault<double>(
-                          valueOrDefault<bool>(
-                            widget!.hasSubtitle,
-                            false,
-                          )
-                              ? 0.0
-                              : 0.0,
-                          0.0,
+                  Text(
+                    valueOrDefault<String>(
+                      widget.label,
+                      'Acepto los términos y condiciones de MultiPOS',
+                    ),
+                    maxLines: 1,
+                    style: FlutterFlowTheme.of(context).bodyMedium.copyWith(
+                          fontFamily: "Poppins",
+                          color: FlutterFlowTheme.of(context).primaryText,
+                          letterSpacing: 0.0,
+                          fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                          height: 1.5,
                         ),
-                        valueOrDefault<double>(
-                          valueOrDefault<bool>(
-                            widget!.hasSubtitle,
-                            false,
-                          )
-                              ? 3.0
-                              : 0.0,
-                          0.0,
-                        ),
-                        valueOrDefault<double>(
-                          valueOrDefault<bool>(
-                            widget!.hasSubtitle,
-                            false,
-                          )
-                              ? 0.0
-                              : 0.0,
-                          0.0,
-                        ),
-                        valueOrDefault<double>(
-                          valueOrDefault<bool>(
-                            widget!.hasSubtitle,
-                            false,
-                          )
-                              ? 0.0
-                              : 0.0,
-                          0.0,
-                        )),
-                    child: Container(
-                      child: Container(
-                        width: 20,
-                        height: 20,
-                        decoration: BoxDecoration(
-                          color: valueOrDefault<Color>(
-                            valueOrDefault<bool>(
-                              widget!.isChecked,
-                              true,
-                            )
-                                ? Color(0x00000000)
-                                : Colors.transparent,
-                            FlutterFlowTheme.of(context).primary,
-                          ),
-                          borderRadius: BorderRadius.circular(8),
-                          shape: BoxShape.rectangle,
-                          border: Border.all(
-                            color: Colors.transparent,
-                            width: 0,
-                          ),
-                        ),
-                        alignment: AlignmentDirectional(0, 0),
-                        child: Icon(
-                          Icons.check_rounded,
-                          color: FlutterFlowTheme.of(context).onPrimary,
-                          size: 16,
-                        ),
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  if (widget.hasSubtitle)
+                    Text(
+                      valueOrDefault<String>(
+                        widget.subtitle,
+                        'Receive weekly updates',
                       ),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          valueOrDefault<String>(
-                            widget!.label,
-                            'Acepto los términos y condiciones de MultiPOS',
+                      maxLines: 3,
+                      style: FlutterFlowTheme.of(context).bodySmall.copyWith(
+                            fontFamily: "Poppins",
+                            color: FlutterFlowTheme.of(context).secondaryText,
+                            letterSpacing: 0.0,
+                            fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                            height: 1.4,
                           ),
-                          maxLines: 1,
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .copyWith(
-                                fontFamily: "Poppins",
-                                  fontWeight: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .fontWeight,
-                                ),
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                letterSpacing: 0.0,
-                                fontWeight: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .fontWeight,
-                                height: 1.5,
-                              ),
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        Container(
-                          child: Container(
-                            child: Text(
-                              valueOrDefault<String>(
-                                widget!.subtitle,
-                                'Receive weekly updates',
-                              ),
-                              maxLines: 3,
-                              style: FlutterFlowTheme.of(context)
-                                  .bodySmall
-                                  .copyWith(
-                                    fontFamily: "Poppins",
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .bodySmall
-                                          .fontWeight,
-                                    ),
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryText,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .bodySmall
-                                        .fontWeight,
-                                    height: 1.4,
-                                  ),
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ),
-                        ),
-                      ],
+                      overflow: TextOverflow.ellipsis,
                     ),
-                  ),
-                ].divide(SizedBox(width: 16)),
+                ],
               ),
             ),
-          ),
+          ].divide(const SizedBox(width: 16)),
         ),
       ),
     );

@@ -1,0 +1,1466 @@
+lib/components/cash_stat/cash_stat_widget.dart:78:27: Error: Can't find ']' to match '['.
+                children: [
+                          ^
+lib/components/checkbox/checkbox_widget.dart:157:33: Error: Can't find ']' to match '['.
+                      children: [
+                                ^
+lib/components/client_card/client_card_widget.dart:72:23: Error: Can't find ']' to match '['.
+            children: [
+                      ^
+lib/components/client_card/client_card_widget.dart:106:29: Error: Can't find ']' to match '['.
+                  children: [
+                            ^
+lib/components/client_card/client_card_widget.dart:126:33: Error: Can't find ']' to match '['.
+                      children: [
+                                ^
+lib/components/credit_stat/credit_stat_widget.dart:78:27: Error: Can't find ']' to match '['.
+                children: [
+                          ^
+lib/components/form_field/form_field_widget.dart:62:17: Error: Can't find ']' to match '['.
+      children: [
+                ^
+lib/components/history_stat/history_stat_widget.dart:78:27: Error: Can't find ']' to match '['.
+                children: [
+                          ^
+lib/components/inventory_stat/inventory_stat_widget.dart:91:27: Error: Can't find ']' to match '['.
+                children: [
+                          ^
+lib/components/login_background_child/login_background_child_widget.dart:296:23: Error: Can't find ']' to match '['.
+            children: [
+                      ^
+lib/components/login_background_child/login_background_child_widget.dart:349:27: Error: Can't find ']' to match '['.
+                children: [
+                          ^
+lib/pages/registro_de_negocio/registro_de_negocio_widget.dart:124:72: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                       fontFamily: GoogleFonts.urbanist(
+                                                                       ^
+lib/pages/registro_de_negocio/registro_de_negocio_widget.dart:138:71: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                       fontFamily: GoogleFonts.poppins(
+                                                                      ^
+lib/pages/registro_de_negocio/registro_de_negocio_widget.dart:186:72: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                       fontFamily: GoogleFonts.urbanist(
+                                                                       ^
+lib/pages/registro_de_negocio/registro_de_negocio_widget.dart:218:76: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                       fontFamily: GoogleFonts.spaceGrotesk(
+                                                                           ^
+lib/pages/registro_de_negocio/registro_de_negocio_widget.dart:410:72: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                       fontFamily: GoogleFonts.urbanist(
+                                                                       ^
+lib/pages/registro_de_negocio/registro_de_negocio_widget.dart:486:42: Error: The method 'goNamed' is defined in multiple extensions for 'BuildContext' and neither is more specific.
+ - 'BuildContext' is from 'package:flutter/src/widgets/framework.dart' ('/H:/flutter/packages/flutter/lib/src/widgets/framework.dart').
+Try using an explicit extension application of the wanted extension or hiding unwanted extensions from scope.
+                                 context.goNamed(PanelPrincipalWidget.routeName);
+                                         ^^^^^^^
+lib/flutter_flow/flutter_flow_util.dart:44:8: Context: This is one of the extension members.
+  void goNamed(String name, {Map<String, String> pathParameters = const {}, Map<String, String> queryParameters = const {}}) =>
+       ^^^^^^^
+/C:/Users/Admin/AppData/Local/Pub/Cache/hosted/pub.dev/go_router-12.1.3/lib/src/misc/extensions.dart:28:8: Context: This is one of the extension members.
+  void goNamed(
+       ^^^^^^^
+lib/pages/registro_de_negocio/registro_de_negocio_widget.dart:523:73: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                         fontFamily: GoogleFonts.poppins(
+                                                                        ^
+lib/pages/registro_de_negocio/registro_de_negocio_widget.dart:543:42: Error: The method 'goNamed' is defined in multiple extensions for 'BuildContext' and neither is more specific.
+ - 'BuildContext' is from 'package:flutter/src/widgets/framework.dart' ('/H:/flutter/packages/flutter/lib/src/widgets/framework.dart').
+Try using an explicit extension application of the wanted extension or hiding unwanted extensions from scope.
+                                 context.goNamed(InicioDeSesiNWidget.routeName);
+                                         ^^^^^^^
+lib/flutter_flow/flutter_flow_util.dart:44:8: Context: This is one of the extension members.
+  void goNamed(String name, {Map<String, String> pathParameters = const {}, Map<String, String> queryParameters = const {}}) =>
+       ^^^^^^^
+/C:/Users/Admin/AppData/Local/Pub/Cache/hosted/pub.dev/go_router-12.1.3/lib/src/misc/extensions.dart:28:8: Context: This is one of the extension members.
+  void goNamed(
+       ^^^^^^^
+lib/pages/panel_principal/panel_principal_widget.dart:85:63: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                              fontFamily: GoogleFonts.urbanist(
+                                                              ^
+lib/pages/panel_principal/panel_principal_widget.dart:110:71: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                  fontFamily: GoogleFonts.spaceGrotesk(
+                                                                      ^
+lib/pages/panel_principal/panel_principal_widget.dart:230:83: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                              fontFamily: GoogleFonts.spaceGrotesk(
+                                                                                  ^
+lib/pages/panel_principal/panel_principal_widget.dart:278:53: Error: No named parameter with the name 'font'.
+                                                    font: GoogleFonts
+                                                    ^^^^
+lib/pages/panel_principal/panel_principal_widget.dart:313:74: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                          fontFamily: GoogleFonts.poppins(
+                                                                         ^
+lib/pages/panel_principal/panel_principal_widget.dart:361:51: Error: No named parameter with the name 'font'.
+                                                  font: GoogleFonts
+                                                  ^^^^
+lib/pages/panel_principal/panel_principal_widget.dart:397:82: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                                  fontFamily: GoogleFonts.poppins(
+                                                                                 ^
+lib/pages/panel_principal/panel_principal_widget.dart:436:51: Error: No named parameter with the name 'font'.
+                                                  font: GoogleFonts
+                                                  ^^^^
+lib/pages/panel_principal/panel_principal_widget.dart:493:55: Error: No named parameter with the name 'font'.
+                                                      font: GoogleFonts
+                                                      ^^^^
+lib/pages/panel_principal/panel_principal_widget.dart:538:69: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                    fontFamily: GoogleFonts.urbanist(
+                                                                    ^
+lib/pages/panel_principal/panel_principal_widget.dart:736:49: Error: No named parameter with the name 'font'.
+                                                font: GoogleFonts
+                                                ^^^^
+lib/pages/panel_principal/panel_principal_widget.dart:765:80: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                                fontFamily: GoogleFonts.poppins(
+                                                                               ^
+lib/pages/panel_principal/panel_principal_widget.dart:807:51: Error: The method 'goNamed' is defined in multiple extensions for 'BuildContext' and neither is more specific.
+ - 'BuildContext' is from 'package:flutter/src/widgets/framework.dart' ('/H:/flutter/packages/flutter/lib/src/widgets/framework.dart').
+Try using an explicit extension application of the wanted extension or hiding unwanted extensions from scope.
+                                          context.goNamed(
+                                                  ^^^^^^^
+lib/flutter_flow/flutter_flow_util.dart:44:8: Context: This is one of the extension members.
+  void goNamed(String name, {Map<String, String> pathParameters = const {}, Map<String, String> queryParameters = const {}}) =>
+       ^^^^^^^
+/C:/Users/Admin/AppData/Local/Pub/Cache/hosted/pub.dev/go_router-12.1.3/lib/src/misc/extensions.dart:28:8: Context: This is one of the extension members.
+  void goNamed(
+       ^^^^^^^
+lib/pages/panel_principal/panel_principal_widget.dart:833:73: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                        fontFamily: GoogleFonts.urbanist(
+                                                                        ^
+lib/pages/panel_principal/panel_principal_widget.dart:855:49: Error: The method 'goNamed' is defined in multiple extensions for 'BuildContext' and neither is more specific.
+ - 'BuildContext' is from 'package:flutter/src/widgets/framework.dart' ('/H:/flutter/packages/flutter/lib/src/widgets/framework.dart').
+Try using an explicit extension application of the wanted extension or hiding unwanted extensions from scope.
+                                        context.goNamed(
+                                                ^^^^^^^
+lib/flutter_flow/flutter_flow_util.dart:44:8: Context: This is one of the extension members.
+  void goNamed(String name, {Map<String, String> pathParameters = const {}, Map<String, String> queryParameters = const {}}) =>
+       ^^^^^^^
+/C:/Users/Admin/AppData/Local/Pub/Cache/hosted/pub.dev/go_router-12.1.3/lib/src/misc/extensions.dart:28:8: Context: This is one of the extension members.
+  void goNamed(
+       ^^^^^^^
+lib/pages/panel_principal/panel_principal_widget.dart:943:57: Error: No named parameter with the name 'font'.
+                                                        font: GoogleFonts
+                                                        ^^^^
+lib/pages/panel_principal/panel_principal_widget.dart:972:57: Error: No named parameter with the name 'font'.
+                                                        font: GoogleFonts
+                                                        ^^^^
+lib/pages/panel_principal/panel_principal_widget.dart:1008:82: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                                  fontFamily: GoogleFonts.poppins(
+                                                                                 ^
+lib/pages/panel_principal/panel_principal_widget.dart:1089:57: Error: No named parameter with the name 'font'.
+                                                        font: GoogleFonts
+                                                        ^^^^
+lib/pages/panel_principal/panel_principal_widget.dart:1118:57: Error: No named parameter with the name 'font'.
+                                                        font: GoogleFonts
+                                                        ^^^^
+lib/pages/panel_principal/panel_principal_widget.dart:1154:82: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                                  fontFamily: GoogleFonts.poppins(
+                                                                                 ^
+lib/pages/punto_de_venta/punto_de_venta_widget.dart:95:40: Error: The method 'goNamed' is defined in multiple extensions for 'BuildContext' and neither is more specific.
+ - 'BuildContext' is from 'package:flutter/src/widgets/framework.dart' ('/H:/flutter/packages/flutter/lib/src/widgets/framework.dart').
+Try using an explicit extension application of the wanted extension or hiding unwanted extensions from scope.
+                                      .goNamed(PanelPrincipalWidget.routeName);
+                                       ^^^^^^^
+lib/flutter_flow/flutter_flow_util.dart:44:8: Context: This is one of the extension members.
+  void goNamed(String name, {Map<String, String> pathParameters = const {}, Map<String, String> queryParameters = const {}}) =>
+       ^^^^^^^
+/C:/Users/Admin/AppData/Local/Pub/Cache/hosted/pub.dev/go_router-12.1.3/lib/src/misc/extensions.dart:28:8: Context: This is one of the extension members.
+  void goNamed(
+       ^^^^^^^
+lib/pages/punto_de_venta/punto_de_venta_widget.dart:108:71: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                      fontFamily: GoogleFonts.urbanist(
+                                                                      ^
+lib/pages/punto_de_venta/punto_de_venta_widget.dart:131:75: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                      fontFamily: GoogleFonts.spaceGrotesk(
+                                                                          ^
+lib/pages/punto_de_venta/punto_de_venta_widget.dart:262:77: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                        fontFamily: GoogleFonts.spaceGrotesk(
+                                                                            ^
+lib/pages/punto_de_venta/punto_de_venta_widget.dart:389:75: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                          fontFamily: GoogleFonts.urbanist(
+                                                                          ^
+lib/pages/punto_de_venta/punto_de_venta_widget.dart:529:82: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                                  fontFamily: GoogleFonts.poppins(
+                                                                                 ^
+lib/pages/punto_de_venta/punto_de_venta_widget.dart:586:78: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                              fontFamily: GoogleFonts.poppins(
+                                                                             ^
+lib/pages/punto_de_venta/punto_de_venta_widget.dart:620:78: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                              fontFamily: GoogleFonts.poppins(
+                                                                             ^
+lib/pages/punto_de_venta/punto_de_venta_widget.dart:663:78: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                              fontFamily: GoogleFonts.poppins(
+                                                                             ^
+lib/pages/punto_de_venta/punto_de_venta_widget.dart:697:78: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                              fontFamily: GoogleFonts.poppins(
+                                                                             ^
+lib/pages/punto_de_venta/punto_de_venta_widget.dart:754:79: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                              fontFamily: GoogleFonts.urbanist(
+                                                                              ^
+lib/pages/punto_de_venta/punto_de_venta_widget.dart:780:79: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                              fontFamily: GoogleFonts.urbanist(
+                                                                              ^
+lib/pages/punto_de_venta/punto_de_venta_widget.dart:898:83: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                              fontFamily: GoogleFonts.spaceGrotesk(
+                                                                                  ^
+lib/pages/punto_de_venta/punto_de_venta_widget.dart:961:83: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                              fontFamily: GoogleFonts.spaceGrotesk(
+                                                                                  ^
+lib/pages/punto_de_venta/punto_de_venta_widget.dart:1024:83: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                              fontFamily: GoogleFonts.spaceGrotesk(
+                                                                                  ^
+lib/pages/punto_de_venta/punto_de_venta_widget.dart:1067:67: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                              fontFamily: GoogleFonts.spaceGrotesk(
+                                                                  ^
+lib/pages/gesti_n_de_caja/gesti_n_de_caja_widget.dart:87:67: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                  fontFamily: GoogleFonts.urbanist(
+                                                                  ^
+lib/pages/gesti_n_de_caja/gesti_n_de_caja_widget.dart:117:75: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                      fontFamily: GoogleFonts.spaceGrotesk(
+                                                                          ^
+lib/pages/gesti_n_de_caja/gesti_n_de_caja_widget.dart:360:73: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                        fontFamily: GoogleFonts.urbanist(
+                                                                        ^
+lib/pages/gesti_n_de_caja/gesti_n_de_caja_widget.dart:383:77: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                        fontFamily: GoogleFonts.spaceGrotesk(
+                                                                            ^
+lib/pages/gesti_n_de_caja/gesti_n_de_caja_widget.dart:531:53: Error: No named parameter with the name 'font'.
+                                                    font: GoogleFonts
+                                                    ^^^^
+lib/pages/gesti_n_de_caja/gesti_n_de_caja_widget.dart:562:84: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                                    fontFamily: GoogleFonts.poppins(
+                                                                                   ^
+lib/pages/inventario_de_productos/inventario_de_productos_widget.dart:72:51: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+              fontFamily: GoogleFonts.spaceGrotesk(
+                                                  ^
+lib/pages/inventario_de_productos/inventario_de_productos_widget.dart:124:71: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                      fontFamily: GoogleFonts.urbanist(
+                                                                      ^
+lib/pages/inventario_de_productos/inventario_de_productos_widget.dart:147:70: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                      fontFamily: GoogleFonts.poppins(
+                                                                     ^
+lib/pages/inventario_de_productos/inventario_de_productos_widget.dart:298:71: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                      fontFamily: GoogleFonts.urbanist(
+                                                                      ^
+lib/pages/inventario_de_productos/inventario_de_productos_widget.dart:364:53: Error: No named parameter with the name 'font'.
+                                                    font: GoogleFonts
+                                                    ^^^^
+lib/pages/inventario_de_productos/inventario_de_productos_widget.dart:432:53: Error: No named parameter with the name 'font'.
+                                                    font: GoogleFonts
+                                                    ^^^^
+lib/pages/inventario_de_productos/inventario_de_productos_widget.dart:500:53: Error: No named parameter with the name 'font'.
+                                                    font: GoogleFonts
+                                                    ^^^^
+lib/pages/inventario_de_productos/inventario_de_productos_widget.dart:568:53: Error: No named parameter with the name 'font'.
+                                                    font: GoogleFonts
+                                                    ^^^^
+lib/pages/inventario_de_productos/inventario_de_productos_widget.dart:636:53: Error: No named parameter with the name 'font'.
+                                                    font: GoogleFonts
+                                                    ^^^^
+lib/pages/inventario_de_productos/inventario_de_productos_widget.dart:694:75: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                          fontFamily: GoogleFonts.urbanist(
+                                                                          ^
+lib/pages/inventario_de_productos/inventario_de_productos_widget.dart:718:79: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                          fontFamily: GoogleFonts.spaceGrotesk(
+                                                                              ^
+lib/pages/historial_de_ventas/historial_de_ventas_widget.dart:70:51: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+              fontFamily: GoogleFonts.spaceGrotesk(
+                                                  ^
+lib/pages/historial_de_ventas/historial_de_ventas_widget.dart:122:40: Error: The method 'goNamed' is defined in multiple extensions for 'BuildContext' and neither is more specific.
+ - 'BuildContext' is from 'package:flutter/src/widgets/framework.dart' ('/H:/flutter/packages/flutter/lib/src/widgets/framework.dart').
+Try using an explicit extension application of the wanted extension or hiding unwanted extensions from scope.
+                                      .goNamed(PanelPrincipalWidget.routeName);
+                                       ^^^^^^^
+lib/flutter_flow/flutter_flow_util.dart:44:8: Context: This is one of the extension members.
+  void goNamed(String name, {Map<String, String> pathParameters = const {}, Map<String, String> queryParameters = const {}}) =>
+       ^^^^^^^
+/C:/Users/Admin/AppData/Local/Pub/Cache/hosted/pub.dev/go_router-12.1.3/lib/src/misc/extensions.dart:28:8: Context: This is one of the extension members.
+  void goNamed(
+       ^^^^^^^
+lib/pages/historial_de_ventas/historial_de_ventas_widget.dart:130:67: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                  fontFamily: GoogleFonts.urbanist(
+                                                                  ^
+lib/pages/historial_de_ventas/historial_de_ventas_widget.dart:325:83: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                              fontFamily: GoogleFonts.spaceGrotesk(
+                                                                                  ^
+lib/pages/historial_de_ventas/historial_de_ventas_widget.dart:387:83: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                              fontFamily: GoogleFonts.spaceGrotesk(
+                                                                                  ^
+lib/pages/historial_de_ventas/historial_de_ventas_widget.dart:449:83: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                              fontFamily: GoogleFonts.spaceGrotesk(
+                                                                                  ^
+lib/pages/historial_de_ventas/historial_de_ventas_widget.dart:511:83: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                              fontFamily: GoogleFonts.spaceGrotesk(
+                                                                                  ^
+lib/pages/historial_de_ventas/historial_de_ventas_widget.dart:558:73: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                    fontFamily: GoogleFonts.spaceGrotesk(
+                                                                        ^
+lib/pages/historial_de_ventas/historial_de_ventas_widget.dart:634:73: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                    fontFamily: GoogleFonts.spaceGrotesk(
+                                                                        ^
+lib/pages/clientes_y_cr_ditos/clientes_y_cr_ditos_widget.dart:94:71: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                      fontFamily: GoogleFonts.urbanist(
+                                                                      ^
+lib/pages/clientes_y_cr_ditos/clientes_y_cr_ditos_widget.dart:117:70: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                      fontFamily: GoogleFonts.poppins(
+                                                                     ^
+lib/pages/clientes_y_cr_ditos/clientes_y_cr_ditos_widget.dart:297:83: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                              fontFamily: GoogleFonts.spaceGrotesk(
+                                                                                  ^
+lib/pages/clientes_y_cr_ditos/clientes_y_cr_ditos_widget.dart:359:83: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                              fontFamily: GoogleFonts.spaceGrotesk(
+                                                                                  ^
+lib/pages/clientes_y_cr_ditos/clientes_y_cr_ditos_widget.dart:421:83: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                              fontFamily: GoogleFonts.spaceGrotesk(
+                                                                                  ^
+lib/pages/clientes_y_cr_ditos/clientes_y_cr_ditos_widget.dart:483:83: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                              fontFamily: GoogleFonts.spaceGrotesk(
+                                                                                  ^
+lib/pages/clientes_y_cr_ditos/clientes_y_cr_ditos_widget.dart:530:69: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                    fontFamily: GoogleFonts.urbanist(
+                                                                    ^
+lib/pages/reportes_y_m_tricas/reportes_y_m_tricas_widget.dart:90:67: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                  fontFamily: GoogleFonts.urbanist(
+                                                                  ^
+lib/pages/reportes_y_m_tricas/reportes_y_m_tricas_widget.dart:105:66: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                  fontFamily: GoogleFonts.poppins(
+                                                                 ^
+lib/pages/reportes_y_m_tricas/reportes_y_m_tricas_widget.dart:327:79: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                              fontFamily: GoogleFonts.urbanist(
+                                                                              ^
+lib/pages/reportes_y_m_tricas/reportes_y_m_tricas_widget.dart:359:47: Error: The method 'FFLineChartData' isn't defined for the type '_ReportesYMTricasWidgetState'.
+ - '_ReportesYMTricasWidgetState' is from 'package:multi_p_o_s/pages/reportes_y_m_tricas/reportes_y_m_tricas_widget.dart' ('lib/pages/reportes_y_m_tricas/reportes_y_m_tricas_widget.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'FFLineChartData'.
+                                              FFLineChartData(
+                                              ^^^^^^^^^^^^^^^
+lib/pages/reportes_y_m_tricas/reportes_y_m_tricas_widget.dart:393:63: Error: The method 'ChartStylingInfo' isn't defined for the type '_ReportesYMTricasWidgetState'.
+ - '_ReportesYMTricasWidgetState' is from 'package:multi_p_o_s/pages/reportes_y_m_tricas/reportes_y_m_tricas_widget.dart' ('lib/pages/reportes_y_m_tricas/reportes_y_m_tricas_widget.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'ChartStylingInfo'.
+                                            chartStylingInfo: ChartStylingInfo(
+                                                              ^^^^^^^^^^^^^^^^
+lib/pages/reportes_y_m_tricas/reportes_y_m_tricas_widget.dart:398:57: Error: The method 'AxisBounds' isn't defined for the type '_ReportesYMTricasWidgetState'.
+ - '_ReportesYMTricasWidgetState' is from 'package:multi_p_o_s/pages/reportes_y_m_tricas/reportes_y_m_tricas_widget.dart' ('lib/pages/reportes_y_m_tricas/reportes_y_m_tricas_widget.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'AxisBounds'.
+                                            axisBounds: AxisBounds(
+                                                        ^^^^^^^^^^
+lib/pages/reportes_y_m_tricas/reportes_y_m_tricas_widget.dart:413:61: Error: The getter 'fl' isn't defined for the type '_ReportesYMTricasWidgetState'.
+ - '_ReportesYMTricasWidgetState' is from 'package:multi_p_o_s/pages/reportes_y_m_tricas/reportes_y_m_tricas_widget.dart' ('lib/pages/reportes_y_m_tricas/reportes_y_m_tricas_widget.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'fl'.                                            xAxisLabelInfo: fl.AxisLabelInfo(
+                                                            ^^
+lib/pages/reportes_y_m_tricas/reportes_y_m_tricas_widget.dart:441:61: Error: The getter 'fl' isn't defined for the type '_ReportesYMTricasWidgetState'.
+ - '_ReportesYMTricasWidgetState' is from 'package:multi_p_o_s/pages/reportes_y_m_tricas/reportes_y_m_tricas_widget.dart' ('lib/pages/reportes_y_m_tricas/reportes_y_m_tricas_widget.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'fl'.                                            yAxisLabelInfo: fl.AxisLabelInfo(
+                                                            ^^
+lib/pages/reportes_y_m_tricas/reportes_y_m_tricas_widget.dart:357:50: Error: The method 'FlutterFlowLineChart' isn't defined for the type '_ReportesYMTricasWidgetState'.
+ - '_ReportesYMTricasWidgetState' is from 'package:multi_p_o_s/pages/reportes_y_m_tricas/reportes_y_m_tricas_widget.dart' ('lib/pages/reportes_y_m_tricas/reportes_y_m_tricas_widget.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'FlutterFlowLineChart'.
+                                          child: FlutterFlowLineChart(
+                                                 ^^^^^^^^^^^^^^^^^^^^
+lib/pages/reportes_y_m_tricas/reportes_y_m_tricas_widget.dart:477:75: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                          fontFamily: GoogleFonts.urbanist(
+                                                                          ^
+lib/pages/reportes_y_m_tricas/reportes_y_m_tricas_widget.dart:554:79: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                              fontFamily: GoogleFonts.urbanist(
+                                                                              ^
+lib/pages/reportes_y_m_tricas/reportes_y_m_tricas_widget.dart:642:69: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                                            .poppins(
+                                                                    ^
+lib/pages/reportes_y_m_tricas/reportes_y_m_tricas_widget.dart:673:74: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                                            .spaceGrotesk(
+                                                                         ^
+lib/pages/reportes_y_m_tricas/reportes_y_m_tricas_widget.dart:708:82: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                                  fontFamily: GoogleFonts.poppins(
+                                                                                 ^
+lib/pages/reportes_y_m_tricas/reportes_y_m_tricas_widget.dart:789:69: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                                            .poppins(
+                                                                    ^
+lib/pages/reportes_y_m_tricas/reportes_y_m_tricas_widget.dart:820:74: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                                            .spaceGrotesk(
+                                                                         ^
+lib/pages/reportes_y_m_tricas/reportes_y_m_tricas_widget.dart:855:82: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                                  fontFamily: GoogleFonts.poppins(
+                                                                                 ^
+lib/pages/reportes_y_m_tricas/reportes_y_m_tricas_widget.dart:943:81: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                                fontFamily: GoogleFonts.urbanist(
+                                                                                ^
+lib/pages/reportes_y_m_tricas/reportes_y_m_tricas_widget.dart:969:66: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                                    .spaceGrotesk(
+                                                                 ^
+lib/pages/configuraci_n_y_empresas/configuraci_n_y_empresas_widget.dart:91:67: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                  fontFamily: GoogleFonts.urbanist(
+                                                                  ^
+lib/pages/configuraci_n_y_empresas/configuraci_n_y_empresas_widget.dart:106:66: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                  fontFamily: GoogleFonts.poppins(
+                                                                 ^
+lib/pages/configuraci_n_y_empresas/configuraci_n_y_empresas_widget.dart:182:73: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                        fontFamily: GoogleFonts.urbanist(
+                                                                        ^
+lib/pages/configuraci_n_y_empresas/configuraci_n_y_empresas_widget.dart:204:49: Error: The method 'goNamed' is defined in multiple extensions for 'BuildContext' and neither is more specific.
+ - 'BuildContext' is from 'package:flutter/src/widgets/framework.dart' ('/H:/flutter/packages/flutter/lib/src/widgets/framework.dart').
+Try using an explicit extension application of the wanted extension or hiding unwanted extensions from scope.
+                                        context.goNamed(
+                                                ^^^^^^^
+lib/flutter_flow/flutter_flow_util.dart:44:8: Context: This is one of the extension members.
+  void goNamed(String name, {Map<String, String> pathParameters = const {}, Map<String, String> queryParameters = const {}}) =>
+       ^^^^^^^
+/C:/Users/Admin/AppData/Local/Pub/Cache/hosted/pub.dev/go_router-12.1.3/lib/src/misc/extensions.dart:28:8: Context: This is one of the extension members.
+  void goNamed(
+       ^^^^^^^
+lib/pages/configuraci_n_y_empresas/configuraci_n_y_empresas_widget.dart:261:69: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                    fontFamily: GoogleFonts.urbanist(
+                                                                    ^
+lib/pages/configuraci_n_y_empresas/configuraci_n_y_empresas_widget.dart:301:42: Error: The getter 'secondary20' isn't defined for the type 'FlutterFlowTheme'.
+ - 'FlutterFlowTheme' is from 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart' ('lib/flutter_flow/flutter_flow_theme.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'secondary20'.
+                                        .secondary20,
+                                         ^^^^^^^^^^^
+lib/pages/configuraci_n_y_empresas/configuraci_n_y_empresas_widget.dart:320:69: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                    fontFamily: GoogleFonts.urbanist(
+                                                                    ^
+lib/pages/configuraci_n_y_empresas/configuraci_n_y_empresas_widget.dart:413:49: Error: No named parameter with the name 'font'.
+                                                font: GoogleFonts
+                                                ^^^^
+lib/pages/configuraci_n_y_empresas/configuraci_n_y_empresas_widget.dart:452:83: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                                  fontFamily: GoogleFonts.urbanist(
+                                                                                  ^
+lib/pages/configuraci_n_y_empresas/configuraci_n_y_empresas_widget.dart:478:51: Error: No named parameter with the name 'font'.
+                                                  font: GoogleFonts
+                                                  ^^^^
+lib/pages/configuraci_n_y_empresas/configuraci_n_y_empresas_widget.dart:526:51: Error: The method 'goNamed' is defined in multiple extensions for 'BuildContext' and neither is more specific.
+ - 'BuildContext' is from 'package:flutter/src/widgets/framework.dart' ('/H:/flutter/packages/flutter/lib/src/widgets/framework.dart').
+Try using an explicit extension application of the wanted extension or hiding unwanted extensions from scope.
+                                          context.goNamed(
+                                                  ^^^^^^^
+lib/flutter_flow/flutter_flow_util.dart:44:8: Context: This is one of the extension members.
+  void goNamed(String name, {Map<String, String> pathParameters = const {}, Map<String, String> queryParameters = const {}}) =>
+       ^^^^^^^
+/C:/Users/Admin/AppData/Local/Pub/Cache/hosted/pub.dev/go_router-12.1.3/lib/src/misc/extensions.dart:28:8: Context: This is one of the extension members.
+  void goNamed(
+       ^^^^^^^
+lib/pages/configuraci_n_y_empresas/configuraci_n_y_empresas_widget.dart:569:75: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                      fontFamily: GoogleFonts.spaceGrotesk(
+                                                                          ^
+lib/pages/configuraci_n_y_empresas/configuraci_n_y_empresas_widget.dart:598:75: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                      fontFamily: GoogleFonts.spaceGrotesk(
+                                                                          ^
+lib/components/cash_stat/cash_stat_widget.dart:94:29: Error: No named parameter with the name 'color'.
+                            color: FlutterFlowTheme.of(context).secondaryText,
+                            ^^^^^
+/H:/flutter/packages/flutter/lib/src/widgets/text.dart:507:9: Context: Found this candidate, but the arguments don't match.
+  const Text(
+        ^^^^
+lib/components/cash_stat/cash_stat_widget.dart:101:23: Error: No named parameter with the name 'overflow'.
+                      overflow: TextOverflow.ellipsis,
+                      ^^^^^^^^
+/H:/flutter/packages/flutter/lib/src/widgets/basic.dart:5933:9: Context: Found this candidate, but the arguments don't match.
+  const Flexible({super.key, this.flex = 1, this.fit = FlexFit.loose, required super.child});
+        ^^^^^^^^
+lib/components/cash_stat/cash_stat_widget.dart:117:23: Error: No named parameter with the name 'color'.
+                      color: FlutterFlowTheme.of(context).primaryText,
+                      ^^^^^
+/H:/flutter/packages/flutter/lib/src/widgets/text.dart:507:9: Context: Found this candidate, but the arguments don't match.
+  const Text(
+        ^^^^
+lib/components/cash_stat/cash_stat_widget.dart:68:25: Error: Too many positional arguments: 0 allowed, but 1 found.
+Try removing the extra positional arguments.
+        child: Container(
+                        ^
+/H:/flutter/packages/flutter/lib/src/widgets/container.dart:255:3: Context: Found this candidate, but the arguments don't match.
+  Container({
+  ^^^^^^^^^
+lib/components/cash_stat/cash_stat_widget.dart:125:13: Error: Expected an identifier, but got ']'.
+Try inserting an identifier before ']'.
+            ].divide(SizedBox(height: 8)),
+            ^
+lib/components/cash_stat/cash_stat_widget.dart:125:13: Error: Expected ')' before this.
+            ].divide(SizedBox(height: 8)),
+            ^
+lib/components/cash_stat/cash_stat_widget.dart:66:21: Error: Too many positional arguments: 0 allowed, but 1 found.
+Try removing the extra positional arguments.
+      child: Padding(
+                    ^
+/H:/flutter/packages/flutter/lib/src/widgets/basic.dart:2319:9: Context: Found this candidate, but the arguments don't match.
+  const Padding({super.key, required this.padding, super.child});
+        ^^^^^^^
+lib/components/cash_stat/cash_stat_widget.dart:127:9: Error: Expected ';' after this.
+        ),
+        ^
+lib/components/cash_stat/cash_stat_widget.dart:127:10: Error: Expected an identifier, but got ','.
+Try inserting an identifier before ','.
+        ),
+         ^
+lib/components/cash_stat/cash_stat_widget.dart:127:10: Error: Unexpected token ';'.
+        ),
+         ^
+lib/components/cash_stat/cash_stat_widget.dart:128:7: Error: Expected an identifier, but got ')'.
+Try inserting an identifier before ')'.
+      ),
+      ^
+lib/components/cash_stat/cash_stat_widget.dart:127:10: Error: Expected ';' after this.
+        ),
+         ^
+lib/components/cash_stat/cash_stat_widget.dart:128:7: Error: Unexpected token ';'.
+      ),
+      ^
+lib/components/cash_stat/cash_stat_widget.dart:128:8: Error: Expected an identifier, but got ','.
+Try inserting an identifier before ','.
+      ),
+       ^
+lib/components/cash_stat/cash_stat_widget.dart:128:7: Error: Expected ';' after this.
+      ),
+      ^
+lib/components/cash_stat/cash_stat_widget.dart:128:8: Error: Unexpected token ';'.
+      ),
+       ^
+lib/components/cash_stat/cash_stat_widget.dart:129:5: Error: Expected an identifier, but got ')'.
+Try inserting an identifier before ')'.
+    );
+    ^
+lib/components/cash_stat/cash_stat_widget.dart:128:8: Error: Expected ';' after this.
+      ),
+       ^
+lib/components/cash_stat/cash_stat_widget.dart:129:5: Error: Unexpected token ';'.
+    );
+    ^
+lib/components/checkbox/checkbox_widget.dart:172:33: Error: No named parameter with the name 'color'.
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                ^^^^^
+/H:/flutter/packages/flutter/lib/src/widgets/text.dart:507:9: Context: Found this candidate, but the arguments don't match.
+  const Text(
+        ^^^^
+lib/components/checkbox/checkbox_widget.dart:179:35: Error: Expected ')' before this.
+                          overflow: TextOverflow.ellipsis,
+                                  ^
+lib/components/checkbox/checkbox_widget.dart:197:37: Error: No named parameter with the name 'color'.
+                                    color: FlutterFlowTheme.of(context)
+                                    ^^^^^
+/H:/flutter/packages/flutter/lib/src/widgets/text.dart:507:9: Context: Found this candidate, but the arguments don't match.
+  const Text(
+        ^^^^
+lib/components/checkbox/checkbox_widget.dart:205:31: Error: No named parameter with the name 'overflow'.
+                              overflow: TextOverflow.ellipsis,
+                              ^^^^^^^^
+/H:/flutter/packages/flutter/lib/src/widgets/container.dart:255:3: Context: Found this candidate, but the arguments don't match.
+  Container({
+  ^^^^^^^^^
+lib/components/checkbox/checkbox_widget.dart:151:27: Error: Too many positional arguments: 0 allowed, but 1 found.
+Try removing the extra positional arguments.
+                  Expanded(
+                          ^
+/H:/flutter/packages/flutter/lib/src/widgets/basic.dart:6025:9: Context: Found this candidate, but the arguments don't match.
+  const Expanded({super.key, super.flex, required super.child}) : super(fit: FlexFit.tight);
+        ^^^^^^^^
+lib/components/checkbox/checkbox_widget.dart:212:17: Error: Expected an identifier, but got ']'.
+Try inserting an identifier before ']'.
+                ].divide(SizedBox(width: 16)),
+                ^
+lib/components/checkbox/checkbox_widget.dart:212:17: Error: Expected ')' before this.
+                ].divide(SizedBox(width: 16)),
+                ^
+lib/components/checkbox/checkbox_widget.dart:75:25: Error: Too many positional arguments: 0 allowed, but 1 found.
+Try removing the extra positional arguments.
+          child: Padding(
+                        ^
+/H:/flutter/packages/flutter/lib/src/widgets/basic.dart:2319:9: Context: Found this candidate, but the arguments don't match.
+  const Padding({super.key, required this.padding, super.child});
+        ^^^^^^^
+lib/components/checkbox/checkbox_widget.dart:216:9: Error: Expected ';' after this.
+        ),
+        ^
+lib/components/checkbox/checkbox_widget.dart:216:10: Error: Expected an identifier, but got ','.
+Try inserting an identifier before ','.
+        ),
+         ^
+lib/components/checkbox/checkbox_widget.dart:216:10: Error: Unexpected token ';'.
+        ),
+         ^
+lib/components/checkbox/checkbox_widget.dart:217:7: Error: Expected an identifier, but got ')'.
+Try inserting an identifier before ')'.
+      ),
+      ^
+lib/components/checkbox/checkbox_widget.dart:216:10: Error: Expected ';' after this.
+        ),
+         ^
+lib/components/checkbox/checkbox_widget.dart:217:7: Error: Unexpected token ';'.
+      ),
+      ^
+lib/components/checkbox/checkbox_widget.dart:217:8: Error: Expected an identifier, but got ','.
+Try inserting an identifier before ','.
+      ),
+       ^
+lib/components/checkbox/checkbox_widget.dart:217:7: Error: Expected ';' after this.
+      ),
+      ^
+lib/components/checkbox/checkbox_widget.dart:217:8: Error: Unexpected token ';'.
+      ),
+       ^
+lib/components/checkbox/checkbox_widget.dart:218:5: Error: Expected an identifier, but got ')'.
+Try inserting an identifier before ')'.
+    );
+    ^
+lib/components/checkbox/checkbox_widget.dart:217:8: Error: Expected ';' after this.
+      ),
+       ^
+lib/components/checkbox/checkbox_widget.dart:218:5: Error: Unexpected token ';'.
+    );
+    ^
+lib/components/client_card/client_card_widget.dart:89:25: Error: No named parameter with the name 'color'.
+                        color: FlutterFlowTheme.of(context).primary,
+                        ^^^^^
+/H:/flutter/packages/flutter/lib/src/widgets/text.dart:507:9: Context: Found this candidate, but the arguments don't match.
+  const Text(
+        ^^^^
+lib/components/client_card/client_card_widget.dart:97:19: Error: No named parameter with the name 'overflow'.
+                  overflow: TextOverflow.clip,
+                  ^^^^^^^^
+/H:/flutter/packages/flutter/lib/src/widgets/container.dart:255:3: Context: Found this candidate, but the arguments don't match.
+  Container({
+  ^^^^^^^^^
+lib/components/client_card/client_card_widget.dart:116:29: Error: No named parameter with the name 'color'.
+                            color: FlutterFlowTheme.of(context).primaryText,
+                            ^^^^^
+/H:/flutter/packages/flutter/lib/src/widgets/text.dart:507:9: Context: Found this candidate, but the arguments don't match.
+  const Text(
+        ^^^^
+lib/components/client_card/client_card_widget.dart:137:33: Error: No named parameter with the name 'color'.
+                                color:
+                                ^^^^^
+/H:/flutter/packages/flutter/lib/src/widgets/text.dart:507:9: Context: Found this candidate, but the arguments don't match.
+  const Text(
+        ^^^^
+lib/components/client_card/client_card_widget.dart:156:65: Error: Too few positional arguments: 2 required, 0 given.
+                                    color: valueOrDefault<Color>(
+                                                                ^
+lib/flutter_flow/flutter_flow_util.dart:6:3: Context: Found this candidate, but the arguments don't match.
+T valueOrDefault<T>(T? value, T defaultValue) =>
+  ^^^^^^^^^^^^^^
+lib/components/client_card/client_card_widget.dart:158:39: Error: Expected ',' before this.
+                                      valueOrDefault<bool>(
+                                      ^^^^^^^^^^^^^^
+lib/components/client_card/client_card_widget.dart:146:29: Error: Too many positional arguments: 1 allowed, but 3 found.
+Try removing the extra positional arguments.
+                        Text(
+                            ^
+/H:/flutter/packages/flutter/lib/src/widgets/text.dart:507:9: Context: Found this candidate, but the arguments don't match.
+  const Text(
+        ^^^^
+lib/components/client_card/client_card_widget.dart:100:23: Error: Too many positional arguments: 0 allowed, but 2 found.
+Try removing the extra positional arguments.
+              Expanded(
+                      ^
+/H:/flutter/packages/flutter/lib/src/widgets/basic.dart:6025:9: Context: Found this candidate, but the arguments don't match.
+  const Expanded({super.key, super.flex, required super.child}) : super(fit: FlexFit.tight);
+        ^^^^^^^^
+lib/components/client_card/client_card_widget.dart:67:25: Error: Too many positional arguments: 0 allowed, but 1 found.
+Try removing the extra positional arguments.
+        child: Container(
+                        ^
+/H:/flutter/packages/flutter/lib/src/widgets/container.dart:255:3: Context: Found this candidate, but the arguments don't match.
+  Container({
+  ^^^^^^^^^
+lib/components/client_card/client_card_widget.dart:172:23: Error: Expected an identifier, but got ']'.
+Try inserting an identifier before ']'.
+                      ].divide(SizedBox(width: 4)),
+                      ^
+lib/components/client_card/client_card_widget.dart:172:23: Error: Expected ')' before this.
+                      ].divide(SizedBox(width: 4)),
+                      ^
+lib/components/client_card/client_card_widget.dart:65:21: Error: Too many positional arguments: 0 allowed, but 1 found.
+Try removing the extra positional arguments.
+      child: Padding(
+                    ^
+/H:/flutter/packages/flutter/lib/src/widgets/basic.dart:2319:9: Context: Found this candidate, but the arguments don't match.
+  const Padding({super.key, required this.padding, super.child});
+        ^^^^^^^
+lib/components/client_card/client_card_widget.dart:174:19: Error: Expected an identifier, but got ']'.
+Try inserting an identifier before ']'.
+                  ].divide(SizedBox(height: 4)),
+                  ^
+lib/components/client_card/client_card_widget.dart:174:19: Error: Expected ')' before this.
+                  ].divide(SizedBox(height: 4)),
+                  ^
+lib/components/client_card/client_card_widget.dart:55:21: Error: Too many positional arguments: 0 allowed, but 1 found.
+Try removing the extra positional arguments.
+    return Container(
+                    ^
+/H:/flutter/packages/flutter/lib/src/widgets/container.dart:255:3: Context: Found this candidate, but the arguments don't match.
+  Container({
+  ^^^^^^^^^
+lib/components/client_card/client_card_widget.dart:175:17: Error: Expected ';' after this.
+                ),
+                ^
+lib/components/client_card/client_card_widget.dart:175:18: Error: Expected an identifier, but got ','.
+Try inserting an identifier before ','.
+                ),
+                 ^
+lib/components/client_card/client_card_widget.dart:175:18: Error: Unexpected token ';'.
+                ),
+                 ^
+lib/components/client_card/client_card_widget.dart:176:15: Error: Expected an identifier, but got ')'.
+Try inserting an identifier before ')'.
+              ),
+              ^
+lib/components/client_card/client_card_widget.dart:175:18: Error: Expected ';' after this.
+                ),
+                 ^
+lib/components/client_card/client_card_widget.dart:176:15: Error: Unexpected token ';'.
+              ),
+              ^
+lib/components/client_card/client_card_widget.dart:176:16: Error: Expected an identifier, but got ','.
+Try inserting an identifier before ','.
+              ),
+               ^
+lib/components/client_card/client_card_widget.dart:176:15: Error: Expected ';' after this.
+              ),
+              ^
+lib/components/client_card/client_card_widget.dart:176:16: Error: Unexpected token ';'.
+              ),
+               ^
+lib/components/client_card/client_card_widget.dart:203:27: Error: No named parameter with the name 'color'.
+                          color: FlutterFlowTheme.of(context).secondaryText,
+                          ^^^^^
+/H:/flutter/packages/flutter/lib/src/widgets/text.dart:507:9: Context: Found this candidate, but the arguments don't match.
+  const Text(
+        ^^^^
+lib/components/client_card/client_card_widget.dart:212:19: Error: Expected an identifier, but got ')'.
+Try inserting an identifier before ')'.
+                  ),
+                  ^
+lib/components/client_card/client_card_widget.dart:212:19: Error: Expected ']' before this.
+                  ),
+                  ^
+lib/components/client_card/client_card_widget.dart:214:15: Error: Expected ';' after this.
+              ),
+              ^
+lib/components/client_card/client_card_widget.dart:214:16: Error: Expected an identifier, but got ','.
+Try inserting an identifier before ','.
+              ),
+               ^
+lib/components/client_card/client_card_widget.dart:214:16: Error: Unexpected token ';'.
+              ),
+               ^
+lib/components/client_card/client_card_widget.dart:215:13: Error: Expected an identifier, but got ']'.
+Try inserting an identifier before ']'.
+            ].divide(SizedBox(width: 16)),
+            ^
+lib/components/client_card/client_card_widget.dart:214:16: Error: Expected ';' after this.
+              ),
+               ^
+lib/components/client_card/client_card_widget.dart:215:13: Error: Unexpected token ';'.
+            ].divide(SizedBox(width: 16)),
+            ^
+lib/components/client_card/client_card_widget.dart:215:41: Error: Expected ';' after this.
+            ].divide(SizedBox(width: 16)),
+                                        ^
+lib/components/client_card/client_card_widget.dart:215:42: Error: Expected an identifier, but got ','.
+Try inserting an identifier before ','.
+            ].divide(SizedBox(width: 16)),
+                                         ^
+lib/components/client_card/client_card_widget.dart:215:42: Error: Unexpected token ';'.
+            ].divide(SizedBox(width: 16)),
+                                         ^
+lib/components/client_card/client_card_widget.dart:216:11: Error: Expected an identifier, but got ')'.
+Try inserting an identifier before ')'.
+          ),
+          ^
+lib/components/client_card/client_card_widget.dart:215:42: Error: Expected ';' after this.
+            ].divide(SizedBox(width: 16)),
+                                         ^
+lib/components/client_card/client_card_widget.dart:216:11: Error: Unexpected token ';'.
+          ),
+          ^
+lib/components/client_card/client_card_widget.dart:216:12: Error: Expected an identifier, but got ','.
+Try inserting an identifier before ','.
+          ),
+           ^
+lib/components/client_card/client_card_widget.dart:216:11: Error: Expected ';' after this.
+          ),
+          ^
+lib/components/client_card/client_card_widget.dart:216:12: Error: Unexpected token ';'.
+          ),
+           ^
+lib/components/client_card/client_card_widget.dart:217:9: Error: Expected an identifier, but got ')'.
+Try inserting an identifier before ')'.
+        ),
+        ^
+lib/components/client_card/client_card_widget.dart:216:12: Error: Expected ';' after this.
+          ),
+           ^
+lib/components/client_card/client_card_widget.dart:217:9: Error: Unexpected token ';'.
+        ),
+        ^
+lib/components/client_card/client_card_widget.dart:217:10: Error: Expected an identifier, but got ','.
+Try inserting an identifier before ','.
+        ),
+         ^
+lib/components/client_card/client_card_widget.dart:217:9: Error: Expected ';' after this.
+        ),
+        ^
+lib/components/client_card/client_card_widget.dart:217:10: Error: Unexpected token ';'.
+        ),
+         ^
+lib/components/client_card/client_card_widget.dart:218:7: Error: Expected an identifier, but got ')'.
+Try inserting an identifier before ')'.
+      ),
+      ^
+lib/components/client_card/client_card_widget.dart:217:10: Error: Expected ';' after this.
+        ),
+         ^
+lib/components/client_card/client_card_widget.dart:218:7: Error: Unexpected token ';'.
+      ),
+      ^
+lib/components/client_card/client_card_widget.dart:218:8: Error: Expected an identifier, but got ','.
+Try inserting an identifier before ','.
+      ),
+       ^
+lib/components/client_card/client_card_widget.dart:218:7: Error: Expected ';' after this.
+      ),
+      ^
+lib/components/client_card/client_card_widget.dart:218:8: Error: Unexpected token ';'.
+      ),
+       ^
+lib/components/client_card/client_card_widget.dart:219:5: Error: Expected an identifier, but got ')'.
+Try inserting an identifier before ')'.
+    );
+    ^
+lib/components/client_card/client_card_widget.dart:218:8: Error: Expected ';' after this.
+      ),
+       ^
+lib/components/client_card/client_card_widget.dart:219:5: Error: Unexpected token ';'.
+    );
+    ^
+lib/components/client_card/client_card_widget.dart:215:15: Error: No type was provided to find the dot shorthand 'divide'.
+            ].divide(SizedBox(width: 16)),
+              ^^^^^^
+lib/components/credit_stat/credit_stat_widget.dart:99:29: Error: No named parameter with the name 'color'.
+                            color: valueOrDefault<Color>(
+                            ^^^^^
+/H:/flutter/packages/flutter/lib/src/widgets/text.dart:507:9: Context: Found this candidate, but the arguments don't match.
+  const Text(
+        ^^^^
+lib/components/credit_stat/credit_stat_widget.dart:124:23: Error: No named parameter with the name 'color'.
+                      color: FlutterFlowTheme.of(context).primaryText,
+                      ^^^^^
+/H:/flutter/packages/flutter/lib/src/widgets/text.dart:507:9: Context: Found this candidate, but the arguments don't match.
+  const Text(
+        ^^^^
+lib/components/credit_stat/credit_stat_widget.dart:68:25: Error: Too many positional arguments: 0 allowed, but 1 found.
+Try removing the extra positional arguments.
+        child: Container(
+                        ^
+/H:/flutter/packages/flutter/lib/src/widgets/container.dart:255:3: Context: Found this candidate, but the arguments don't match.
+  Container({
+  ^^^^^^^^^
+lib/components/credit_stat/credit_stat_widget.dart:132:13: Error: Expected an identifier, but got ']'.
+Try inserting an identifier before ']'.
+            ].divide(SizedBox(height: 4)),
+            ^
+lib/components/credit_stat/credit_stat_widget.dart:132:13: Error: Expected ')' before this.
+            ].divide(SizedBox(height: 4)),
+            ^
+lib/components/credit_stat/credit_stat_widget.dart:66:21: Error: Too many positional arguments: 0 allowed, but 1 found.
+Try removing the extra positional arguments.
+      child: Padding(
+                    ^
+/H:/flutter/packages/flutter/lib/src/widgets/basic.dart:2319:9: Context: Found this candidate, but the arguments don't match.
+  const Padding({super.key, required this.padding, super.child});
+        ^^^^^^^
+lib/components/credit_stat/credit_stat_widget.dart:134:9: Error: Expected ';' after this.
+        ),
+        ^
+lib/components/credit_stat/credit_stat_widget.dart:134:10: Error: Expected an identifier, but got ','.
+Try inserting an identifier before ','.
+        ),
+         ^
+lib/components/credit_stat/credit_stat_widget.dart:134:10: Error: Unexpected token ';'.
+        ),
+         ^
+lib/components/credit_stat/credit_stat_widget.dart:135:7: Error: Expected an identifier, but got ')'.
+Try inserting an identifier before ')'.
+      ),
+      ^
+lib/components/credit_stat/credit_stat_widget.dart:134:10: Error: Expected ';' after this.
+        ),
+         ^
+lib/components/credit_stat/credit_stat_widget.dart:135:7: Error: Unexpected token ';'.
+      ),
+      ^
+lib/components/credit_stat/credit_stat_widget.dart:135:8: Error: Expected an identifier, but got ','.
+Try inserting an identifier before ','.
+      ),
+       ^
+lib/components/credit_stat/credit_stat_widget.dart:135:7: Error: Expected ';' after this.
+      ),
+      ^
+lib/components/credit_stat/credit_stat_widget.dart:135:8: Error: Unexpected token ';'.
+      ),
+       ^
+lib/components/credit_stat/credit_stat_widget.dart:136:5: Error: Expected an identifier, but got ')'.
+Try inserting an identifier before ')'.
+    );
+    ^
+lib/components/credit_stat/credit_stat_widget.dart:135:8: Error: Expected ';' after this.
+      ),
+       ^
+lib/components/credit_stat/credit_stat_widget.dart:136:5: Error: Unexpected token ';'.
+    );
+    ^
+lib/components/form_field/form_field_widget.dart:73:17: Error: No named parameter with the name 'color'.
+                color: FlutterFlowTheme.of(context).secondaryText,
+                ^^^^^
+/H:/flutter/packages/flutter/lib/src/widgets/text.dart:507:9: Context: Found this candidate, but the arguments don't match.
+  const Text(
+        ^^^^
+lib/components/form_field/form_field_widget.dart:79:9: Error: Expected ';' after this.
+        ),
+        ^
+lib/components/form_field/form_field_widget.dart:79:10: Error: Expected an identifier, but got ','.
+Try inserting an identifier before ','.
+        ),
+         ^
+lib/components/form_field/form_field_widget.dart:79:10: Error: Unexpected token ';'.
+        ),
+         ^
+lib/components/form_field/form_field_widget.dart:105:9: Error: Expected ';' after this.
+        ),
+        ^
+lib/components/form_field/form_field_widget.dart:105:10: Error: Expected an identifier, but got ','.Try inserting an identifier before ','.
+        ),
+         ^
+lib/components/form_field/form_field_widget.dart:105:10: Error: Unexpected token ';'.
+        ),
+         ^
+lib/components/form_field/form_field_widget.dart:106:7: Error: Expected an identifier, but got ']'.
+Try inserting an identifier before ']'.
+      ].divide(SizedBox(height: 4)),
+      ^
+lib/components/form_field/form_field_widget.dart:105:10: Error: Expected ';' after this.
+        ),
+         ^
+lib/components/form_field/form_field_widget.dart:106:7: Error: Unexpected token ';'.
+      ].divide(SizedBox(height: 4)),
+      ^
+lib/components/form_field/form_field_widget.dart:106:35: Error: Expected ';' after this.
+      ].divide(SizedBox(height: 4)),
+                                  ^
+lib/components/form_field/form_field_widget.dart:106:36: Error: Expected an identifier, but got ','.Try inserting an identifier before ','.
+      ].divide(SizedBox(height: 4)),
+                                   ^
+lib/components/form_field/form_field_widget.dart:106:36: Error: Unexpected token ';'.
+      ].divide(SizedBox(height: 4)),
+                                   ^
+lib/components/form_field/form_field_widget.dart:107:5: Error: Expected an identifier, but got ')'.
+Try inserting an identifier before ')'.
+    );
+    ^
+lib/components/form_field/form_field_widget.dart:106:36: Error: Expected ';' after this.
+      ].divide(SizedBox(height: 4)),
+                                   ^
+lib/components/form_field/form_field_widget.dart:107:5: Error: Unexpected token ';'.
+    );
+    ^
+lib/components/form_field/form_field_widget.dart:106:9: Error: No type was provided to find the dot shorthand 'divide'.
+      ].divide(SizedBox(height: 4)),
+        ^^^^^^
+lib/components/history_stat/history_stat_widget.dart:94:29: Error: No named parameter with the name 'color'.
+                            color: FlutterFlowTheme.of(context).secondaryText,
+                            ^^^^^
+/H:/flutter/packages/flutter/lib/src/widgets/text.dart:507:9: Context: Found this candidate, but the arguments don't match.
+  const Text(
+        ^^^^
+lib/components/history_stat/history_stat_widget.dart:101:23: Error: No named parameter with the name 'overflow'.
+                      overflow: TextOverflow.ellipsis,
+                      ^^^^^^^^
+/H:/flutter/packages/flutter/lib/src/widgets/basic.dart:5933:9: Context: Found this candidate, but the arguments don't match.
+  const Flexible({super.key, this.flex = 1, this.fit = FlexFit.loose, required super.child});
+        ^^^^^^^^
+lib/components/history_stat/history_stat_widget.dart:117:23: Error: No named parameter with the name 'color'.
+                      color: FlutterFlowTheme.of(context).primaryText,
+                      ^^^^^
+/H:/flutter/packages/flutter/lib/src/widgets/text.dart:507:9: Context: Found this candidate, but the arguments don't match.
+  const Text(
+        ^^^^
+lib/components/history_stat/history_stat_widget.dart:68:25: Error: Too many positional arguments: 0 allowed, but 1 found.
+Try removing the extra positional arguments.
+        child: Container(
+                        ^
+/H:/flutter/packages/flutter/lib/src/widgets/container.dart:255:3: Context: Found this candidate, but the arguments don't match.
+  Container({
+  ^^^^^^^^^
+lib/components/history_stat/history_stat_widget.dart:125:13: Error: Expected an identifier, but got ']'.
+Try inserting an identifier before ']'.
+            ].divide(SizedBox(height: 4)),
+            ^
+lib/components/history_stat/history_stat_widget.dart:125:13: Error: Expected ')' before this.
+            ].divide(SizedBox(height: 4)),
+            ^
+lib/components/history_stat/history_stat_widget.dart:66:21: Error: Too many positional arguments: 0 allowed, but 1 found.
+Try removing the extra positional arguments.
+      child: Padding(
+                    ^
+/H:/flutter/packages/flutter/lib/src/widgets/basic.dart:2319:9: Context: Found this candidate, but the arguments don't match.
+  const Padding({super.key, required this.padding, super.child});
+        ^^^^^^^
+lib/components/history_stat/history_stat_widget.dart:127:9: Error: Expected ';' after this.
+        ),
+        ^
+lib/components/history_stat/history_stat_widget.dart:127:10: Error: Expected an identifier, but got ','.
+Try inserting an identifier before ','.
+        ),
+         ^
+lib/components/history_stat/history_stat_widget.dart:127:10: Error: Unexpected token ';'.
+        ),
+         ^
+lib/components/history_stat/history_stat_widget.dart:128:7: Error: Expected an identifier, but got ')'.
+Try inserting an identifier before ')'.
+      ),
+      ^
+lib/components/history_stat/history_stat_widget.dart:127:10: Error: Expected ';' after this.
+        ),
+         ^
+lib/components/history_stat/history_stat_widget.dart:128:7: Error: Unexpected token ';'.
+      ),
+      ^
+lib/components/history_stat/history_stat_widget.dart:128:8: Error: Expected an identifier, but got ','.
+Try inserting an identifier before ','.
+      ),
+       ^
+lib/components/history_stat/history_stat_widget.dart:128:7: Error: Expected ';' after this.
+      ),
+      ^
+lib/components/history_stat/history_stat_widget.dart:128:8: Error: Unexpected token ';'.
+      ),
+       ^
+lib/components/history_stat/history_stat_widget.dart:129:5: Error: Expected an identifier, but got ')'.
+Try inserting an identifier before ')'.
+    );
+    ^
+lib/components/history_stat/history_stat_widget.dart:128:8: Error: Expected ';' after this.
+      ),
+       ^
+lib/components/history_stat/history_stat_widget.dart:129:5: Error: Unexpected token ';'.
+    );
+    ^
+lib/components/inventory_stat/inventory_stat_widget.dart:103:27: Error: No named parameter with the name 'color'.
+                          color: FlutterFlowTheme.of(context).secondaryText,
+                          ^^^^^
+/H:/flutter/packages/flutter/lib/src/widgets/text.dart:507:9: Context: Found this candidate, but the arguments don't match.
+  const Text(
+        ^^^^
+lib/components/inventory_stat/inventory_stat_widget.dart:122:27: Error: No named parameter with the name 'color'.
+                          color: FlutterFlowTheme.of(context).primaryText,
+                          ^^^^^
+/H:/flutter/packages/flutter/lib/src/widgets/text.dart:507:9: Context: Found this candidate, but the arguments don't match.
+  const Text(
+        ^^^^
+lib/components/inventory_stat/inventory_stat_widget.dart:127:19: Error: Expected an identifier, but got ')'.
+Try inserting an identifier before ')'.
+                  ),
+                  ^
+lib/components/inventory_stat/inventory_stat_widget.dart:127:19: Error: Expected ']' before this.
+                  ),
+                  ^
+lib/components/inventory_stat/inventory_stat_widget.dart:130:13: Error: Expected an identifier, but got ']'.
+Try inserting an identifier before ']'.
+            ].divide(SizedBox(width: 8)),
+            ^
+lib/components/inventory_stat/inventory_stat_widget.dart:130:13: Error: Expected ')' before this.
+            ].divide(SizedBox(width: 8)),
+            ^
+lib/components/inventory_stat/inventory_stat_widget.dart:68:25: Error: Too many positional arguments: 0 allowed, but 1 found.
+Try removing the extra positional arguments.
+        child: Container(
+                        ^
+/H:/flutter/packages/flutter/lib/src/widgets/container.dart:255:3: Context: Found this candidate, but the arguments don't match.
+  Container({
+  ^^^^^^^^^
+lib/components/inventory_stat/inventory_stat_widget.dart:133:7: Error: Expected ';' after this.
+      ),
+      ^
+lib/components/inventory_stat/inventory_stat_widget.dart:133:8: Error: Expected an identifier, but got ','.
+Try inserting an identifier before ','.
+      ),
+       ^
+lib/components/inventory_stat/inventory_stat_widget.dart:133:8: Error: Unexpected token ';'.
+      ),
+       ^
+lib/components/inventory_stat/inventory_stat_widget.dart:134:5: Error: Expected an identifier, but got ')'.
+Try inserting an identifier before ')'.
+    );
+    ^
+lib/components/inventory_stat/inventory_stat_widget.dart:133:8: Error: Expected ';' after this.
+      ),
+       ^
+lib/components/inventory_stat/inventory_stat_widget.dart:134:5: Error: Unexpected token ';'.
+    );
+    ^
+lib/components/login_background/login_background_widget.dart:89:55: Error: The getter 'secondary10' isn't defined for the type 'FlutterFlowTheme'.
+ - 'FlutterFlowTheme' is from 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart' ('lib/flutter_flow/flutter_flow_theme.dart').
+Try correcting the name to the name of an existing getter, or defining a getter or field named 'secondary10'.
+                  color: FlutterFlowTheme.of(context).secondary10,
+                                                      ^^^^^^^^^^^
+lib/components/login_background_child/login_background_child_widget.dart:305:23: Error: No named parameter with the name 'color'.
+                      color: FlutterFlowTheme.of(context).secondaryText,
+                      ^^^^^
+/H:/flutter/packages/flutter/lib/src/widgets/text.dart:507:9: Context: Found this candidate, but the arguments don't match.
+  const Text(
+        ^^^^
+lib/components/login_background_child/login_background_child_widget.dart:363:27: Error: No named parameter with the name 'color'.
+                          color: FlutterFlowTheme.of(context).secondaryText,
+                          ^^^^^
+/H:/flutter/packages/flutter/lib/src/widgets/text.dart:507:9: Context: Found this candidate, but the arguments don't match.
+  const Text(
+        ^^^^
+lib/components/login_background_child/login_background_child_widget.dart:381:23: Error: No named parameter with the name 'color'.
+                      color: FlutterFlowTheme.of(context).accent3,
+                      ^^^^^
+/H:/flutter/packages/flutter/lib/src/widgets/text.dart:507:9: Context: Found this candidate, but the arguments don't match.
+  const Text(
+        ^^^^
+lib/components/login_background_child/login_background_child_widget.dart:48:19: Error: Too many positional arguments: 0 allowed, but 3 found.
+Try removing the extra positional arguments.
+    return Padding(
+                  ^
+/H:/flutter/packages/flutter/lib/src/widgets/basic.dart:2319:9: Context: Found this candidate, but the arguments don't match.
+  const Padding({super.key, required this.padding, super.child});
+        ^^^^^^^
+lib/components/login_background_child/login_background_child_widget.dart:390:15: Error: Expected ';' after this.
+              ),
+              ^
+lib/components/login_background_child/login_background_child_widget.dart:390:16: Error: Expected an identifier, but got ','.
+Try inserting an identifier before ','.
+              ),
+               ^
+lib/components/login_background_child/login_background_child_widget.dart:390:16: Error: Unexpected token ';'.
+              ),
+               ^
+lib/components/login_background_child/login_background_child_widget.dart:391:13: Error: Expected an identifier, but got ']'.
+Try inserting an identifier before ']'.
+            ].divide(SizedBox(height: 4)),
+            ^
+lib/components/login_background_child/login_background_child_widget.dart:390:16: Error: Expected ';' after this.
+              ),
+               ^
+lib/components/login_background_child/login_background_child_widget.dart:391:13: Error: Unexpected token ';'.
+            ].divide(SizedBox(height: 4)),
+            ^
+lib/components/login_background_child/login_background_child_widget.dart:391:41: Error: Expected ';' after this.
+            ].divide(SizedBox(height: 4)),
+                                        ^
+lib/components/login_background_child/login_background_child_widget.dart:391:42: Error: Expected an identifier, but got ','.
+Try inserting an identifier before ','.
+            ].divide(SizedBox(height: 4)),
+                                         ^
+lib/components/login_background_child/login_background_child_widget.dart:391:42: Error: Unexpected token ';'.
+            ].divide(SizedBox(height: 4)),
+                                         ^
+lib/components/login_background_child/login_background_child_widget.dart:392:11: Error: Expected an identifier, but got ')'.
+Try inserting an identifier before ')'.
+          ),
+          ^
+lib/components/login_background_child/login_background_child_widget.dart:391:42: Error: Expected ';' after this.
+            ].divide(SizedBox(height: 4)),
+                                         ^
+lib/components/login_background_child/login_background_child_widget.dart:392:11: Error: Unexpected token ';'.
+          ),
+          ^
+lib/components/login_background_child/login_background_child_widget.dart:392:12: Error: Expected an identifier, but got ','.
+Try inserting an identifier before ','.
+          ),
+           ^
+lib/components/login_background_child/login_background_child_widget.dart:392:11: Error: Expected ';' after this.
+          ),
+          ^
+lib/components/login_background_child/login_background_child_widget.dart:392:12: Error: Unexpected token ';'.
+          ),
+           ^
+lib/components/login_background_child/login_background_child_widget.dart:393:9: Error: Expected an identifier, but got ']'.
+Try inserting an identifier before ']'.
+        ],
+        ^
+lib/components/login_background_child/login_background_child_widget.dart:392:12: Error: Expected ';' after this.
+          ),
+           ^
+lib/components/login_background_child/login_background_child_widget.dart:393:9: Error: Unexpected token ';'.
+        ],
+        ^
+lib/components/login_background_child/login_background_child_widget.dart:393:10: Error: Expected an identifier, but got ','.
+Try inserting an identifier before ','.
+        ],
+         ^
+lib/components/login_background_child/login_background_child_widget.dart:393:9: Error: Expected ';' after this.
+        ],
+        ^
+lib/components/login_background_child/login_background_child_widget.dart:393:10: Error: Unexpected token ';'.
+        ],
+         ^
+lib/components/login_background_child/login_background_child_widget.dart:394:7: Error: Expected an identifier, but got ')'.
+Try inserting an identifier before ')'.
+      ),
+      ^
+lib/components/login_background_child/login_background_child_widget.dart:393:10: Error: Expected ';' after this.
+        ],
+         ^
+lib/components/login_background_child/login_background_child_widget.dart:394:7: Error: Unexpected token ';'.
+      ),
+      ^
+lib/components/login_background_child/login_background_child_widget.dart:394:8: Error: Expected an identifier, but got ','.
+Try inserting an identifier before ','.
+      ),
+       ^
+lib/components/login_background_child/login_background_child_widget.dart:394:7: Error: Expected ';' after this.
+      ),
+      ^
+lib/components/login_background_child/login_background_child_widget.dart:394:8: Error: Unexpected token ';'.
+      ),
+       ^
+lib/components/login_background_child/login_background_child_widget.dart:395:5: Error: Expected an identifier, but got ')'.
+Try inserting an identifier before ')'.
+    );
+    ^
+lib/components/login_background_child/login_background_child_widget.dart:394:8: Error: Expected ';' after this.
+      ),
+       ^
+lib/components/login_background_child/login_background_child_widget.dart:395:5: Error: Unexpected token ';'.
+    );
+    ^
+lib/components/login_background_child/login_background_child_widget.dart:391:15: Error: No type was provided to find the dot shorthand 'divide'.
+            ].divide(SizedBox(height: 4)),
+              ^^^^^^
+lib/components/metric_card/metric_card_widget.dart:154:31: Error: Duplicated named argument 'fontSize'.
+                              fontSize: FlutterFlowTheme.of(context)
+                              ^^^^^^^^
+lib/components/pie_chart/pie_chart_widget.dart:194:35: Error: Duplicated named argument 'fontSize'.
+                                  fontSize: 10,
+                                  ^^^^^^^^
+lib/components/pie_chart/pie_chart_widget.dart:196:35: Error: Duplicated named argument 'fontWeight'.
+                                  fontWeight: FontWeight.bold,
+                                  ^^^^^^^^^^
+lib/components/pie_chart/pie_chart_widget.dart:196:35: Error: The argument type 'Type' can't be assigned to the parameter type 'FontWeight?'.
+ - 'Type' is from 'dart:core'.
+ - 'FontWeight' is from 'dart:ui'.
+                                  fontWeight: FontWeight.bold,
+                                  ^
+lib/components/pie_chart/pie_chart_widget.dart:308:35: Error: Duplicated named argument 'fontSize'.
+                                  fontSize: 10,
+                                  ^^^^^^^^
+lib/components/pie_chart/pie_chart_widget.dart:310:35: Error: Duplicated named argument 'fontWeight'.
+                                  fontWeight: FontWeight.bold,
+                                  ^^^^^^^^^^
+lib/components/pie_chart/pie_chart_widget.dart:310:35: Error: The argument type 'Type' can't be assigned to the parameter type 'FontWeight?'.
+ - 'Type' is from 'dart:core'.
+ - 'FontWeight' is from 'dart:ui'.
+                                  fontWeight: FontWeight.bold,
+                                  ^
+lib/components/pie_chart/pie_chart_widget.dart:362:33: Error: Duplicated named argument 'fontWeight'.
+                                fontWeight: FlutterFlowTheme.of(context)
+                                ^^^^^^^^^^
+lib/components/pie_chart/pie_chart_widget.dart:362:33: Error: The argument type 'Type' can't be assigned to the parameter type 'FontWeight?'.
+ - 'Type' is from 'dart:core'.
+ - 'FontWeight' is from 'dart:ui'.
+                                fontWeight: FlutterFlowTheme.of(context)
+                                ^
+lib/components/pie_chart/pie_chart_widget.dart:380:33: Error: Duplicated named argument 'fontWeight'.
+                                fontWeight: FlutterFlowTheme.of(context)
+                                ^^^^^^^^^^
+lib/components/pie_chart/pie_chart_widget.dart:380:33: Error: The argument type 'Type' can't be assigned to the parameter type 'FontWeight?'.
+ - 'Type' is from 'dart:core'.
+ - 'FontWeight' is from 'dart:ui'.
+                                fontWeight: FlutterFlowTheme.of(context)
+                                ^
+lib/components/product_item/product_item_widget.dart:124:64: Error: The argument type 'FlutterFlowTheme' can't be assigned to the parameter type 'FontWeight?'.
+ - 'FlutterFlowTheme' is from 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart' ('lib/flutter_flow/flutter_flow_theme.dart').
+ - 'FontWeight' is from 'dart:ui'.
+                                  fontWeight: FlutterFlowTheme.of(context),
+                                                               ^
+lib/components/product_item/product_item_widget.dart:186:64: Error: The argument type 'FlutterFlowTheme' can't be assigned to the parameter type 'FontWeight?'.
+ - 'FlutterFlowTheme' is from 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart' ('lib/flutter_flow/flutter_flow_theme.dart').
+ - 'FontWeight' is from 'dart:ui'.
+                                  fontWeight: FlutterFlowTheme.of(context),
+                                                               ^
+lib/components/product_search_item/product_search_item_widget.dart:125:64: Error: The argument type 'FlutterFlowTheme' can't be assigned to the parameter type 'FontWeight?'.
+ - 'FlutterFlowTheme' is from 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart' ('lib/flutter_flow/flutter_flow_theme.dart').
+ - 'FontWeight' is from 'dart:ui'.
+                                  fontWeight: FlutterFlowTheme.of(context),
+                                                               ^
+lib/components/product_search_item/product_search_item_widget.dart:155:64: Error: The argument type 'FlutterFlowTheme' can't be assigned to the parameter type 'FontWeight?'.
+ - 'FlutterFlowTheme' is from 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart' ('lib/flutter_flow/flutter_flow_theme.dart').
+ - 'FontWeight' is from 'dart:ui'.
+                                  fontWeight: FlutterFlowTheme.of(context),
+                                                               ^
+lib/components/quick_action/quick_action_widget.dart:89:35: Error: Expected an identifier, but got ','.
+Try inserting an identifier before ','.
+                                  ,
+                                  ^
+lib/components/quick_action/quick_action_widget.dart:92:19: Error: Duplicated named argument 'fontWeight'.
+                  fontWeight: FontWeight.w600,
+                  ^^^^^^^^^^
+lib/components/quick_action/quick_action_widget.dart:86:68: Error: Too many positional arguments: 0 allowed, but 1 found.
+Try removing the extra positional arguments.
+            style: FlutterFlowTheme.of(context).labelSmall.copyWith(
+                                                                   ^
+lib/components/sale_row/sale_row_widget.dart:137:69: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                    fontFamily: GoogleFonts.urbanist(
+                                                                    ^
+lib/components/sale_row/sale_row_widget.dart:153:65: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                fontFamily: GoogleFonts.urbanist(
+                                                                ^
+lib/components/sale_row/sale_row_widget.dart:182:68: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                    fontFamily: GoogleFonts.poppins(
+                                                                   ^
+lib/components/sale_row/sale_row_widget.dart:201:68: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                    fontFamily: GoogleFonts.poppins(
+                                                                   ^
+lib/components/sale_row/sale_row_widget.dart:223:68: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                    fontFamily: GoogleFonts.poppins(
+                                                                   ^
+lib/components/sale_row/sale_row_widget.dart:259:75: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                                      fontFamily: GoogleFonts.spaceGrotesk(
+                                                                          ^
+lib/components/settings_tile/settings_tile_widget.dart:108:61: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                            fontFamily: GoogleFonts.urbanist(
+                                                            ^
+lib/components/settings_tile/settings_tile_widget.dart:120:65: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                            fontFamily: GoogleFonts.spaceGrotesk(
+                                                                ^
+lib/components/settings_tile/settings_tile_widget.dart:65:17: Error: The method 'pushNamed' is defined in multiple extensions for 'BuildContext' and neither is more specific.
+ - 'BuildContext' is from 'package:flutter/src/widgets/framework.dart' ('/H:/flutter/packages/flutter/lib/src/widgets/framework.dart').
+Try using an explicit extension application of the wanted extension or hiding unwanted extensions from scope.
+        context.pushNamed(widget.target);
+                ^^^^^^^^^
+lib/flutter_flow/flutter_flow_util.dart:41:8: Context: This is one of the extension members.
+  void pushNamed(String name, {Map<String, String> pathParameters = const {}, Map<String, String> queryParameters = const {}}) =>
+       ^^^^^^^^^
+/C:/Users/Admin/AppData/Local/Pub/Cache/hosted/pub.dev/go_router-12.1.3/lib/src/misc/extensions.dart:53:14: Context: This is one of the extension members.
+  Future<T?> pushNamed<T extends Object?>(
+             ^^^^^^^^^
+lib/components/stat_card/stat_card_widget.dart:115:63: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                          fontFamily: GoogleFonts.spaceGrotesk(
+                                                              ^
+lib/components/stat_card/stat_card_widget.dart:134:59: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                          fontFamily: GoogleFonts.urbanist(
+                                                          ^
+lib/components/stat_card/stat_card_widget.dart:193:63: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                          fontFamily: GoogleFonts.spaceGrotesk(
+                                                              ^
+lib/components/text_field/text_field_widget.dart:97:55: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                  fontFamily: GoogleFonts.spaceGrotesk(
+                                                      ^
+lib/components/text_field/text_field_widget.dart:381:62: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                              fontFamily: GoogleFonts.poppins(
+                                                             ^
+lib/components/text_field/text_field_widget.dart:416:60: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                            fontFamily: GoogleFonts.poppins(
+                                                           ^
+lib/components/text_field/text_field_widget.dart:449:28: Error: The method 'asValidator' isn't defined for the type 'String? Function(BuildContext, String?)?'.
+ - 'BuildContext' is from 'package:flutter/src/widgets/framework.dart' ('/H:/flutter/packages/flutter/lib/src/widgets/framework.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'asValidator'.                          .asValidator(context),
+                           ^^^^^^^^^^^
+lib/components/text_field/text_field_widget.dart:460:50: Error: The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.
+ - 'TextStyle' is from 'package:flutter/src/painting/text_style.dart' ('/H:/flutter/packages/flutter/lib/src/painting/text_style.dart').
+                  fontFamily: GoogleFonts.poppins(
+                                                 ^
+Target kernel_snapshot_program failed: Exception
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:compileFlutterBuildDebug'.
+> Process 'command 'H:\flutter\bin\flutter.bat'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 11m 31s
+Running Gradle task 'assembleDebug'...                            692.8s
+Error: Gradle task assembleDebug failed with exit code 1

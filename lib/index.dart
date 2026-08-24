@@ -8,3 +8,37 @@ export 'pages/historial_de_ventas/historial_de_ventas_widget.dart' show Historia
 export 'pages/clientes_y_cr_ditos/clientes_y_cr_ditos_widget.dart' show ClientesYCrDitosWidget;
 export 'pages/reportes_y_m_tricas/reportes_y_m_tricas_widget.dart' show ReportesYMTricasWidget;
 export 'pages/configuraci_n_y_empresas/configuraci_n_y_empresas_widget.dart' show ConfiguraciNYEmpresasWidget;
+
+// Components exports
+export 'components/bottom_nav/bottom_nav_widget.dart' show BottomNavWidget;
+export 'components/bottom_nav_child/bottom_nav_child_widget.dart' show BottomNavChildWidget;
+export 'components/bottom_nav_child2/bottom_nav_child2_widget.dart' show BottomNavChild2Widget;
+export 'components/bottom_nav_child3/bottom_nav_child3_widget.dart' show BottomNavChild3Widget;
+export 'components/bottom_nav_child4/bottom_nav_child4_widget.dart' show BottomNavChild4Widget;
+export 'components/bottom_nav_child5/bottom_nav_child5_widget.dart' show BottomNavChild5Widget;
+export 'components/business_card/business_card_widget.dart' show BusinessCardWidget;
+export 'components/business_type_card/business_type_card_widget.dart' show BusinessTypeCardWidget;
+export 'components/button/button_widget.dart' show ButtonWidget;
+export 'components/cart_item/cart_item_widget.dart' show CartItemWidget;
+export 'components/cash_stat/cash_stat_widget.dart' show CashStatWidget;
+export 'components/chart_legend/chart_legend_widget.dart' show ChartLegendWidget;
+export 'components/checkbox/checkbox_widget.dart' show CheckboxWidget;
+export 'components/client_card/client_card_widget.dart' show ClientCardWidget;
+export 'components/credit_stat/credit_stat_widget.dart' show CreditStatWidget;
+export 'components/form_field/form_field_widget.dart' show FormFieldWidget;
+export 'components/history_stat/history_stat_widget.dart' show HistoryStatWidget;
+export 'components/inventory_stat/inventory_stat_widget.dart' show InventoryStatWidget;
+export 'components/login_background/login_background_widget.dart' show LoginBackgroundWidget;
+export 'components/login_background_child/login_background_child_widget.dart' show LoginBackgroundChildWidget;
+export 'components/metric_card/metric_card_widget.dart' show MetricCardWidget;
+export 'components/movement_item/movement_item_widget.dart' show MovementItemWidget;
+export 'components/nav_item/nav_item_widget.dart' show NavItemWidget;
+export 'components/pie_chart/pie_chart_widget.dart' show PieChartWidget;
+export 'components/product_item/product_item_widget.dart' show ProductItemWidget;
+export 'components/product_search_item/product_search_item_widget.dart' show ProductSearchItemWidget;
+export 'components/quick_action/quick_action_widget.dart' show QuickActionWidget;
+export 'components/sale_row/sale_row_widget.dart' show SaleRowWidget;
+export 'components/settings_tile/settings_tile_widget.dart' show SettingsTileWidget;
+export 'components/stat_card/stat_card_widget.dart' show StatCardWidget;
+export 'components/text_field/text_field_widget.dart' show TextFieldWidget;
+

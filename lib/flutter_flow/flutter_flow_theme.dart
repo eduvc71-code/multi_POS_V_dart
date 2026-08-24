@@ -18,11 +18,14 @@ abstract class FlutterFlowTheme {
   late Color accent2;
   late Color accent3;
   late Color accent4;
+  late Color accent20;
+  late Color onAccent;
   late Color success;
   late Color warning;
   late Color error;
   late Color info;
 
+  late Color primary5;
   late Color primary10;
   late Color primary15;
   late Color primary20;
@@ -103,11 +106,14 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color accent2 = const Color(0x4CFF2D87);
   late Color accent3 = const Color(0x4CFFE500);
   late Color accent4 = const Color(0xCCFFFFFF);
+  late Color accent20 = const Color(0x33FF2D87);
+  late Color onAccent = const Color(0xFFFFFFFF);
   late Color success = const Color(0xFF24D193);
   late Color warning = const Color(0xFFFF9100);
   late Color error = const Color(0xFFFF5963);
   late Color info = const Color(0xFFFFFFFF);
 
+  late Color primary5 = const Color(0x0D0066FF);
   late Color primary10 = const Color(0x1A0066FF);
   late Color primary15 = const Color(0x260066FF);
   late Color primary20 = const Color(0x330066FF);

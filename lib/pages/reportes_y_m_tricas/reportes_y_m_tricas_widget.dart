@@ -12,6 +12,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:fl_chart/fl_chart.dart';
 
 import 'reportes_y_m_tricas_model.dart';
 export 'reportes_y_m_tricas_model.dart';
@@ -86,7 +87,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .headlineMedium
                                     .override(
-                                  font: GoogleFonts.urbanist(
+                                  fontFamily: GoogleFonts.urbanist(
                                     fontWeight: FontWeight.w800,
                                     fontStyle: FlutterFlowTheme.of(context)
                                         .headlineMedium
@@ -107,7 +108,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodySmall
                                     .override(
-                                  font: GoogleFonts.poppins(
+                                  fontFamily: GoogleFonts.poppins(
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .bodySmall
                                         .fontWeight,
@@ -213,19 +214,8 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .labelLarge
                                                 .override(
-                                              font:
-                                              GoogleFonts.spaceGrotesk(
-                                                fontWeight:
-                                                FlutterFlowTheme.of(
-                                                    context)
-                                                    .labelLarge
-                                                    .fontWeight,
-                                                fontStyle:
-                                                FlutterFlowTheme.of(
-                                                    context)
-                                                    .labelLarge
-                                                    .fontStyle,
-                                              ),
+                                              fontFamily:
+                                              GoogleFonts.spaceGrotesk().fontFamily,
                                               color: FlutterFlowTheme.of(
                                                   context)
                                                   .primaryText,
@@ -346,7 +336,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .titleMedium
                                                 .override(
-                                              font: GoogleFonts.urbanist(
+                                              fontFamily: GoogleFonts.urbanist(
                                                 fontWeight: FontWeight.bold,
                                                 fontStyle:
                                                 FlutterFlowTheme.of(
@@ -432,25 +422,14 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                               'Sem 6',
                                               'Sem 7'
                                             ])!,
-                                            xAxisLabelInfo: AxisLabelInfo(
+                                            xAxisLabelInfo: fl.AxisLabelInfo(
                                               showLabels: true,
                                               labelTextStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
                                                   .override(
-                                                font:
-                                                GoogleFonts.poppins(
-                                                  fontWeight:
-                                                  FlutterFlowTheme.of(
-                                                      context)
-                                                      .bodySmall
-                                                      .fontWeight,
-                                                  fontStyle:
-                                                  FlutterFlowTheme.of(
-                                                      context)
-                                                      .bodySmall
-                                                      .fontStyle,
-                                                ),
+                                                fontFamily:
+                                                GoogleFonts.poppins().fontFamily,
                                                 color:
                                                 FlutterFlowTheme.of(
                                                     context)
@@ -471,7 +450,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                               ),
                                               reservedSize: 28,
                                             ),
-                                            yAxisLabelInfo: AxisLabelInfo(
+                                            yAxisLabelInfo: fl.AxisLabelInfo(
                                               reservedSize: 0,
                                             ),
                                           ),
@@ -507,7 +486,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .titleMedium
                                             .override(
-                                          font: GoogleFonts.urbanist(
+                                          fontFamily: GoogleFonts.urbanist(
                                             fontWeight: FontWeight.bold,
                                             fontStyle:
                                             FlutterFlowTheme.of(context)
@@ -584,7 +563,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .titleMedium
                                                 .override(
-                                              font: GoogleFonts.urbanist(
+                                              fontFamily: GoogleFonts.urbanist(
                                                 fontWeight: FontWeight.bold,
                                                 fontStyle:
                                                 FlutterFlowTheme.of(
@@ -671,7 +650,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                                           .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                        font: GoogleFonts
+                                                        fontFamily: GoogleFonts
                                                             .poppins(
                                                           fontWeight:
                                                           FontWeight
@@ -702,7 +681,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                                           context)
                                                           .labelSmall
                                                           .override(
-                                                        font: GoogleFonts
+                                                        fontFamily: GoogleFonts
                                                             .spaceGrotesk(
                                                           fontWeight: FlutterFlowTheme.of(
                                                               context)
@@ -738,7 +717,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                                     context)
                                                     .bodyMedium
                                                     .override(
-                                                  font: GoogleFonts.poppins(
+                                                  fontFamily: GoogleFonts.poppins(
                                                     fontWeight:
                                                     FontWeight.bold,
                                                     fontStyle:
@@ -818,7 +797,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                                           .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                        font: GoogleFonts
+                                                        fontFamily: GoogleFonts
                                                             .poppins(
                                                           fontWeight:
                                                           FontWeight
@@ -849,7 +828,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                                           context)
                                                           .labelSmall
                                                           .override(
-                                                        font: GoogleFonts
+                                                        fontFamily: GoogleFonts
                                                             .spaceGrotesk(
                                                           fontWeight: FlutterFlowTheme.of(
                                                               context)
@@ -885,7 +864,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                                     context)
                                                     .bodyMedium
                                                     .override(
-                                                  font: GoogleFonts.poppins(
+                                                  fontFamily: GoogleFonts.poppins(
                                                     fontWeight:
                                                     FontWeight.bold,
                                                     fontStyle:
@@ -973,7 +952,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                                   context)
                                                   .titleSmall
                                                   .override(
-                                                font: GoogleFonts.urbanist(
+                                                fontFamily: GoogleFonts.urbanist(
                                                   fontWeight:
                                                   FontWeight.bold,
                                                   fontStyle:
@@ -998,7 +977,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                               FlutterFlowTheme.of(context)
                                                   .labelSmall
                                                   .override(
-                                                font: GoogleFonts
+                                                fontFamily: GoogleFonts
                                                     .spaceGrotesk(
                                                   fontWeight:
                                                   FlutterFlowTheme.of(

@@ -1,0 +1,833 @@
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\components\sale_row\sale_row_widget.dart:137:43 - argument_type_not_assignable
+
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\components\sale_row\sale_row_widget.dart:159:39 - argument_type_not_assignable
+
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\components\sale_row\sale_row_widget.dart:194:43 - argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\components\sale_row\sale_row_widget.dart:219:43 - argument_type_not_assignable
+
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\components\sale_row\sale_row_widget.dart:247:43 - argument_type_not_assignable
+
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\components\sale_row\sale_row_widget.dart:289:45 - argument_type_not_assignable
+
+  error - A member named 'pushNamed' is defined in 'extension BuildContextExtensions on
+         BuildContext' and 'extension GoRouterHelper on BuildContext', and neither is more specific.
+         Try using an extension override to specify the extension you want to be chosen -
+         lib\components\settings_tile\settings_tile_widget.dart:65:17 -
+         ambiguous_extension_member_access
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\components\settings_tile\settings_tile_widget.dart:108:35 -
+         argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\components\settings_tile\settings_tile_widget.dart:126:35 -
+         argument_type_not_assignable
+
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\components\stat_card\stat_card_widget.dart:115:33 - argument_type_not_assignable
+
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\components\stat_card\stat_card_widget.dart:140:33 - argument_type_not_assignable
+
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\components\stat_card\stat_card_widget.dart:202:33 - argument_type_not_assignable
+
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\components\text_field\text_field_widget.dart:97:25 - argument_type_not_assignable
+
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\components\text_field\text_field_widget.dart:381:37 - argument_type_not_assignable
+
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\components\text_field\text_field_widget.dart:420:35 - argument_type_not_assignable
+
+  error - The method 'asValidator' can't be unconditionally invoked because the receiver can be
+         'null'. Try making the call conditional (using '?.') or adding a null check to the target
+         ('!') - lib\components\text_field\text_field_widget.dart:457:28 -
+         unchecked_use_of_nullable_value
+
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\components\text_field\text_field_widget.dart:468:25 - argument_type_not_assignable
+
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\clientes_y_cr_ditos\clientes_y_cr_ditos_widget.dart:94:45 -
+         argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\clientes_y_cr_ditos\clientes_y_cr_ditos_widget.dart:117:45 -
+         argument_type_not_assignable
+  error - The method 'wrapWithModel' isn't defined for the type '_ClientesYCrDitosWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\clientes_y_cr_ditos\clientes_y_cr_ditos_widget.dart:158:27 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_ClientesYCrDitosWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\clientes_y_cr_ditos\clientes_y_cr_ditos_widget.dart:219:42 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_ClientesYCrDitosWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\clientes_y_cr_ditos\clientes_y_cr_ditos_widget.dart:238:42 -
+         undefined_method
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\clientes_y_cr_ditos\clientes_y_cr_ditos_widget.dart:298:47 -
+         argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\clientes_y_cr_ditos\clientes_y_cr_ditos_widget.dart:361:47 -
+         argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\clientes_y_cr_ditos\clientes_y_cr_ditos_widget.dart:424:47 -
+         argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\clientes_y_cr_ditos\clientes_y_cr_ditos_widget.dart:487:47 -
+         argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\clientes_y_cr_ditos\clientes_y_cr_ditos_widget.dart:534:43 -
+         argument_type_not_assignable
+  error - The method 'wrapWithModel' isn't defined for the type '_ClientesYCrDitosWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\clientes_y_cr_ditos\clientes_y_cr_ditos_widget.dart:551:33 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_ClientesYCrDitosWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\clientes_y_cr_ditos\clientes_y_cr_ditos_widget.dart:560:33 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_ClientesYCrDitosWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\clientes_y_cr_ditos\clientes_y_cr_ditos_widget.dart:569:33 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_ClientesYCrDitosWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\clientes_y_cr_ditos\clientes_y_cr_ditos_widget.dart:578:33 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_ClientesYCrDitosWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\clientes_y_cr_ditos\clientes_y_cr_ditos_widget.dart:587:33 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_ClientesYCrDitosWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\clientes_y_cr_ditos\clientes_y_cr_ditos_widget.dart:624:28 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_ClientesYCrDitosWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\clientes_y_cr_ditos\clientes_y_cr_ditos_widget.dart:650:24 -
+         undefined_method
+
+   info - The import of 'package:multi_p_o_s/components/button/button_widget.dart' is unnecessary
+          because all of the used elements are also provided by the import of
+          'package:multi_p_o_s/index.dart'. Try removing the import directive -
+          lib\pages\configuraci_n_y_empresas\configuraci_n_y_empresas_widget.dart:4:8 -
+          unnecessary_import
+   info - The import of 'package:multi_p_o_s/components/settings_tile/settings_tile_widget.dart' is
+          unnecessary because all of the used elements are also provided by the import of
+          'package:multi_p_o_s/index.dart'. Try removing the import directive -
+          lib\pages\configuraci_n_y_empresas\configuraci_n_y_empresas_widget.dart:5:8 -
+          unnecessary_import
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\configuraci_n_y_empresas\configuraci_n_y_empresas_widget.dart:91:41 -
+         argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\configuraci_n_y_empresas\configuraci_n_y_empresas_widget.dart:112:41 -
+         argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\configuraci_n_y_empresas\configuraci_n_y_empresas_widget.dart:194:47 -
+         argument_type_not_assignable
+  error - A member named 'goNamed' is defined in 'extension BuildContextExtensions on BuildContext'
+         and 'extension GoRouterHelper on BuildContext', and neither is more specific. Try using an
+         extension override to specify the extension you want to be chosen -
+         lib\pages\configuraci_n_y_empresas\configuraci_n_y_empresas_widget.dart:216:49 -
+         ambiguous_extension_member_access
+  error - The method 'wrapWithModel' isn't defined for the type '_ConfiguraciNYEmpresasWidgetState'.
+         Try correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' -
+         lib\pages\configuraci_n_y_empresas\configuraci_n_y_empresas_widget.dart:219:46 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_ConfiguraciNYEmpresasWidgetState'.
+         Try correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' -
+         lib\pages\configuraci_n_y_empresas\configuraci_n_y_empresas_widget.dart:243:33 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_ConfiguraciNYEmpresasWidgetState'.
+         Try correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' -
+         lib\pages\configuraci_n_y_empresas\configuraci_n_y_empresas_widget.dart:252:33 -
+         undefined_method
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\configuraci_n_y_empresas\configuraci_n_y_empresas_widget.dart:273:43 -
+         argument_type_not_assignable
+  error - The method 'wrapWithModel' isn't defined for the type '_ConfiguraciNYEmpresasWidgetState'.
+         Try correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' -
+         lib\pages\configuraci_n_y_empresas\configuraci_n_y_empresas_widget.dart:288:33 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_ConfiguraciNYEmpresasWidgetState'.
+         Try correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' -
+         lib\pages\configuraci_n_y_empresas\configuraci_n_y_empresas_widget.dart:305:33 -
+         undefined_method
+  error - The getter 'secondary20' isn't defined for the type 'FlutterFlowTheme'. Try importing the
+         library that defines 'secondary20', correcting the name to the name of an existing getter,
+         or defining a getter or field named 'secondary20' -
+         lib\pages\configuraci_n_y_empresas\configuraci_n_y_empresas_widget.dart:316:42 -
+         undefined_getter
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\configuraci_n_y_empresas\configuraci_n_y_empresas_widget.dart:335:43 -
+         argument_type_not_assignable
+  error - The method 'wrapWithModel' isn't defined for the type '_ConfiguraciNYEmpresasWidgetState'.
+         Try correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' -
+         lib\pages\configuraci_n_y_empresas\configuraci_n_y_empresas_widget.dart:350:33 -
+         undefined_method
+  error - The getter 'accent20' isn't defined for the type 'FlutterFlowTheme'. Try importing the
+         library that defines 'accent20', correcting the name to the name of an existing getter, or
+         defining a getter or field named 'accent20' -
+         lib\pages\configuraci_n_y_empresas\configuraci_n_y_empresas_widget.dart:361:66 -
+         undefined_getter
+  error - The method 'wrapWithModel' isn't defined for the type '_ConfiguraciNYEmpresasWidgetState'.
+         Try correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' -
+         lib\pages\configuraci_n_y_empresas\configuraci_n_y_empresas_widget.dart:367:33 -
+         undefined_method
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\configuraci_n_y_empresas\configuraci_n_y_empresas_widget.dart:431:55 -
+         argument_type_not_assignable
+  error - The getter 'onAccent' isn't defined for the type 'FlutterFlowTheme'. Try importing the
+         library that defines 'onAccent', correcting the name to the name of an existing getter, or
+         defining a getter or field named 'onAccent' -
+         lib\pages\configuraci_n_y_empresas\configuraci_n_y_empresas_widget.dart:443:54 -
+         undefined_getter
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\configuraci_n_y_empresas\configuraci_n_y_empresas_widget.dart:471:51 -
+         argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\configuraci_n_y_empresas\configuraci_n_y_empresas_widget.dart:497:57 -
+         argument_type_not_assignable
+  error - A member named 'goNamed' is defined in 'extension BuildContextExtensions on BuildContext'
+         and 'extension GoRouterHelper on BuildContext', and neither is more specific. Try using an
+         extension override to specify the extension you want to be chosen -
+         lib\pages\configuraci_n_y_empresas\configuraci_n_y_empresas_widget.dart:545:51 -
+         ambiguous_extension_member_access
+  error - The method 'wrapWithModel' isn't defined for the type '_ConfiguraciNYEmpresasWidgetState'.
+         Try correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' -
+         lib\pages\configuraci_n_y_empresas\configuraci_n_y_empresas_widget.dart:548:48 -
+         undefined_method
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\configuraci_n_y_empresas\configuraci_n_y_empresas_widget.dart:588:45 -
+         argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\configuraci_n_y_empresas\configuraci_n_y_empresas_widget.dart:617:45 -
+         argument_type_not_assignable
+  error - The method 'wrapWithModel' isn't defined for the type '_ConfiguraciNYEmpresasWidgetState'.
+         Try correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' -
+         lib\pages\configuraci_n_y_empresas\configuraci_n_y_empresas_widget.dart:655:24 -
+         undefined_method
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\gesti_n_de_caja\gesti_n_de_caja_widget.dart:87:41 - argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\gesti_n_de_caja\gesti_n_de_caja_widget.dart:123:45 - argument_type_not_assignable
+  error - The method 'wrapWithModel' isn't defined for the type '_GestiNDeCajaWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\gesti_n_de_caja\gesti_n_de_caja_widget.dart:207:46 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_GestiNDeCajaWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\gesti_n_de_caja\gesti_n_de_caja_widget.dart:228:46 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_GestiNDeCajaWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\gesti_n_de_caja\gesti_n_de_caja_widget.dart:255:46 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_GestiNDeCajaWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\gesti_n_de_caja\gesti_n_de_caja_widget.dart:275:46 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_GestiNDeCajaWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\gesti_n_de_caja\gesti_n_de_caja_widget.dart:304:42 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_GestiNDeCajaWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\gesti_n_de_caja\gesti_n_de_caja_widget.dart:327:42 -
+         undefined_method
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\gesti_n_de_caja\gesti_n_de_caja_widget.dart:366:47 - argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\gesti_n_de_caja\gesti_n_de_caja_widget.dart:389:47 - argument_type_not_assignable
+  error - The method 'wrapWithModel' isn't defined for the type '_GestiNDeCajaWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\gesti_n_de_caja\gesti_n_de_caja_widget.dart:436:41 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_GestiNDeCajaWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\gesti_n_de_caja\gesti_n_de_caja_widget.dart:448:41 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_GestiNDeCajaWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\gesti_n_de_caja\gesti_n_de_caja_widget.dart:460:41 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_GestiNDeCajaWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\gesti_n_de_caja\gesti_n_de_caja_widget.dart:472:41 -
+         undefined_method
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\gesti_n_de_caja\gesti_n_de_caja_widget.dart:537:59 - argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\gesti_n_de_caja\gesti_n_de_caja_widget.dart:569:53 - argument_type_not_assignable
+  error - The method 'wrapWithModel' isn't defined for the type '_GestiNDeCajaWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\gesti_n_de_caja\gesti_n_de_caja_widget.dart:604:39 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_GestiNDeCajaWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\gesti_n_de_caja\gesti_n_de_caja_widget.dart:629:39 -
+         undefined_method
+
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\historial_de_ventas\historial_de_ventas_widget.dart:70:21 -
+         argument_type_not_assignable
+  error - A member named 'goNamed' is defined in 'extension BuildContextExtensions on BuildContext'
+         and 'extension GoRouterHelper on BuildContext', and neither is more specific. Try using an
+         extension override to specify the extension you want to be chosen -
+         lib\pages\historial_de_ventas\historial_de_ventas_widget.dart:122:40 -
+         ambiguous_extension_member_access
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\historial_de_ventas\historial_de_ventas_widget.dart:130:41 -
+         argument_type_not_assignable
+  error - The method 'wrapWithModel' isn't defined for the type '_HistorialDeVentasWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\historial_de_ventas\historial_de_ventas_widget.dart:197:42 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_HistorialDeVentasWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\historial_de_ventas\historial_de_ventas_widget.dart:216:42 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_HistorialDeVentasWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\historial_de_ventas\historial_de_ventas_widget.dart:241:42 -
+         undefined_method
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\historial_de_ventas\historial_de_ventas_widget.dart:332:47 -
+         argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\historial_de_ventas\historial_de_ventas_widget.dart:395:47 -
+         argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\historial_de_ventas\historial_de_ventas_widget.dart:458:47 -
+         argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\historial_de_ventas\historial_de_ventas_widget.dart:521:47 -
+         argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\historial_de_ventas\historial_de_ventas_widget.dart:568:43 -
+         argument_type_not_assignable
+  error - The method 'wrapWithModel' isn't defined for the type '_HistorialDeVentasWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\historial_de_ventas\historial_de_ventas_widget.dart:590:33 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_HistorialDeVentasWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\historial_de_ventas\historial_de_ventas_widget.dart:603:33 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_HistorialDeVentasWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\historial_de_ventas\historial_de_ventas_widget.dart:616:33 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_HistorialDeVentasWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\historial_de_ventas\historial_de_ventas_widget.dart:629:33 -
+         undefined_method
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\historial_de_ventas\historial_de_ventas_widget.dart:647:43 -
+         argument_type_not_assignable
+  error - The method 'wrapWithModel' isn't defined for the type '_HistorialDeVentasWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\historial_de_ventas\historial_de_ventas_widget.dart:669:33 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_HistorialDeVentasWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\historial_de_ventas\historial_de_ventas_widget.dart:682:33 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_HistorialDeVentasWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\historial_de_ventas\historial_de_ventas_widget.dart:695:33 -
+         undefined_method
+
+  error - The method 'wrapWithModel' isn't defined for the type '_InicioDeSesiNWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\inicio_de_sesi_n\inicio_de_sesi_n_widget.dart:51:15 -
+         undefined_method
+
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\inventario_de_productos\inventario_de_productos_widget.dart:72:21 -
+         argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\inventario_de_productos\inventario_de_productos_widget.dart:124:45 -
+         argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\inventario_de_productos\inventario_de_productos_widget.dart:147:45 -
+         argument_type_not_assignable
+  error - The method 'wrapWithModel' isn't defined for the type '_InventarioDeProductosWidgetState'.
+         Try correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' -
+         lib\pages\inventario_de_productos\inventario_de_productos_widget.dart:188:27 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_InventarioDeProductosWidgetState'.
+         Try correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' -
+         lib\pages\inventario_de_productos\inventario_de_productos_widget.dart:250:44 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_InventarioDeProductosWidgetState'.
+         Try correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' -
+         lib\pages\inventario_de_productos\inventario_de_productos_widget.dart:269:44 -
+         undefined_method
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\inventario_de_productos\inventario_de_productos_widget.dart:298:45 -
+         argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\inventario_de_productos\inventario_de_productos_widget.dart:364:59 -
+         argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\inventario_de_productos\inventario_de_productos_widget.dart:432:59 -
+         argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\inventario_de_productos\inventario_de_productos_widget.dart:500:59 -
+         argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\inventario_de_productos\inventario_de_productos_widget.dart:568:59 -
+         argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\inventario_de_productos\inventario_de_productos_widget.dart:636:59 -
+         argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\inventario_de_productos\inventario_de_productos_widget.dart:694:49 -
+         argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\inventario_de_productos\inventario_de_productos_widget.dart:718:49 -
+         argument_type_not_assignable
+  error - The method 'wrapWithModel' isn't defined for the type '_InventarioDeProductosWidgetState'.
+         Try correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' -
+         lib\pages\inventario_de_productos\inventario_de_productos_widget.dart:745:35 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_InventarioDeProductosWidgetState'.
+         Try correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' -
+         lib\pages\inventario_de_productos\inventario_de_productos_widget.dart:757:35 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_InventarioDeProductosWidgetState'.
+         Try correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' -
+         lib\pages\inventario_de_productos\inventario_de_productos_widget.dart:769:35 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_InventarioDeProductosWidgetState'.
+         Try correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' -
+         lib\pages\inventario_de_productos\inventario_de_productos_widget.dart:781:35 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_InventarioDeProductosWidgetState'.
+         Try correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' -
+         lib\pages\inventario_de_productos\inventario_de_productos_widget.dart:793:35 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_InventarioDeProductosWidgetState'.
+         Try correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' -
+         lib\pages\inventario_de_productos\inventario_de_productos_widget.dart:805:35 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_InventarioDeProductosWidgetState'.
+         Try correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' -
+         lib\pages\inventario_de_productos\inventario_de_productos_widget.dart:817:35 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_InventarioDeProductosWidgetState'.
+         Try correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' -
+         lib\pages\inventario_de_productos\inventario_de_productos_widget.dart:843:24 -
+         undefined_method
+
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\panel_principal\panel_principal_widget.dart:85:37 - argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\panel_principal\panel_principal_widget.dart:116:41 - argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\panel_principal\panel_principal_widget.dart:243:47 - argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\panel_principal\panel_principal_widget.dart:291:59 - argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\panel_principal\panel_principal_widget.dart:326:49 - argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\panel_principal\panel_principal_widget.dart:374:57 - argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\panel_principal\panel_principal_widget.dart:410:57 - argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\panel_principal\panel_principal_widget.dart:449:57 - argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\panel_principal\panel_principal_widget.dart:506:61 - argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\panel_principal\panel_principal_widget.dart:551:43 - argument_type_not_assignable
+  error - The method 'wrapWithModel' isn't defined for the type '_PanelPrincipalWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\panel_principal\panel_principal_widget.dart:573:46 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_PanelPrincipalWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\panel_principal\panel_principal_widget.dart:593:46 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_PanelPrincipalWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\panel_principal\panel_principal_widget.dart:614:46 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_PanelPrincipalWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\panel_principal\panel_principal_widget.dart:634:46 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_PanelPrincipalWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\panel_principal\panel_principal_widget.dart:663:42 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_PanelPrincipalWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\panel_principal\panel_principal_widget.dart:682:42 -
+         undefined_method
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\panel_principal\panel_principal_widget.dart:752:55 - argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\panel_principal\panel_principal_widget.dart:781:55 - argument_type_not_assignable
+  error - A member named 'goNamed' is defined in 'extension BuildContextExtensions on BuildContext'
+         and 'extension GoRouterHelper on BuildContext', and neither is more specific. Try using an
+         extension override to specify the extension you want to be chosen -
+         lib\pages\panel_principal\panel_principal_widget.dart:823:51 -
+         ambiguous_extension_member_access
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\panel_principal\panel_principal_widget.dart:849:47 - argument_type_not_assignable
+  error - A member named 'goNamed' is defined in 'extension BuildContextExtensions on BuildContext'
+         and 'extension GoRouterHelper on BuildContext', and neither is more specific. Try using an
+         extension override to specify the extension you want to be chosen -
+         lib\pages\panel_principal\panel_principal_widget.dart:871:49 -
+         ambiguous_extension_member_access
+  error - The method 'wrapWithModel' isn't defined for the type '_PanelPrincipalWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\panel_principal\panel_principal_widget.dart:874:46 -
+         undefined_method
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\panel_principal\panel_principal_widget.dart:959:63 - argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\panel_principal\panel_principal_widget.dart:988:63 - argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\panel_principal\panel_principal_widget.dart:1024:57 -
+         argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\panel_principal\panel_principal_widget.dart:1105:63 -
+         argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\panel_principal\panel_principal_widget.dart:1134:63 -
+         argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\panel_principal\panel_principal_widget.dart:1170:57 -
+         argument_type_not_assignable
+  error - The method 'wrapWithModel' isn't defined for the type '_PanelPrincipalWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\panel_principal\panel_principal_widget.dart:1229:21 -
+         undefined_method
+
+  error - A member named 'goNamed' is defined in 'extension BuildContextExtensions on BuildContext'
+         and 'extension GoRouterHelper on BuildContext', and neither is more specific. Try using an
+         extension override to specify the extension you want to be chosen -
+         lib\pages\punto_de_venta\punto_de_venta_widget.dart:95:40 -
+         ambiguous_extension_member_access
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\punto_de_venta\punto_de_venta_widget.dart:108:45 - argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\punto_de_venta\punto_de_venta_widget.dart:131:45 - argument_type_not_assignable
+  error - The method 'wrapWithModel' isn't defined for the type '_PuntoDeVentaWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\punto_de_venta\punto_de_venta_widget.dart:233:37 -
+         undefined_method
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\punto_de_venta\punto_de_venta_widget.dart:262:47 - argument_type_not_assignable
+  error - The method 'wrapWithModel' isn't defined for the type '_PuntoDeVentaWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\punto_de_venta\punto_de_venta_widget.dart:286:37 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_PuntoDeVentaWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\punto_de_venta\punto_de_venta_widget.dart:298:37 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_PuntoDeVentaWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\punto_de_venta\punto_de_venta_widget.dart:310:37 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_PuntoDeVentaWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\punto_de_venta\punto_de_venta_widget.dart:322:37 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_PuntoDeVentaWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\punto_de_venta\punto_de_venta_widget.dart:334:37 -
+         undefined_method
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\punto_de_venta\punto_de_venta_widget.dart:389:49 - argument_type_not_assignable
+  error - The method 'wrapWithModel' isn't defined for the type '_PuntoDeVentaWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\punto_de_venta\punto_de_venta_widget.dart:439:43 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_PuntoDeVentaWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\punto_de_venta\punto_de_venta_widget.dart:449:43 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_PuntoDeVentaWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\punto_de_venta\punto_de_venta_widget.dart:459:43 -
+         undefined_method
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\punto_de_venta\punto_de_venta_widget.dart:529:57 - argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\punto_de_venta\punto_de_venta_widget.dart:586:53 - argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\punto_de_venta\punto_de_venta_widget.dart:620:53 - argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\punto_de_venta\punto_de_venta_widget.dart:663:53 - argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\punto_de_venta\punto_de_venta_widget.dart:697:53 - argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\punto_de_venta\punto_de_venta_widget.dart:754:53 - argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\punto_de_venta\punto_de_venta_widget.dart:780:53 - argument_type_not_assignable
+  error - The method 'wrapWithModel' isn't defined for the type '_PuntoDeVentaWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\punto_de_venta\punto_de_venta_widget.dart:805:35 -
+         undefined_method
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\punto_de_venta\punto_de_venta_widget.dart:899:47 - argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\punto_de_venta\punto_de_venta_widget.dart:963:47 - argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\punto_de_venta\punto_de_venta_widget.dart:1027:47 - argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\punto_de_venta\punto_de_venta_widget.dart:1070:37 - argument_type_not_assignable
+
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\registro_de_negocio\registro_de_negocio_widget.dart:124:46 -
+         argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\registro_de_negocio\registro_de_negocio_widget.dart:144:46 -
+         argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\registro_de_negocio\registro_de_negocio_widget.dart:198:46 -
+         argument_type_not_assignable
+  error - The method 'wrapWithModel' isn't defined for the type '_RegistroDeNegocioWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\registro_de_negocio\registro_de_negocio_widget.dart:216:28 -
+         undefined_method
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\registro_de_negocio\registro_de_negocio_widget.dart:236:46 -
+         argument_type_not_assignable
+  error - The method 'wrapWithModel' isn't defined for the type '_RegistroDeNegocioWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\registro_de_negocio\registro_de_negocio_widget.dart:264:49 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_RegistroDeNegocioWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\registro_de_negocio\registro_de_negocio_widget.dart:284:49 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_RegistroDeNegocioWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\registro_de_negocio\registro_de_negocio_widget.dart:311:49 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_RegistroDeNegocioWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\registro_de_negocio\registro_de_negocio_widget.dart:331:49 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_RegistroDeNegocioWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\registro_de_negocio\registro_de_negocio_widget.dart:358:49 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_RegistroDeNegocioWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\registro_de_negocio\registro_de_negocio_widget.dart:385:28 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_RegistroDeNegocioWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\registro_de_negocio\registro_de_negocio_widget.dart:395:28 -
+         undefined_method
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\registro_de_negocio\registro_de_negocio_widget.dart:434:46 -
+         argument_type_not_assignable
+  error - The method 'wrapWithModel' isn't defined for the type '_RegistroDeNegocioWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\registro_de_negocio\registro_de_negocio_widget.dart:452:28 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_RegistroDeNegocioWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\registro_de_negocio\registro_de_negocio_widget.dart:462:28 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_RegistroDeNegocioWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\registro_de_negocio\registro_de_negocio_widget.dart:472:28 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_RegistroDeNegocioWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\registro_de_negocio\registro_de_negocio_widget.dart:482:28 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_RegistroDeNegocioWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\registro_de_negocio\registro_de_negocio_widget.dart:494:24 -
+         undefined_method
+  error - A member named 'goNamed' is defined in 'extension BuildContextExtensions on BuildContext'
+         and 'extension GoRouterHelper on BuildContext', and neither is more specific. Try using an
+         extension override to specify the extension you want to be chosen -
+         lib\pages\registro_de_negocio\registro_de_negocio_widget.dart:516:42 -
+         ambiguous_extension_member_access
+  error - The method 'wrapWithModel' isn't defined for the type '_RegistroDeNegocioWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\registro_de_negocio\registro_de_negocio_widget.dart:518:39 -
+         undefined_method
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\registro_de_negocio\registro_de_negocio_widget.dart:553:48 -
+         argument_type_not_assignable
+  error - A member named 'goNamed' is defined in 'extension BuildContextExtensions on BuildContext'
+         and 'extension GoRouterHelper on BuildContext', and neither is more specific. Try using an
+         extension override to specify the extension you want to be chosen -
+         lib\pages\registro_de_negocio\registro_de_negocio_widget.dart:579:42 -
+         ambiguous_extension_member_access
+  error - The method 'wrapWithModel' isn't defined for the type '_RegistroDeNegocioWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\registro_de_negocio\registro_de_negocio_widget.dart:581:39 -
+         undefined_method
+  error - Expected a method, getter, setter or operator declaration. This appears to be incomplete
+         code. Try removing it or completing it -
+         lib\pages\registro_de_negocio\registro_de_negocio_widget.dart:609:1 - expected_executable
+
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\reportes_y_m_tricas\reportes_y_m_tricas_widget.dart:89:41 -
+         argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\reportes_y_m_tricas\reportes_y_m_tricas_widget.dart:110:41 -
+         argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\reportes_y_m_tricas\reportes_y_m_tricas_widget.dart:217:47 -
+         argument_type_not_assignable
+  error - The method 'wrapWithModel' isn't defined for the type '_ReportesYMTricasWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\reportes_y_m_tricas\reportes_y_m_tricas_widget.dart:248:39 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_ReportesYMTricasWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\reportes_y_m_tricas\reportes_y_m_tricas_widget.dart:275:42 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_ReportesYMTricasWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\reportes_y_m_tricas\reportes_y_m_tricas_widget.dart:296:42 -
+         undefined_method
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\reportes_y_m_tricas\reportes_y_m_tricas_widget.dart:349:53 -
+         argument_type_not_assignable
+  error - The method 'FlutterFlowLineChart' isn't defined for the type
+         '_ReportesYMTricasWidgetState'. Try correcting the name to the name of an existing method,
+         or defining a method named 'FlutterFlowLineChart' -
+         lib\pages\reportes_y_m_tricas\reportes_y_m_tricas_widget.dart:379:50 - undefined_method
+  error - The method 'FFLineChartData' isn't defined for the type '_ReportesYMTricasWidgetState'.
+         Try correcting the name to the name of an existing method, or defining a method named
+         'FFLineChartData' - lib\pages\reportes_y_m_tricas\reportes_y_m_tricas_widget.dart:381:47 -
+         undefined_method
+warning - The '!' will have no effect because the receiver can't be null. Try removing the '!'
+       operator - lib\pages\reportes_y_m_tricas\reportes_y_m_tricas_widget.dart:390:51 -
+       unnecessary_non_null_assertion
+warning - The '!' will have no effect because the receiver can't be null. Try removing the '!'
+       operator - lib\pages\reportes_y_m_tricas\reportes_y_m_tricas_widget.dart:399:51 -
+       unnecessary_non_null_assertion
+  error - The method 'LineChartBarData' isn't defined for the type '_ReportesYMTricasWidgetState'.
+         Try correcting the name to the name of an existing method, or defining a method named
+         'LineChartBarData' - lib\pages\reportes_y_m_tricas\reportes_y_m_tricas_widget.dart:400:59 -
+         undefined_method
+  error - The method 'BarAreaData' isn't defined for the type '_ReportesYMTricasWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'BarAreaData' - lib\pages\reportes_y_m_tricas\reportes_y_m_tricas_widget.dart:406:65 -
+         undefined_method
+  error - The method 'ChartStylingInfo' isn't defined for the type '_ReportesYMTricasWidgetState'.
+         Try correcting the name to the name of an existing method, or defining a method named
+         'ChartStylingInfo' - lib\pages\reportes_y_m_tricas\reportes_y_m_tricas_widget.dart:415:63 -
+         undefined_method
+  error - The method 'AxisBounds' isn't defined for the type '_ReportesYMTricasWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'AxisBounds' - lib\pages\reportes_y_m_tricas\reportes_y_m_tricas_widget.dart:420:57 -
+         undefined_method
+warning - The '!' will have no effect because the receiver can't be null. Try removing the '!'
+       operator - lib\pages\reportes_y_m_tricas\reportes_y_m_tricas_widget.dart:434:47 -
+       unnecessary_non_null_assertion
+  error - The method 'AxisLabelInfo' isn't defined for the type '_ReportesYMTricasWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'AxisLabelInfo' - lib\pages\reportes_y_m_tricas\reportes_y_m_tricas_widget.dart:435:61 -
+         undefined_method
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\reportes_y_m_tricas\reportes_y_m_tricas_widget.dart:442:49 -
+         argument_type_not_assignable
+  error - The method 'AxisLabelInfo' isn't defined for the type '_ReportesYMTricasWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'AxisLabelInfo' - lib\pages\reportes_y_m_tricas\reportes_y_m_tricas_widget.dart:474:61 -
+         undefined_method
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\reportes_y_m_tricas\reportes_y_m_tricas_widget.dart:510:49 -
+         argument_type_not_assignable
+  error - The method 'wrapWithModel' isn't defined for the type '_ReportesYMTricasWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\reportes_y_m_tricas\reportes_y_m_tricas_widget.dart:526:39 -
+         undefined_method
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\reportes_y_m_tricas\reportes_y_m_tricas_widget.dart:587:53 -
+         argument_type_not_assignable
+  error - The method 'wrapWithModel' isn't defined for the type '_ReportesYMTricasWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\reportes_y_m_tricas\reportes_y_m_tricas_widget.dart:605:43 -
+         undefined_method
+  error - The getter 'accent20' isn't defined for the type 'FlutterFlowTheme'. Try importing the
+         library that defines 'accent20', correcting the name to the name of an existing getter, or
+         defining a getter or field named 'accent20' -
+         lib\pages\reportes_y_m_tricas\reportes_y_m_tricas_widget.dart:642:56 - undefined_getter
+  error - The getter 'onAccent' isn't defined for the type 'FlutterFlowTheme'. Try importing the
+         library that defines 'onAccent', correcting the name to the name of an existing getter, or
+         defining a getter or field named 'onAccent' -
+         lib\pages\reportes_y_m_tricas\reportes_y_m_tricas_widget.dart:653:56 - undefined_getter
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\reportes_y_m_tricas\reportes_y_m_tricas_widget.dart:674:63 -
+         argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\reportes_y_m_tricas\reportes_y_m_tricas_widget.dart:705:63 -
+         argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\reportes_y_m_tricas\reportes_y_m_tricas_widget.dart:741:57 -
+         argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\reportes_y_m_tricas\reportes_y_m_tricas_widget.dart:821:63 -
+         argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\reportes_y_m_tricas\reportes_y_m_tricas_widget.dart:852:63 -
+         argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\reportes_y_m_tricas\reportes_y_m_tricas_widget.dart:888:57 -
+         argument_type_not_assignable
+  error - The getter 'primary5' isn't defined for the type 'FlutterFlowTheme'. Try importing the
+         library that defines 'primary5', correcting the name to the name of an existing getter, or
+         defining a getter or field named 'primary5' -
+         lib\pages\reportes_y_m_tricas\reportes_y_m_tricas_widget.dart:923:69 - undefined_getter
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\reportes_y_m_tricas\reportes_y_m_tricas_widget.dart:976:55 -
+         argument_type_not_assignable
+  error - The argument type 'TextStyle' can't be assigned to the parameter type 'String?'.  -
+         lib\pages\reportes_y_m_tricas\reportes_y_m_tricas_widget.dart:1001:55 -
+         argument_type_not_assignable
+  error - The method 'wrapWithModel' isn't defined for the type '_ReportesYMTricasWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\reportes_y_m_tricas\reportes_y_m_tricas_widget.dart:1035:39 -
+         undefined_method
+  error - The method 'wrapWithModel' isn't defined for the type '_ReportesYMTricasWidgetState'. Try
+         correcting the name to the name of an existing method, or defining a method named
+         'wrapWithModel' - lib\pages\reportes_y_m_tricas\reportes_y_m_tricas_widget.dart:1066:24 -
+         undefined_method
+
+884 issues found. (ran in 18.2s)

@@ -85,7 +85,7 @@ class _CashStatWidgetState extends State<CashStatWidget> {
                         'Monto Inicial',
                       ),
                       maxLines: 1,
-                      style: FlutterFlowTheme.of(context).labelSmall.override(
+                      style: FlutterFlowTheme.of(context).labelSmall.copyWith(
                             fontFamily: "Space Grotesk",
                               fontWeight: FlutterFlowTheme.of(context)
                                   .labelSmall
@@ -102,7 +102,7 @@ class _CashStatWidgetState extends State<CashStatWidget> {
                             fontStyle: FlutterFlowTheme.of(context)
                                 .labelSmall
                                 .fontStyle,
-                            lineHeight: 1.2,
+                            height: 1.2,
                           ),
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -114,7 +114,7 @@ class _CashStatWidgetState extends State<CashStatWidget> {
                   widget!.value,
                   'Bs. 500,00',
                 ),
-                style: FlutterFlowTheme.of(context).titleMedium.override(
+                style: FlutterFlowTheme.of(context).titleMedium.copyWith(
                       fontFamily: "Urbanist",
                         fontWeight: FontWeight.bold,
                         fontStyle:
@@ -125,7 +125,7 @@ class _CashStatWidgetState extends State<CashStatWidget> {
                       fontWeight: FontWeight.bold,
                       fontStyle:
                           FlutterFlowTheme.of(context).titleMedium.fontStyle,
-                      lineHeight: 1.4,
+                      height: 1.4,
                     ),
               ),
             ].divide(SizedBox(height: 8)),

@@ -85,7 +85,7 @@ class _HistoryStatWidgetState extends State<HistoryStatWidget> {
                         'Ventas Hoy',
                       ),
                       maxLines: 1,
-                      style: FlutterFlowTheme.of(context).labelSmall.override(
+                      style: FlutterFlowTheme.of(context).labelSmall.copyWith(
                             fontFamily: "Space Grotesk",
                               fontWeight: FlutterFlowTheme.of(context)
                                   .labelSmall
@@ -102,7 +102,7 @@ class _HistoryStatWidgetState extends State<HistoryStatWidget> {
                             fontStyle: FlutterFlowTheme.of(context)
                                 .labelSmall
                                 .fontStyle,
-                            lineHeight: 1.2,
+                            height: 1.2,
                           ),
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -114,7 +114,7 @@ class _HistoryStatWidgetState extends State<HistoryStatWidget> {
                   widget!.value,
                   'Bs. 4.250,00',
                 ),
-                style: FlutterFlowTheme.of(context).titleLarge.override(
+                style: FlutterFlowTheme.of(context).titleLarge.copyWith(
                       fontFamily: "Urbanist",
                         fontWeight: FontWeight.bold,
                         fontStyle:
@@ -125,7 +125,7 @@ class _HistoryStatWidgetState extends State<HistoryStatWidget> {
                       fontWeight: FontWeight.bold,
                       fontStyle:
                           FlutterFlowTheme.of(context).titleLarge.fontStyle,
-                      lineHeight: 1.3,
+                      height: 1.3,
                     ),
               ),
             ].divide(SizedBox(height: 4)),

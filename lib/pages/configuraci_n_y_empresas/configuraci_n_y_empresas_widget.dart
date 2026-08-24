@@ -87,7 +87,7 @@ class _ConfiguraciNYEmpresasWidgetState
                                 'Configuración',
                                 style: FlutterFlowTheme.of(context)
                                     .headlineMedium
-                                    .override(
+                                    .copyWith(
                                   font: GoogleFonts.urbanist(
                                     fontWeight: FontWeight.bold,
                                     fontStyle: FlutterFlowTheme.of(context)
@@ -101,14 +101,14 @@ class _ConfiguraciNYEmpresasWidgetState
                                   fontStyle: FlutterFlowTheme.of(context)
                                       .headlineMedium
                                       .fontStyle,
-                                  lineHeight: 1.25,
+                                  height: 1.25,
                                 ),
                               ),
                               Text(
                                 'Gestión de MultiPOS y Empresas',
                                 style: FlutterFlowTheme.of(context)
                                     .bodySmall
-                                    .override(
+                                    .copyWith(
                                   font: GoogleFonts.poppins(
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .bodySmall
@@ -126,7 +126,7 @@ class _ConfiguraciNYEmpresasWidgetState
                                   fontStyle: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .fontStyle,
-                                  lineHeight: 1.4,
+                                  height: 1.4,
                                 ),
                               ),
                             ].divide(SizedBox(height: 4)),
@@ -190,7 +190,7 @@ class _ConfiguraciNYEmpresasWidgetState
                                       'Mis Empresas',
                                       style: FlutterFlowTheme.of(context)
                                           .titleLarge
-                                          .override(
+                                          .copyWith(
                                         font: GoogleFonts.urbanist(
                                           fontWeight: FontWeight.bold,
                                           fontStyle:
@@ -204,7 +204,7 @@ class _ConfiguraciNYEmpresasWidgetState
                                         FlutterFlowTheme.of(context)
                                             .titleLarge
                                             .fontStyle,
-                                        lineHeight: 1.3,
+                                        height: 1.3,
                                       ),
                                     ),
                                     InkWell(
@@ -269,7 +269,7 @@ class _ConfiguraciNYEmpresasWidgetState
                                   'Equipo y Seguridad',
                                   style: FlutterFlowTheme.of(context)
                                       .titleLarge
-                                      .override(
+                                      .copyWith(
                                     font: GoogleFonts.urbanist(
                                       fontWeight: FontWeight.bold,
                                       fontStyle:
@@ -282,7 +282,7 @@ class _ConfiguraciNYEmpresasWidgetState
                                     fontStyle: FlutterFlowTheme.of(context)
                                         .titleLarge
                                         .fontStyle,
-                                    lineHeight: 1.3,
+                                    height: 1.3,
                                   ),
                                 ),
                                 wrapWithModel(
@@ -331,7 +331,7 @@ class _ConfiguraciNYEmpresasWidgetState
                                   'Aplicación',
                                   style: FlutterFlowTheme.of(context)
                                       .titleLarge
-                                      .override(
+                                      .copyWith(
                                     font: GoogleFonts.urbanist(
                                       fontWeight: FontWeight.bold,
                                       fontStyle:
@@ -344,7 +344,7 @@ class _ConfiguraciNYEmpresasWidgetState
                                     fontStyle: FlutterFlowTheme.of(context)
                                         .titleLarge
                                         .fontStyle,
-                                    lineHeight: 1.3,
+                                    height: 1.3,
                                   ),
                                 ),
                                 wrapWithModel(
@@ -427,7 +427,7 @@ class _ConfiguraciNYEmpresasWidgetState
                                               style: FlutterFlowTheme.of(
                                                   context)
                                                   .labelMedium
-                                                  .override(
+                                                  .copyWith(
                                                 font: GoogleFonts
                                                     .spaceGrotesk(
                                                   fontWeight:
@@ -449,7 +449,7 @@ class _ConfiguraciNYEmpresasWidgetState
                                                     context)
                                                     .labelMedium
                                                     .fontStyle,
-                                                lineHeight: 1.3,
+                                                height: 1.3,
                                               ),
                                               overflow: TextOverflow.clip,
                                             ),
@@ -466,7 +466,7 @@ class _ConfiguraciNYEmpresasWidgetState
                                                 style: FlutterFlowTheme.of(
                                                     context)
                                                     .titleMedium
-                                                    .override(
+                                                    .copyWith(
                                                   font:
                                                   GoogleFonts.urbanist(
                                                     fontWeight:
@@ -485,7 +485,7 @@ class _ConfiguraciNYEmpresasWidgetState
                                                       context)
                                                       .titleMedium
                                                       .fontStyle,
-                                                  lineHeight: 1.4,
+                                                  height: 1.4,
                                                 ),
                                               ),
                                               Text(
@@ -493,7 +493,7 @@ class _ConfiguraciNYEmpresasWidgetState
                                                 style:
                                                 FlutterFlowTheme.of(context)
                                                     .labelSmall
-                                                    .override(
+                                                    .copyWith(
                                                   font: GoogleFonts
                                                       .spaceGrotesk(
                                                     fontWeight:
@@ -521,7 +521,7 @@ class _ConfiguraciNYEmpresasWidgetState
                                                       context)
                                                       .labelSmall
                                                       .fontStyle,
-                                                  lineHeight: 1.2,
+                                                  height: 1.2,
                                                 ),
                                               ),
                                             ].divide(SizedBox(height: 4)),
@@ -584,7 +584,7 @@ class _ConfiguraciNYEmpresasWidgetState
                                     'MultiPOS v2.4.0',
                                     style: FlutterFlowTheme.of(context)
                                         .labelSmall
-                                        .override(
+                                        .copyWith(
                                       font: GoogleFonts.spaceGrotesk(
                                         fontWeight:
                                         FlutterFlowTheme.of(context)
@@ -606,14 +606,14 @@ class _ConfiguraciNYEmpresasWidgetState
                                       FlutterFlowTheme.of(context)
                                           .labelSmall
                                           .fontStyle,
-                                      lineHeight: 1.2,
+                                      height: 1.2,
                                     ),
                                   ),
                                   Text(
                                     'Hecho con ❤️ para tu negocio',
                                     style: FlutterFlowTheme.of(context)
                                         .labelSmall
-                                        .override(
+                                        .copyWith(
                                       font: GoogleFonts.spaceGrotesk(
                                         fontWeight:
                                         FlutterFlowTheme.of(context)
@@ -635,7 +635,7 @@ class _ConfiguraciNYEmpresasWidgetState
                                       FlutterFlowTheme.of(context)
                                           .labelSmall
                                           .fontStyle,
-                                      lineHeight: 1.2,
+                                      height: 1.2,
                                     ),
                                   ),
                                 ].divide(SizedBox(height: 4)),

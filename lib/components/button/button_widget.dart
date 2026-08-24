@@ -328,7 +328,7 @@ class _ButtonWidgetState extends State<ButtonWidget> {
                         'Finalizar Registro',
                       ),
                       maxLines: 1,
-                      style: FlutterFlowTheme.of(context).labelMedium.override(
+                      style: FlutterFlowTheme.of(context).labelMedium.copyWith(
                             fontFamily: "Space Grotesk",
                             fontWeight: FlutterFlowTheme.of(context)
                                 .labelMedium
@@ -371,7 +371,7 @@ class _ButtonWidgetState extends State<ButtonWidget> {
                               FlutterFlowTheme.of(context).onPrimary,
                             ),
                             letterSpacing: 0.0,
-                            lineHeight: 1.3,
+                            height: 1.3,
                           ),
                     ),
                     widget!.iconEnd!,

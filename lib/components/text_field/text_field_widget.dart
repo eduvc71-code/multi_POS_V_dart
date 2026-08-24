@@ -93,7 +93,7 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
         children: [
           Text(
             widget!.label,
-            style: FlutterFlowTheme.of(context).labelMedium.override(
+            style: FlutterFlowTheme.of(context).labelMedium.copyWith(
                   font: GoogleFonts.spaceGrotesk(
                     fontWeight:
                         FlutterFlowTheme.of(context).labelMedium.fontWeight,
@@ -112,8 +112,8 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
                   letterSpacing: 0.0,
                   fontWeight:
                       FlutterFlowTheme.of(context).labelMedium.fontWeight,
-                  fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                  lineHeight: 1.3,
+                  
+                  height: 1.3,
                 ),
           ),
           Container(
@@ -377,7 +377,7 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
                         ),
                         hintStyle: FlutterFlowTheme.of(context)
                             .bodyMedium
-                            .override(
+                            .copyWith(
                               font: GoogleFonts.poppins(
                                 fontWeight: FlutterFlowTheme.of(context)
                                     .bodyMedium.fontWeight,
@@ -409,14 +409,14 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
                                   .bodyMedium.fontWeight,
                               fontStyle: FlutterFlowTheme.of(context)
                                   .bodyMedium.fontStyle,
-                              lineHeight: 1.5,
+                              height: 1.5,
                             ),
                         enabledBorder: InputBorder.none,
                         focusedBorder: InputBorder.none,
                         errorBorder: InputBorder.none,
                         focusedErrorBorder: InputBorder.none,
                       ),
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                      style: FlutterFlowTheme.of(context).bodyMedium.copyWith(
                             font: GoogleFonts.poppins(
                               fontWeight: FlutterFlowTheme.of(context)
                                   .bodyMedium.fontWeight,
@@ -451,7 +451,7 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
                                 .bodyMedium.fontWeight,
                             fontStyle: FlutterFlowTheme.of(context)
                                 .bodyMedium.fontStyle,
-                            lineHeight: 1.5,
+                            height: 1.5,
                           ),
                       validator: _model.inputTextControllerValidator
                           .asValidator(context),
@@ -464,11 +464,11 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
           ),
           Text(
             widget!.helper,
-            style: FlutterFlowTheme.of(context).bodySmall.override(
+            style: FlutterFlowTheme.of(context).bodySmall.copyWith(
                   font: GoogleFonts.poppins(
                     fontWeight:
                         FlutterFlowTheme.of(context).bodySmall.fontWeight,
-                    fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
+                    
                   ),
                   color: valueOrDefault<Color>(
                     valueOrDefault<bool>(
@@ -481,8 +481,8 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
                   ),
                   letterSpacing: 0.0,
                   fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
-                  fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
-                  lineHeight: 1.4,
+                  
+                  height: 1.4,
                 ),
           ),
         ].divide(SizedBox(height: 6)),

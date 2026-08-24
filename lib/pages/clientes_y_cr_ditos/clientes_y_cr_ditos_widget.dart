@@ -90,7 +90,7 @@ class _ClientesYCrDitosWidgetState extends State<ClientesYCrDitosWidget> {
                                     'Clientes y Créditos',
                                     style: FlutterFlowTheme.of(context)
                                         .headlineMedium
-                                        .override(
+                                        .copyWith(
                                       font: GoogleFonts.urbanist(
                                         fontWeight: FontWeight.bold,
                                         fontStyle:
@@ -106,14 +106,14 @@ class _ClientesYCrDitosWidgetState extends State<ClientesYCrDitosWidget> {
                                       FlutterFlowTheme.of(context)
                                           .headlineMedium
                                           .fontStyle,
-                                      lineHeight: 1.25,
+                                      height: 1.25,
                                     ),
                                   ),
                                   Text(
                                     'Gestiona deudas y estados de cuenta',
                                     style: FlutterFlowTheme.of(context)
                                         .bodySmall
-                                        .override(
+                                        .copyWith(
                                       font: GoogleFonts.poppins(
                                         fontWeight:
                                         FlutterFlowTheme.of(context)
@@ -135,7 +135,7 @@ class _ClientesYCrDitosWidgetState extends State<ClientesYCrDitosWidget> {
                                       FlutterFlowTheme.of(context)
                                           .bodySmall
                                           .fontStyle,
-                                      lineHeight: 1.4,
+                                      height: 1.4,
                                     ),
                                   ),
                                 ].divide(SizedBox(height: 4)),
@@ -293,7 +293,7 @@ class _ClientesYCrDitosWidgetState extends State<ClientesYCrDitosWidget> {
                                             'Todos',
                                             style: FlutterFlowTheme.of(context)
                                                 .labelMedium
-                                                .override(
+                                                .copyWith(
                                               font:
                                               GoogleFonts.spaceGrotesk(
                                                 fontWeight:
@@ -322,7 +322,7 @@ class _ClientesYCrDitosWidgetState extends State<ClientesYCrDitosWidget> {
                                                   context)
                                                   .labelMedium
                                                   .fontStyle,
-                                              lineHeight: 1.3,
+                                              height: 1.3,
                                             ),
                                           ),
                                         ].divide(SizedBox(width: 6)),
@@ -356,7 +356,7 @@ class _ClientesYCrDitosWidgetState extends State<ClientesYCrDitosWidget> {
                                             'Con Deuda',
                                             style: FlutterFlowTheme.of(context)
                                                 .labelMedium
-                                                .override(
+                                                .copyWith(
                                               font:
                                               GoogleFonts.spaceGrotesk(
                                                 fontWeight:
@@ -385,7 +385,7 @@ class _ClientesYCrDitosWidgetState extends State<ClientesYCrDitosWidget> {
                                                   context)
                                                   .labelMedium
                                                   .fontStyle,
-                                              lineHeight: 1.3,
+                                              height: 1.3,
                                             ),
                                           ),
                                         ].divide(SizedBox(width: 6)),
@@ -419,7 +419,7 @@ class _ClientesYCrDitosWidgetState extends State<ClientesYCrDitosWidget> {
                                             'Al día',
                                             style: FlutterFlowTheme.of(context)
                                                 .labelMedium
-                                                .override(
+                                                .copyWith(
                                               font:
                                               GoogleFonts.spaceGrotesk(
                                                 fontWeight:
@@ -448,7 +448,7 @@ class _ClientesYCrDitosWidgetState extends State<ClientesYCrDitosWidget> {
                                                   context)
                                                   .labelMedium
                                                   .fontStyle,
-                                              lineHeight: 1.3,
+                                              height: 1.3,
                                             ),
                                           ),
                                         ].divide(SizedBox(width: 6)),
@@ -482,7 +482,7 @@ class _ClientesYCrDitosWidgetState extends State<ClientesYCrDitosWidget> {
                                             'Suspendidos',
                                             style: FlutterFlowTheme.of(context)
                                                 .labelMedium
-                                                .override(
+                                                .copyWith(
                                               font:
                                               GoogleFonts.spaceGrotesk(
                                                 fontWeight:
@@ -511,7 +511,7 @@ class _ClientesYCrDitosWidgetState extends State<ClientesYCrDitosWidget> {
                                                   context)
                                                   .labelMedium
                                                   .fontStyle,
-                                              lineHeight: 1.3,
+                                              height: 1.3,
                                             ),
                                           ),
                                         ].divide(SizedBox(width: 6)),
@@ -530,7 +530,7 @@ class _ClientesYCrDitosWidgetState extends State<ClientesYCrDitosWidget> {
                                   'Directorio de Clientes',
                                   style: FlutterFlowTheme.of(context)
                                       .titleMedium
-                                      .override(
+                                      .copyWith(
                                     font: GoogleFonts.urbanist(
                                       fontWeight: FontWeight.bold,
                                       fontStyle:
@@ -545,7 +545,7 @@ class _ClientesYCrDitosWidgetState extends State<ClientesYCrDitosWidget> {
                                     fontStyle: FlutterFlowTheme.of(context)
                                         .titleMedium
                                         .fontStyle,
-                                    lineHeight: 1.4,
+                                    height: 1.4,
                                   ),
                                 ),
                                 wrapWithModel(

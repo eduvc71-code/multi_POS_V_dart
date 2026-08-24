@@ -103,7 +103,7 @@ class _ProductItemWidgetState extends State<ProductItemWidget> {
                         'Aceite Sintético 5W-30',
                       ),
                       maxLines: 1,
-                      style: FlutterFlowTheme.of(context).bodyLarge.override(
+                      style: FlutterFlowTheme.of(context).bodyLarge.copyWith(
                             fontFamily: GoogleFonts.poppins().fontFamily,
                                   fontWeight: FontWeight.bold,
                                   fontStyle: FlutterFlowTheme.of(context),,
@@ -113,7 +113,7 @@ class _ProductItemWidgetState extends State<ProductItemWidget> {
                             fontStyle: FlutterFlowTheme.of(context)
                                 .bodyLarge
                                 .fontStyle,
-                            lineHeight: 1.5,
+                            height: 1.5,
                           ),
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -126,7 +126,7 @@ class _ProductItemWidgetState extends State<ProductItemWidget> {
                           'Código:',
                           style: FlutterFlowTheme.of(context)
                               .labelSmall
-                              .override(
+                              .copyWith(
                                 fontFamily: GoogleFonts.spaceGrotesk().fontFamily,
                                   fontWeight: FlutterFlowTheme.of(context),
                                   fontStyle: FlutterFlowTheme.of(context),,
@@ -139,7 +139,7 @@ class _ProductItemWidgetState extends State<ProductItemWidget> {
                                 fontStyle: FlutterFlowTheme.of(context)
                                     .labelSmall
                                     .fontStyle,
-                                lineHeight: 1.2,
+                                height: 1.2,
                               ),
                         ),
                         Text(
@@ -149,7 +149,7 @@ class _ProductItemWidgetState extends State<ProductItemWidget> {
                           ),
                           style: FlutterFlowTheme.of(context)
                               .labelSmall
-                              .override(
+                              .copyWith(
                                 fontFamily: GoogleFonts.spaceGrotesk().fontFamily,
                                   fontWeight: FontWeight.w600,
                                   fontStyle: FlutterFlowTheme.of(context),,
@@ -159,7 +159,7 @@ class _ProductItemWidgetState extends State<ProductItemWidget> {
                                 fontStyle: FlutterFlowTheme.of(context)
                                     .labelSmall
                                     .fontStyle,
-                                lineHeight: 1.2,
+                                height: 1.2,
                               ),
                         ),
                       ].divide(SizedBox(width: 4)),
@@ -177,7 +177,7 @@ class _ProductItemWidgetState extends State<ProductItemWidget> {
                       'Bs. ${widget!.price}',
                       'Bs. 85,00',
                     ),
-                    style: FlutterFlowTheme.of(context).bodyLarge.override(
+                    style: FlutterFlowTheme.of(context).bodyLarge.copyWith(
                           fontFamily: GoogleFonts.poppins().fontFamily,
                                   fontWeight: FontWeight.bold,
                                   fontStyle: FlutterFlowTheme.of(context),,
@@ -186,7 +186,7 @@ class _ProductItemWidgetState extends State<ProductItemWidget> {
                           fontWeight: FontWeight.bold,
                           fontStyle:
                               FlutterFlowTheme.of(context).bodyLarge.fontStyle,
-                          lineHeight: 1.5,
+                          height: 1.5,
                         ),
                   ),
                   Row(
@@ -211,7 +211,7 @@ class _ProductItemWidgetState extends State<ProductItemWidget> {
                           '${widget!.stock} u.',
                           '45 u.',
                         ),
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        style: FlutterFlowTheme.of(context).bodyMedium.copyWith(
                               fontFamily: GoogleFonts.poppins().fontFamily,
                                   fontWeight: FlutterFlowTheme.of(context),
                                   fontStyle: FlutterFlowTheme.of(context),,
@@ -223,7 +223,7 @@ class _ProductItemWidgetState extends State<ProductItemWidget> {
                               fontStyle: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .fontStyle,
-                              lineHeight: 1.5,
+                              height: 1.5,
                             ),
                       ),
                     ].divide(SizedBox(width: 4)),

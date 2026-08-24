@@ -82,7 +82,7 @@ class _ClientCardWidgetState extends State<ClientCardWidget> {
                   'JD',
                   textAlign: TextAlign.center,
                   maxLines: 1,
-                  style: FlutterFlowTheme.of(context).labelMedium.override(
+                  style: FlutterFlowTheme.of(context).labelMedium.copyWith(
                         fontFamily: "Space Grotesk",
                           fontWeight: FontWeight.w600,
                           fontStyle: FlutterFlowTheme.of(context)
@@ -95,7 +95,7 @@ class _ClientCardWidgetState extends State<ClientCardWidget> {
                         fontWeight: FontWeight.w600,
                         fontStyle:
                             FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                        lineHeight: 1.3,
+                        height: 1.3,
                       ),
                   overflow: TextOverflow.clip,
                 ),
@@ -112,7 +112,7 @@ class _ClientCardWidgetState extends State<ClientCardWidget> {
                         widget!.name,
                         'Carlos Rodríguez',
                       ),
-                      style: FlutterFlowTheme.of(context).bodyLarge.override(
+                      style: FlutterFlowTheme.of(context).bodyLarge.copyWith(
                             fontFamily: "Poppins",
                               fontWeight: FontWeight.bold,
                               fontStyle: FlutterFlowTheme.of(context)
@@ -125,7 +125,7 @@ class _ClientCardWidgetState extends State<ClientCardWidget> {
                             fontStyle: FlutterFlowTheme.of(context)
                                 .bodyLarge
                                 .fontStyle,
-                            lineHeight: 1.5,
+                            height: 1.5,
                           ),
                     ),
                     Row(
@@ -137,7 +137,7 @@ class _ClientCardWidgetState extends State<ClientCardWidget> {
                           'Deuda:',
                           style: FlutterFlowTheme.of(context)
                               .bodySmall
-                              .override(
+                              .copyWith(
                                 fontFamily: "Poppins",
                                   fontWeight: FlutterFlowTheme.of(context)
                                       .bodySmall
@@ -155,7 +155,7 @@ class _ClientCardWidgetState extends State<ClientCardWidget> {
                                 fontStyle: FlutterFlowTheme.of(context)
                                     .bodySmall
                                     .fontStyle,
-                                lineHeight: 1.4,
+                                height: 1.4,
                               ),
                         ),
                         Text(
@@ -164,7 +164,7 @@ class _ClientCardWidgetState extends State<ClientCardWidget> {
                             'Bs. 450,00',
                           ),
                           style:
-                              FlutterFlowTheme.of(context).bodySmall.override(
+                              FlutterFlowTheme.of(context).bodySmall.copyWith(
                                     fontFamily: "Poppins",
                                       fontWeight: FontWeight.w600,
                                       fontStyle: FlutterFlowTheme.of(context)
@@ -187,7 +187,7 @@ class _ClientCardWidgetState extends State<ClientCardWidget> {
                                     fontStyle: FlutterFlowTheme.of(context)
                                         .bodySmall
                                         .fontStyle,
-                                    lineHeight: 1.4,
+                                    height: 1.4,
                                   ),
                         ),
                       ].divide(SizedBox(width: 4)),
@@ -215,7 +215,7 @@ class _ClientCardWidgetState extends State<ClientCardWidget> {
                   ),
                   Text(
                     'Ver detalle',
-                    style: FlutterFlowTheme.of(context).labelSmall.override(
+                    style: FlutterFlowTheme.of(context).labelSmall.copyWith(
                           fontFamily: "Space Grotesk",
                             fontWeight: FlutterFlowTheme.of(context)
                                 .labelSmall
@@ -231,7 +231,7 @@ class _ClientCardWidgetState extends State<ClientCardWidget> {
                                 .fontWeight,
                           fontStyle:
                               FlutterFlowTheme.of(context).labelSmall.fontStyle,
-                          lineHeight: 1.2,
+                          height: 1.2,
                         ),
                   ),
                 ].divide(SizedBox(height: 8)),

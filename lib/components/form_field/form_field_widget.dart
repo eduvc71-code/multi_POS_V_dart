@@ -65,16 +65,16 @@ class _FormFieldWidgetState extends State<FormFieldWidget> {
             widget!.label,
             'Nombre Comercial',
           ),
-          style: FlutterFlowTheme.of(context).labelMedium.override(
+          style: FlutterFlowTheme.of(context).labelMedium.copyWith(
                 fontFamily: "Space Grotesk",
                   fontWeight: FontWeight.w600,
-                  fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
+                  
                 ),
                 color: FlutterFlowTheme.of(context).secondaryText,
                 letterSpacing: 0.0,
                 fontWeight: FontWeight.w600,
-                fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                lineHeight: 1.3,
+                
+                height: 1.3,
               ),
         ),
         wrapWithModel(

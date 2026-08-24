@@ -104,7 +104,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                     'Punto de Venta',
                                     style: FlutterFlowTheme.of(context)
                                         .titleLarge
-                                        .override(
+                                        .copyWith(
                                       font: GoogleFonts.urbanist(
                                         fontWeight: FontWeight.bold,
                                         fontStyle:
@@ -120,14 +120,14 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                       FlutterFlowTheme.of(context)
                                           .titleLarge
                                           .fontStyle,
-                                      lineHeight: 1.3,
+                                      height: 1.3,
                                     ),
                                   ),
                                   Text(
                                     'Caja Abierta · Terminal 01',
                                     style: FlutterFlowTheme.of(context)
                                         .labelSmall
-                                        .override(
+                                        .copyWith(
                                       font: GoogleFonts.spaceGrotesk(
                                         fontWeight:
                                         FlutterFlowTheme.of(context)
@@ -149,7 +149,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                       FlutterFlowTheme.of(context)
                                           .labelSmall
                                           .fontStyle,
-                                      lineHeight: 1.2,
+                                      height: 1.2,
                                     ),
                                   ),
                                 ],
@@ -258,7 +258,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                       'Resultados',
                                       style: FlutterFlowTheme.of(context)
                                           .labelMedium
-                                          .override(
+                                          .copyWith(
                                         font: GoogleFonts.spaceGrotesk(
                                           fontWeight:
                                           FlutterFlowTheme.of(context)
@@ -280,7 +280,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                         FlutterFlowTheme.of(context)
                                             .labelMedium
                                             .fontStyle,
-                                        lineHeight: 1.3,
+                                        height: 1.3,
                                       ),
                                     ),
                                     wrapWithModel(
@@ -385,7 +385,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                         'Carrito de Ventas',
                                         style: FlutterFlowTheme.of(context)
                                             .titleMedium
-                                            .override(
+                                            .copyWith(
                                           font: GoogleFonts.urbanist(
                                             fontWeight: FontWeight.bold,
                                             fontStyle:
@@ -399,7 +399,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                           FlutterFlowTheme.of(context)
                                               .titleMedium
                                               .fontStyle,
-                                          lineHeight: 1.4,
+                                          height: 1.4,
                                         ),
                                       ),
                                     ],
@@ -525,7 +525,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                                 style: FlutterFlowTheme.of(
                                                     context)
                                                     .bodyMedium
-                                                    .override(
+                                                    .copyWith(
                                                   font: GoogleFonts.poppins(
                                                     fontWeight:
                                                     FlutterFlowTheme.of(
@@ -549,7 +549,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                                       context)
                                                       .bodyMedium
                                                       .fontStyle,
-                                                  lineHeight: 1.5,
+                                                  height: 1.5,
                                                 ),
                                               ),
                                             ),
@@ -582,7 +582,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                             'Subtotal',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
-                                                .override(
+                                                .copyWith(
                                               font: GoogleFonts.poppins(
                                                 fontWeight:
                                                 FlutterFlowTheme.of(
@@ -609,14 +609,14 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                                   context)
                                                   .bodyMedium
                                                   .fontStyle,
-                                              lineHeight: 1.5,
+                                              height: 1.5,
                                             ),
                                           ),
                                           Text(
                                             'Bs. 343,50',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
-                                                .override(
+                                                .copyWith(
                                               font: GoogleFonts.poppins(
                                                 fontWeight:
                                                 FlutterFlowTheme.of(
@@ -643,7 +643,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                                   context)
                                                   .bodyMedium
                                                   .fontStyle,
-                                              lineHeight: 1.5,
+                                              height: 1.5,
                                             ),
                                           ),
                                         ],
@@ -659,7 +659,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                             'Descuento',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
-                                                .override(
+                                                .copyWith(
                                               font: GoogleFonts.poppins(
                                                 fontWeight:
                                                 FlutterFlowTheme.of(
@@ -686,14 +686,14 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                                   context)
                                                   .bodyMedium
                                                   .fontStyle,
-                                              lineHeight: 1.5,
+                                              height: 1.5,
                                             ),
                                           ),
                                           Text(
                                             'Bs. 0,00',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
-                                                .override(
+                                                .copyWith(
                                               font: GoogleFonts.poppins(
                                                 fontWeight:
                                                 FlutterFlowTheme.of(
@@ -720,7 +720,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                                   context)
                                                   .bodyMedium
                                                   .fontStyle,
-                                              lineHeight: 1.5,
+                                              height: 1.5,
                                             ),
                                           ),
                                         ],
@@ -750,7 +750,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                             'TOTAL',
                                             style: FlutterFlowTheme.of(context)
                                                 .titleLarge
-                                                .override(
+                                                .copyWith(
                                               font: GoogleFonts.urbanist(
                                                 fontWeight: FontWeight.w900,
                                                 fontStyle:
@@ -769,14 +769,14 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                                   context)
                                                   .titleLarge
                                                   .fontStyle,
-                                              lineHeight: 1.3,
+                                              height: 1.3,
                                             ),
                                           ),
                                           Text(
                                             'Bs. 343,50',
                                             style: FlutterFlowTheme.of(context)
                                                 .titleLarge
-                                                .override(
+                                                .copyWith(
                                               font: GoogleFonts.urbanist(
                                                 fontWeight: FontWeight.w900,
                                                 fontStyle:
@@ -795,7 +795,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                                   context)
                                                   .titleLarge
                                                   .fontStyle,
-                                              lineHeight: 1.3,
+                                              height: 1.3,
                                             ),
                                           ),
                                         ],
@@ -894,7 +894,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                             'F1: Buscar',
                                             style: FlutterFlowTheme.of(context)
                                                 .labelMedium
-                                                .override(
+                                                .copyWith(
                                               font:
                                               GoogleFonts.spaceGrotesk(
                                                 fontWeight:
@@ -923,7 +923,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                                   context)
                                                   .labelMedium
                                                   .fontStyle,
-                                              lineHeight: 1.3,
+                                              height: 1.3,
                                             ),
                                           ),
                                         ].divide(SizedBox(width: 6)),
@@ -958,7 +958,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                             'F2: Escanear',
                                             style: FlutterFlowTheme.of(context)
                                                 .labelMedium
-                                                .override(
+                                                .copyWith(
                                               font:
                                               GoogleFonts.spaceGrotesk(
                                                 fontWeight:
@@ -987,7 +987,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                                   context)
                                                   .labelMedium
                                                   .fontStyle,
-                                              lineHeight: 1.3,
+                                              height: 1.3,
                                             ),
                                           ),
                                         ].divide(SizedBox(width: 6)),
@@ -1022,7 +1022,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                             'F10: Pagar',
                                             style: FlutterFlowTheme.of(context)
                                                 .labelMedium
-                                                .override(
+                                                .copyWith(
                                               font:
                                               GoogleFonts.spaceGrotesk(
                                                 fontWeight:
@@ -1051,7 +1051,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                                   context)
                                                   .labelMedium
                                                   .fontStyle,
-                                              lineHeight: 1.3,
+                                              height: 1.3,
                                             ),
                                           ),
                                         ].divide(SizedBox(width: 6)),
@@ -1066,7 +1066,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                             'Vendedor: Carlos Méndez',
                             style: FlutterFlowTheme.of(context)
                                 .labelSmall
-                                .override(
+                                .copyWith(
                               font: GoogleFonts.spaceGrotesk(
                                 fontWeight: FlutterFlowTheme.of(context)
                                     .labelSmall
@@ -1084,7 +1084,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                               fontStyle: FlutterFlowTheme.of(context)
                                   .labelSmall
                                   .fontStyle,
-                              lineHeight: 1.2,
+                              height: 1.2,
                             ),
                           ),
                         ],

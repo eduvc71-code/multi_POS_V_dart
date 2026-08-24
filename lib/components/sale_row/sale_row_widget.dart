@@ -133,7 +133,7 @@ class _SaleRowWidgetState extends State<SaleRowWidget> {
                             'Folio: V-000482',
                           ),
                           style:
-                              FlutterFlowTheme.of(context).titleSmall.override(
+                              FlutterFlowTheme.of(context).titleSmall.copyWith(
                                     font: GoogleFonts.urbanist(
                                       fontWeight: FontWeight.bold,
                                       fontStyle: FlutterFlowTheme.of(context)
@@ -145,7 +145,7 @@ class _SaleRowWidgetState extends State<SaleRowWidget> {
                                     fontStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .fontStyle,
-                                    lineHeight: 1.4,
+                                    height: 1.4,
                                   ),
                         ),
                         Text(
@@ -155,7 +155,7 @@ class _SaleRowWidgetState extends State<SaleRowWidget> {
                           ),
                           style: FlutterFlowTheme.of(context)
                               .titleSmall
-                              .override(
+                              .copyWith(
                                 font: GoogleFonts.urbanist(
                                   fontWeight: FontWeight.bold,
                                   fontStyle: FlutterFlowTheme.of(context)
@@ -168,7 +168,7 @@ class _SaleRowWidgetState extends State<SaleRowWidget> {
                                 fontStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .fontStyle,
-                                lineHeight: 1.4,
+                                height: 1.4,
                               ),
                         ),
                       ],
@@ -190,7 +190,7 @@ class _SaleRowWidgetState extends State<SaleRowWidget> {
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
-                                  .override(
+                                  .copyWith(
                                     font: GoogleFonts.poppins(
                                       fontWeight: FlutterFlowTheme.of(context)
                                           .bodySmall
@@ -208,14 +208,14 @@ class _SaleRowWidgetState extends State<SaleRowWidget> {
                                     fontStyle: FlutterFlowTheme.of(context)
                                         .bodySmall
                                         .fontStyle,
-                                    lineHeight: 1.4,
+                                    height: 1.4,
                                   ),
                             ),
                             Text(
                               '•',
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
-                                  .override(
+                                  .copyWith(
                                     font: GoogleFonts.poppins(
                                       fontWeight: FlutterFlowTheme.of(context)
                                           .bodySmall
@@ -233,7 +233,7 @@ class _SaleRowWidgetState extends State<SaleRowWidget> {
                                     fontStyle: FlutterFlowTheme.of(context)
                                         .bodySmall
                                         .fontStyle,
-                                    lineHeight: 1.4,
+                                    height: 1.4,
                                   ),
                             ),
                             Text(
@@ -243,7 +243,7 @@ class _SaleRowWidgetState extends State<SaleRowWidget> {
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
-                                  .override(
+                                  .copyWith(
                                     font: GoogleFonts.poppins(
                                       fontWeight: FlutterFlowTheme.of(context)
                                           .bodySmall
@@ -261,7 +261,7 @@ class _SaleRowWidgetState extends State<SaleRowWidget> {
                                     fontStyle: FlutterFlowTheme.of(context)
                                         .bodySmall
                                         .fontStyle,
-                                    lineHeight: 1.4,
+                                    height: 1.4,
                                   ),
                             ),
                           ].divide(SizedBox(width: 4)),
@@ -285,7 +285,7 @@ class _SaleRowWidgetState extends State<SaleRowWidget> {
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .labelSmall
-                                    .override(
+                                    .copyWith(
                                       font: GoogleFonts.spaceGrotesk(
                                         fontWeight: FontWeight.bold,
                                         fontStyle: FlutterFlowTheme.of(context)
@@ -301,7 +301,7 @@ class _SaleRowWidgetState extends State<SaleRowWidget> {
                                       fontStyle: FlutterFlowTheme.of(context)
                                           .labelSmall
                                           .fontStyle,
-                                      lineHeight: 1.2,
+                                      height: 1.2,
                                     ),
                               ),
                             ),

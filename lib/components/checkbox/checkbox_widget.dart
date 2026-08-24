@@ -163,7 +163,7 @@ class _CheckboxWidgetState extends State<CheckboxWidget> {
                           maxLines: 1,
                           style: FlutterFlowTheme.of(context)
                               .bodyMedium
-                              .override(
+                              .copyWith(
                                 fontFamily: "Poppins",
                                   fontWeight: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -180,7 +180,7 @@ class _CheckboxWidgetState extends State<CheckboxWidget> {
                                 fontStyle: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .fontStyle,
-                                lineHeight: 1.5,
+                                height: 1.5,
                               ),
                           overflow: TextOverflow.ellipsis,
                         ),
@@ -194,7 +194,7 @@ class _CheckboxWidgetState extends State<CheckboxWidget> {
                               maxLines: 3,
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
-                                  .override(
+                                  .copyWith(
                                     fontFamily: "Poppins",
                                       fontWeight: FlutterFlowTheme.of(context)
                                           .bodySmall
@@ -212,7 +212,7 @@ class _CheckboxWidgetState extends State<CheckboxWidget> {
                                     fontStyle: FlutterFlowTheme.of(context)
                                         .bodySmall
                                         .fontStyle,
-                                    lineHeight: 1.4,
+                                    height: 1.4,
                                   ),
                               overflow: TextOverflow.ellipsis,
                             ),

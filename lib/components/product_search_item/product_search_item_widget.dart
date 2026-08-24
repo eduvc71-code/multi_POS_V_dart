@@ -108,7 +108,7 @@ class _ProductSearchItemWidgetState extends State<ProductSearchItemWidget> {
                         'Aceite de Motor 20W-50',
                       ),
                       maxLines: 1,
-                      style: FlutterFlowTheme.of(context).titleMedium.override(
+                      style: FlutterFlowTheme.of(context).titleMedium.copyWith(
                             fontFamily: GoogleFonts.urbanist().fontFamily,
                                   fontWeight: FontWeight.bold,
                                   fontStyle: FlutterFlowTheme.of(context),,
@@ -118,7 +118,7 @@ class _ProductSearchItemWidgetState extends State<ProductSearchItemWidget> {
                             fontStyle: FlutterFlowTheme.of(context)
                                 .titleMedium
                                 .fontStyle,
-                            lineHeight: 1.4,
+                            height: 1.4,
                           ),
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -127,7 +127,7 @@ class _ProductSearchItemWidgetState extends State<ProductSearchItemWidget> {
                         'Código: ${widget!.code}',
                         'Código: MOT-001',
                       ),
-                      style: FlutterFlowTheme.of(context).labelSmall.override(
+                      style: FlutterFlowTheme.of(context).labelSmall.copyWith(
                             fontFamily: GoogleFonts.spaceGrotesk().fontFamily,
                                   fontWeight: FlutterFlowTheme.of(context),
                                   fontStyle: FlutterFlowTheme.of(context),,
@@ -139,7 +139,7 @@ class _ProductSearchItemWidgetState extends State<ProductSearchItemWidget> {
                             fontStyle: FlutterFlowTheme.of(context)
                                 .labelSmall
                                 .fontStyle,
-                            lineHeight: 1.2,
+                            height: 1.2,
                           ),
                     ),
                   ].divide(SizedBox(height: 4)),
@@ -155,7 +155,7 @@ class _ProductSearchItemWidgetState extends State<ProductSearchItemWidget> {
                       'Bs. ${widget!.price}',
                       'Bs. 85,00',
                     ),
-                    style: FlutterFlowTheme.of(context).titleSmall.override(
+                    style: FlutterFlowTheme.of(context).titleSmall.copyWith(
                           fontFamily: GoogleFonts.urbanist().fontFamily,
                                   fontWeight: FontWeight.bold,
                                   fontStyle: FlutterFlowTheme.of(context),,
@@ -164,7 +164,7 @@ class _ProductSearchItemWidgetState extends State<ProductSearchItemWidget> {
                           fontWeight: FontWeight.bold,
                           fontStyle:
                               FlutterFlowTheme.of(context).titleSmall.fontStyle,
-                          lineHeight: 1.4,
+                          height: 1.4,
                         ),
                   ),
                   Text(
@@ -172,7 +172,7 @@ class _ProductSearchItemWidgetState extends State<ProductSearchItemWidget> {
                       '${widget!.stock} disponibles',
                       '12 disponibles',
                     ),
-                    style: FlutterFlowTheme.of(context).labelSmall.override(
+                    style: FlutterFlowTheme.of(context).labelSmall.copyWith(
                           fontFamily: GoogleFonts.spaceGrotesk().fontFamily,
                                   fontWeight: FlutterFlowTheme.of(context),
                                   fontStyle: FlutterFlowTheme.of(context),,
@@ -183,7 +183,7 @@ class _ProductSearchItemWidgetState extends State<ProductSearchItemWidget> {
                               .fontWeight,
                           fontStyle:
                               FlutterFlowTheme.of(context).labelSmall.fontStyle,
-                          lineHeight: 1.2,
+                          height: 1.2,
                         ),
                   ),
                 ].divide(SizedBox(height: 4)),

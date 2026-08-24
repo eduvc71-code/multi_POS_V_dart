@@ -68,7 +68,7 @@ class _InventarioDeProductosWidgetState
           elevation: 0,
           label: Text(
             'Nuevo Producto',
-            style: FlutterFlowTheme.of(context).labelLarge.override(
+            style: FlutterFlowTheme.of(context).labelLarge.copyWith(
               font: GoogleFonts.spaceGrotesk(
                 fontWeight:
                 FlutterFlowTheme.of(context).labelLarge.fontWeight,
@@ -79,8 +79,8 @@ class _InventarioDeProductosWidgetState
               letterSpacing: 0.0,
               fontWeight:
               FlutterFlowTheme.of(context).labelLarge.fontWeight,
-              fontStyle: FlutterFlowTheme.of(context).labelLarge.fontStyle,
-              lineHeight: 1.3,
+              
+              height: 1.3,
             ),
           ),
         ),
@@ -120,7 +120,7 @@ class _InventarioDeProductosWidgetState
                                     'Inventario',
                                     style: FlutterFlowTheme.of(context)
                                         .headlineMedium
-                                        .override(
+                                        .copyWith(
                                       font: GoogleFonts.urbanist(
                                         fontWeight: FontWeight.bold,
                                         fontStyle:
@@ -136,14 +136,14 @@ class _InventarioDeProductosWidgetState
                                       FlutterFlowTheme.of(context)
                                           .headlineMedium
                                           .fontStyle,
-                                      lineHeight: 1.25,
+                                      height: 1.25,
                                     ),
                                   ),
                                   Text(
                                     'Gestión de existencias y precios',
                                     style: FlutterFlowTheme.of(context)
                                         .bodySmall
-                                        .override(
+                                        .copyWith(
                                       font: GoogleFonts.poppins(
                                         fontWeight:
                                         FlutterFlowTheme.of(context)
@@ -165,7 +165,7 @@ class _InventarioDeProductosWidgetState
                                       FlutterFlowTheme.of(context)
                                           .bodySmall
                                           .fontStyle,
-                                      lineHeight: 1.4,
+                                      height: 1.4,
                                     ),
                                   ),
                                 ].divide(SizedBox(height: 4)),
@@ -294,7 +294,7 @@ class _InventarioDeProductosWidgetState
                                     'Categorías',
                                     style: FlutterFlowTheme.of(context)
                                         .titleSmall
-                                        .override(
+                                        .copyWith(
                                       font: GoogleFonts.urbanist(
                                         fontWeight: FontWeight.bold,
                                         fontStyle:
@@ -310,7 +310,7 @@ class _InventarioDeProductosWidgetState
                                       FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .fontStyle,
-                                      lineHeight: 1.4,
+                                      height: 1.4,
                                     ),
                                   ),
                                   SingleChildScrollView(
@@ -360,7 +360,7 @@ class _InventarioDeProductosWidgetState
                                                   style: FlutterFlowTheme.of(
                                                       context)
                                                       .labelMedium
-                                                      .override(
+                                                      .copyWith(
                                                     font: GoogleFonts
                                                         .spaceGrotesk(
                                                       fontWeight:
@@ -390,7 +390,7 @@ class _InventarioDeProductosWidgetState
                                                         context)
                                                         .labelMedium
                                                         .fontStyle,
-                                                    lineHeight: 1.3,
+                                                    height: 1.3,
                                                   ),
                                                 ),
                                               ].divide(SizedBox(width: 6)),
@@ -428,7 +428,7 @@ class _InventarioDeProductosWidgetState
                                                   style: FlutterFlowTheme.of(
                                                       context)
                                                       .labelMedium
-                                                      .override(
+                                                      .copyWith(
                                                     font: GoogleFonts
                                                         .spaceGrotesk(
                                                       fontWeight:
@@ -458,7 +458,7 @@ class _InventarioDeProductosWidgetState
                                                         context)
                                                         .labelMedium
                                                         .fontStyle,
-                                                    lineHeight: 1.3,
+                                                    height: 1.3,
                                                   ),
                                                 ),
                                               ].divide(SizedBox(width: 6)),
@@ -496,7 +496,7 @@ class _InventarioDeProductosWidgetState
                                                   style: FlutterFlowTheme.of(
                                                       context)
                                                       .labelMedium
-                                                      .override(
+                                                      .copyWith(
                                                     font: GoogleFonts
                                                         .spaceGrotesk(
                                                       fontWeight:
@@ -526,7 +526,7 @@ class _InventarioDeProductosWidgetState
                                                         context)
                                                         .labelMedium
                                                         .fontStyle,
-                                                    lineHeight: 1.3,
+                                                    height: 1.3,
                                                   ),
                                                 ),
                                               ].divide(SizedBox(width: 6)),
@@ -564,7 +564,7 @@ class _InventarioDeProductosWidgetState
                                                   style: FlutterFlowTheme.of(
                                                       context)
                                                       .labelMedium
-                                                      .override(
+                                                      .copyWith(
                                                     font: GoogleFonts
                                                         .spaceGrotesk(
                                                       fontWeight:
@@ -594,7 +594,7 @@ class _InventarioDeProductosWidgetState
                                                         context)
                                                         .labelMedium
                                                         .fontStyle,
-                                                    lineHeight: 1.3,
+                                                    height: 1.3,
                                                   ),
                                                 ),
                                               ].divide(SizedBox(width: 6)),
@@ -632,7 +632,7 @@ class _InventarioDeProductosWidgetState
                                                   style: FlutterFlowTheme.of(
                                                       context)
                                                       .labelMedium
-                                                      .override(
+                                                      .copyWith(
                                                     font: GoogleFonts
                                                         .spaceGrotesk(
                                                       fontWeight:
@@ -662,7 +662,7 @@ class _InventarioDeProductosWidgetState
                                                         context)
                                                         .labelMedium
                                                         .fontStyle,
-                                                    lineHeight: 1.3,
+                                                    height: 1.3,
                                                   ),
                                                 ),
                                               ].divide(SizedBox(width: 6)),
@@ -690,7 +690,7 @@ class _InventarioDeProductosWidgetState
                                         'Productos',
                                         style: FlutterFlowTheme.of(context)
                                             .titleSmall
-                                            .override(
+                                            .copyWith(
                                           font: GoogleFonts.urbanist(
                                             fontWeight: FontWeight.bold,
                                             fontStyle:
@@ -707,14 +707,14 @@ class _InventarioDeProductosWidgetState
                                           FlutterFlowTheme.of(context)
                                               .titleSmall
                                               .fontStyle,
-                                          lineHeight: 1.4,
+                                          height: 1.4,
                                         ),
                                       ),
                                       Text(
                                         'Ver archivados',
                                         style: FlutterFlowTheme.of(context)
                                             .labelLarge
-                                            .override(
+                                            .copyWith(
                                           font: GoogleFonts.spaceGrotesk(
                                             fontWeight:
                                             FlutterFlowTheme.of(context)
@@ -737,7 +737,7 @@ class _InventarioDeProductosWidgetState
                                           FlutterFlowTheme.of(context)
                                               .labelLarge
                                               .fontStyle,
-                                          lineHeight: 1.3,
+                                          height: 1.3,
                                         ),
                                       ),
                                     ],

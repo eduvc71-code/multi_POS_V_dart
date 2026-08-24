@@ -94,7 +94,7 @@ class _InventoryStatWidgetState extends State<InventoryStatWidget> {
                       widget!.label,
                       'Total Items',
                     ),
-                    style: FlutterFlowTheme.of(context).labelSmall.override(
+                    style: FlutterFlowTheme.of(context).labelSmall.copyWith(
                           fontFamily: "Space Grotesk",
                             fontWeight: FlutterFlowTheme.of(context)
                                 .labelSmall
@@ -110,7 +110,7 @@ class _InventoryStatWidgetState extends State<InventoryStatWidget> {
                               .fontWeight,
                           fontStyle:
                               FlutterFlowTheme.of(context).labelSmall.fontStyle,
-                          lineHeight: 1.2,
+                          height: 1.2,
                         ),
                   ),
                   Text(
@@ -118,7 +118,7 @@ class _InventoryStatWidgetState extends State<InventoryStatWidget> {
                       widget!.value,
                       '1,284',
                     ),
-                    style: FlutterFlowTheme.of(context).titleMedium.override(
+                    style: FlutterFlowTheme.of(context).titleMedium.copyWith(
                           fontFamily: "Urbanist",
                             fontWeight: FontWeight.bold,
                             fontStyle: FlutterFlowTheme.of(context)
@@ -131,7 +131,7 @@ class _InventoryStatWidgetState extends State<InventoryStatWidget> {
                           fontStyle: FlutterFlowTheme.of(context)
                               .titleMedium
                               .fontStyle,
-                          lineHeight: 1.4,
+                          height: 1.4,
                         ),
                   ),
                 ].divide(SizedBox(height: 4)),

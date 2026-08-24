@@ -104,14 +104,12 @@ class _BusinessTypeCardWidgetState extends State<BusinessTypeCardWidget> {
                   widget!.title,
                   'Tienda',
                 ),
-                style: FlutterFlowTheme.of(context).labelMedium.override(
+                style: FlutterFlowTheme.of(context).labelMedium.copyWith(
                       fontFamily: "Space Grotesk",
                       fontWeight: FontWeight.bold,
-                      fontStyle:
-                          FlutterFlowTheme.of(context).labelMedium.fontStyle,
                       color: FlutterFlowTheme.of(context).primaryText,
                       letterSpacing: 0.0,
-                      lineHeight: 1.3,
+                      height: 1.3,
                     ),
               ),
             ].divide(SizedBox(height: 8)),

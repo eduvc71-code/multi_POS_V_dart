@@ -66,7 +66,7 @@ class _NavItemWidgetState extends State<NavItemWidget> {
               widget!.label,
               'Inicio',
             ),
-            style: FlutterFlowTheme.of(context).bodyMedium.override(
+            style: FlutterFlowTheme.of(context).bodyMedium.copyWith(
                   fontFamily: GoogleFonts.poppins().fontFamily,
                   fontSize: FlutterFlowTheme.of(context).bodyMedium.fontSize,
                   color: valueOrDefault<Color>(
@@ -81,8 +81,8 @@ class _NavItemWidgetState extends State<NavItemWidget> {
                   letterSpacing: 0.0,
                   fontWeight:
                       FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                  lineHeight: 1.5,
+                  
+                  height: 1.5,
                 ),
           ),
         ].divide(SizedBox(height: 2)),

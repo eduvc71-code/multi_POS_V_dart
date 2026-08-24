@@ -186,7 +186,7 @@ class _PieChartWidgetState extends State<PieChartWidget> {
                         donutHoleRadius: 30,
                         donutHoleColor: Colors.transparent,
                         sectionLabelStyle:
-                            FlutterFlowTheme.of(context).labelSmall.override(
+                            FlutterFlowTheme.of(context).labelSmall.copyWith(
                                   fontFamily: GoogleFonts.spaceGrotesk().fontFamily,
                                   fontSize: FlutterFlowTheme.of(context).labelSmall.fontSize,
                                     fontWeight: FontWeight,
@@ -200,7 +200,7 @@ class _PieChartWidgetState extends State<PieChartWidget> {
                                   fontStyle: FlutterFlowTheme.of(context)
                                       .labelSmall
                                       .fontStyle,
-                                  lineHeight: 1,
+                                  height: 1,
                                 ),
                         sectionsSpace: valueOrDefault<double>(
                           () {
@@ -306,7 +306,7 @@ class _PieChartWidgetState extends State<PieChartWidget> {
                         donutHoleRadius: 0,
                         donutHoleColor: Colors.transparent,
                         sectionLabelStyle:
-                            FlutterFlowTheme.of(context).labelSmall.override(
+                            FlutterFlowTheme.of(context).labelSmall.copyWith(
                                   fontFamily: GoogleFonts.spaceGrotesk().fontFamily,
                                   fontSize: FlutterFlowTheme.of(context).labelSmall.fontSize,
                                     fontWeight: FontWeight,
@@ -320,7 +320,7 @@ class _PieChartWidgetState extends State<PieChartWidget> {
                                   fontStyle: FlutterFlowTheme.of(context)
                                       .labelSmall
                                       .fontStyle,
-                                  lineHeight: 1,
+                                  height: 1,
                                 ),
                         sectionsSpace: valueOrDefault<double>(
                           () {
@@ -365,7 +365,7 @@ class _PieChartWidgetState extends State<PieChartWidget> {
                           textAlign: TextAlign.center,
                           style: FlutterFlowTheme.of(context)
                               .titleMedium
-                              .override(
+                              .copyWith(
                                 fontFamily: GoogleFonts.urbanist().fontFamily,
                                   fontSize: FlutterFlowTheme.of(context).labelSmall.fontSize,
                                     fontWeight: FlutterFlowTheme,
@@ -380,7 +380,7 @@ class _PieChartWidgetState extends State<PieChartWidget> {
                                 fontStyle: FlutterFlowTheme.of(context)
                                     .titleMedium
                                     .fontStyle,
-                                lineHeight: 1.4,
+                                height: 1.4,
                               ),
                         ),
                         Text(
@@ -388,7 +388,7 @@ class _PieChartWidgetState extends State<PieChartWidget> {
                           textAlign: TextAlign.center,
                           style: FlutterFlowTheme.of(context)
                               .labelSmall
-                              .override(
+                              .copyWith(
                                 fontFamily: GoogleFonts.spaceGrotesk().fontFamily,
                                   fontSize: FlutterFlowTheme.of(context).labelSmall.fontSize,
                                     fontWeight: FlutterFlowTheme,
@@ -404,7 +404,7 @@ class _PieChartWidgetState extends State<PieChartWidget> {
                                 fontStyle: FlutterFlowTheme.of(context)
                                     .labelSmall
                                     .fontStyle,
-                                lineHeight: 1.2,
+                                height: 1.2,
                               ),
                         ),
                       ].divide(SizedBox(height: 0)),

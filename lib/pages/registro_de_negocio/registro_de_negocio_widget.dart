@@ -120,7 +120,7 @@ export 'registro_de_negocio_model.dart';
                                  'MultiPOS',
                                  style: FlutterFlowTheme.of(context)
                                      .headlineLarge
-                                     .override(
+                                     .copyWith(
                                        font: GoogleFonts.urbanist(
                                          fontWeight: FontWeight.w900,
                                          fontStyle: FlutterFlowTheme.of(context)
@@ -133,14 +133,14 @@ export 'registro_de_negocio_model.dart';
                                        fontStyle: FlutterFlowTheme.of(context)
                                            .headlineLarge
                                            .fontStyle,
-                                       lineHeight: 1.2,
+                                       height: 1.2,
                                      ),
                                ),
                                Text(
                                  'Configura tu nuevo negocio',
                                  style: FlutterFlowTheme.of(context)
                                      .bodyMedium
-                                     .override(
+                                     .copyWith(
                                        font: GoogleFonts.poppins(
                                          fontWeight: FlutterFlowTheme.of(context)
                                              .bodyMedium
@@ -158,7 +158,7 @@ export 'registro_de_negocio_model.dart';
                                        fontStyle: FlutterFlowTheme.of(context)
                                            .bodyMedium
                                            .fontStyle,
-                                       lineHeight: 1.5,
+                                       height: 1.5,
                                      ),
                                ),
                              ].divide(SizedBox(height: 4)),
@@ -194,7 +194,7 @@ export 'registro_de_negocio_model.dart';
                                  'Información del Negocio',
                                  style: FlutterFlowTheme.of(context)
                                      .titleMedium
-                                     .override(
+                                     .copyWith(
                                        font: GoogleFonts.urbanist(
                                          fontWeight: FontWeight.bold,
                                          fontStyle: FlutterFlowTheme.of(context)
@@ -208,7 +208,7 @@ export 'registro_de_negocio_model.dart';
                                        fontStyle: FlutterFlowTheme.of(context)
                                            .titleMedium
                                            .fontStyle,
-                                       lineHeight: 1.4,
+                                       height: 1.4,
                                      ),
                                ),
                              ].divide(SizedBox(width: 8)),
@@ -232,7 +232,7 @@ export 'registro_de_negocio_model.dart';
                                  'Tipo de Negocio',
                                  style: FlutterFlowTheme.of(context)
                                      .labelMedium
-                                     .override(
+                                     .copyWith(
                                        font: GoogleFonts.spaceGrotesk(
                                          fontWeight: FontWeight.w600,
                                          fontStyle: FlutterFlowTheme.of(context)
@@ -246,7 +246,7 @@ export 'registro_de_negocio_model.dart';
                                        fontStyle: FlutterFlowTheme.of(context)
                                            .labelMedium
                                            .fontStyle,
-                                       lineHeight: 1.3,
+                                       height: 1.3,
                                      ),
                                ),
                                Column(
@@ -430,7 +430,7 @@ export 'registro_de_negocio_model.dart';
                                  'Cuenta del Propietario',
                                  style: FlutterFlowTheme.of(context)
                                      .titleMedium
-                                     .override(
+                                     .copyWith(
                                        font: GoogleFonts.urbanist(
                                          fontWeight: FontWeight.bold,
                                          fontStyle: FlutterFlowTheme.of(context)
@@ -444,7 +444,7 @@ export 'registro_de_negocio_model.dart';
                                        fontStyle: FlutterFlowTheme.of(context)
                                            .titleMedium
                                            .fontStyle,
-                                       lineHeight: 1.4,
+                                       height: 1.4,
                                      ),
                                ),
                              ].divide(SizedBox(width: 8)),
@@ -549,7 +549,7 @@ export 'registro_de_negocio_model.dart';
                              Text(
                                '¿Ya tienes un negocio?',
                                style:
-                                   FlutterFlowTheme.of(context).bodySmall.override(
+                                   FlutterFlowTheme.of(context).bodySmall.copyWith(
                                          font: GoogleFonts.poppins(
                                            fontWeight: FlutterFlowTheme.of(context)
                                                .bodySmall
@@ -567,7 +567,7 @@ export 'registro_de_negocio_model.dart';
                                          fontStyle: FlutterFlowTheme.of(context)
                                              .bodySmall
                                              .fontStyle,
-                                         lineHeight: 1.4,
+                                         height: 1.4,
                                        ),
                              ),
                              InkWell(

@@ -104,7 +104,7 @@ class _SettingsTileWidgetState extends State<SettingsTileWidget> {
                   children: [
                     Text(
                       widget.title,
-                      style: FlutterFlowTheme.of(context).bodyLarge.override(
+                      style: FlutterFlowTheme.of(context).bodyLarge.copyWith(
                             font: GoogleFonts.urbanist(
                               fontWeight: FontWeight.bold,
                               fontStyle: FlutterFlowTheme.of(context)
@@ -117,12 +117,12 @@ class _SettingsTileWidgetState extends State<SettingsTileWidget> {
                             fontStyle: FlutterFlowTheme.of(context)
                                 .bodyLarge
                                 .fontStyle,
-                            lineHeight: 1.4,
+                            height: 1.4,
                           ),
                     ),
                     Text(
                       widget.subtitle,
-                      style: FlutterFlowTheme.of(context).labelSmall.override(
+                      style: FlutterFlowTheme.of(context).labelSmall.copyWith(
                             font: GoogleFonts.spaceGrotesk(
                               fontWeight: FlutterFlowTheme.of(context)
                                   .labelSmall
@@ -139,7 +139,7 @@ class _SettingsTileWidgetState extends State<SettingsTileWidget> {
                             fontStyle: FlutterFlowTheme.of(context)
                                 .labelSmall
                                 .fontStyle,
-                            lineHeight: 1.2,
+                            height: 1.2,
                           ),
                     ),
                   ],

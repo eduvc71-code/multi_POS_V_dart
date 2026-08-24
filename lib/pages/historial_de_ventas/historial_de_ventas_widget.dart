@@ -66,7 +66,7 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
           elevation: 0,
           label: Text(
             'Reporte del Día',
-            style: FlutterFlowTheme.of(context).labelLarge.override(
+            style: FlutterFlowTheme.of(context).labelLarge.copyWith(
               font: GoogleFonts.spaceGrotesk(
                 fontWeight:
                 FlutterFlowTheme.of(context).labelLarge.fontWeight,
@@ -77,8 +77,8 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
               letterSpacing: 0.0,
               fontWeight:
               FlutterFlowTheme.of(context).labelLarge.fontWeight,
-              fontStyle: FlutterFlowTheme.of(context).labelLarge.fontStyle,
-              lineHeight: 1.3,
+              
+              height: 1.3,
             ),
           ),
         ),
@@ -126,7 +126,7 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
                                 'Historial de Ventas',
                                 style: FlutterFlowTheme.of(context)
                                     .titleLarge
-                                    .override(
+                                    .copyWith(
                                   font: GoogleFonts.urbanist(
                                     fontWeight: FontWeight.bold,
                                     fontStyle: FlutterFlowTheme.of(context)
@@ -138,7 +138,7 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
                                   fontStyle: FlutterFlowTheme.of(context)
                                       .titleLarge
                                       .fontStyle,
-                                  lineHeight: 1.3,
+                                  height: 1.3,
                                 ),
                               ),
                             ].divide(SizedBox(width: 16)),
@@ -327,7 +327,7 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
                                             'Todas',
                                             style: FlutterFlowTheme.of(context)
                                                 .labelMedium
-                                                .override(
+                                                .copyWith(
                                               font:
                                               GoogleFonts.spaceGrotesk(
                                                 fontWeight:
@@ -356,7 +356,7 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
                                                   context)
                                                   .labelMedium
                                                   .fontStyle,
-                                              lineHeight: 1.3,
+                                              height: 1.3,
                                             ),
                                           ),
                                         ].divide(SizedBox(width: 6)),
@@ -390,7 +390,7 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
                                             'Completadas',
                                             style: FlutterFlowTheme.of(context)
                                                 .labelMedium
-                                                .override(
+                                                .copyWith(
                                               font:
                                               GoogleFonts.spaceGrotesk(
                                                 fontWeight:
@@ -419,7 +419,7 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
                                                   context)
                                                   .labelMedium
                                                   .fontStyle,
-                                              lineHeight: 1.3,
+                                              height: 1.3,
                                             ),
                                           ),
                                         ].divide(SizedBox(width: 6)),
@@ -453,7 +453,7 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
                                             'Crédito',
                                             style: FlutterFlowTheme.of(context)
                                                 .labelMedium
-                                                .override(
+                                                .copyWith(
                                               font:
                                               GoogleFonts.spaceGrotesk(
                                                 fontWeight:
@@ -482,7 +482,7 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
                                                   context)
                                                   .labelMedium
                                                   .fontStyle,
-                                              lineHeight: 1.3,
+                                              height: 1.3,
                                             ),
                                           ),
                                         ].divide(SizedBox(width: 6)),
@@ -516,7 +516,7 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
                                             'Anuladas',
                                             style: FlutterFlowTheme.of(context)
                                                 .labelMedium
-                                                .override(
+                                                .copyWith(
                                               font:
                                               GoogleFonts.spaceGrotesk(
                                                 fontWeight:
@@ -545,7 +545,7 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
                                                   context)
                                                   .labelMedium
                                                   .fontStyle,
-                                              lineHeight: 1.3,
+                                              height: 1.3,
                                             ),
                                           ),
                                         ].divide(SizedBox(width: 6)),
@@ -564,7 +564,7 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
                                   'Hoy, 24 de Mayo',
                                   style: FlutterFlowTheme.of(context)
                                       .labelMedium
-                                      .override(
+                                      .copyWith(
                                     font: GoogleFonts.spaceGrotesk(
                                       fontWeight:
                                       FlutterFlowTheme.of(context)
@@ -584,7 +584,7 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
                                     fontStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .fontStyle,
-                                    lineHeight: 1.3,
+                                    height: 1.3,
                                   ),
                                 ),
                                 wrapWithModel(
@@ -643,7 +643,7 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
                                   'Ayer, 23 de Mayo',
                                   style: FlutterFlowTheme.of(context)
                                       .labelMedium
-                                      .override(
+                                      .copyWith(
                                     font: GoogleFonts.spaceGrotesk(
                                       fontWeight:
                                       FlutterFlowTheme.of(context)
@@ -663,7 +663,7 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
                                     fontStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .fontStyle,
-                                    lineHeight: 1.3,
+                                    height: 1.3,
                                   ),
                                 ),
                                 wrapWithModel(

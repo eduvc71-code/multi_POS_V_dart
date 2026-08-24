@@ -83,7 +83,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                         'Aceite de Motor 20W-50',
                       ),
                       maxLines: 1,
-                      style: FlutterFlowTheme.of(context).bodyLarge.override(
+                      style: FlutterFlowTheme.of(context).bodyLarge.copyWith(
                             fontFamily: "Poppins",
                             fontWeight: FontWeight.w600,
                             fontStyle: FlutterFlowTheme.of(context)
@@ -91,7 +91,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                                 .fontStyle,
                             color: FlutterFlowTheme.of(context).primaryText,
                             letterSpacing: 0.0,
-                            lineHeight: 1.5,
+                            height: 1.5,
                           ),
                     ),
                     Text(
@@ -99,7 +99,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                         'Bs. ${widget!.subtotal}',
                         'Bs. 170,00',
                       ),
-                      style: FlutterFlowTheme.of(context).labelMedium.override(
+                      style: FlutterFlowTheme.of(context).labelMedium.copyWith(
                             fontFamily: "Space Grotesk",
                             fontWeight: FlutterFlowTheme.of(context)
                                 .labelMedium
@@ -109,7 +109,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                                 .fontStyle,
                             color: FlutterFlowTheme.of(context).primary,
                             letterSpacing: 0.0,
-                            lineHeight: 1.3,
+                            height: 1.3,
                           ),
                     ),
                   ].divide(SizedBox(height: 4)),
@@ -143,7 +143,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                         widget!.qty,
                         '2',
                       ),
-                      style: FlutterFlowTheme.of(context).titleMedium.override(
+                      style: FlutterFlowTheme.of(context).titleMedium.copyWith(
                             fontFamily: "Urbanist",
                             fontWeight: FontWeight.bold,
                             fontStyle: FlutterFlowTheme.of(context)
@@ -151,7 +151,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                                 .fontStyle,
                             color: FlutterFlowTheme.of(context).primaryText,
                             letterSpacing: 0.0,
-                            lineHeight: 1.4,
+                            height: 1.4,
                           ),
                     ),
                   ),

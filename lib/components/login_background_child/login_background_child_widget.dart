@@ -100,7 +100,7 @@ class _LoginBackgroundChildWidgetState
                   Text(
                     'MultiPOS',
                     style:
-                        FlutterFlowTheme.of(context).headlineLarge.override(
+                        FlutterFlowTheme.of(context).headlineLarge.copyWith(
                               fontFamily: "Urbanist",
                                 fontWeight: FontWeight.w900,
                                 fontStyle: FlutterFlowTheme.of(context)
@@ -114,12 +114,12 @@ class _LoginBackgroundChildWidgetState
                               )
                                   .headlineLarge
                                   .fontStyle,
-                              lineHeight: 1.2,
+                              height: 1.2,
                             ),
                   ),
                   Text(
                     'Punto de Venta Inteligente',
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                    style: FlutterFlowTheme.of(context).bodyMedium.copyWith(
                           fontFamily: "Poppins",
                             fontWeight: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -136,7 +136,7 @@ class _LoginBackgroundChildWidgetState
                           fontStyle: FlutterFlowTheme.of(context)
                               .bodyMedium
                               .fontStyle,
-                          lineHeight: 1.5,
+                          height: 1.5,
                         ),
                   ),
                 ].divide(SizedBox(height: 4)),
@@ -175,7 +175,7 @@ class _LoginBackgroundChildWidgetState
                           'Bienvenido',
                           style: FlutterFlowTheme.of(context)
                               .titleLarge
-                              .override(
+                              .copyWith(
                                 fontFamily: "Urbanist",
                                   fontWeight: FontWeight.bold,
                                   fontStyle: FlutterFlowTheme.of(context)
@@ -189,7 +189,7 @@ class _LoginBackgroundChildWidgetState
                                 fontStyle: FlutterFlowTheme.of(context)
                                     .titleLarge
                                     .fontStyle,
-                                lineHeight: 1.3,
+                                height: 1.3,
                               ),
                         ),
                         Column(
@@ -327,7 +327,7 @@ class _LoginBackgroundChildWidgetState
             children: [
               Text(
                 '¿Eres nuevo?',
-                style: FlutterFlowTheme.of(context).bodySmall.override(
+                style: FlutterFlowTheme.of(context).bodySmall.copyWith(
                       fontFamily: "Poppins",
                         fontWeight: FlutterFlowTheme.of(context)
                             .bodySmall
@@ -342,7 +342,7 @@ class _LoginBackgroundChildWidgetState
                           FlutterFlowTheme.of(context).bodySmall.fontWeight,
                       fontStyle:
                           FlutterFlowTheme.of(context).bodySmall.fontStyle,
-                      lineHeight: 1.4,
+                      height: 1.4,
                     ),
               ),
               InkWell(
@@ -388,7 +388,7 @@ class _LoginBackgroundChildWidgetState
                   ),
                   Text(
                     'Conexión Segura Encriptada',
-                    style: FlutterFlowTheme.of(context).labelSmall.override(
+                    style: FlutterFlowTheme.of(context).labelSmall.copyWith(
                           fontFamily: "Space Grotesk",
                             fontWeight: FlutterFlowTheme.of(context)
                                 .labelSmall
@@ -405,14 +405,14 @@ class _LoginBackgroundChildWidgetState
                           fontStyle: FlutterFlowTheme.of(context)
                               .labelSmall
                               .fontStyle,
-                          lineHeight: 1.2,
+                          height: 1.2,
                         ),
                   ),
                 ].divide(SizedBox(width: 4)),
               ),
               Text(
                 'v2.4.0 • MultiPOS Bolivia',
-                style: FlutterFlowTheme.of(context).labelSmall.override(
+                style: FlutterFlowTheme.of(context).labelSmall.copyWith(
                       fontFamily: "Space Grotesk",
                         fontWeight: FlutterFlowTheme.of(context)
                             .labelSmall
@@ -428,7 +428,7 @@ class _LoginBackgroundChildWidgetState
                           .fontWeight,
                       fontStyle:
                           FlutterFlowTheme.of(context).labelSmall.fontStyle,
-                      lineHeight: 1.2,
+                      height: 1.2,
                     ),
               ),
             ].divide(SizedBox(height: 4)),

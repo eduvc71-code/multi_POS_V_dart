@@ -86,7 +86,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                 'Reportes y Métricas',
                                 style: FlutterFlowTheme.of(context)
                                     .headlineMedium
-                                    .override(
+                                    .copyWith(
                                   fontFamily: GoogleFonts.urbanist(
                                     fontWeight: FontWeight.w800,
                                     fontStyle: FlutterFlowTheme.of(context)
@@ -100,14 +100,14 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                   fontStyle: FlutterFlowTheme.of(context)
                                       .headlineMedium
                                       .fontStyle,
-                                  lineHeight: 1.25,
+                                  height: 1.25,
                                 ),
                               ),
                               Text(
                                 'Análisis de rendimiento del negocio',
                                 style: FlutterFlowTheme.of(context)
                                     .bodySmall
-                                    .override(
+                                    .copyWith(
                                   fontFamily: GoogleFonts.poppins(
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .bodySmall
@@ -125,7 +125,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                   fontStyle: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .fontStyle,
-                                  lineHeight: 1.4,
+                                  height: 1.4,
                                 ),
                               ),
                             ].divide(SizedBox(height: 4)),
@@ -213,7 +213,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                             'Últimos 30 días',
                                             style: FlutterFlowTheme.of(context)
                                                 .labelLarge
-                                                .override(
+                                                .copyWith(
                                               fontFamily:
                                               GoogleFonts.spaceGrotesk().fontFamily,
                                               color: FlutterFlowTheme.of(
@@ -230,7 +230,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                                   context)
                                                   .labelLarge
                                                   .fontStyle,
-                                              lineHeight: 1.3,
+                                              height: 1.3,
                                             ),
                                           ),
                                         ].divide(SizedBox(width: 8)),
@@ -335,7 +335,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                             'Ventas por Periodo',
                                             style: FlutterFlowTheme.of(context)
                                                 .titleMedium
-                                                .override(
+                                                .copyWith(
                                               fontFamily: GoogleFonts.urbanist(
                                                 fontWeight: FontWeight.bold,
                                                 fontStyle:
@@ -351,7 +351,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                                   context)
                                                   .titleMedium
                                                   .fontStyle,
-                                              lineHeight: 1.4,
+                                              height: 1.4,
                                             ),
                                           ),
                                           Icon(
@@ -427,7 +427,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                               labelTextStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
-                                                  .override(
+                                                  .copyWith(
                                                 fontFamily:
                                                 GoogleFonts.poppins().fontFamily,
                                                 color:
@@ -446,7 +446,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                                     context)
                                                     .bodySmall
                                                     .fontStyle,
-                                                lineHeight: 1,
+                                                height: 1,
                                               ),
                                               reservedSize: 28,
                                             ),
@@ -485,7 +485,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                         'Ventas por Categoría',
                                         style: FlutterFlowTheme.of(context)
                                             .titleMedium
-                                            .override(
+                                            .copyWith(
                                           fontFamily: GoogleFonts.urbanist(
                                             fontWeight: FontWeight.bold,
                                             fontStyle:
@@ -499,7 +499,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                           FlutterFlowTheme.of(context)
                                               .titleMedium
                                               .fontStyle,
-                                          lineHeight: 1.4,
+                                          height: 1.4,
                                         ),
                                       ),
                                       wrapWithModel(
@@ -562,7 +562,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                             'Productos más vendidos',
                                             style: FlutterFlowTheme.of(context)
                                                 .titleMedium
-                                                .override(
+                                                .copyWith(
                                               fontFamily: GoogleFonts.urbanist(
                                                 fontWeight: FontWeight.bold,
                                                 fontStyle:
@@ -578,7 +578,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                                   context)
                                                   .titleMedium
                                                   .fontStyle,
-                                              lineHeight: 1.4,
+                                              height: 1.4,
                                             ),
                                           ),
                                           wrapWithModel(
@@ -649,7 +649,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                                       style: FlutterFlowTheme
                                                           .of(context)
                                                           .bodyMedium
-                                                          .override(
+                                                          .copyWith(
                                                         fontFamily: GoogleFonts
                                                             .poppins(
                                                           fontWeight:
@@ -669,7 +669,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                                             context)
                                                             .bodyMedium
                                                             .fontStyle,
-                                                        lineHeight: 1.5,
+                                                        height: 1.5,
                                                       ),
                                                       overflow:
                                                       TextOverflow.ellipsis,
@@ -680,7 +680,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                                       FlutterFlowTheme.of(
                                                           context)
                                                           .labelSmall
-                                                          .override(
+                                                          .copyWith(
                                                         fontFamily: GoogleFonts
                                                             .spaceGrotesk(
                                                           fontWeight: FlutterFlowTheme.of(
@@ -705,7 +705,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                                             context)
                                                             .labelSmall
                                                             .fontStyle,
-                                                        lineHeight: 1.2,
+                                                        height: 1.2,
                                                       ),
                                                     ),
                                                   ].divide(SizedBox(height: 4)),
@@ -716,7 +716,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                                 style: FlutterFlowTheme.of(
                                                     context)
                                                     .bodyMedium
-                                                    .override(
+                                                    .copyWith(
                                                   fontFamily: GoogleFonts.poppins(
                                                     fontWeight:
                                                     FontWeight.bold,
@@ -738,7 +738,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                                       context)
                                                       .bodyMedium
                                                       .fontStyle,
-                                                  lineHeight: 1.5,
+                                                  height: 1.5,
                                                 ),
                                               ),
                                             ].divide(SizedBox(width: 16)),
@@ -796,7 +796,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                                       style: FlutterFlowTheme
                                                           .of(context)
                                                           .bodyMedium
-                                                          .override(
+                                                          .copyWith(
                                                         fontFamily: GoogleFonts
                                                             .poppins(
                                                           fontWeight:
@@ -816,7 +816,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                                             context)
                                                             .bodyMedium
                                                             .fontStyle,
-                                                        lineHeight: 1.5,
+                                                        height: 1.5,
                                                       ),
                                                       overflow:
                                                       TextOverflow.ellipsis,
@@ -827,7 +827,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                                       FlutterFlowTheme.of(
                                                           context)
                                                           .labelSmall
-                                                          .override(
+                                                          .copyWith(
                                                         fontFamily: GoogleFonts
                                                             .spaceGrotesk(
                                                           fontWeight: FlutterFlowTheme.of(
@@ -852,7 +852,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                                             context)
                                                             .labelSmall
                                                             .fontStyle,
-                                                        lineHeight: 1.2,
+                                                        height: 1.2,
                                                       ),
                                                     ),
                                                   ].divide(SizedBox(height: 4)),
@@ -863,7 +863,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                                 style: FlutterFlowTheme.of(
                                                     context)
                                                     .bodyMedium
-                                                    .override(
+                                                    .copyWith(
                                                   fontFamily: GoogleFonts.poppins(
                                                     fontWeight:
                                                     FontWeight.bold,
@@ -885,7 +885,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                                       context)
                                                       .bodyMedium
                                                       .fontStyle,
-                                                  lineHeight: 1.5,
+                                                  height: 1.5,
                                                 ),
                                               ),
                                             ].divide(SizedBox(width: 16)),
@@ -951,7 +951,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                               style: FlutterFlowTheme.of(
                                                   context)
                                                   .titleSmall
-                                                  .override(
+                                                  .copyWith(
                                                 fontFamily: GoogleFonts.urbanist(
                                                   fontWeight:
                                                   FontWeight.bold,
@@ -968,7 +968,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                                     context)
                                                     .titleSmall
                                                     .fontStyle,
-                                                lineHeight: 1.4,
+                                                height: 1.4,
                                               ),
                                             ),
                                             Text(
@@ -976,7 +976,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                               style:
                                               FlutterFlowTheme.of(context)
                                                   .labelSmall
-                                                  .override(
+                                                  .copyWith(
                                                 fontFamily: GoogleFonts
                                                     .spaceGrotesk(
                                                   fontWeight:
@@ -1005,7 +1005,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                                     context)
                                                     .labelSmall
                                                     .fontStyle,
-                                                lineHeight: 1.2,
+                                                height: 1.2,
                                               ),
                                             ),
                                           ].divide(SizedBox(height: 4)),

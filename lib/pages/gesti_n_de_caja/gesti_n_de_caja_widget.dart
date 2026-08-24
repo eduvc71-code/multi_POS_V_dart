@@ -83,7 +83,7 @@ class _GestiNDeCajaWidgetState extends State<GestiNDeCajaWidget> {
                                 'Gestión de Caja',
                                 style: FlutterFlowTheme.of(context)
                                     .headlineMedium
-                                    .override(
+                                    .copyWith(
                                   font: GoogleFonts.urbanist(
                                     fontWeight: FontWeight.bold,
                                     fontStyle: FlutterFlowTheme.of(context)
@@ -97,7 +97,7 @@ class _GestiNDeCajaWidgetState extends State<GestiNDeCajaWidget> {
                                   fontStyle: FlutterFlowTheme.of(context)
                                       .headlineMedium
                                       .fontStyle,
-                                  lineHeight: 1.25,
+                                  height: 1.25,
                                 ),
                               ),
                               Row(
@@ -119,7 +119,7 @@ class _GestiNDeCajaWidgetState extends State<GestiNDeCajaWidget> {
                                     'Caja abierta · Turno Mañana',
                                     style: FlutterFlowTheme.of(context)
                                         .labelMedium
-                                        .override(
+                                        .copyWith(
                                       font: GoogleFonts.spaceGrotesk(
                                         fontWeight:
                                         FlutterFlowTheme.of(context)
@@ -141,7 +141,7 @@ class _GestiNDeCajaWidgetState extends State<GestiNDeCajaWidget> {
                                       FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .fontStyle,
-                                      lineHeight: 1.3,
+                                      height: 1.3,
                                     ),
                                   ),
                                 ].divide(SizedBox(width: 4)),
@@ -362,7 +362,7 @@ class _GestiNDeCajaWidgetState extends State<GestiNDeCajaWidget> {
                                       'Movimientos Recientes',
                                       style: FlutterFlowTheme.of(context)
                                           .titleMedium
-                                          .override(
+                                          .copyWith(
                                         font: GoogleFonts.urbanist(
                                           fontWeight: FontWeight.bold,
                                           fontStyle:
@@ -378,14 +378,14 @@ class _GestiNDeCajaWidgetState extends State<GestiNDeCajaWidget> {
                                         FlutterFlowTheme.of(context)
                                             .titleMedium
                                             .fontStyle,
-                                        lineHeight: 1.4,
+                                        height: 1.4,
                                       ),
                                     ),
                                     Text(
                                       'Ver todos',
                                       style: FlutterFlowTheme.of(context)
                                           .labelLarge
-                                          .override(
+                                          .copyWith(
                                         font: GoogleFonts.spaceGrotesk(
                                           fontWeight:
                                           FlutterFlowTheme.of(context)
@@ -407,7 +407,7 @@ class _GestiNDeCajaWidgetState extends State<GestiNDeCajaWidget> {
                                         FlutterFlowTheme.of(context)
                                             .labelLarge
                                             .fontStyle,
-                                        lineHeight: 1.3,
+                                        height: 1.3,
                                       ),
                                     ),
                                   ],
@@ -533,7 +533,7 @@ class _GestiNDeCajaWidgetState extends State<GestiNDeCajaWidget> {
                                                   style: FlutterFlowTheme.of(
                                                       context)
                                                       .titleSmall
-                                                      .override(
+                                                      .copyWith(
                                                     font: GoogleFonts
                                                         .urbanist(
                                                       fontWeight:
@@ -556,7 +556,7 @@ class _GestiNDeCajaWidgetState extends State<GestiNDeCajaWidget> {
                                                         context)
                                                         .titleSmall
                                                         .fontStyle,
-                                                    lineHeight: 1.4,
+                                                    height: 1.4,
                                                   ),
                                                 ),
                                                 Text(
@@ -564,7 +564,7 @@ class _GestiNDeCajaWidgetState extends State<GestiNDeCajaWidget> {
                                                   style: FlutterFlowTheme.of(
                                                       context)
                                                       .bodySmall
-                                                      .override(
+                                                      .copyWith(
                                                     font:
                                                     GoogleFonts.poppins(
                                                       fontWeight:
@@ -593,7 +593,7 @@ class _GestiNDeCajaWidgetState extends State<GestiNDeCajaWidget> {
                                                         context)
                                                         .bodySmall
                                                         .fontStyle,
-                                                    lineHeight: 1.4,
+                                                    height: 1.4,
                                                   ),
                                                 ),
                                               ].divide(SizedBox(height: 4)),

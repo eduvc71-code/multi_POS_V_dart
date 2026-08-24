@@ -115,7 +115,7 @@ class _BusinessCardWidgetState extends State<BusinessCardWidget> {
                   'MN',
                   textAlign: TextAlign.center,
                   maxLines: 1,
-                  style: FlutterFlowTheme.of(context).labelMedium.override(
+                  style: FlutterFlowTheme.of(context).labelMedium.copyWith(
                         fontFamily: "Space Grotesk",
                         color: valueOrDefault<Color>(
                           valueOrDefault<bool>(
@@ -131,7 +131,7 @@ class _BusinessCardWidgetState extends State<BusinessCardWidget> {
                         fontWeight: FontWeight.w600,
                         fontStyle:
                             FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                        lineHeight: 1.3,
+                        height: 1.3,
                       ),
                   overflow: TextOverflow.clip,
                 ),
@@ -148,7 +148,7 @@ class _BusinessCardWidgetState extends State<BusinessCardWidget> {
                         widget!.name,
                         'Ferretería El Tornillo',
                       ),
-                      style: FlutterFlowTheme.of(context).titleMedium.override(
+                      style: FlutterFlowTheme.of(context).titleMedium.copyWith(
                             fontFamily: "Urbanist",
                             color: FlutterFlowTheme.of(context).primaryText,
                             letterSpacing: 0.0,
@@ -156,7 +156,7 @@ class _BusinessCardWidgetState extends State<BusinessCardWidget> {
                             fontStyle: FlutterFlowTheme.of(context)
                                 .titleMedium
                                 .fontStyle,
-                            lineHeight: 1.4,
+                            height: 1.4,
                           ),
                     ),
                     Text(
@@ -164,7 +164,7 @@ class _BusinessCardWidgetState extends State<BusinessCardWidget> {
                         widget!.type,
                         'Ferretería',
                       ),
-                      style: FlutterFlowTheme.of(context).labelSmall.override(
+                      style: FlutterFlowTheme.of(context).labelSmall.copyWith(
                             fontFamily: "Space Grotesk",
                             color: FlutterFlowTheme.of(context).secondaryText,
                             letterSpacing: 0.0,
@@ -174,7 +174,7 @@ class _BusinessCardWidgetState extends State<BusinessCardWidget> {
                             fontStyle: FlutterFlowTheme.of(context)
                                 .labelSmall
                                 .fontStyle,
-                            lineHeight: 1.2,
+                            height: 1.2,
                           ),
                     ),
                   ].divide(SizedBox(height: 4)),
@@ -196,7 +196,7 @@ class _BusinessCardWidgetState extends State<BusinessCardWidget> {
                   child: Container(
                     child: Text(
                       'ACTIVA',
-                      style: FlutterFlowTheme.of(context).labelSmall.override(
+                      style: FlutterFlowTheme.of(context).labelSmall.copyWith(
                             fontFamily: "Space Grotesk",
                             color: FlutterFlowTheme.of(context).onSuccess,
                             letterSpacing: 0.0,
@@ -204,7 +204,7 @@ class _BusinessCardWidgetState extends State<BusinessCardWidget> {
                             fontStyle: FlutterFlowTheme.of(context)
                                 .labelSmall
                                 .fontStyle,
-                            lineHeight: 1.2,
+                            height: 1.2,
                           ),
                     ),
                   ),

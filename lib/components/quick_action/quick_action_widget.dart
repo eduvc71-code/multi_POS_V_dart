@@ -83,15 +83,15 @@ class _QuickActionWidgetState extends State<QuickActionWidget> {
           Text(
             widget.label,
             textAlign: TextAlign.center,
-            style: FlutterFlowTheme.of(context).labelSmall.override(
+            style: FlutterFlowTheme.of(context).labelSmall.copyWith(
                   fontFamily: GoogleFonts.spaceGrotesk().fontFamily,
                                   fontWeight: FontWeight.w600,
-                                  fontStyle: FlutterFlowTheme.of(context).labelSmall.fontStyle,,
+                                  ,
                   color: FlutterFlowTheme.of(context).primaryText,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.w600,
-                  fontStyle: FlutterFlowTheme.of(context).labelSmall.fontStyle,
-                  lineHeight: 1.2,
+                  
+                  height: 1.2,
                 ),
           ),
         ].divide(SizedBox(height: 8)),

@@ -90,7 +90,7 @@ class _CreditStatWidgetState extends State<CreditStatWidget> {
                         widget!.label,
                         'Por Cobrar',
                       ),
-                      style: FlutterFlowTheme.of(context).labelSmall.override(
+                      style: FlutterFlowTheme.of(context).labelSmall.copyWith(
                             fontFamily: "Space Grotesk",
                               fontWeight: FlutterFlowTheme.of(context)
                                   .labelSmall
@@ -110,7 +110,7 @@ class _CreditStatWidgetState extends State<CreditStatWidget> {
                             fontStyle: FlutterFlowTheme.of(context)
                                 .labelSmall
                                 .fontStyle,
-                            lineHeight: 1.2,
+                            height: 1.2,
                           ),
                     ),
                   ),
@@ -121,7 +121,7 @@ class _CreditStatWidgetState extends State<CreditStatWidget> {
                   widget!.value,
                   'Bs. 12.450,00',
                 ),
-                style: FlutterFlowTheme.of(context).titleLarge.override(
+                style: FlutterFlowTheme.of(context).titleLarge.copyWith(
                       fontFamily: "Urbanist",
                         fontWeight: FontWeight.bold,
                         fontStyle:
@@ -132,7 +132,7 @@ class _CreditStatWidgetState extends State<CreditStatWidget> {
                       fontWeight: FontWeight.bold,
                       fontStyle:
                           FlutterFlowTheme.of(context).titleLarge.fontStyle,
-                      lineHeight: 1.3,
+                      height: 1.3,
                     ),
               ),
             ].divide(SizedBox(height: 4)),

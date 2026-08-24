@@ -111,7 +111,7 @@ class _StatCardWidgetState extends State<StatCardWidget> {
                       widget!.label,
                       'Créditos Hoy',
                     ),
-                    style: FlutterFlowTheme.of(context).labelMedium.override(
+                    style: FlutterFlowTheme.of(context).labelMedium.copyWith(
                           font: GoogleFonts.spaceGrotesk(
                             fontWeight: FlutterFlowTheme.of(context)
                                 .labelMedium
@@ -128,7 +128,7 @@ class _StatCardWidgetState extends State<StatCardWidget> {
                           fontStyle: FlutterFlowTheme.of(context)
                               .labelMedium
                               .fontStyle,
-                          lineHeight: 1.3,
+                          height: 1.3,
                         ),
                   ),
                   Text(
@@ -136,7 +136,7 @@ class _StatCardWidgetState extends State<StatCardWidget> {
                       widget!.value,
                       'Bs. 1.200',
                     ),
-                    style: FlutterFlowTheme.of(context).titleLarge.override(
+                    style: FlutterFlowTheme.of(context).titleLarge.copyWith(
                           font: GoogleFonts.urbanist(
                             fontWeight: FontWeight.w800,
                             fontStyle: FlutterFlowTheme.of(context)
@@ -148,7 +148,7 @@ class _StatCardWidgetState extends State<StatCardWidget> {
                           fontWeight: FontWeight.w800,
                           fontStyle:
                               FlutterFlowTheme.of(context).titleLarge.fontStyle,
-                          lineHeight: 1.3,
+                          height: 1.3,
                         ),
                   ),
                 ].divide(SizedBox(height: 4)),
@@ -198,7 +198,7 @@ class _StatCardWidgetState extends State<StatCardWidget> {
                       widget!.trend,
                       '+12%',
                     ),
-                    style: FlutterFlowTheme.of(context).labelSmall.override(
+                    style: FlutterFlowTheme.of(context).labelSmall.copyWith(
                           font: GoogleFonts.spaceGrotesk(
                             fontWeight: FontWeight.w600,
                             fontStyle: FlutterFlowTheme.of(context)
@@ -218,7 +218,7 @@ class _StatCardWidgetState extends State<StatCardWidget> {
                           fontWeight: FontWeight.w600,
                           fontStyle:
                               FlutterFlowTheme.of(context).labelSmall.fontStyle,
-                          lineHeight: 1.2,
+                          height: 1.2,
                         ),
                   ),
                 ].divide(SizedBox(width: 4)),

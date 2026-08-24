@@ -81,7 +81,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                             'MultiPOS',
                             style: FlutterFlowTheme.of(context)
                                 .titleLarge
-                                .override(
+                                .copyWith(
                               font: GoogleFonts.urbanist(
                                 fontWeight: FontWeight.w900,
                                 fontStyle: FlutterFlowTheme.of(context)
@@ -94,7 +94,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                               fontStyle: FlutterFlowTheme.of(context)
                                   .titleLarge
                                   .fontStyle,
-                              lineHeight: 1.3,
+                              height: 1.3,
                             ),
                           ),
                           Row(
@@ -112,7 +112,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                 'Sucursal Central',
                                 style: FlutterFlowTheme.of(context)
                                     .labelSmall
-                                    .override(
+                                    .copyWith(
                                   font: GoogleFonts.spaceGrotesk(
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .labelSmall
@@ -130,7 +130,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                   fontStyle: FlutterFlowTheme.of(context)
                                       .labelSmall
                                       .fontStyle,
-                                  lineHeight: 1.2,
+                                  height: 1.2,
                                 ),
                               ),
                             ].divide(SizedBox(width: 4)),
@@ -238,7 +238,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                             'Ventas del Día',
                                             style: FlutterFlowTheme.of(context)
                                                 .labelLarge
-                                                .override(
+                                                .copyWith(
                                               font:
                                               GoogleFonts.spaceGrotesk(
                                                 fontWeight:
@@ -266,7 +266,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                   context)
                                                   .labelLarge
                                                   .fontStyle,
-                                              lineHeight: 1.3,
+                                              height: 1.3,
                                             ),
                                           ),
                                           Container(
@@ -287,7 +287,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                   style: FlutterFlowTheme.of(
                                                       context)
                                                       .labelSmall
-                                                      .override(
+                                                      .copyWith(
                                                     font: GoogleFonts
                                                         .spaceGrotesk(
                                                       fontWeight:
@@ -310,7 +310,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                         context)
                                                         .labelSmall
                                                         .fontStyle,
-                                                    lineHeight: 1.2,
+                                                    height: 1.2,
                                                   ),
                                                 ),
                                               ),
@@ -322,7 +322,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                         'Bs. 4.850,00',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
-                                            .override(
+                                            .copyWith(
                                           font: GoogleFonts.poppins(
                                             fontWeight: FontWeight.w900,
                                             fontStyle:
@@ -340,7 +340,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                           FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .fontStyle,
-                                          lineHeight: 1.5,
+                                          height: 1.5,
                                         ),
                                       ),
                                       Divider(
@@ -370,7 +370,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                 style:
                                                 FlutterFlowTheme.of(context)
                                                     .labelSmall
-                                                    .override(
+                                                    .copyWith(
                                                   font: GoogleFonts
                                                       .spaceGrotesk(
                                                     fontWeight:
@@ -398,7 +398,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                       context)
                                                       .labelSmall
                                                       .fontStyle,
-                                                  lineHeight: 1.2,
+                                                  height: 1.2,
                                                 ),
                                               ),
                                               Text(
@@ -406,7 +406,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                 style: FlutterFlowTheme.of(
                                                     context)
                                                     .bodyMedium
-                                                    .override(
+                                                    .copyWith(
                                                   font: GoogleFonts.poppins(
                                                     fontWeight:
                                                     FontWeight.w600,
@@ -428,7 +428,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                       context)
                                                       .bodyMedium
                                                       .fontStyle,
-                                                  lineHeight: 1.5,
+                                                  height: 1.5,
                                                 ),
                                               ),
                                             ].divide(SizedBox(height: 4)),
@@ -445,7 +445,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                 style:
                                                 FlutterFlowTheme.of(context)
                                                     .labelSmall
-                                                    .override(
+                                                    .copyWith(
                                                   font: GoogleFonts
                                                       .spaceGrotesk(
                                                     fontWeight:
@@ -473,7 +473,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                       context)
                                                       .labelSmall
                                                       .fontStyle,
-                                                  lineHeight: 1.2,
+                                                  height: 1.2,
                                                 ),
                                               ),
                                               Row(
@@ -502,7 +502,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                     style: FlutterFlowTheme.of(
                                                         context)
                                                         .bodyMedium
-                                                        .override(
+                                                        .copyWith(
                                                       font: GoogleFonts
                                                           .poppins(
                                                         fontWeight:
@@ -524,7 +524,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                           context)
                                                           .bodyMedium
                                                           .fontStyle,
-                                                      lineHeight: 1.5,
+                                                      height: 1.5,
                                                     ),
                                                   ),
                                                 ].divide(SizedBox(width: 4)),
@@ -547,7 +547,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                   'Accesos Rápidos',
                                   style: FlutterFlowTheme.of(context)
                                       .titleMedium
-                                      .override(
+                                      .copyWith(
                                     font: GoogleFonts.urbanist(
                                       fontWeight: FontWeight.w800,
                                       fontStyle:
@@ -560,7 +560,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                     fontStyle: FlutterFlowTheme.of(context)
                                         .titleMedium
                                         .fontStyle,
-                                    lineHeight: 1.4,
+                                    height: 1.4,
                                   ),
                                 ),
                                 Row(
@@ -748,7 +748,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                               style: FlutterFlowTheme.of(
                                                   context)
                                                   .labelLarge
-                                                  .override(
+                                                  .copyWith(
                                                 font: GoogleFonts
                                                     .spaceGrotesk(
                                                   fontWeight:
@@ -769,7 +769,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                     context)
                                                     .labelLarge
                                                     .fontStyle,
-                                                lineHeight: 1.3,
+                                                height: 1.3,
                                               ),
                                             ),
                                             Text(
@@ -777,7 +777,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                               style: FlutterFlowTheme.of(
                                                   context)
                                                   .bodySmall
-                                                  .override(
+                                                  .copyWith(
                                                 font: GoogleFonts.poppins(
                                                   fontWeight:
                                                   FlutterFlowTheme.of(
@@ -804,7 +804,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                     context)
                                                     .bodySmall
                                                     .fontStyle,
-                                                lineHeight: 1.4,
+                                                height: 1.4,
                                               ),
                                             ),
                                           ].divide(SizedBox(height: 4)),
@@ -845,7 +845,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                       'Últimas Ventas',
                                       style: FlutterFlowTheme.of(context)
                                           .titleMedium
-                                          .override(
+                                          .copyWith(
                                         font: GoogleFonts.urbanist(
                                           fontWeight: FontWeight.w800,
                                           fontStyle:
@@ -859,7 +859,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                         FlutterFlowTheme.of(context)
                                             .titleMedium
                                             .fontStyle,
-                                        lineHeight: 1.4,
+                                        height: 1.4,
                                       ),
                                     ),
                                     InkWell(
@@ -955,7 +955,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                       style: FlutterFlowTheme
                                                           .of(context)
                                                           .bodyMedium
-                                                          .override(
+                                                          .copyWith(
                                                         font: GoogleFonts
                                                             .poppins(
                                                           fontWeight:
@@ -975,7 +975,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                             context)
                                                             .bodyMedium
                                                             .fontStyle,
-                                                        lineHeight: 1.5,
+                                                        height: 1.5,
                                                       ),
                                                     ),
                                                     Text(
@@ -984,7 +984,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                       FlutterFlowTheme.of(
                                                           context)
                                                           .labelSmall
-                                                          .override(
+                                                          .copyWith(
                                                         font: GoogleFonts
                                                             .spaceGrotesk(
                                                           fontWeight: FlutterFlowTheme.of(
@@ -1009,7 +1009,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                             context)
                                                             .labelSmall
                                                             .fontStyle,
-                                                        lineHeight: 1.2,
+                                                        height: 1.2,
                                                       ),
                                                     ),
                                                   ].divide(SizedBox(height: 4)),
@@ -1020,7 +1020,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                 style: FlutterFlowTheme.of(
                                                     context)
                                                     .bodyLarge
-                                                    .override(
+                                                    .copyWith(
                                                   font: GoogleFonts.poppins(
                                                     fontWeight:
                                                     FontWeight.w800,
@@ -1042,7 +1042,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                       context)
                                                       .bodyLarge
                                                       .fontStyle,
-                                                  lineHeight: 1.5,
+                                                  height: 1.5,
                                                 ),
                                               ),
                                             ].divide(SizedBox(width: 16)),
@@ -1101,7 +1101,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                       style: FlutterFlowTheme
                                                           .of(context)
                                                           .bodyMedium
-                                                          .override(
+                                                          .copyWith(
                                                         font: GoogleFonts
                                                             .poppins(
                                                           fontWeight:
@@ -1121,7 +1121,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                             context)
                                                             .bodyMedium
                                                             .fontStyle,
-                                                        lineHeight: 1.5,
+                                                        height: 1.5,
                                                       ),
                                                     ),
                                                     Text(
@@ -1130,7 +1130,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                       FlutterFlowTheme.of(
                                                           context)
                                                           .labelSmall
-                                                          .override(
+                                                          .copyWith(
                                                         font: GoogleFonts
                                                             .spaceGrotesk(
                                                           fontWeight: FlutterFlowTheme.of(
@@ -1155,7 +1155,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                             context)
                                                             .labelSmall
                                                             .fontStyle,
-                                                        lineHeight: 1.2,
+                                                        height: 1.2,
                                                       ),
                                                     ),
                                                   ].divide(SizedBox(height: 4)),
@@ -1166,7 +1166,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                 style: FlutterFlowTheme.of(
                                                     context)
                                                     .bodyLarge
-                                                    .override(
+                                                    .copyWith(
                                                   font: GoogleFonts.poppins(
                                                     fontWeight:
                                                     FontWeight.w800,
@@ -1188,7 +1188,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                       context)
                                                       .bodyLarge
                                                       .fontStyle,
-                                                  lineHeight: 1.5,
+                                                  height: 1.5,
                                                 ),
                                               ),
                                             ].divide(SizedBox(width: 16)),

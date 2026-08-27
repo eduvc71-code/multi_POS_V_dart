@@ -1,0 +1,222 @@
+import 'package:flutter/material.dart';
+// Asegúrate de que las rutas de importación coincidan con tu proyecto
+// Si tienes un modelo, impórtalo aquí. Si no, usaremos datos dummy seguros.
+// import 'panel_principal_model.dart'; 
+
+class PanelPrincipalWidget extends StatefulWidget {
+  const PanelPrincipalWidget({Key? key}) : super(key: key);
+
+  @override
+  State<PanelPrincipalWidget> createState() => _PanelPrincipalWidgetState();
+}
+
+class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
+  // Datos iniciales seguros para evitar nulls
+  final List<Map<String, dynamic>> _estadisticas = [
+    {'titulo': 'Ventas Hoy', 'valor': '\$0.00', 'icono': Icons.attach_money, 'color': Colors.green},
+    {'titulo': 'Pedidos', 'valor': '0', 'icono': Icons.shopping_bag, 'color': Colors.blue},
+    {'titulo': 'Clientes', 'valor': '0', 'icono': Icons.people, 'color': Colors.orange},
+    {'titulo': 'Productos', 'valor': '0', 'icono': Icons.inventory_2, 'color': Colors.purple},
+  ];
+
+  final List<String> _movimientosRecientes = []; // Lista vacía inicial segura
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.grey[100],
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        leading: IconButton(
+          icon: Icon(Icons.menu, color: Colors.black87),
+          onPressed: () { Scaffold.of(context).openDrawer(); },
+        ),
+        title: Text(
+          'MultiPOS',
+          style: TextStyle(color: Colors.black87, fontWeight: FontWeight.bold),
+        ),
+        actions: [
+          IconButton(icon: Icon(Icons.notifications_none, color: Colors.black87), onPressed: () {}),
+        ],
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            DrawerHeader(
+              decoration: BoxDecoration(color: Color(0xFF4F46E5)),
+              child: Text('Menú Principal', style: TextStyle(color: Colors.white, fontSize: 24)),
+            ),
+            ListTile(leading: Icon(Icons.home), title: Text('Inicio'), onTap: () => Navigator.pop(context)),
+            ListTile(leading: Icon(Icons.point_of_sale), title: Text('Ventas'), onTap: () {
+              Navigator.pop(context);
+              // Navegación segura: verifica si la ruta existe o usa pushNamed
+              Navigator.pushNamed(context, '/punto_de_venta').catchError((_) {});
+            }),
+            ListTile(leading: Icon(Icons.inventory), title: Text('Inventario'), onTap: () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context, '/inventario_de_productos').catchError((_) {});
+            }),
+          ],
+        ),
+      ),
+      body: SingleChildScrollView( // Scroll principal único
+        padding: EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Tarjeta de Bienvenida
+            Container(
+              width: double.infinity,
+              padding: EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                gradient: LinearGradient(colors: [Color(0xFF4F46E5), Color(0xFF818CF8)]),
+                borderRadius: BorderRadius.circular(16),
+                boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.1), blurRadius: 10, offset: Offset(0, 4))],
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('Bienvenido,', style: TextStyle(color: Colors.white70, fontSize: 16)),
+                  SizedBox(height: 5),
+                  Text('Sucursal Principal', style: TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold)),
+                  SizedBox(height: 20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      _buildStatItemSmall('\$0.00', 'Ventas'),
+                      VerticalDivider(color: Colors.white30, width: 20),
+                      _buildStatItemSmall('0', 'Pedidos'),
+                    ],
+                  )
+                ],
+              ),
+            ),
+            
+            SizedBox(height: 24),
+            
+            // Sección de Estadísticas (Grid seguro)
+            Text('Resumen General', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black87)),
+            SizedBox(height: 12),
+            GridView.builder(
+              shrinkWrap: true, // CRUCIAL: Permite que el Grid viva dentro del SingleChildScrollView
+              physics: NeverScrollableScrollPhysics(), // CRUCIAL: Desactiva el scroll interno del Grid
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 12,
+                mainAxisSpacing: 12,
+                childAspectRatio: 1.6,
+              ),
+              itemCount: _estadisticas.length,
+              itemBuilder: (context, index) {
+                final item = _estadisticas[index];
+                return _buildStatCard(item['titulo'], item['valor'], item['icono'], item['color']);
+              },
+            ),
+
+            SizedBox(height: 24),
+
+            // Sección de Movimientos Recientes (Lista segura)
+            Text('Movimientos Recientes', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black87)),
+            SizedBox(height: 12),
+            if (_movimientosRecientes.isEmpty)
+              Container(
+                padding: EdgeInsets.all(40),
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(color: Colors.grey[200]!),
+                ),
+                child: Column(
+                  children: [
+                    Icon(Icons.receipt_long, size: 40, color: Colors.grey[400]),
+                    SizedBox(height: 10),
+                    Text('No hay movimientos recientes', style: TextStyle(color: Colors.grey[600])),
+                  ],
+                ),
+              )
+            else
+              ListView.builder(
+                shrinkWrap: true, // CRUCIAL
+                physics: NeverScrollableScrollPhysics(), // CRUCIAL
+                itemCount: _movimientosRecientes.length,
+                itemBuilder: (context, index) {
+                  return Card(
+                    margin: EdgeInsets.only(bottom: 8),
+                    child: ListTile(
+                      leading: CircleAvatar(child: Icon(Icons.shopping_basket, size: 20)),
+                      title: Text('Venta #${index + 1}'),
+                      subtitle: Text('Hace ${index + 1} horas'),
+                      trailing: Text('\$${(index + 1) * 10}.00', style: TextStyle(fontWeight: FontWeight.bold)),
+                    ),
+                  );
+                },
+              ),
+            
+            SizedBox(height: 20), // Espacio para el bottom nav
+          ],
+        ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: Color(0xFF4F46E5),
+        unselectedItemColor: Colors.grey,
+        backgroundColor: Colors.white,
+        elevation: 10,
+        currentIndex: 0,
+        onTap: (index) {
+          // Lógica de navegación simple
+          if (index == 1) {
+             Navigator.pushNamed(context, '/punto_de_venta').catchError((_) {});
+          } else if (index == 2) {
+             Navigator.pushNamed(context, '/inventario_de_productos').catchError((_) {});
+          }
+        },
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.dashboard), label: 'Inicio'),
+          BottomNavigationBarItem(icon: Icon(Icons.point_of_sale), label: 'Venta'),
+          BottomNavigationBarItem(icon: Icon(Icons.inventory), label: 'Inventario'),
+          BottomNavigationBarItem(icon: Icon(Icons.bar_chart), label: 'Reportes'),
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Config'),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildStatCard(String titulo, String valor, IconData icono, Color color) {
+    return Container(
+      padding: EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(12),
+        boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 10, offset: Offset(0, 4))],
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            padding: EdgeInsets.all(8),
+            decoration: BoxDecoration(color: color.withOpacity(0.1), borderRadius: BorderRadius.circular(8)),
+            child: Icon(icono, color: color, size: 24),
+          ),
+          SizedBox(height: 12),
+          Text(valor, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black87)),
+          Text(titulo, style: TextStyle(fontSize: 12, color: Colors.grey[600])),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildStatItemSmall(String valor, String label) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(valor, style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
+        Text(label, style: TextStyle(color: Colors.white70, fontSize: 12)),
+      ],
+    );
+  }
+}

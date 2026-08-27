@@ -53,7 +53,7 @@ class _BusinessCardWidgetState extends State<BusinessCardWidget> {
       decoration: BoxDecoration(
         color: valueOrDefault<Color>(
           valueOrDefault<bool>(
-            widget!.isActive,
+            widget.isActive,
             true,
           )
               ? FlutterFlowTheme.of(context).primary10
@@ -65,7 +65,7 @@ class _BusinessCardWidgetState extends State<BusinessCardWidget> {
         border: Border.all(
           color: valueOrDefault<Color>(
             valueOrDefault<bool>(
-              widget!.isActive,
+              widget.isActive,
               true,
             )
                 ? FlutterFlowTheme.of(context).primary
@@ -74,7 +74,7 @@ class _BusinessCardWidgetState extends State<BusinessCardWidget> {
           ),
           width: valueOrDefault<double>(
             valueOrDefault<bool>(
-              widget!.isActive,
+              widget.isActive,
               true,
             )
                 ? 2.0
@@ -97,7 +97,7 @@ class _BusinessCardWidgetState extends State<BusinessCardWidget> {
                 decoration: BoxDecoration(
                   color: valueOrDefault<Color>(
                     valueOrDefault<bool>(
-                      widget!.isActive,
+                      widget.isActive,
                       true,
                     )
                         ? FlutterFlowTheme.of(context).primary
@@ -115,7 +115,7 @@ class _BusinessCardWidgetState extends State<BusinessCardWidget> {
                         fontFamily: "Space Grotesk",
                         color: valueOrDefault<Color>(
                           valueOrDefault<bool>(
-                            widget!.isActive,
+                            widget.isActive,
                             true,
                           )
                               ? FlutterFlowTheme.of(context).onPrimary
@@ -141,7 +141,7 @@ class _BusinessCardWidgetState extends State<BusinessCardWidget> {
                   children: [
                     Text(
                       valueOrDefault<String>(
-                        widget!.name,
+                        widget.name,
                         'Ferretería El Tornillo',
                       ),
                       style: FlutterFlowTheme.of(context).titleMedium.copyWith(
@@ -154,7 +154,7 @@ class _BusinessCardWidgetState extends State<BusinessCardWidget> {
                     ),
                     Text(
                       valueOrDefault<String>(
-                        widget!.type,
+                        widget.type,
                         'Ferretería',
                       ),
                       style: FlutterFlowTheme.of(context).labelSmall.copyWith(

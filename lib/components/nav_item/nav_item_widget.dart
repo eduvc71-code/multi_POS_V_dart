@@ -56,15 +56,15 @@ class _NavItemWidgetState extends State<NavItemWidget> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          widget!.icon!,
+          widget.icon!,
           Text(
             valueOrDefault<String>(
-              widget!.label,
+              widget.label,
               'Inicio',
             ),
             style: FlutterFlowTheme.of(context).bodyMedium.copyWith(
                   fontFamily: "Poppins",
-                  color: widget!.selected
+                  color: widget.selected
                       ? FlutterFlowTheme.of(context).primary
                       : FlutterFlowTheme.of(context).secondaryText,
                   letterSpacing: 0.0,

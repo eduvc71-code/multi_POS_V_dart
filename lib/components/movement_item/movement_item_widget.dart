@@ -71,7 +71,7 @@ class _MovementItemWidgetState extends State<MovementItemWidget> {
                     height: 40,
                     decoration: BoxDecoration(
                       color: valueOrDefault<Color>(
-                        widget!.tone,
+                        widget.tone,
                         FlutterFlowTheme.of(context).success,
                       ),
                       borderRadius: BorderRadius.circular(9999),
@@ -80,7 +80,7 @@ class _MovementItemWidgetState extends State<MovementItemWidget> {
                     child: Icon(
                       Icons.arrow_downward_rounded,
                       color: valueOrDefault<Color>(
-                        widget!.tone,
+                        widget.tone,
                         FlutterFlowTheme.of(context).success,
                       ),
                       size: 20,
@@ -95,7 +95,7 @@ class _MovementItemWidgetState extends State<MovementItemWidget> {
                       children: [
                         Text(
                           valueOrDefault<String>(
-                            widget!.type,
+                            widget.type,
                             'Venta #1024',
                           ),
                           style: FlutterFlowTheme.of(context)
@@ -110,7 +110,7 @@ class _MovementItemWidgetState extends State<MovementItemWidget> {
                         ),
                         Text(
                           valueOrDefault<String>(
-                            widget!.time,
+                            widget.time,
                             '10:45 AM',
                           ),
                           style: FlutterFlowTheme.of(context)
@@ -129,12 +129,12 @@ class _MovementItemWidgetState extends State<MovementItemWidget> {
                   ),
                   Text(
                     valueOrDefault<String>(
-                      widget!.amount,
+                      widget.amount,
                       '+ Bs. 150,00',
                     ),
                     style: FlutterFlowTheme.of(context).titleSmall.copyWith(
                           fontFamily: "Urbanist",
-                          color: widget!.tone,
+                          color: widget.tone,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.bold,
                           fontStyle:

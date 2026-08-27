@@ -61,7 +61,7 @@ class _BusinessTypeCardWidgetState extends State<BusinessTypeCardWidget> {
         border: Border.all(
           color: valueOrDefault<Color>(
             valueOrDefault<bool>(
-              widget!.selected,
+              widget.selected,
               true,
             )
                 ? FlutterFlowTheme.of(context).primary
@@ -70,7 +70,7 @@ class _BusinessTypeCardWidgetState extends State<BusinessTypeCardWidget> {
           ),
           width: valueOrDefault<double>(
             valueOrDefault<bool>(
-              widget!.selected,
+              widget.selected,
               true,
             )
                 ? 2.0
@@ -92,16 +92,16 @@ class _BusinessTypeCardWidgetState extends State<BusinessTypeCardWidget> {
                 height: 48,
                 decoration: BoxDecoration(
                   color: valueOrDefault<Color>(
-                    widget!.color,
+                    widget.color,
                     FlutterFlowTheme.of(context).primary,
                   ),
                   shape: BoxShape.rectangle,
                 ),
-                child: widget!.icon!,
+                child: widget.icon!,
               ),
               Text(
                 valueOrDefault<String>(
-                  widget!.title,
+                  widget.title,
                   'Tienda',
                 ),
                 style: FlutterFlowTheme.of(context).labelMedium.copyWith(

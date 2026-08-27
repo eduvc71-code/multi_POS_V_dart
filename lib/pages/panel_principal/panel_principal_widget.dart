@@ -214,7 +214,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                         CrossAxisAlignment.center,
                                         children: [
                                           Text(
-                                            'Ventas del Día',
+                                            'Ventas del DÃ­a',
                                             style: FlutterFlowTheme.of(context)
                                                 .labelLarge
                                                 .copyWith(
@@ -421,7 +421,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Text(
-                                  'Accesos Rápidos',
+                                  'Accesos RÃ¡pidos',
                                   style: FlutterFlowTheme.of(context)
                                       .titleMedium
                                       .copyWith(
@@ -537,7 +537,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                         color: Color(0xFFFF9100),
                                         size: 22,
                                       ),
-                                      label: 'Créditos Hoy',
+                                      label: 'CrÃ©ditos Hoy',
                                       tone: Color(0xFFFF9100),
                                       value: 'Bs. 1.200',
                                       isUp: true,
@@ -627,7 +627,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                               ),
                                             ),
                                             Text(
-                                              '3 productos están por debajo del mínimo',
+                                              '3 productos estÃ¡n por debajo del mÃ­nimo',
                                               style: FlutterFlowTheme.of(
                                                   context)
                                                   .bodySmall
@@ -678,7 +678,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Text(
-                                      'Últimas Ventas',
+                                      'Ãšltimas Ventas',
                                       style: FlutterFlowTheme.of(context)
                                           .titleMedium
                                           .copyWith(
@@ -790,7 +790,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                       ),
                                                     ),
                                                     Text(
-                                                      'Hace 5 min • Efectivo',
+                                                      'Hace 5 min â€¢ Efectivo',
                                                       style:
                                                       FlutterFlowTheme.of(
                                                           context)
@@ -894,7 +894,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                       ),
                                                     ),
                                                     Text(
-                                                      'Hace 12 min • Tarjeta',
+                                                      'Hace 12 min â€¢ Tarjeta',
                                                       style:
                                                       FlutterFlowTheme.of(
                                                           context)

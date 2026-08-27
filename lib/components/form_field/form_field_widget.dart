@@ -58,7 +58,7 @@ class _FormFieldWidgetState extends State<FormFieldWidget> {
       children: [
         Text(
           valueOrDefault<String>(
-            widget!.label,
+            widget.label,
             'Nombre Comercial',
           ),
           style: FlutterFlowTheme.of(context).labelMedium.copyWith(
@@ -85,7 +85,7 @@ class _FormFieldWidgetState extends State<FormFieldWidget> {
             leadingIconPresent: false,
             trailingIconPresent: false,
             hint: valueOrDefault<String>(
-              widget!.hint,
+              widget.hint,
               'Ej. Mi Tienda Express',
             ),
             value: '',

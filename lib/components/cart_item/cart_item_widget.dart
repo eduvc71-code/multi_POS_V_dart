@@ -75,7 +75,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                   children: [
                     Text(
                       valueOrDefault<String>(
-                        widget!.name,
+                        widget.name,
                         'Aceite de Motor 20W-50',
                       ),
                       maxLines: 1,
@@ -89,7 +89,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                     ),
                     Text(
                       valueOrDefault<String>(
-                        'Bs. ${widget!.subtotal}',
+                        'Bs. ${widget.subtotal}',
                         'Bs. 170,00',
                       ),
                       style: FlutterFlowTheme.of(context).labelMedium.copyWith(
@@ -128,7 +128,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                     alignment: AlignmentDirectional(0, 0),
                     child: Text(
                       valueOrDefault<String>(
-                        widget!.qty,
+                        widget.qty,
                         '2',
                       ),
                       style: FlutterFlowTheme.of(context).titleMedium.copyWith(

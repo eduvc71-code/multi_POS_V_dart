@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
 import 'flutter_flow/flutter_flow_localizations.dart';
-import 'package:provider/provider.dart';
-import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 import 'index.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
-  @override
-  State<MyApp> createState() => _MyAppState();
+  const MyApp({super.key});
 
-  static _MyAppState of(BuildContext context) =>
-      context.findAncestorStateOfType<_MyAppState>()!;
+  @override
+  State<MyApp> createState() => MyAppState();
+
+  static MyAppState of(BuildContext context) =>
+      context.findAncestorStateOfType<MyAppState>()!;
 }
 
-class _MyAppState extends State<MyApp> {
+class MyAppState extends State<MyApp> {
   ThemeMode _themeMode = ThemeMode.system;
 
   late AppStateNotifier _appStateNotifier;
@@ -39,12 +39,15 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       title: 'MultiPOS',
-      localizationsDelegates: [
+      localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: const [Locale('en', '')],
+      supportedLocales: const [
+        Locale('es', ''),
+        Locale('en', ''),
+      ],
       theme: ThemeData(brightness: Brightness.light),
       themeMode: _themeMode,
       routerConfig: _router,
@@ -69,62 +72,62 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) => InicioDeSesiNWidget(),
+      errorBuilder: (context, state) => const InicioDeSesionWidget(),
       routes: [
         GoRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => InicioDeSesiNWidget(),
+          builder: (context, _) => const InicioDeSesionWidget(),
         ),
         GoRoute(
-          name: 'InicioDeSesiN',
-          path: '/inicioDeSesiN',
-          builder: (context, _) => InicioDeSesiNWidget(),
+          name: 'InicioDeSesion',
+          path: '/inicioDeSesion',
+          builder: (context, _) => const InicioDeSesionWidget(),
         ),
         GoRoute(
           name: 'RegistroDeNegocio',
           path: '/registroDeNegocio',
-          builder: (context, _) => RegistroDeNegocioWidget(),
+          builder: (context, _) => const RegistroDeNegocioWidget(),
         ),
         GoRoute(
           name: 'PanelPrincipal',
           path: '/panelPrincipal',
-          builder: (context, _) => PanelPrincipalWidget(),
+          builder: (context, _) => const PanelPrincipalWidget(),
         ),
         GoRoute(
           name: 'PuntoDeVenta',
           path: '/puntoDeVenta',
-          builder: (context, _) => PuntoDeVentaWidget(),
+          builder: (context, _) => const PuntoDeVentaWidget(),
         ),
         GoRoute(
-          name: 'GestiNDeCaja',
-          path: '/gestiNDeCaja',
-          builder: (context, _) => GestiNDeCajaWidget(),
+          name: 'GestionDeCaja',
+          path: '/gestionDeCaja',
+          builder: (context, _) => const GestionDeCajaWidget(),
         ),
         GoRoute(
           name: 'InventarioDeProductos',
           path: '/inventarioDeProductos',
-          builder: (context, _) => InventarioDeProductosWidget(),
+          builder: (context, _) => const InventarioDeProductosWidget(),
         ),
         GoRoute(
           name: 'HistorialDeVentas',
           path: '/historialDeVentas',
-          builder: (context, _) => HistorialDeVentasWidget(),
+          builder: (context, _) => const HistorialDeVentasWidget(),
         ),
         GoRoute(
-          name: 'ClientesYCrDitos',
-          path: '/clientesYCrDitos',
-          builder: (context, _) => ClientesYCrDitosWidget(),
+          name: 'ClientesYCreditos',
+          path: '/clientesYCreditos',
+          builder: (context, _) => const ClientesYCreditosWidget(),
         ),
         GoRoute(
-          name: 'ReportesYMTricas',
-          path: '/reportesYMTricas',
-          builder: (context, _) => ReportesYMTricasWidget(),
+          name: 'ReportesYMetricas',
+          path: '/reportesYMetricas',
+          builder: (context, _) => const ReportesYMetricasWidget(),
         ),
         GoRoute(
-          name: 'ConfiguraciNYEmpresas',
-          path: '/configuraciNYEmpresas',
-          builder: (context, _) => ConfiguraciNYEmpresasWidget(),
+          name: 'ConfiguracionYEmpresas',
+          path: '/configuracionYEmpresas',
+          builder: (context, _) => const ConfiguracionYEmpresasWidget(),
         ),
       ],
     );

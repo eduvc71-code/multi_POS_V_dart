@@ -50,7 +50,7 @@ class _NavItemWidgetState extends State<NavItemWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(8, 4, 8, 4),
+      padding: const EdgeInsetsDirectional.fromSTEB(8, 4, 8, 4),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -73,7 +73,7 @@ class _NavItemWidgetState extends State<NavItemWidget> {
                   height: 1.5,
                 ),
           ),
-        ].divide(SizedBox(height: 2)),
+        ].divide(const SizedBox(height: 2)),
       ),
     );
   }

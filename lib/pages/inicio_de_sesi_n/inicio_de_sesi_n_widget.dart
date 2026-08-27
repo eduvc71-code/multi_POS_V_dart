@@ -10,25 +10,25 @@ import 'package:provider/provider.dart';
 import 'inicio_de_sesi_n_model.dart';
 export 'inicio_de_sesi_n_model.dart';
 
-class InicioDeSesiNWidget extends StatefulWidget {
-  const InicioDeSesiNWidget({super.key});
+class InicioDeSesionWidget extends StatefulWidget {
+  const InicioDeSesionWidget({super.key});
 
-  static String routeName = 'InicioDeSesiN';
-  static String routePath = '/inicioDeSesiN';
+  static String routeName = 'InicioDeSesion';
+  static String routePath = '/inicioDeSesion';
 
   @override
-  State<InicioDeSesiNWidget> createState() => _InicioDeSesiNWidgetState();
+  State<InicioDeSesionWidget> createState() => _InicioDeSesionWidgetState();
 }
 
-class _InicioDeSesiNWidgetState extends State<InicioDeSesiNWidget> {
-  late InicioDeSesiNModel _model;
+class _InicioDeSesionWidgetState extends State<InicioDeSesionWidget> {
+  late InicioDeSesionModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => InicioDeSesiNModel());
+    _model = createModel(context, () => InicioDeSesionModel());
   }
 
   @override
@@ -52,7 +52,7 @@ class _InicioDeSesiNWidgetState extends State<InicioDeSesiNWidget> {
           model: _model.loginBackgroundModel,
           updateCallback: () => safeSetState(() {}),
           child: LoginBackgroundWidget(
-            child: () => LoginBackgroundChildWidget(),
+            child: () => const LoginBackgroundChildWidget(),
           ),
         ),
       ),

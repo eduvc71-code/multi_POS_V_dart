@@ -14,7 +14,7 @@ class StatCardWidget extends StatefulWidget {
     String? value,
     bool? isUp,
     String? trend,
-  })  : label = label ?? 'Créditos Hoy',
+  })  : label = label ?? 'Creditos Hoy',
         tone = tone ?? const Color(0xFFFF9100),
         value = value ?? 'Bs. 1.200',
         isUp = isUp ?? true,
@@ -66,7 +66,7 @@ class _StatCardWidgetState extends State<StatCardWidget> {
             spreadRadius: 0,
           )
         ],
-        borderRadius: BorderRadius.circular(24),
+        borderRadius: const BorderRadius.all(Radius.circular(24)),
         shape: BoxShape.rectangle,
         border: Border.all(
           color: FlutterFlowTheme.of(context).alternate,
@@ -88,7 +88,7 @@ class _StatCardWidgetState extends State<StatCardWidget> {
                   widget.tone,
                   const Color(0xFFFF9100),
                 ),
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: const BorderRadius.all(Radius.circular(12)),
                 shape: BoxShape.rectangle,
               ),
               child: widget.icon!,

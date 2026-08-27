@@ -1,13 +1,13 @@
-export 'pages/inicio_de_sesi_n/inicio_de_sesi_n_widget.dart' show InicioDeSesiNWidget;
+export 'pages/inicio_de_sesi_n/inicio_de_sesi_n_widget.dart' show InicioDeSesionWidget;
 export 'pages/registro_de_negocio/registro_de_negocio_widget.dart' show RegistroDeNegocioWidget;
 export 'pages/panel_principal/panel_principal_widget.dart' show PanelPrincipalWidget;
 export 'pages/punto_de_venta/punto_de_venta_widget.dart' show PuntoDeVentaWidget;
-export 'pages/gesti_n_de_caja/gesti_n_de_caja_widget.dart' show GestiNDeCajaWidget;
+export 'pages/gesti_n_de_caja/gesti_n_de_caja_widget.dart' show GestionDeCajaWidget;
 export 'pages/inventario_de_productos/inventario_de_productos_widget.dart' show InventarioDeProductosWidget;
 export 'pages/historial_de_ventas/historial_de_ventas_widget.dart' show HistorialDeVentasWidget;
-export 'pages/clientes_y_cr_ditos/clientes_y_cr_ditos_widget.dart' show ClientesYCrDitosWidget;
-export 'pages/reportes_y_m_tricas/reportes_y_m_tricas_widget.dart' show ReportesYMTricasWidget;
-export 'pages/configuraci_n_y_empresas/configuraci_n_y_empresas_widget.dart' show ConfiguraciNYEmpresasWidget;
+export 'pages/clientes_y_cr_ditos/clientes_y_cr_ditos_widget.dart' show ClientesYCreditosWidget;
+export 'pages/reportes_y_m_tricas/reportes_y_m_tricas_widget.dart' show ReportesYMetricasWidget;
+export 'pages/configuraci_n_y_empresas/configuraci_n_y_empresas_widget.dart' show ConfiguracionYEmpresasWidget;
 
 // Components exports
 export 'components/bottom_nav/bottom_nav_widget.dart' show BottomNavWidget;

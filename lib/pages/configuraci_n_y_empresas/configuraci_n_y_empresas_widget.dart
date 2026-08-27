@@ -13,27 +13,27 @@ import 'package:flutter/material.dart';
 import 'configuraci_n_y_empresas_model.dart';
 export 'configuraci_n_y_empresas_model.dart';
 
-class ConfiguraciNYEmpresasWidget extends StatefulWidget {
-  const ConfiguraciNYEmpresasWidget({super.key});
+class ConfiguracionYEmpresasWidget extends StatefulWidget {
+  const ConfiguracionYEmpresasWidget({super.key});
 
-  static String routeName = 'ConfiguraciNYEmpresas';
-  static String routePath = '/configuraciNYEmpresas';
+  static String routeName = 'ConfiguracionYEmpresas';
+  static String routePath = '/configuracionYEmpresas';
 
   @override
-  State<ConfiguraciNYEmpresasWidget> createState() =>
-      _ConfiguraciNYEmpresasWidgetState();
+  State<ConfiguracionYEmpresasWidget> createState() =>
+      _ConfiguracionYEmpresasWidgetState();
 }
 
-class _ConfiguraciNYEmpresasWidgetState
-    extends State<ConfiguraciNYEmpresasWidget> {
-  late ConfiguraciNYEmpresasModel _model;
+class _ConfiguracionYEmpresasWidgetState
+    extends State<ConfiguracionYEmpresasWidget> {
+  late ConfiguracionYEmpresasModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => ConfiguraciNYEmpresasModel());
+    _model = createModel(context, () => ConfiguracionYEmpresasModel());
   }
 
   @override
@@ -85,25 +85,26 @@ class _ConfiguraciNYEmpresasWidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .headlineMedium
                                     .copyWith(
-                                  fontFamily: "Urbanist",
-                                  color: FlutterFlowTheme.of(context)
-                                      .primaryText,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.bold,
-                                  height: 1.25,
-                                ),
+                                      fontFamily: "Urbanist",
+                                      color: FlutterFlowTheme.of(
+                                        context,
+                                      ).primaryText,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.bold,
+                                      height: 1.25,
+                                    ),
                               ),
                               Text(
                                 'Gestión de MultiPOS y Empresas',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodySmall
+                                style: FlutterFlowTheme.of(context).bodySmall
                                     .copyWith(
-                                  fontFamily: "Poppins",
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryText,
-                                  letterSpacing: 0.0,
-                                  height: 1.4,
-                                ),
+                                      fontFamily: "Poppins",
+                                      color: FlutterFlowTheme.of(
+                                        context,
+                                      ).secondaryText,
+                                      letterSpacing: 0.0,
+                                      height: 1.4,
+                                    ),
                               ),
                             ].divide(SizedBox(height: 4)),
                           ),
@@ -159,7 +160,7 @@ class _ConfiguraciNYEmpresasWidgetState
                                 Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceBetween,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Text(
@@ -167,21 +168,22 @@ class _ConfiguraciNYEmpresasWidgetState
                                       style: FlutterFlowTheme.of(context)
                                           .titleLarge
                                           .copyWith(
-                                        fontFamily: "Urbanist",
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.bold,
-                                        height: 1.3,
-                                      ),
+                                            fontFamily: "Urbanist",
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.bold,
+                                            height: 1.3,
+                                          ),
                                     ),
                                     InkWell(
                                       splashColor: Colors.transparent,
                                       focusColor: Colors.transparent,
                                       hoverColor: Colors.transparent,
                                       highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          GoRouter.of(context).goNamed(
-                                              RegistroDeNegocioWidget.routeName);
-                                        },
+                                      onTap: () async {
+                                        GoRouter.of(context).goNamed(
+                                          RegistroDeNegocioWidget.routeName,
+                                        );
+                                      },
                                       child: wrapWithModel(
                                         model: _model.buttonModel1,
                                         updateCallback: () =>
@@ -189,8 +191,9 @@ class _ConfiguraciNYEmpresasWidgetState
                                         child: ButtonWidget(
                                           icon: Icon(
                                             Icons.add_rounded,
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
+                                            color: FlutterFlowTheme.of(
+                                              context,
+                                            ).primaryText,
                                             size: 24,
                                           ),
                                           iconPresent: true,
@@ -233,14 +236,13 @@ class _ConfiguraciNYEmpresasWidgetState
                               children: [
                                 Text(
                                   'Equipo y Seguridad',
-                                  style: FlutterFlowTheme.of(context)
-                                      .titleLarge
+                                  style: FlutterFlowTheme.of(context).titleLarge
                                       .copyWith(
-                                    fontFamily: "Urbanist",
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.bold,
-                                    height: 1.3,
-                                  ),
+                                        fontFamily: "Urbanist",
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.bold,
+                                        height: 1.3,
+                                      ),
                                 ),
                                 wrapWithModel(
                                   model: _model.settingsTileModel1,
@@ -248,12 +250,14 @@ class _ConfiguraciNYEmpresasWidgetState
                                   child: SettingsTileWidget(
                                     icon: Icon(
                                       Icons.people_rounded,
-                                      color: FlutterFlowTheme.of(context)
-                                          .onSurface,
+                                      color: FlutterFlowTheme.of(
+                                        context,
+                                      ).onSurface,
                                       size: 24,
                                     ),
-                                    iconBg:
-                                    FlutterFlowTheme.of(context).primary20,
+                                    iconBg: FlutterFlowTheme.of(
+                                      context,
+                                    ).primary20,
                                     subtitle: 'Gestionar roles y accesos',
                                     target: 'Target',
                                     title: 'Empleados',
@@ -265,14 +269,16 @@ class _ConfiguraciNYEmpresasWidgetState
                                   child: SettingsTileWidget(
                                     icon: Icon(
                                       Icons.security_rounded,
-                                      color: FlutterFlowTheme.of(context)
-                                          .onSurface,
+                                      color: FlutterFlowTheme.of(
+                                        context,
+                                      ).onSurface,
                                       size: 24,
                                     ),
-                                    iconBg: FlutterFlowTheme.of(context)
-                                        .secondary20,
+                                    iconBg: FlutterFlowTheme.of(
+                                      context,
+                                    ).secondary20,
                                     subtitle:
-                                    'Registro de movimientos críticos',
+                                        'Registro de movimientos críticos',
                                     target: 'Target',
                                     title: 'Auditoría',
                                   ),
@@ -286,14 +292,13 @@ class _ConfiguraciNYEmpresasWidgetState
                               children: [
                                 Text(
                                   'Aplicación',
-                                  style: FlutterFlowTheme.of(context)
-                                      .titleLarge
+                                  style: FlutterFlowTheme.of(context).titleLarge
                                       .copyWith(
-                                    fontFamily: "Urbanist",
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.bold,
-                                    height: 1.3,
-                                  ),
+                                        fontFamily: "Urbanist",
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.bold,
+                                        height: 1.3,
+                                      ),
                                 ),
                                 wrapWithModel(
                                   model: _model.settingsTileModel3,
@@ -301,12 +306,14 @@ class _ConfiguraciNYEmpresasWidgetState
                                   child: SettingsTileWidget(
                                     icon: Icon(
                                       Icons.print_rounded,
-                                      color: FlutterFlowTheme.of(context)
-                                          .onSurface,
+                                      color: FlutterFlowTheme.of(
+                                        context,
+                                      ).onSurface,
                                       size: 24,
                                     ),
-                                    iconBg:
-                                    FlutterFlowTheme.of(context).accent20,
+                                    iconBg: FlutterFlowTheme.of(
+                                      context,
+                                    ).accent20,
                                     subtitle: 'Configurar Bluetooth/Red',
                                     target: 'Target',
                                     title: 'Impresora y Tickets',
@@ -318,8 +325,9 @@ class _ConfiguraciNYEmpresasWidgetState
                                   child: SettingsTileWidget(
                                     icon: Icon(
                                       Icons.description_rounded,
-                                      color: FlutterFlowTheme.of(context)
-                                          .onSurface,
+                                      color: FlutterFlowTheme.of(
+                                        context,
+                                      ).onSurface,
                                       size: 24,
                                     ),
                                     iconBg: Color(0x3300C2FF),
@@ -332,8 +340,9 @@ class _ConfiguraciNYEmpresasWidgetState
                             ),
                             Container(
                               decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .surfaceVariant30,
+                                color: FlutterFlowTheme.of(
+                                  context,
+                                ).surfaceVariant30,
                                 borderRadius: BorderRadius.circular(24),
                                 shape: BoxShape.rectangle,
                                 border: Border.all(
@@ -348,84 +357,89 @@ class _ConfiguraciNYEmpresasWidgetState
                                     mainAxisSize: MainAxisSize.min,
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment:
-                                    CrossAxisAlignment.stretch,
+                                        CrossAxisAlignment.stretch,
                                     children: [
                                       Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
-                                        MainAxisAlignment.start,
+                                            MainAxisAlignment.start,
                                         crossAxisAlignment:
-                                        CrossAxisAlignment.center,
+                                            CrossAxisAlignment.center,
                                         children: [
                                           Container(
                                             width: 40,
                                             height: 40,
                                             decoration: BoxDecoration(
-                                              color:
-                                              FlutterFlowTheme.of(context)
-                                                  .tertiary,
+                                              color: FlutterFlowTheme.of(
+                                                context,
+                                              ).tertiary,
                                               shape: BoxShape.circle,
                                             ),
-                                            alignment:
-                                            AlignmentDirectional(0, 0),
+                                            alignment: AlignmentDirectional(
+                                              0,
+                                              0,
+                                            ),
                                             child: Text(
                                               'AR',
                                               textAlign: TextAlign.center,
                                               maxLines: 1,
-                                              style: FlutterFlowTheme.of(
-                                                  context)
-                                                  .labelMedium
-                                                  .copyWith(
-                                                fontFamily: "Space Grotesk",
-                                                color: FlutterFlowTheme.of(
-                                                    context)
-                                                    .onAccent,
-                                                fontSize: 15.2,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w600,
-                                                height: 1.3,
-                                                overflow: TextOverflow.clip,
-                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(
+                                                    context,
+                                                  ).labelMedium.copyWith(
+                                                    fontFamily: "Space Grotesk",
+                                                    color: FlutterFlowTheme.of(
+                                                      context,
+                                                    ).onAccent,
+                                                    fontSize: 15.2,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w600,
+                                                    height: 1.3,
+                                                    overflow: TextOverflow.clip,
+                                                  ),
                                             ),
                                           ),
                                           Column(
                                             mainAxisSize: MainAxisSize.min,
                                             mainAxisAlignment:
-                                            MainAxisAlignment.start,
+                                                MainAxisAlignment.start,
                                             crossAxisAlignment:
-                                            CrossAxisAlignment.center,
+                                                CrossAxisAlignment.center,
                                             children: [
                                               Text(
                                                 'Alex Rivera',
-                                                style: FlutterFlowTheme.of(
-                                                    context)
-                                                    .titleMedium
-                                                    .copyWith(
-                                                  fontFamily: "Urbanist",
-                                                  letterSpacing: 0.0,
-                                                  fontWeight:
-                                                  FontWeight.bold,
-                                                  height: 1.4,
-                                                ),
+                                                style:
+                                                    FlutterFlowTheme.of(
+                                                      context,
+                                                    ).titleMedium.copyWith(
+                                                      fontFamily: "Urbanist",
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      height: 1.4,
+                                                    ),
                                               ),
                                               Text(
                                                 'Rol: Propietario',
                                                 style:
-                                                FlutterFlowTheme.of(context)
-                                                    .labelSmall
-                                                    .copyWith(
-                                                  fontFamily: "Space Grotesk",
-                                                  color: FlutterFlowTheme
-                                                      .of(context)
-                                                      .secondaryText,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight:
-                                                  FlutterFlowTheme.of(
-                                                      context)
-                                                      .labelSmall
-                                                      .fontWeight,
-                                                  height: 1.2,
-                                                ),
+                                                    FlutterFlowTheme.of(
+                                                      context,
+                                                    ).labelSmall.copyWith(
+                                                      fontFamily:
+                                                          "Space Grotesk",
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                            context,
+                                                          ).secondaryText,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                context,
+                                                              )
+                                                              .labelSmall
+                                                              .fontWeight,
+                                                      height: 1.2,
+                                                    ),
                                               ),
                                             ].divide(SizedBox(height: 4)),
                                           ),
@@ -436,8 +450,9 @@ class _ConfiguraciNYEmpresasWidgetState
                                         thickness: 1,
                                         indent: 0,
                                         endIndent: 0,
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
+                                        color: FlutterFlowTheme.of(
+                                          context,
+                                        ).alternate,
                                       ),
                                       InkWell(
                                         splashColor: Colors.transparent,
@@ -446,7 +461,8 @@ class _ConfiguraciNYEmpresasWidgetState
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
                                           GoRouter.of(context).goNamed(
-                                              InicioDeSesiNWidget.routeName);
+                                            InicioDeSesionWidget.routeName,
+                                          );
                                         },
                                         child: wrapWithModel(
                                           model: _model.buttonModel2,
@@ -455,9 +471,9 @@ class _ConfiguraciNYEmpresasWidgetState
                                           child: ButtonWidget(
                                             icon: Icon(
                                               Icons.logout_rounded,
-                                              color:
-                                              FlutterFlowTheme.of(context)
-                                                  .primaryText,
+                                              color: FlutterFlowTheme.of(
+                                                context,
+                                              ).primaryText,
                                               size: 24,
                                             ),
                                             iconPresent: true,
@@ -488,32 +504,32 @@ class _ConfiguraciNYEmpresasWidgetState
                                     style: FlutterFlowTheme.of(context)
                                         .labelSmall
                                         .copyWith(
-                                      fontFamily: "Space Grotesk",
-                                      color: FlutterFlowTheme.of(context)
-                                          .onBackground,
-                                      letterSpacing: 0.0,
-                                      fontWeight:
-                                      FlutterFlowTheme.of(context)
-                                          .labelSmall
-                                          .fontWeight,
-                                      height: 1.2,
-                                    ),
+                                          fontFamily: "Space Grotesk",
+                                          color: FlutterFlowTheme.of(
+                                            context,
+                                          ).onBackground,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FlutterFlowTheme.of(
+                                            context,
+                                          ).labelSmall.fontWeight,
+                                          height: 1.2,
+                                        ),
                                   ),
                                   Text(
                                     'Hecho con ❤️ para tu negocio',
                                     style: FlutterFlowTheme.of(context)
                                         .labelSmall
                                         .copyWith(
-                                      fontFamily: "Space Grotesk",
-                                      color: FlutterFlowTheme.of(context)
-                                          .onBackground,
-                                      letterSpacing: 0.0,
-                                      fontWeight:
-                                      FlutterFlowTheme.of(context)
-                                          .labelSmall
-                                          .fontWeight,
-                                      height: 1.2,
-                                    ),
+                                          fontFamily: "Space Grotesk",
+                                          color: FlutterFlowTheme.of(
+                                            context,
+                                          ).onBackground,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FlutterFlowTheme.of(
+                                            context,
+                                          ).labelSmall.fontWeight,
+                                          height: 1.2,
+                                        ),
                                   ),
                                 ].divide(SizedBox(height: 4)),
                               ),
@@ -532,9 +548,7 @@ class _ConfiguraciNYEmpresasWidgetState
                 child: wrapWithModel(
                   model: _model.bottomNavModel,
                   updateCallback: () => safeSetState(() {}),
-                  child: BottomNavWidget(
-                    child: () => BottomNavChild5Widget(),
-                  ),
+                  child: BottomNavWidget(child: () => BottomNavChild5Widget()),
                 ),
               ),
             ),

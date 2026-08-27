@@ -11,25 +11,25 @@ import 'package:flutter/material.dart';
 import 'gesti_n_de_caja_model.dart';
 export 'gesti_n_de_caja_model.dart';
 
-class GestiNDeCajaWidget extends StatefulWidget {
-  const GestiNDeCajaWidget({super.key});
+class GestionDeCajaWidget extends StatefulWidget {
+  const GestionDeCajaWidget({super.key});
 
-  static String routeName = 'GestiNDeCaja';
-  static String routePath = '/gestiNDeCaja';
+  static String routeName = 'GestionDeCaja';
+  static String routePath = '/gestionDeCaja';
 
   @override
-  State<GestiNDeCajaWidget> createState() => _GestiNDeCajaWidgetState();
+  State<GestionDeCajaWidget> createState() => _GestionDeCajaWidgetState();
 }
 
-class _GestiNDeCajaWidgetState extends State<GestiNDeCajaWidget> {
-  late GestiNDeCajaModel _model;
+class _GestionDeCajaWidgetState extends State<GestionDeCajaWidget> {
+  late GestionDeCajaModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => GestiNDeCajaModel());
+    _model = createModel(context, () => GestionDeCajaModel());
   }
 
   @override
@@ -81,13 +81,14 @@ class _GestiNDeCajaWidgetState extends State<GestiNDeCajaWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .headlineMedium
                                     .copyWith(
-                                  fontFamily: "Urbanist",
-                                  color: FlutterFlowTheme.of(context)
-                                      .primaryText,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.bold,
-                                  height: 1.25,
-                                ),
+                                      fontFamily: "Urbanist",
+                                      color: FlutterFlowTheme.of(
+                                        context,
+                                      ).primaryText,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.bold,
+                                      height: 1.25,
+                                    ),
                               ),
                               Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -98,8 +99,9 @@ class _GestiNDeCajaWidgetState extends State<GestiNDeCajaWidget> {
                                     width: 8,
                                     height: 8,
                                     decoration: BoxDecoration(
-                                      color:
-                                      FlutterFlowTheme.of(context).success,
+                                      color: FlutterFlowTheme.of(
+                                        context,
+                                      ).success,
                                       borderRadius: BorderRadius.circular(9999),
                                       shape: BoxShape.rectangle,
                                     ),
@@ -109,16 +111,16 @@ class _GestiNDeCajaWidgetState extends State<GestiNDeCajaWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .copyWith(
-                                      fontFamily: "Space Grotesk",
-                                      color: FlutterFlowTheme.of(context)
-                                          .onSurface,
-                                      letterSpacing: 0.0,
-                                      fontWeight:
-                                      FlutterFlowTheme.of(context)
-                                          .labelMedium
-                                          .fontWeight,
-                                      height: 1.3,
-                                    ),
+                                          fontFamily: "Space Grotesk",
+                                          color: FlutterFlowTheme.of(
+                                            context,
+                                          ).onSurface,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FlutterFlowTheme.of(
+                                            context,
+                                          ).labelMedium.fontWeight,
+                                          height: 1.3,
+                                        ),
                                   ),
                                 ].divide(SizedBox(width: 4)),
                               ),
@@ -185,13 +187,15 @@ class _GestiNDeCajaWidgetState extends State<GestiNDeCajaWidget> {
                                         updateCallback: () =>
                                             safeSetState(() {}),
                                         child: CashStatWidget(
-                                          color:
-                                          FlutterFlowTheme.of(context).info,
+                                          color: FlutterFlowTheme.of(
+                                            context,
+                                          ).info,
                                           icon: Icon(
                                             Icons
                                                 .account_balance_wallet_rounded,
-                                            color: FlutterFlowTheme.of(context)
-                                                .info,
+                                            color: FlutterFlowTheme.of(
+                                              context,
+                                            ).info,
                                             size: 20,
                                           ),
                                           label: 'Monto Inicial',
@@ -206,12 +210,14 @@ class _GestiNDeCajaWidgetState extends State<GestiNDeCajaWidget> {
                                         updateCallback: () =>
                                             safeSetState(() {}),
                                         child: CashStatWidget(
-                                          color: FlutterFlowTheme.of(context)
-                                              .success,
+                                          color: FlutterFlowTheme.of(
+                                            context,
+                                          ).success,
                                           icon: Icon(
                                             Icons.shopping_cart_rounded,
-                                            color: FlutterFlowTheme.of(context)
-                                                .info,
+                                            color: FlutterFlowTheme.of(
+                                              context,
+                                            ).info,
                                             size: 20,
                                           ),
                                           label: 'Ventas Hoy',
@@ -233,12 +239,14 @@ class _GestiNDeCajaWidgetState extends State<GestiNDeCajaWidget> {
                                         updateCallback: () =>
                                             safeSetState(() {}),
                                         child: CashStatWidget(
-                                          color: FlutterFlowTheme.of(context)
-                                              .error,
+                                          color: FlutterFlowTheme.of(
+                                            context,
+                                          ).error,
                                           icon: Icon(
                                             Icons.payments_rounded,
-                                            color: FlutterFlowTheme.of(context)
-                                                .info,
+                                            color: FlutterFlowTheme.of(
+                                              context,
+                                            ).info,
                                             size: 20,
                                           ),
                                           label: 'Egresos',
@@ -253,12 +261,14 @@ class _GestiNDeCajaWidgetState extends State<GestiNDeCajaWidget> {
                                         updateCallback: () =>
                                             safeSetState(() {}),
                                         child: CashStatWidget(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
+                                          color: FlutterFlowTheme.of(
+                                            context,
+                                          ).primary,
                                           icon: Icon(
                                             Icons.functions_rounded,
-                                            color: FlutterFlowTheme.of(context)
-                                                .info,
+                                            color: FlutterFlowTheme.of(
+                                              context,
+                                            ).info,
                                             size: 20,
                                           ),
                                           label: 'Saldo Esperado',
@@ -283,8 +293,9 @@ class _GestiNDeCajaWidgetState extends State<GestiNDeCajaWidget> {
                                     child: ButtonWidget(
                                       icon: Icon(
                                         Icons.add_rounded,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
+                                        color: FlutterFlowTheme.of(
+                                          context,
+                                        ).primaryText,
                                         size: 24,
                                       ),
                                       iconPresent: true,
@@ -306,8 +317,9 @@ class _GestiNDeCajaWidgetState extends State<GestiNDeCajaWidget> {
                                     child: ButtonWidget(
                                       icon: Icon(
                                         Icons.remove_rounded,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
+                                        color: FlutterFlowTheme.of(
+                                          context,
+                                        ).primaryText,
                                         size: 24,
                                       ),
                                       iconPresent: true,
@@ -331,7 +343,7 @@ class _GestiNDeCajaWidgetState extends State<GestiNDeCajaWidget> {
                                 Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceBetween,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Text(
@@ -339,29 +351,30 @@ class _GestiNDeCajaWidgetState extends State<GestiNDeCajaWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .titleMedium
                                           .copyWith(
-                                        fontFamily: "Urbanist",
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.bold,
-                                        height: 1.4,
-                                      ),
+                                            fontFamily: "Urbanist",
+                                            color: FlutterFlowTheme.of(
+                                              context,
+                                            ).primaryText,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.bold,
+                                            height: 1.4,
+                                          ),
                                     ),
                                     Text(
                                       'Ver todos',
                                       style: FlutterFlowTheme.of(context)
                                           .labelLarge
                                           .copyWith(
-                                        fontFamily: "Space Grotesk",
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        letterSpacing: 0.0,
-                                        fontWeight:
-                                        FlutterFlowTheme.of(context)
-                                            .labelLarge
-                                            .fontWeight,
-                                        height: 1.3,
-                                      ),
+                                            fontFamily: "Space Grotesk",
+                                            color: FlutterFlowTheme.of(
+                                              context,
+                                            ).primary,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FlutterFlowTheme.of(
+                                              context,
+                                            ).labelLarge.fontWeight,
+                                            height: 1.3,
+                                          ),
                                     ),
                                   ],
                                 ),
@@ -369,22 +382,24 @@ class _GestiNDeCajaWidgetState extends State<GestiNDeCajaWidget> {
                                   borderRadius: BorderRadius.circular(24),
                                   child: Container(
                                     decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
+                                      color: FlutterFlowTheme.of(
+                                        context,
+                                      ).secondaryBackground,
                                       borderRadius: BorderRadius.circular(24),
                                       shape: BoxShape.rectangle,
                                       border: Border.all(
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
+                                        color: FlutterFlowTheme.of(
+                                          context,
+                                        ).alternate,
                                         width: 1,
                                       ),
                                     ),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.min,
                                       mainAxisAlignment:
-                                      MainAxisAlignment.start,
+                                          MainAxisAlignment.start,
                                       crossAxisAlignment:
-                                      CrossAxisAlignment.center,
+                                          CrossAxisAlignment.center,
                                       children: [
                                         wrapWithModel(
                                           model: _model.movementItemModel1,
@@ -393,8 +408,9 @@ class _GestiNDeCajaWidgetState extends State<GestiNDeCajaWidget> {
                                           child: MovementItemWidget(
                                             amount: '+ Bs. 150,00',
                                             time: '10:45 AM',
-                                            tone: FlutterFlowTheme.of(context)
-                                                .success,
+                                            tone: FlutterFlowTheme.of(
+                                              context,
+                                            ).success,
                                             type: 'Venta #1024',
                                           ),
                                         ),
@@ -405,8 +421,9 @@ class _GestiNDeCajaWidgetState extends State<GestiNDeCajaWidget> {
                                           child: MovementItemWidget(
                                             amount: '- Bs. 85,00',
                                             time: '09:30 AM',
-                                            tone: FlutterFlowTheme.of(context)
-                                                .error,
+                                            tone: FlutterFlowTheme.of(
+                                              context,
+                                            ).error,
                                             type: 'Egreso: Pago Luz',
                                           ),
                                         ),
@@ -417,8 +434,9 @@ class _GestiNDeCajaWidgetState extends State<GestiNDeCajaWidget> {
                                           child: MovementItemWidget(
                                             amount: '+ Bs. 45,50',
                                             time: '09:15 AM',
-                                            tone: FlutterFlowTheme.of(context)
-                                                .success,
+                                            tone: FlutterFlowTheme.of(
+                                              context,
+                                            ).success,
                                             type: 'Venta #1023',
                                           ),
                                         ),
@@ -429,8 +447,9 @@ class _GestiNDeCajaWidgetState extends State<GestiNDeCajaWidget> {
                                           child: MovementItemWidget(
                                             amount: '+ Bs. 500,00',
                                             time: '08:00 AM',
-                                            tone: FlutterFlowTheme.of(context)
-                                                .info,
+                                            tone: FlutterFlowTheme.of(
+                                              context,
+                                            ).info,
                                             type: 'Ingreso: Cambio',
                                           ),
                                         ),
@@ -457,19 +476,20 @@ class _GestiNDeCajaWidgetState extends State<GestiNDeCajaWidget> {
                                     mainAxisSize: MainAxisSize.min,
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment:
-                                    CrossAxisAlignment.stretch,
+                                        CrossAxisAlignment.stretch,
                                     children: [
                                       Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
-                                        MainAxisAlignment.start,
+                                            MainAxisAlignment.start,
                                         crossAxisAlignment:
-                                        CrossAxisAlignment.center,
+                                            CrossAxisAlignment.center,
                                         children: [
                                           Icon(
                                             Icons.storefront_rounded,
-                                            color: FlutterFlowTheme.of(context)
-                                                .onPrimary,
+                                            color: FlutterFlowTheme.of(
+                                              context,
+                                            ).onPrimary,
                                             size: 24,
                                           ),
                                           Expanded(
@@ -477,46 +497,47 @@ class _GestiNDeCajaWidgetState extends State<GestiNDeCajaWidget> {
                                             child: Column(
                                               mainAxisSize: MainAxisSize.min,
                                               mainAxisAlignment:
-                                              MainAxisAlignment.start,
+                                                  MainAxisAlignment.start,
                                               crossAxisAlignment:
-                                              CrossAxisAlignment.center,
+                                                  CrossAxisAlignment.center,
                                               children: [
                                                 Text(
                                                   'Arqueo de Efectivo',
-                                                  style: FlutterFlowTheme.of(
-                                                      context)
-                                                      .titleSmall
-                                                      .copyWith(
-                                                    fontFamily: "Urbanist",
-                                                    color:
-                                                    FlutterFlowTheme.of(
-                                                        context)
-                                                        .primaryText,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight:
-                                                    FontWeight.bold,
-                                                    height: 1.4,
-                                                  ),
+                                                  style:
+                                                      FlutterFlowTheme.of(
+                                                        context,
+                                                      ).titleSmall.copyWith(
+                                                        fontFamily: "Urbanist",
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                              context,
+                                                            ).primaryText,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        height: 1.4,
+                                                      ),
                                                 ),
                                                 Text(
                                                   'Realiza el conteo físico antes de cerrar',
-                                                  style: FlutterFlowTheme.of(
-                                                      context)
-                                                      .bodySmall
-                                                      .copyWith(
-                                                    fontFamily: "Poppins",
-                                                    color:
-                                                    FlutterFlowTheme.of(
-                                                        context)
-                                                        .onPrimary,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight:
-                                                    FlutterFlowTheme.of(
-                                                        context)
-                                                        .bodySmall
-                                                        .fontWeight,
-                                                    height: 1.4,
-                                                  ),
+                                                  style:
+                                                      FlutterFlowTheme.of(
+                                                        context,
+                                                      ).bodySmall.copyWith(
+                                                        fontFamily: "Poppins",
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                              context,
+                                                            ).onPrimary,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                  context,
+                                                                )
+                                                                .bodySmall
+                                                                .fontWeight,
+                                                        height: 1.4,
+                                                      ),
                                                 ),
                                               ].divide(SizedBox(height: 4)),
                                             ),
@@ -534,8 +555,9 @@ class _GestiNDeCajaWidgetState extends State<GestiNDeCajaWidget> {
                                           helperPresent: false,
                                           leadingIcon: Icon(
                                             Icons.payments_rounded,
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
+                                            color: FlutterFlowTheme.of(
+                                              context,
+                                            ).primaryText,
                                             size: 24,
                                           ),
                                           leadingIconPresent: true,
@@ -555,8 +577,9 @@ class _GestiNDeCajaWidgetState extends State<GestiNDeCajaWidget> {
                                         child: ButtonWidget(
                                           icon: Icon(
                                             Icons.lock_outline_rounded,
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
+                                            color: FlutterFlowTheme.of(
+                                              context,
+                                            ).primaryText,
                                             size: 24,
                                           ),
                                           iconPresent: true,

@@ -38,14 +38,6 @@ extension WidgetListDivideExtension on List<Widget> {
 }
 
 extension BuildContextExtensions on BuildContext {
-  // DESACTIVADO POR CONFLICTO: 
-  void _pushNamed_LOCAL_DISABLED(String name, {Map<String, String> pathParameters = const {}, Map<String, String> queryParameters = const {}}) =>
-      GoRouter.of(this).pushNamed(name, pathParameters: pathParameters, queryParameters: queryParameters);
-
-  // DESACTIVADO POR CONFLICTO: 
-
-  void _goNamed_LOCAL_DISABLED(String name, {Map<String, String> pathParameters = const {}, Map<String, String> queryParameters = const {}}) =>
-      GoRouter.of(this).goNamed(name, pathParameters: pathParameters, queryParameters: queryParameters);
 }
 
 Widget wrapWithModel<T extends FlutterFlowModel>({

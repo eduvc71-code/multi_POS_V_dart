@@ -1,38 +1,33 @@
-import 'package:multi_p_o_s/components/bottom_nav/bottom_nav_widget.dart';
-import 'package:multi_p_o_s/components/bottom_nav_child4/bottom_nav_child4_widget.dart';
-import 'package:multi_p_o_s/components/button/button_widget.dart';
-import 'package:multi_p_o_s/components/metric_card/metric_card_widget.dart';
-import 'package:multi_p_o_s/components/pie_chart/pie_chart_widget.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_charts.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_icon_button.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
-import 'package:multi_p_o_s/flutter_flow/flutter_flow_widgets.dart';
+import 'package:multi_p_o_s/index.dart';
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 
 import 'reportes_y_m_tricas_model.dart';
 export 'reportes_y_m_tricas_model.dart';
 
-class ReportesYMTricasWidget extends StatefulWidget {
-  const ReportesYMTricasWidget({super.key});
+class ReportesYMetricasWidget extends StatefulWidget {
+  const ReportesYMetricasWidget({super.key});
 
-  static String routeName = 'ReportesYMTricas';
-  static String routePath = '/reportesYMTricas';
+  static String routeName = 'ReportesYMetricas';
+  static String routePath = '/reportesYMetricas';
 
   @override
-  State<ReportesYMTricasWidget> createState() => _ReportesYMTricasWidgetState();
+  State<ReportesYMetricasWidget> createState() => _ReportesYMetricasWidgetState();
 }
 
-class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
-  late ReportesYMTricasModel _model;
+class _ReportesYMetricasWidgetState extends State<ReportesYMetricasWidget> {
+  late ReportesYMetricasModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => ReportesYMTricasModel());
+    _model = createModel(context, () => ReportesYMetricasModel());
   }
 
   @override
@@ -67,9 +62,8 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Padding(
-                    padding: EdgeInsets.all(24),
-                    child: Container(
-                      child: Row(
+                    padding: const EdgeInsets.all(24),
+                    child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -105,7 +99,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                   height: 1.4,
                                 ),
                               ),
-                            ].divide(SizedBox(height: 4)),
+                            ].divide(const SizedBox(height: 4)),
                           ),
                           FlutterFlowIconButton(
                             borderRadius: 24,
@@ -123,7 +117,6 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                         ],
                       ),
                     ),
-                  ),
                   Container(
                     height: 1,
                     decoration: BoxDecoration(
@@ -144,9 +137,8 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Padding(
-                      padding: EdgeInsets.all(24),
-                      child: Container(
-                        child: Column(
+                      padding: const EdgeInsets.all(24),
+                    child: Column(
                           mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -163,10 +155,9 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                 ),
                               ),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     16, 4, 16, 4),
-                                child: Container(
-                                  child: Row(
+                                child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
@@ -204,7 +195,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                               height: 1.3,
                                             ),
                                           ),
-                                        ].divide(SizedBox(width: 8)),
+                                        ].divide(const SizedBox(width: 8)),
                                       ),
                                       wrapWithModel(
                                         model: _model.buttonModel1,
@@ -225,7 +216,6 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                   ),
                                 ),
                               ),
-                            ),
                             Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.start,
@@ -273,7 +263,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                     ),
                                   ),
                                 ),
-                              ].divide(SizedBox(width: 16)),
+                              ].divide(const SizedBox(width: 16)),
                             ),
                             Container(
                               decoration: BoxDecoration(
@@ -287,9 +277,8 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                 ),
                               ),
                               child: Padding(
-                                padding: EdgeInsets.all(24),
-                                child: Container(
-                                  child: Column(
+                                padding: const EdgeInsets.all(24),
+                                child: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment:
@@ -409,11 +398,10 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                           ),
                                         ),
                                       ),
-                                    ].divide(SizedBox(height: 16)),
+                                    ].divide(const SizedBox(height: 16)),
                                   ),
                                 ),
                               ),
-                            ),
                             Container(
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
@@ -426,16 +414,15 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                 ),
                               ),
                               child: Padding(
-                                padding: EdgeInsets.all(24),
-                                child: Container(
-                                  child: Column(
+                                padding: const EdgeInsets.all(24),
+                                child: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment:
                                     CrossAxisAlignment.stretch,
                                     children: [
                                       Text(
-                                        'Ventas por Categoría',
+                                        'Ventas por Categoria',
                                         style: FlutterFlowTheme.of(context)
                                             .titleMedium
                                             .copyWith(
@@ -469,11 +456,10 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                           gap: 'normal',
                                         ),
                                       ),
-                                    ].divide(SizedBox(height: 16)),
+                                    ].divide(const SizedBox(height: 16)),
                                   ),
                                 ),
                               ),
-                            ),
                             Container(
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
@@ -486,9 +472,8 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                 ),
                               ),
                               child: Padding(
-                                padding: EdgeInsets.all(24),
-                                child: Container(
-                                  child: Column(
+                                padding: const EdgeInsets.all(24),
+                                child: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment:
@@ -555,7 +540,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                                   shape: BoxShape.rectangle,
                                                 ),
                                                 alignment:
-                                                AlignmentDirectional(0, 0),
+                                                const AlignmentDirectional(0, 0),
                                                 child: Icon(
                                                   Icons.construction_rounded,
                                                   color: FlutterFlowTheme.of(
@@ -610,7 +595,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                                         height: 1.2,
                                                       ),
                                                     ),
-                                                  ].divide(SizedBox(height: 4)),
+                                                  ].divide(const SizedBox(height: 4)),
                                                 ),
                                               ),
                                               Text(
@@ -630,7 +615,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                                   height: 1.5,
                                                 ),
                                               ),
-                                            ].divide(SizedBox(width: 16)),
+                                            ].divide(const SizedBox(width: 16)),
                                           ),
                                           Divider(
                                             height: 16,
@@ -659,7 +644,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                                   shape: BoxShape.rectangle,
                                                 ),
                                                 alignment:
-                                                AlignmentDirectional(0, 0),
+                                                const AlignmentDirectional(0, 0),
                                                 child: Icon(
                                                   Icons
                                                       .settings_input_component_rounded,
@@ -715,7 +700,7 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                                         height: 1.2,
                                                       ),
                                                     ),
-                                                  ].divide(SizedBox(height: 4)),
+                                                  ].divide(const SizedBox(height: 4)),
                                                 ),
                                               ),
                                               Text(
@@ -735,15 +720,14 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                                   height: 1.5,
                                                 ),
                                               ),
-                                            ].divide(SizedBox(width: 16)),
+                                            ].divide(const SizedBox(width: 16)),
                                           ),
-                                        ].divide(SizedBox(height: 16)),
+                                        ].divide(const SizedBox(height: 16)),
                                       ),
-                                    ].divide(SizedBox(height: 16)),
+                                    ].divide(const SizedBox(height: 16)),
                                   ),
                                 ),
                               ),
-                            ),
                             Container(
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context).primary5,
@@ -844,25 +828,22 @@ class _ReportesYMTricasWidgetState extends State<ReportesYMTricasWidget> {
                                 ),
                               ),
                             ),
-                          ].divide(SizedBox(height: 24)),
+                          ].divide(const SizedBox(height: 24)),
                         ),
                       ),
-                    ),
                   ],
                 ),
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(0, 1),
-              child: Container(
-                child: wrapWithModel(
+              alignment: const AlignmentDirectional(0, 1),
+              child: wrapWithModel(
                   model: _model.bottomNavModel,
                   updateCallback: () => safeSetState(() {}),
                   child: BottomNavWidget(
-                    child: () => BottomNavChild4Widget(),
+                    child: () => const BottomNavChild4Widget(),
                   ),
                 ),
-              ),
             ),
           ],
         ),

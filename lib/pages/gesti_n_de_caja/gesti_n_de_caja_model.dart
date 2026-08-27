@@ -7,12 +7,12 @@ import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
-import 'gesti_n_de_caja_widget.dart' show GestiNDeCajaWidget;
+import 'gesti_n_de_caja_widget.dart' show GestionDeCajaWidget;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class GestiNDeCajaModel extends FlutterFlowModel<GestiNDeCajaWidget> {
+class GestionDeCajaModel extends FlutterFlowModel<GestionDeCajaWidget> {
   ///  State fields for stateful widgets in this page.
 
   // Model for CashStat.

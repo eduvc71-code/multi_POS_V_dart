@@ -13,25 +13,26 @@ import 'package:flutter/material.dart';
 import 'clientes_y_cr_ditos_model.dart';
 export 'clientes_y_cr_ditos_model.dart';
 
-class ClientesYCrDitosWidget extends StatefulWidget {
-  const ClientesYCrDitosWidget({super.key});
+class ClientesYCreditosWidget extends StatefulWidget {
+  const ClientesYCreditosWidget({super.key});
 
-  static String routeName = 'ClientesYCrDitos';
-  static String routePath = '/clientesYCrDitos';
+  static String routeName = 'ClientesYCreditos';
+  static String routePath = '/clientesYCreditos';
 
   @override
-  State<ClientesYCrDitosWidget> createState() => _ClientesYCrDitosWidgetState();
+  State<ClientesYCreditosWidget> createState() =>
+      _ClientesYCreditosWidgetState();
 }
 
-class _ClientesYCrDitosWidgetState extends State<ClientesYCrDitosWidget> {
-  late ClientesYCrDitosModel _model;
+class _ClientesYCreditosWidgetState extends State<ClientesYCreditosWidget> {
+  late ClientesYCreditosModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => ClientesYCrDitosModel());
+    _model = createModel(context, () => ClientesYCreditosModel());
   }
 
   @override
@@ -88,29 +89,30 @@ class _ClientesYCrDitosWidgetState extends State<ClientesYCrDitosWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .headlineMedium
                                         .copyWith(
-                                      fontFamily: "Urbanist",
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.bold,
-                                      height: 1.25,
-                                    ),
+                                          fontFamily: "Urbanist",
+                                          color: FlutterFlowTheme.of(
+                                            context,
+                                          ).primaryText,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                          height: 1.25,
+                                        ),
                                   ),
                                   Text(
                                     'Gestiona deudas y estados de cuenta',
                                     style: FlutterFlowTheme.of(context)
                                         .bodySmall
                                         .copyWith(
-                                      fontFamily: "Poppins",
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryText,
-                                      letterSpacing: 0.0,
-                                      fontWeight:
-                                      FlutterFlowTheme.of(context)
-                                          .bodySmall
-                                          .fontWeight,
-                                      height: 1.4,
-                                    ),
+                                          fontFamily: "Poppins",
+                                          color: FlutterFlowTheme.of(
+                                            context,
+                                          ).secondaryText,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FlutterFlowTheme.of(
+                                            context,
+                                          ).bodySmall.fontWeight,
+                                          height: 1.4,
+                                        ),
                                   ),
                                 ].divide(SizedBox(height: 4)),
                               ),
@@ -196,13 +198,15 @@ class _ClientesYCrDitosWidgetState extends State<ClientesYCrDitosWidget> {
                                     child: CreditStatWidget(
                                       icon: Icon(
                                         Icons.payments_rounded,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
+                                        color: FlutterFlowTheme.of(
+                                          context,
+                                        ).primary,
                                         size: 20,
                                       ),
                                       label: 'Por Cobrar',
-                                      tone:
-                                      FlutterFlowTheme.of(context).primary,
+                                      tone: FlutterFlowTheme.of(
+                                        context,
+                                      ).primary,
                                       value: 'Bs. 12.450,00',
                                     ),
                                   ),
@@ -215,8 +219,9 @@ class _ClientesYCrDitosWidgetState extends State<ClientesYCrDitosWidget> {
                                     child: CreditStatWidget(
                                       icon: Icon(
                                         Icons.warning_amber_rounded,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
+                                        color: FlutterFlowTheme.of(
+                                          context,
+                                        ).primary,
                                         size: 20,
                                       ),
                                       label: 'Vencidos',
@@ -237,30 +242,37 @@ class _ClientesYCrDitosWidgetState extends State<ClientesYCrDitosWidget> {
                                   Container(
                                     height: 34,
                                     decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
+                                      color: FlutterFlowTheme.of(
+                                        context,
+                                      ).secondaryBackground,
                                       borderRadius: BorderRadius.circular(8),
                                       border: Border.all(
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
+                                        color: FlutterFlowTheme.of(
+                                          context,
+                                        ).alternate,
                                         width: 1,
                                       ),
                                     ),
                                     alignment: AlignmentDirectional(0, 0),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          12, 0, 12, 0),
+                                        12,
+                                        0,
+                                        12,
+                                        0,
+                                      ),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.min,
                                         mainAxisAlignment:
-                                        MainAxisAlignment.center,
+                                            MainAxisAlignment.center,
                                         crossAxisAlignment:
-                                        CrossAxisAlignment.center,
+                                            CrossAxisAlignment.center,
                                         children: [
                                           Icon(
                                             Icons.check_rounded,
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
+                                            color: FlutterFlowTheme.of(
+                                              context,
+                                            ).primaryText,
                                             size: 16,
                                           ),
                                           Text(
@@ -268,19 +280,18 @@ class _ClientesYCrDitosWidgetState extends State<ClientesYCrDitosWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .labelMedium
                                                 .copyWith(
-                                              fontFamily: "Space Grotesk",
-                                              color: FlutterFlowTheme.of(
-                                                  context)
-                                                  .primaryText,
-                                              fontSize: 14,
-                                              letterSpacing: 0.0,
-                                              fontWeight:
-                                              FlutterFlowTheme.of(
-                                                  context)
-                                                  .labelMedium
-                                                  .fontWeight,
-                                              height: 1.3,
-                                            ),
+                                                  fontFamily: "Space Grotesk",
+                                                  color: FlutterFlowTheme.of(
+                                                    context,
+                                                  ).primaryText,
+                                                  fontSize: 14,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                        context,
+                                                      ).labelMedium.fontWeight,
+                                                  height: 1.3,
+                                                ),
                                           ),
                                         ].divide(SizedBox(width: 6)),
                                       ),
@@ -289,44 +300,49 @@ class _ClientesYCrDitosWidgetState extends State<ClientesYCrDitosWidget> {
                                   Container(
                                     height: 34,
                                     decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
+                                      color: FlutterFlowTheme.of(
+                                        context,
+                                      ).secondaryBackground,
                                       borderRadius: BorderRadius.circular(8),
                                       border: Border.all(
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
+                                        color: FlutterFlowTheme.of(
+                                          context,
+                                        ).alternate,
                                         width: 1,
                                       ),
                                     ),
                                     alignment: AlignmentDirectional(0, 0),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          12, 0, 12, 0),
+                                        12,
+                                        0,
+                                        12,
+                                        0,
+                                      ),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.min,
                                         mainAxisAlignment:
-                                        MainAxisAlignment.center,
+                                            MainAxisAlignment.center,
                                         crossAxisAlignment:
-                                        CrossAxisAlignment.center,
+                                            CrossAxisAlignment.center,
                                         children: [
                                           Text(
                                             'Con Deuda',
                                             style: FlutterFlowTheme.of(context)
                                                 .labelMedium
                                                 .copyWith(
-                                              fontFamily: "Space Grotesk",
-                                              color: FlutterFlowTheme.of(
-                                                  context)
-                                                  .primaryText,
-                                              fontSize: 14,
-                                              letterSpacing: 0.0,
-                                              fontWeight:
-                                              FlutterFlowTheme.of(
-                                                  context)
-                                                  .labelMedium
-                                                  .fontWeight,
-                                              height: 1.3,
-                                            ),
+                                                  fontFamily: "Space Grotesk",
+                                                  color: FlutterFlowTheme.of(
+                                                    context,
+                                                  ).primaryText,
+                                                  fontSize: 14,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                        context,
+                                                      ).labelMedium.fontWeight,
+                                                  height: 1.3,
+                                                ),
                                           ),
                                         ].divide(SizedBox(width: 6)),
                                       ),
@@ -335,44 +351,49 @@ class _ClientesYCrDitosWidgetState extends State<ClientesYCrDitosWidget> {
                                   Container(
                                     height: 34,
                                     decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
+                                      color: FlutterFlowTheme.of(
+                                        context,
+                                      ).secondaryBackground,
                                       borderRadius: BorderRadius.circular(8),
                                       border: Border.all(
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
+                                        color: FlutterFlowTheme.of(
+                                          context,
+                                        ).alternate,
                                         width: 1,
                                       ),
                                     ),
                                     alignment: AlignmentDirectional(0, 0),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          12, 0, 12, 0),
+                                        12,
+                                        0,
+                                        12,
+                                        0,
+                                      ),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.min,
                                         mainAxisAlignment:
-                                        MainAxisAlignment.center,
+                                            MainAxisAlignment.center,
                                         crossAxisAlignment:
-                                        CrossAxisAlignment.center,
+                                            CrossAxisAlignment.center,
                                         children: [
                                           Text(
                                             'Al día',
                                             style: FlutterFlowTheme.of(context)
                                                 .labelMedium
                                                 .copyWith(
-                                              fontFamily: "Space Grotesk",
-                                              color: FlutterFlowTheme.of(
-                                                  context)
-                                                  .primaryText,
-                                              fontSize: 14,
-                                              letterSpacing: 0.0,
-                                              fontWeight:
-                                              FlutterFlowTheme.of(
-                                                  context)
-                                                  .labelMedium
-                                                  .fontWeight,
-                                              height: 1.3,
-                                            ),
+                                                  fontFamily: "Space Grotesk",
+                                                  color: FlutterFlowTheme.of(
+                                                    context,
+                                                  ).primaryText,
+                                                  fontSize: 14,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                        context,
+                                                      ).labelMedium.fontWeight,
+                                                  height: 1.3,
+                                                ),
                                           ),
                                         ].divide(SizedBox(width: 6)),
                                       ),
@@ -381,44 +402,49 @@ class _ClientesYCrDitosWidgetState extends State<ClientesYCrDitosWidget> {
                                   Container(
                                     height: 34,
                                     decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
+                                      color: FlutterFlowTheme.of(
+                                        context,
+                                      ).secondaryBackground,
                                       borderRadius: BorderRadius.circular(8),
                                       border: Border.all(
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
+                                        color: FlutterFlowTheme.of(
+                                          context,
+                                        ).alternate,
                                         width: 1,
                                       ),
                                     ),
                                     alignment: AlignmentDirectional(0, 0),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          12, 0, 12, 0),
+                                        12,
+                                        0,
+                                        12,
+                                        0,
+                                      ),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.min,
                                         mainAxisAlignment:
-                                        MainAxisAlignment.center,
+                                            MainAxisAlignment.center,
                                         crossAxisAlignment:
-                                        CrossAxisAlignment.center,
+                                            CrossAxisAlignment.center,
                                         children: [
                                           Text(
                                             'Suspendidos',
                                             style: FlutterFlowTheme.of(context)
                                                 .labelMedium
                                                 .copyWith(
-                                              fontFamily: "Space Grotesk",
-                                              color: FlutterFlowTheme.of(
-                                                  context)
-                                                  .primaryText,
-                                              fontSize: 14,
-                                              letterSpacing: 0.0,
-                                              fontWeight:
-                                              FlutterFlowTheme.of(
-                                                  context)
-                                                  .labelMedium
-                                                  .fontWeight,
-                                              height: 1.3,
-                                            ),
+                                                  fontFamily: "Space Grotesk",
+                                                  color: FlutterFlowTheme.of(
+                                                    context,
+                                                  ).primaryText,
+                                                  fontSize: 14,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                        context,
+                                                      ).labelMedium.fontWeight,
+                                                  height: 1.3,
+                                                ),
                                           ),
                                         ].divide(SizedBox(width: 6)),
                                       ),
@@ -437,13 +463,14 @@ class _ClientesYCrDitosWidgetState extends State<ClientesYCrDitosWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .titleMedium
                                       .copyWith(
-                                    fontFamily: "Urbanist",
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.bold,
-                                    height: 1.4,
-                                  ),
+                                        fontFamily: "Urbanist",
+                                        color: FlutterFlowTheme.of(
+                                          context,
+                                        ).primaryText,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.bold,
+                                        height: 1.4,
+                                      ),
                                 ),
                                 wrapWithModel(
                                   model: _model.clientCardModel1,
@@ -507,7 +534,7 @@ class _ClientesYCrDitosWidgetState extends State<ClientesYCrDitosWidget> {
                   gradient: LinearGradient(
                     colors: [
                       FlutterFlowTheme.of(context).primaryBackground,
-                      Colors.transparent
+                      Colors.transparent,
                     ],
                     stops: [0, 1],
                     begin: AlignmentDirectional(0, 1),
@@ -547,9 +574,7 @@ class _ClientesYCrDitosWidgetState extends State<ClientesYCrDitosWidget> {
                 child: wrapWithModel(
                   model: _model.bottomNavModel,
                   updateCallback: () => safeSetState(() {}),
-                  child: BottomNavWidget(
-                    child: () => BottomNavChild3Widget(),
-                  ),
+                  child: BottomNavWidget(child: () => BottomNavChild3Widget()),
                 ),
               ),
             ),

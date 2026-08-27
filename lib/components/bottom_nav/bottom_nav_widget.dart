@@ -55,9 +55,8 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
         ),
       ),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(16, 8, 16, 8),
-        child: Container(
-          child: Row(
+        padding: const EdgeInsetsDirectional.fromSTEB(16, 8, 16, 8),
+        child: Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -65,11 +64,10 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
               Builder(builder: (_) {
                 return widget.child != null
                     ? widget.child!()
-                    : SizedBox.shrink();
+                    : const SizedBox.shrink();
               }),
             ],
           ),
-        ),
       ),
     );
   }

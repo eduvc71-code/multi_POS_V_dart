@@ -9,13 +9,13 @@ import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import 'package:multi_p_o_s/index.dart';
-import 'configuraci_n_y_empresas_widget.dart' show ConfiguraciNYEmpresasWidget;
+import 'configuraci_n_y_empresas_widget.dart' show ConfiguracionYEmpresasWidget;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class ConfiguraciNYEmpresasModel
-    extends FlutterFlowModel<ConfiguraciNYEmpresasWidget> {
+class ConfiguracionYEmpresasModel
+    extends FlutterFlowModel<ConfiguracionYEmpresasWidget> {
   ///  State fields for stateful widgets in this page.
 
   // Model for Button.

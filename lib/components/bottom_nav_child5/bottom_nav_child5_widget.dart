@@ -98,7 +98,7 @@ class _BottomNavChild5WidgetState extends State<BottomNavChild5Widget> {
               color: FlutterFlowTheme.of(context).primaryText,
               size: 24,
             ),
-            target: 'ConfiguraciNYEmpresas',
+            target: 'ConfiguracionYEmpresas',
             selected: true,
           ),
         ),

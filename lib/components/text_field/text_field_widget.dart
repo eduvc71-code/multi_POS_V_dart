@@ -22,18 +22,18 @@ class TextFieldWidget extends StatefulWidget {
     String? onSubmit,
     String? variant,
     bool? error,
-  })  : label = label ?? '',
-        labelPresent = labelPresent ?? false,
-        helper = helper ?? '',
-        helperPresent = helperPresent ?? false,
-        leadingIconPresent = leadingIconPresent ?? false,
-        trailingIconPresent = trailingIconPresent ?? false,
-        hint = hint ?? 'SlotValue($hint)',
-        value = value ?? '',
-        onChange = onChange ?? '',
-        onSubmit = onSubmit ?? '',
-        variant = variant ?? 'outlined',
-        error = error ?? false;
+  }) : label = label ?? '',
+       labelPresent = labelPresent ?? false,
+       helper = helper ?? '',
+       helperPresent = helperPresent ?? false,
+       leadingIconPresent = leadingIconPresent ?? false,
+       trailingIconPresent = trailingIconPresent ?? false,
+       hint = hint ?? 'SlotValue($hint)',
+       value = value ?? '',
+       onChange = onChange ?? '',
+       onSubmit = onSubmit ?? '',
+       variant = variant ?? 'outlined',
+       error = error ?? false;
 
   final String label;
   final bool labelPresent;
@@ -90,61 +90,58 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
           Text(
             widget.label,
             style: FlutterFlowTheme.of(context).labelMedium.copyWith(
-                  fontFamily: "Space Grotesk",
-                  color: widget.error
-                      ? FlutterFlowTheme.of(context).error
-                      : FlutterFlowTheme.of(context).primaryText,
-                  letterSpacing: 0.0,
-                  fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
-                  height: 1.3,
-                ),
+              fontFamily: "Space Grotesk",
+              color: widget.error
+                  ? FlutterFlowTheme.of(context).error
+                  : FlutterFlowTheme.of(context).primaryText,
+              letterSpacing: 0.0,
+              fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
+              height: 1.3,
+            ),
           ),
         Container(
           height: 40,
           decoration: BoxDecoration(
-            color: valueOrDefault<Color>(
-              () {
-                if (valueOrDefault<String>(widget.variant, 'outlined') == 'filled') {
-                  return FlutterFlowTheme.of(context).secondaryBackground;
-                } else if (valueOrDefault<String>(widget.variant, 'outlined') == 'ghost') {
-                  return Colors.transparent;
-                } else {
-                  return Colors.transparent;
-                }
-              }(),
-              Colors.transparent,
-            ),
+            color: valueOrDefault<Color>(() {
+              if (valueOrDefault<String>(widget.variant, 'outlined') ==
+                  'filled') {
+                return FlutterFlowTheme.of(context).secondaryBackground;
+              } else if (valueOrDefault<String>(widget.variant, 'outlined') ==
+                  'ghost') {
+                return Colors.transparent;
+              } else {
+                return Colors.transparent;
+              }
+            }(), Colors.transparent),
             borderRadius: BorderRadius.circular(8.0),
             shape: BoxShape.rectangle,
             border: Border.all(
-              color: valueOrDefault<Color>(
-                () {
-                  if (widget.error) {
-                    return FlutterFlowTheme.of(context).error;
-                  } else if (valueOrDefault<String>(widget.variant, 'outlined') == 'filled') {
-                    return Colors.transparent;
-                  } else if (valueOrDefault<String>(widget.variant, 'outlined') == 'ghost') {
-                    return Colors.transparent;
-                  } else {
-                    return FlutterFlowTheme.of(context).alternate;
-                  }
-                }(),
-                FlutterFlowTheme.of(context).alternate,
-              ),
-              width: valueOrDefault<double>(
-                () {
-                  if (widget.error) {
-                    return 1.0;
-                  } else if (valueOrDefault<String>(widget.variant, 'outlined') == 'filled') {
-                    return 1.0;
-                  } else if (valueOrDefault<String>(widget.variant, 'outlined') == 'ghost') {
-                    return 0.0;
-                  } else {
-                    return 1.0;
-                  }
-                }(),
-                1.0,
-              ),
+              color: valueOrDefault<Color>(() {
+                if (widget.error) {
+                  return FlutterFlowTheme.of(context).error;
+                } else if (valueOrDefault<String>(widget.variant, 'outlined') ==
+                    'filled') {
+                  return Colors.transparent;
+                } else if (valueOrDefault<String>(widget.variant, 'outlined') ==
+                    'ghost') {
+                  return Colors.transparent;
+                } else {
+                  return FlutterFlowTheme.of(context).alternate;
+                }
+              }(), FlutterFlowTheme.of(context).alternate),
+              width: valueOrDefault<double>(() {
+                if (widget.error) {
+                  return 1.0;
+                } else if (valueOrDefault<String>(widget.variant, 'outlined') ==
+                    'filled') {
+                  return 1.0;
+                } else if (valueOrDefault<String>(widget.variant, 'outlined') ==
+                    'ghost') {
+                  return 0.0;
+                } else {
+                  return 1.0;
+                }
+              }(), 1.0),
             ),
           ),
           child: Padding(
@@ -164,12 +161,18 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
                     obscureText: false,
                     decoration: InputDecoration(
                       isDense: true,
-                      hintText: valueOrDefault<String>(widget.hint, 'Ingrese texto...'),
-                      hintStyle: FlutterFlowTheme.of(context).bodyMedium.copyWith(
+                      hintText: valueOrDefault<String>(
+                        widget.hint,
+                        'Ingrese texto...',
+                      ),
+                      hintStyle: FlutterFlowTheme.of(context).bodyMedium
+                          .copyWith(
                             fontFamily: "Poppins",
                             color: FlutterFlowTheme.of(context).secondaryText,
                             letterSpacing: 0.0,
-                            fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                            fontWeight: FlutterFlowTheme.of(
+                              context,
+                            ).bodyMedium.fontWeight,
                             height: 1.5,
                           ),
                       enabledBorder: InputBorder.none,
@@ -178,13 +181,20 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
                       focusedErrorBorder: InputBorder.none,
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.copyWith(
-                          fontFamily: "Poppins",
-                          color: FlutterFlowTheme.of(context).primaryText,
-                          letterSpacing: 0.0,
-                          fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                          height: 1.5,
-                        ),
-                    validator: _model.inputTextControllerValidator,
+                      fontFamily: "Poppins",
+                      color: FlutterFlowTheme.of(context).primaryText,
+                      letterSpacing: 0.0,
+                      fontWeight: FlutterFlowTheme.of(
+                        context,
+                      ).bodyMedium.fontWeight,
+                      height: 1.5,
+                    ),
+                    validator: _model.inputTextControllerValidator == null
+                        ? null
+                        : (value) => _model.inputTextControllerValidator!(
+                            context,
+                            value,
+                          ),
                   ),
                 ),
                 if (widget.trailingIconPresent && widget.trailingIcon != null)
@@ -197,14 +207,14 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
           Text(
             widget.helper,
             style: FlutterFlowTheme.of(context).bodySmall.copyWith(
-                  fontFamily: "Poppins",
-                  color: widget.error
-                      ? FlutterFlowTheme.of(context).error
-                      : FlutterFlowTheme.of(context).secondaryText,
-                  letterSpacing: 0.0,
-                  fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
-                  height: 1.4,
-                ),
+              fontFamily: "Poppins",
+              color: widget.error
+                  ? FlutterFlowTheme.of(context).error
+                  : FlutterFlowTheme.of(context).secondaryText,
+              letterSpacing: 0.0,
+              fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+              height: 1.4,
+            ),
           ),
       ].divide(const SizedBox(height: 6)),
     );

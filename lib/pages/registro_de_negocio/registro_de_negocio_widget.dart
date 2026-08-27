@@ -503,8 +503,8 @@ class _RegistroDeNegocioWidgetState extends State<RegistroDeNegocioWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              GoRouter.of(context)
-                                  .goNamed(InicioDeSesiNWidget.routeName);
+                                  GoRouter.of(context)
+                                  .goNamed(InicioDeSesionWidget.routeName);
                             },
                             child: wrapWithModel(
                               model: _model.buttonModel2,
@@ -512,7 +512,7 @@ class _RegistroDeNegocioWidgetState extends State<RegistroDeNegocioWidget> {
                               child: const ButtonWidget(
                                 iconPresent: false,
                                 iconEndPresent: false,
-                                content: 'Iniciar Sesión',
+                                content: 'Iniciar Sesion',
                                 variant: 'ghost',
                                 size: 'small',
                                 fullWidth: false,

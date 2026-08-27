@@ -112,7 +112,7 @@ class _BottomNavChild2WidgetState extends State<BottomNavChild2Widget> {
               color: FlutterFlowTheme.of(context).primaryText,
               size: 24,
             ),
-            target: 'ConfiguraciNYEmpresas',
+            target: 'ConfiguracionYEmpresas',
             selected: false,
           ),
         ),

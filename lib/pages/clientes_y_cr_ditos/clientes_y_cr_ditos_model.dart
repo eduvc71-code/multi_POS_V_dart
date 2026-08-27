@@ -4,10 +4,10 @@ import 'package:multi_p_o_s/components/client_card/client_card_widget.dart';
 import 'package:multi_p_o_s/components/credit_stat/credit_stat_widget.dart';
 import 'package:multi_p_o_s/components/text_field/text_field_widget.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
-import 'clientes_y_cr_ditos_widget.dart' show ClientesYCrDitosWidget;
+import 'clientes_y_cr_ditos_widget.dart' show ClientesYCreditosWidget;
 import 'package:flutter/material.dart';
 
-class ClientesYCrDitosModel extends FlutterFlowModel<ClientesYCrDitosWidget> {
+class ClientesYCreditosModel extends FlutterFlowModel<ClientesYCreditosWidget> {
   ///  State fields for stateful widgets in this page.
 
   // Model for TextField.

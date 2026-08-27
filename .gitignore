@@ -505,3 +505,5 @@ build/
 *.graphql.reqres.gen.gql.gql.dart
 *.graphql.freezed.gen.gql.gql.dart
 *.graphql.schema.gen.gql.gql.dart
+# Widget Preview related
+.widget_preview/

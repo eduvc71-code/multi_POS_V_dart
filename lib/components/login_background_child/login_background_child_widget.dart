@@ -229,14 +229,11 @@ class _LoginBackgroundChildWidgetState
                                           error: false,
                                         ),
                                       ),
-                                      Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.end,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          wrapWithModel(
+                                      Align(
+                                        alignment: Alignment.centerRight,
+                                        child: FittedBox(
+                                          fit: BoxFit.scaleDown,
+                                          child: wrapWithModel(
                                             model: _model.buttonModel1,
                                             updateCallback: () =>
                                                 safeSetState(() {}),
@@ -252,7 +249,7 @@ class _LoginBackgroundChildWidgetState
                                               disabled: false,
                                             ),
                                           ),
-                                        ],
+                                        ),
                                       ),
                                     ].divide(const SizedBox(height: 4)),
                                   ),

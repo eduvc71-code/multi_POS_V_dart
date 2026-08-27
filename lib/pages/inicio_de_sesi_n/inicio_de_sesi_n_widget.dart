@@ -48,11 +48,13 @@ class _InicioDeSesionWidgetState extends State<InicioDeSesionWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        body: wrapWithModel(
-          model: _model.loginBackgroundModel,
-          updateCallback: () => safeSetState(() {}),
-          child: LoginBackgroundWidget(
-            child: () => const LoginBackgroundChildWidget(),
+        body: SafeArea(
+          child: wrapWithModel(
+            model: _model.loginBackgroundModel,
+            updateCallback: () => safeSetState(() {}),
+            child: LoginBackgroundWidget(
+              child: () => const LoginBackgroundChildWidget(),
+            ),
           ),
         ),
       ),

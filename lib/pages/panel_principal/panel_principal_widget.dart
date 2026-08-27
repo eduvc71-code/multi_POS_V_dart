@@ -51,7 +51,8 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        body: Column(
+        body: SafeArea(
+          child: Column(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -76,15 +77,14 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                         children: [
                           Text(
                             'MultiPOS',
-                            style: FlutterFlowTheme.of(context)
-                                .titleLarge
+                            style: FlutterFlowTheme.of(context).titleLarge
                                 .copyWith(
-                              fontFamily: "Urbanist",
-                              color: FlutterFlowTheme.of(context).primary,
-                              letterSpacing: 0.0,
-                              fontWeight: FontWeight.w900,
-                              height: 1.3,
-                            ),
+                                  fontFamily: "Urbanist",
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w900,
+                                  height: 1.3,
+                                ),
                           ),
                           Row(
                             mainAxisSize: MainAxisSize.max,
@@ -93,24 +93,25 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                             children: [
                               Icon(
                                 Icons.store_rounded,
-                                color:
-                                FlutterFlowTheme.of(context).secondaryText,
+                                color: FlutterFlowTheme.of(
+                                  context,
+                                ).secondaryText,
                                 size: 14,
                               ),
                               Text(
                                 'Sucursal Central',
-                                style: FlutterFlowTheme.of(context)
-                                    .labelSmall
+                                style: FlutterFlowTheme.of(context).labelSmall
                                     .copyWith(
-                                  fontFamily: "Space Grotesk",
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryText,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FlutterFlowTheme.of(context)
-                                      .labelSmall
-                                      .fontWeight,
-                                  height: 1.2,
-                                ),
+                                      fontFamily: "Space Grotesk",
+                                      color: FlutterFlowTheme.of(
+                                        context,
+                                      ).secondaryText,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(
+                                        context,
+                                      ).labelSmall.fontWeight,
+                                      height: 1.2,
+                                    ),
                               ),
                             ].divide(SizedBox(width: 4)),
                           ),
@@ -124,12 +125,10 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                           FlutterFlowIconButton(
                             borderRadius: 12,
                             buttonSize: 40,
-                            fillColor:
-                            FlutterFlowTheme.of(context).surfaceVariant,
-                            icon: Icon(
-                              Icons.search_rounded,
-                              size: 24,
-                            ),
+                            fillColor: FlutterFlowTheme.of(
+                              context,
+                            ).surfaceVariant,
+                            icon: Icon(Icons.search_rounded, size: 24),
                             onPressed: () {
                               debugPrint('IconButton pressed ...');
                             },
@@ -137,12 +136,10 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                           FlutterFlowIconButton(
                             borderRadius: 12,
                             buttonSize: 40,
-                            fillColor:
-                            FlutterFlowTheme.of(context).surfaceVariant,
-                            icon: Icon(
-                              Icons.notifications_rounded,
-                              size: 24,
-                            ),
+                            fillColor: FlutterFlowTheme.of(
+                              context,
+                            ).surfaceVariant,
+                            icon: Icon(Icons.notifications_rounded, size: 24),
                             onPressed: () {
                               debugPrint('IconButton pressed ...');
                             },
@@ -176,19 +173,17 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                 boxShadow: [
                                   BoxShadow(
                                     blurRadius: 24,
-                                    color:
-                                    FlutterFlowTheme.of(context).primary25,
-                                    offset: Offset(
-                                      0,
-                                      12,
-                                    ),
+                                    color: FlutterFlowTheme.of(
+                                      context,
+                                    ).primary25,
+                                    offset: Offset(0, 12),
                                     spreadRadius: 0,
-                                  )
+                                  ),
                                 ],
                                 gradient: LinearGradient(
                                   colors: [
                                     FlutterFlowTheme.of(context).primary,
-                                    FlutterFlowTheme.of(context).secondary
+                                    FlutterFlowTheme.of(context).secondary,
                                   ],
                                   stops: [0, 1],
                                   begin: AlignmentDirectional(1, 1),
@@ -204,62 +199,67 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                     mainAxisSize: MainAxisSize.min,
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment:
-                                    CrossAxisAlignment.center,
+                                        CrossAxisAlignment.center,
                                     children: [
                                       Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                            MainAxisAlignment.spaceBetween,
                                         crossAxisAlignment:
-                                        CrossAxisAlignment.center,
+                                            CrossAxisAlignment.center,
                                         children: [
                                           Text(
-                                            'Ventas del DÃ­a',
+                                            'Ventas del Día',
                                             style: FlutterFlowTheme.of(context)
                                                 .labelLarge
                                                 .copyWith(
-                                              fontFamily: "Space Grotesk",
-                                              color: FlutterFlowTheme.of(
-                                                  context)
-                                                  .onBackground80,
-                                              letterSpacing: 0.0,
-                                              fontWeight:
-                                              FlutterFlowTheme.of(
-                                                  context)
-                                                  .labelLarge
-                                                  .fontWeight,
-                                              height: 1.3,
-                                            ),
+                                                  fontFamily: "Space Grotesk",
+                                                  color: FlutterFlowTheme.of(
+                                                    context,
+                                                  ).onBackground80,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                        context,
+                                                      ).labelLarge.fontWeight,
+                                                  height: 1.3,
+                                                ),
                                           ),
                                           Container(
                                             decoration: BoxDecoration(
-                                              color:
-                                              FlutterFlowTheme.of(context)
-                                                  .onPrimary20,
+                                              color: FlutterFlowTheme.of(
+                                                context,
+                                              ).onPrimary20,
                                               borderRadius:
-                                              BorderRadius.circular(9999),
+                                                  BorderRadius.circular(9999),
                                               shape: BoxShape.rectangle,
                                             ),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(8, 4, 8, 4),
+                                              padding:
+                                                  EdgeInsetsDirectional.fromSTEB(
+                                                    8,
+                                                    4,
+                                                    8,
+                                                    4,
+                                                  ),
                                               child: Container(
                                                 child: Text(
                                                   'HOY',
-                                                  style: FlutterFlowTheme.of(
-                                                      context)
-                                                      .labelSmall
-                                                      .copyWith(
-                                                    fontFamily: "Space Grotesk",
-                                                    color:
-                                                    FlutterFlowTheme.of(
-                                                        context)
-                                                        .onSurface,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight:
-                                                    FontWeight.bold,
-                                                    height: 1.2,
-                                                  ),
+                                                  style:
+                                                      FlutterFlowTheme.of(
+                                                        context,
+                                                      ).labelSmall.copyWith(
+                                                        fontFamily:
+                                                            "Space Grotesk",
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                              context,
+                                                            ).onSurface,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        height: 1.2,
+                                                      ),
                                                 ),
                                               ),
                                             ),
@@ -271,142 +271,158 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .copyWith(
-                                          fontFamily: "Poppins",
-                                          color:
-                                          FlutterFlowTheme.of(context)
-                                              .onBackground,
-                                          fontSize: 36,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w900,
-                                          height: 1.5,
-                                        ),
+                                              fontFamily: "Poppins",
+                                              color: FlutterFlowTheme.of(
+                                                context,
+                                              ).onBackground,
+                                              fontSize: 36,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w900,
+                                              height: 1.5,
+                                            ),
                                       ),
                                       Divider(
                                         height: 16,
                                         thickness: 1,
                                         indent: 0,
                                         endIndent: 0,
-                                        color: FlutterFlowTheme.of(context)
-                                            .onPrimary20,
+                                        color: FlutterFlowTheme.of(
+                                          context,
+                                        ).onPrimary20,
                                       ),
                                       Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                            MainAxisAlignment.spaceBetween,
                                         crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                        children: [
-                                          Column(
-                                            mainAxisSize: MainAxisSize.min,
-                                            mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                            crossAxisAlignment:
                                             CrossAxisAlignment.center,
-                                            children: [
-                                              Text(
-                                                'Transacciones',
-                                                style:
-                                                FlutterFlowTheme.of(context)
-                                                    .labelSmall
-                                                    .copyWith(
-                                                  fontFamily: "Space Grotesk",
-                                                  color: FlutterFlowTheme
-                                                      .of(context)
-                                                      .onBackground70,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight:
-                                                  FlutterFlowTheme.of(
-                                                      context)
-                                                      .labelSmall
-                                                      .fontWeight,
-                                                  height: 1.2,
-                                                ),
-                                              ),
-                                              Text(
-                                                '24 ventas',
-                                                style: FlutterFlowTheme.of(
-                                                    context)
-                                                    .bodyMedium
-                                                    .copyWith(
-                                                  fontFamily: "Poppins",
-                                                  color:
-                                                  FlutterFlowTheme.of(
-                                                      context)
-                                                      .onBackground,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight:
-                                                  FontWeight.w600,
-                                                  height: 1.5,
-                                                ),
-                                              ),
-                                            ].divide(SizedBox(height: 4)),
-                                          ),
-                                          Column(
-                                            mainAxisSize: MainAxisSize.min,
-                                            mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                            crossAxisAlignment:
-                                            CrossAxisAlignment.end,
-                                            children: [
-                                              Text(
-                                                'Estado de Caja',
-                                                style:
-                                                FlutterFlowTheme.of(context)
-                                                    .labelSmall
-                                                    .copyWith(
-                                                  fontFamily: "Space Grotesk",
-                                                  color: FlutterFlowTheme
-                                                      .of(context)
-                                                      .onBackground70,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight:
-                                                  FlutterFlowTheme.of(
-                                                      context)
-                                                      .labelSmall
-                                                      .fontWeight,
-                                                  height: 1.2,
-                                                ),
-                                              ),
-                                              Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                                crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                                children: [
-                                                  Container(
-                                                    width: 8,
-                                                    height: 8,
-                                                    decoration: BoxDecoration(
-                                                      color:
+                                        children: [
+                                          Expanded(
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.min,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                  'Transacciones',
+                                                  style:
                                                       FlutterFlowTheme.of(
-                                                          context)
-                                                          .tertiary,
-                                                      borderRadius:
-                                                      BorderRadius.circular(
-                                                          9999),
-                                                      shape: BoxShape.rectangle,
+                                                        context,
+                                                      ).labelSmall.copyWith(
+                                                        fontFamily:
+                                                            "Space Grotesk",
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                              context,
+                                                            ).onBackground70,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                  context,
+                                                                )
+                                                                .labelSmall
+                                                                .fontWeight,
+                                                        height: 1.2,
+                                                      ),
+                                                ),
+                                                Text(
+                                                  '24 ventas',
+                                                  style:
+                                                      FlutterFlowTheme.of(
+                                                        context,
+                                                      ).bodyMedium.copyWith(
+                                                        fontFamily: "Poppins",
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                              context,
+                                                            ).onBackground,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                        height: 1.5,
+                                                      ),
+                                                ),
+                                              ].divide(SizedBox(height: 4)),
+                                            ),
+                                          ),
+                                          Expanded(
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.min,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.end,
+                                              children: [
+                                                Text(
+                                                  'Estado de Caja',
+                                                  style:
+                                                      FlutterFlowTheme.of(
+                                                        context,
+                                                      ).labelSmall.copyWith(
+                                                        fontFamily:
+                                                            "Space Grotesk",
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                              context,
+                                                            ).onBackground70,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                  context,
+                                                                )
+                                                                .labelSmall
+                                                                .fontWeight,
+                                                        height: 1.2,
+                                                      ),
+                                                ),
+                                                Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  children: [
+                                                    Container(
+                                                      width: 8,
+                                                      height: 8,
+                                                      decoration: BoxDecoration(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                              context,
+                                                            ).tertiary,
+                                                        borderRadius:
+                                                            BorderRadius.circular(
+                                                              9999,
+                                                            ),
+                                                        shape:
+                                                            BoxShape.rectangle,
+                                                      ),
                                                     ),
-                                                  ),
-                                                  Text(
-                                                    'Abierta',
-                                                    style: FlutterFlowTheme.of(
-                                                        context)
-                                                        .bodyMedium
-                                                        .copyWith(
-                                                      fontFamily: "Poppins",
-                                                      color: FlutterFlowTheme
-                                                          .of(context)
-                                                          .onBackground,
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                      FontWeight.w600,
-                                                      height: 1.5,
+                                                    Text(
+                                                      'Abierta',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                            context,
+                                                          ).bodyMedium.copyWith(
+                                                            fontFamily:
+                                                                "Poppins",
+                                                            color:
+                                                                FlutterFlowTheme.of(
+                                                                  context,
+                                                                ).onBackground,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                            height: 1.5,
+                                                          ),
                                                     ),
-                                                  ),
-                                                ].divide(SizedBox(width: 4)),
-                                              ),
-                                            ].divide(SizedBox(height: 4)),
+                                                  ].divide(SizedBox(width: 4)),
+                                                ),
+                                              ].divide(SizedBox(height: 4)),
+                                            ),
                                           ),
                                         ],
                                       ),
@@ -421,15 +437,15 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Text(
-                                  'Accesos RÃ¡pidos',
+                                  'Accesos Rápidos',
                                   style: FlutterFlowTheme.of(context)
                                       .titleMedium
                                       .copyWith(
-                                    fontFamily: "Urbanist",
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w800,
-                                    height: 1.4,
-                                  ),
+                                        fontFamily: "Urbanist",
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w800,
+                                        height: 1.4,
+                                      ),
                                 ),
                                 Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -445,14 +461,16 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                         child: QuickActionWidget(
                                           icon: Icon(
                                             Icons.add_shopping_cart_rounded,
-                                            color: FlutterFlowTheme.of(context)
-                                                .onPrimary,
+                                            color: FlutterFlowTheme.of(
+                                              context,
+                                            ).onPrimary,
                                             size: 28,
                                           ),
                                           label: 'Vender',
                                           target: 'PuntoDeVenta',
-                                          tone: FlutterFlowTheme.of(context)
-                                              .primary,
+                                          tone: FlutterFlowTheme.of(
+                                            context,
+                                          ).primary,
                                         ),
                                       ),
                                     ),
@@ -466,14 +484,16 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                           icon: Icon(
                                             Icons
                                                 .account_balance_wallet_rounded,
-                                            color: FlutterFlowTheme.of(context)
-                                                .onPrimary,
+                                            color: FlutterFlowTheme.of(
+                                              context,
+                                            ).onPrimary,
                                             size: 28,
                                           ),
                                           label: 'Caja',
-                                          target: 'GestiNDeCaja',
-                                          tone: FlutterFlowTheme.of(context)
-                                              .success,
+                                          target: 'GestionDeCaja',
+                                          tone: FlutterFlowTheme.of(
+                                            context,
+                                          ).success,
                                         ),
                                       ),
                                     ),
@@ -486,14 +506,16 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                         child: QuickActionWidget(
                                           icon: Icon(
                                             Icons.inventory_2_rounded,
-                                            color: FlutterFlowTheme.of(context)
-                                                .onPrimary,
+                                            color: FlutterFlowTheme.of(
+                                              context,
+                                            ).onPrimary,
                                             size: 28,
                                           ),
                                           label: 'Inventario',
                                           target: 'InventarioDeProductos',
-                                          tone: FlutterFlowTheme.of(context)
-                                              .secondary,
+                                          tone: FlutterFlowTheme.of(
+                                            context,
+                                          ).secondary,
                                         ),
                                       ),
                                     ),
@@ -506,14 +528,16 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                         child: QuickActionWidget(
                                           icon: Icon(
                                             Icons.group_rounded,
-                                            color: FlutterFlowTheme.of(context)
-                                                .onPrimary,
+                                            color: FlutterFlowTheme.of(
+                                              context,
+                                            ).onPrimary,
                                             size: 28,
                                           ),
                                           label: 'Clientes',
-                                          target: 'ClientesYCrDitos',
-                                          tone: FlutterFlowTheme.of(context)
-                                              .tertiary,
+                                          target: 'ClientesYCreditos',
+                                          tone: FlutterFlowTheme.of(
+                                            context,
+                                          ).tertiary,
                                         ),
                                       ),
                                     ),
@@ -537,7 +561,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                         color: Color(0xFFFF9100),
                                         size: 22,
                                       ),
-                                      label: 'CrÃ©ditos Hoy',
+                                      label: 'Créditos Hoy',
                                       tone: Color(0xFFFF9100),
                                       value: 'Bs. 1.200',
                                       isUp: true,
@@ -583,22 +607,24 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment:
-                                    CrossAxisAlignment.center,
+                                        CrossAxisAlignment.center,
                                     children: [
                                       Container(
                                         width: 48,
                                         height: 48,
                                         decoration: BoxDecoration(
                                           color: Color(0xFFFF9100),
-                                          borderRadius:
-                                          BorderRadius.circular(16),
+                                          borderRadius: BorderRadius.circular(
+                                            16,
+                                          ),
                                           shape: BoxShape.rectangle,
                                         ),
                                         alignment: AlignmentDirectional(0, 0),
                                         child: Icon(
                                           Icons.warning_amber_rounded,
-                                          color: FlutterFlowTheme.of(context)
-                                              .onSurface,
+                                          color: FlutterFlowTheme.of(
+                                            context,
+                                          ).onSurface,
                                           size: 24,
                                         ),
                                       ),
@@ -607,41 +633,42 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                         child: Column(
                                           mainAxisSize: MainAxisSize.min,
                                           mainAxisAlignment:
-                                          MainAxisAlignment.start,
+                                              MainAxisAlignment.start,
                                           crossAxisAlignment:
-                                          CrossAxisAlignment.center,
+                                              CrossAxisAlignment.center,
                                           children: [
                                             Text(
                                               'Stock Bajo',
-                                              style: FlutterFlowTheme.of(
-                                                  context)
-                                                  .labelLarge
-                                                  .copyWith(
-                                                fontFamily: "Space Grotesk",
-                                                color: FlutterFlowTheme.of(
-                                                    context)
-                                                    .onSurface,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w800,
-                                                height: 1.3,
-                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(
+                                                    context,
+                                                  ).labelLarge.copyWith(
+                                                    fontFamily: "Space Grotesk",
+                                                    color: FlutterFlowTheme.of(
+                                                      context,
+                                                    ).onSurface,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w800,
+                                                    height: 1.3,
+                                                  ),
                                             ),
                                             Text(
-                                              '3 productos estÃ¡n por debajo del mÃ­nimo',
-                                              style: FlutterFlowTheme.of(
-                                                  context)
-                                                  .bodySmall
-                                                  .copyWith(
-                                                fontFamily: "Poppins",
-                                                color: FlutterFlowTheme.of(
-                                                    context)
-                                                    .primaryText,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FlutterFlowTheme.of(context)
-                                                    .bodySmall
-                                                    .fontWeight,
-                                                height: 1.4,
-                                              ),
+                                              '3 productos están por debajo del mínimo',
+                                              style:
+                                                  FlutterFlowTheme.of(
+                                                    context,
+                                                  ).bodySmall.copyWith(
+                                                    fontFamily: "Poppins",
+                                                    color: FlutterFlowTheme.of(
+                                                      context,
+                                                    ).primaryText,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight:
+                                                        FlutterFlowTheme.of(
+                                                          context,
+                                                        ).bodySmall.fontWeight,
+                                                    height: 1.4,
+                                                  ),
                                             ),
                                           ].divide(SizedBox(height: 4)),
                                         ),
@@ -657,8 +684,9 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                         ),
                                         onPressed: () async {
                                           GoRouter.of(context).goNamed(
-                                              InventarioDeProductosWidget
-                                                  .routeName);
+                                            InventarioDeProductosWidget
+                                                .routeName,
+                                          );
                                         },
                                       ),
                                     ].divide(SizedBox(width: 16)),
@@ -674,18 +702,20 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                 Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceBetween,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    Text(
-                                      'Ãšltimas Ventas',
-                                      style: FlutterFlowTheme.of(context)
-                                          .titleMedium
-                                          .copyWith(
-                                        fontFamily: "Urbanist",
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w800,
-                                        height: 1.4,
+                                    Flexible(
+                                      child: Text(
+                                        'Últimas Ventas',
+                                        style: FlutterFlowTheme.of(context)
+                                            .titleMedium
+                                            .copyWith(
+                                              fontFamily: "Urbanist",
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w800,
+                                              height: 1.4,
+                                            ),
                                       ),
                                     ),
                                     InkWell(
@@ -695,7 +725,8 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
                                         GoRouter.of(context).goNamed(
-                                            HistorialDeVentasWidget.routeName);
+                                          HistorialDeVentasWidget.routeName,
+                                        );
                                       },
                                       child: wrapWithModel(
                                         model: _model.buttonModel,
@@ -719,50 +750,54 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                   borderRadius: BorderRadius.circular(24),
                                   child: Container(
                                     decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
+                                      color: FlutterFlowTheme.of(
+                                        context,
+                                      ).secondaryBackground,
                                       borderRadius: BorderRadius.circular(24),
                                       shape: BoxShape.rectangle,
                                       border: Border.all(
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
+                                        color: FlutterFlowTheme.of(
+                                          context,
+                                        ).alternate,
                                         width: 1,
                                       ),
                                     ),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.min,
                                       mainAxisAlignment:
-                                      MainAxisAlignment.start,
+                                          MainAxisAlignment.start,
                                       crossAxisAlignment:
-                                      CrossAxisAlignment.center,
+                                          CrossAxisAlignment.center,
                                       children: [
                                         Padding(
                                           padding: EdgeInsets.all(24),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
-                                            MainAxisAlignment.start,
+                                                MainAxisAlignment.start,
                                             crossAxisAlignment:
-                                            CrossAxisAlignment.center,
+                                                CrossAxisAlignment.center,
                                             children: [
                                               Container(
                                                 width: 40,
                                                 height: 40,
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
-                                                      context)
-                                                      .surfaceVariant,
+                                                    context,
+                                                  ).surfaceVariant,
                                                   borderRadius:
-                                                  BorderRadius.circular(12),
+                                                      BorderRadius.circular(12),
                                                   shape: BoxShape.rectangle,
                                                 ),
-                                                alignment:
-                                                AlignmentDirectional(0, 0),
+                                                alignment: AlignmentDirectional(
+                                                  0,
+                                                  0,
+                                                ),
                                                 child: Icon(
                                                   Icons.receipt_long_rounded,
                                                   color: FlutterFlowTheme.of(
-                                                      context)
-                                                      .primary,
+                                                    context,
+                                                  ).primary,
                                                   size: 24,
                                                 ),
                                               ),
@@ -770,64 +805,67 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                 flex: 1,
                                                 child: Column(
                                                   mainAxisSize:
-                                                  MainAxisSize.min,
+                                                      MainAxisSize.min,
                                                   mainAxisAlignment:
-                                                  MainAxisAlignment.start,
+                                                      MainAxisAlignment.start,
                                                   crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
+                                                      CrossAxisAlignment.center,
                                                   children: [
                                                     Text(
                                                       'Venta #F-2041',
-                                                      style: FlutterFlowTheme
-                                                          .of(context)
-                                                          .bodyMedium
-                                                          .copyWith(
-                                                        fontFamily: "Poppins",
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                        FontWeight.bold,
-                                                        height: 1.5,
-                                                      ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                            context,
+                                                          ).bodyMedium.copyWith(
+                                                            fontFamily:
+                                                                "Poppins",
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            height: 1.5,
+                                                          ),
                                                     ),
                                                     Text(
                                                       'Hace 5 min â€¢ Efectivo',
                                                       style:
-                                                      FlutterFlowTheme.of(
-                                                          context)
-                                                          .labelSmall
-                                                          .copyWith(
-                                                        fontFamily: "Space Grotesk",
-                                                        color: FlutterFlowTheme.of(
-                                                            context)
-                                                            .secondaryText,
-                                                        letterSpacing:
-                                                        0.0,
-                                                        fontWeight: FlutterFlowTheme.of(
-                                                            context)
-                                                            .labelSmall
-                                                            .fontWeight,
-                                                        height: 1.2,
-                                                      ),
+                                                          FlutterFlowTheme.of(
+                                                            context,
+                                                          ).labelSmall.copyWith(
+                                                            fontFamily:
+                                                                "Space Grotesk",
+                                                            color:
+                                                                FlutterFlowTheme.of(
+                                                                  context,
+                                                                ).secondaryText,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                      context,
+                                                                    )
+                                                                    .labelSmall
+                                                                    .fontWeight,
+                                                            height: 1.2,
+                                                          ),
                                                     ),
                                                   ].divide(SizedBox(height: 4)),
                                                 ),
                                               ),
                                               Text(
                                                 'Bs. 150,00',
-                                                style: FlutterFlowTheme.of(
-                                                    context)
-                                                    .bodyLarge
-                                                    .copyWith(
-                                                  fontFamily: "Poppins",
-                                                  color:
-                                                  FlutterFlowTheme.of(
-                                                      context)
-                                                      .onSurface,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight:
-                                                  FontWeight.w800,
-                                                  height: 1.5,
-                                                ),
+                                                style:
+                                                    FlutterFlowTheme.of(
+                                                      context,
+                                                    ).bodyLarge.copyWith(
+                                                      fontFamily: "Poppins",
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                            context,
+                                                          ).onSurface,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w800,
+                                                      height: 1.5,
+                                                    ),
                                               ),
                                             ].divide(SizedBox(width: 16)),
                                           ),
@@ -837,36 +875,39 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                           thickness: 1,
                                           indent: 24,
                                           endIndent: 24,
-                                          color: FlutterFlowTheme.of(context)
-                                              .alternate,
+                                          color: FlutterFlowTheme.of(
+                                            context,
+                                          ).alternate,
                                         ),
                                         Padding(
                                           padding: EdgeInsets.all(24),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
-                                            MainAxisAlignment.start,
+                                                MainAxisAlignment.start,
                                             crossAxisAlignment:
-                                            CrossAxisAlignment.center,
+                                                CrossAxisAlignment.center,
                                             children: [
                                               Container(
                                                 width: 40,
                                                 height: 40,
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
-                                                      context)
-                                                      .surfaceVariant,
+                                                    context,
+                                                  ).surfaceVariant,
                                                   borderRadius:
-                                                  BorderRadius.circular(12),
+                                                      BorderRadius.circular(12),
                                                   shape: BoxShape.rectangle,
                                                 ),
-                                                alignment:
-                                                AlignmentDirectional(0, 0),
+                                                alignment: AlignmentDirectional(
+                                                  0,
+                                                  0,
+                                                ),
                                                 child: Icon(
                                                   Icons.receipt_long_rounded,
                                                   color: FlutterFlowTheme.of(
-                                                      context)
-                                                      .primary,
+                                                    context,
+                                                  ).primary,
                                                   size: 24,
                                                 ),
                                               ),
@@ -874,64 +915,67 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                 flex: 1,
                                                 child: Column(
                                                   mainAxisSize:
-                                                  MainAxisSize.min,
+                                                      MainAxisSize.min,
                                                   mainAxisAlignment:
-                                                  MainAxisAlignment.start,
+                                                      MainAxisAlignment.start,
                                                   crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
+                                                      CrossAxisAlignment.center,
                                                   children: [
                                                     Text(
                                                       'Venta #F-2040',
-                                                      style: FlutterFlowTheme
-                                                          .of(context)
-                                                          .bodyMedium
-                                                          .copyWith(
-                                                        fontFamily: "Poppins",
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                        FontWeight.bold,
-                                                        height: 1.5,
-                                                      ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                            context,
+                                                          ).bodyMedium.copyWith(
+                                                            fontFamily:
+                                                                "Poppins",
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            height: 1.5,
+                                                          ),
                                                     ),
                                                     Text(
                                                       'Hace 12 min â€¢ Tarjeta',
                                                       style:
-                                                      FlutterFlowTheme.of(
-                                                          context)
-                                                          .labelSmall
-                                                          .copyWith(
-                                                        fontFamily: "Space Grotesk",
-                                                        color: FlutterFlowTheme.of(
-                                                            context)
-                                                            .secondaryText,
-                                                        letterSpacing:
-                                                        0.0,
-                                                        fontWeight: FlutterFlowTheme.of(
-                                                            context)
-                                                            .labelSmall
-                                                            .fontWeight,
-                                                        height: 1.2,
-                                                      ),
+                                                          FlutterFlowTheme.of(
+                                                            context,
+                                                          ).labelSmall.copyWith(
+                                                            fontFamily:
+                                                                "Space Grotesk",
+                                                            color:
+                                                                FlutterFlowTheme.of(
+                                                                  context,
+                                                                ).secondaryText,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                      context,
+                                                                    )
+                                                                    .labelSmall
+                                                                    .fontWeight,
+                                                            height: 1.2,
+                                                          ),
                                                     ),
                                                   ].divide(SizedBox(height: 4)),
                                                 ),
                                               ),
                                               Text(
                                                 'Bs. 842,50',
-                                                style: FlutterFlowTheme.of(
-                                                    context)
-                                                    .bodyLarge
-                                                    .copyWith(
-                                                  fontFamily: "Poppins",
-                                                  color:
-                                                  FlutterFlowTheme.of(
-                                                      context)
-                                                      .onSurface,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight:
-                                                  FontWeight.w800,
-                                                  height: 1.5,
-                                                ),
+                                                style:
+                                                    FlutterFlowTheme.of(
+                                                      context,
+                                                    ).bodyLarge.copyWith(
+                                                      fontFamily: "Poppins",
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                            context,
+                                                          ).onSurface,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w800,
+                                                      height: 1.5,
+                                                    ),
                                               ),
                                             ].divide(SizedBox(width: 16)),
                                           ),
@@ -980,6 +1024,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
               ),
             ),
           ],
+          ),
         ),
       ),
     );

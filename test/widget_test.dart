@@ -14,8 +14,9 @@ void main() {
     expect(find.text('Iniciar Sesión'), findsOneWidget);
   });
 
-  testWidgets('inicio y dashboard se adaptan a una pantalla móvil',
-      (tester) async {
+  testWidgets('inicio y dashboard se adaptan a una pantalla móvil', (
+    tester,
+  ) async {
     await tester.binding.setSurfaceSize(const Size(393, 873));
     addTearDown(() => tester.binding.setSurfaceSize(null));
 
@@ -23,7 +24,11 @@ void main() {
     await tester.pumpAndSettle();
 
     await tester.ensureVisible(find.text('Iniciar Sesión'));
-    await tester.tap(find.text('Iniciar Sesión'));
+    final loginAction = find.ancestor(
+      of: find.text('Iniciar Sesión'),
+      matching: find.byType(InkWell),
+    );
+    await tester.tap(loginAction.first);
     await tester.pumpAndSettle();
 
     expect(find.text('Ventas del Día'), findsOneWidget);

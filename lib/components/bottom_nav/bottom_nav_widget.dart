@@ -10,10 +10,7 @@ import 'bottom_nav_model.dart';
 export 'bottom_nav_model.dart';
 
 class BottomNavWidget extends StatefulWidget {
-  const BottomNavWidget({
-    super.key,
-    this.child,
-  });
+  const BottomNavWidget({super.key, this.child});
 
   final Widget Function()? child;
 
@@ -57,17 +54,21 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
       child: Padding(
         padding: const EdgeInsetsDirectional.fromSTEB(16, 8, 16, 8),
         child: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Builder(builder: (_) {
-                return widget.child != null
-                    ? widget.child!()
-                    : const SizedBox.shrink();
-              }),
-            ],
-          ),
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Expanded(
+              child: Builder(
+                builder: (_) {
+                  return widget.child != null
+                      ? widget.child!()
+                      : const SizedBox.shrink();
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

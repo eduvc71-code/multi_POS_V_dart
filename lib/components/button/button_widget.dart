@@ -269,31 +269,41 @@ class _ButtonWidgetState extends State<ButtonWidget> {
                 ),
               ),
             ),
-            CircularPercentIndicator(
-              percent: 0,
-              radius: 7,
-              lineWidth: 2,
-              animation: true,
-              animateFromLastPercent: true,
-              progressColor: valueOrDefault<Color>(() {
-                if (valueOrDefault<String>(widget.variant, 'primary') ==
-                    'secondary') {
-                  return FlutterFlowTheme.of(context).onSecondary;
-                } else if (valueOrDefault<String>(widget.variant, 'primary') ==
-                    'outline') {
-                  return FlutterFlowTheme.of(context).primaryText;
-                } else if (valueOrDefault<String>(widget.variant, 'primary') ==
-                    'ghost') {
-                  return FlutterFlowTheme.of(context).primary;
-                } else if (valueOrDefault<String>(widget.variant, 'primary') ==
-                    'destructive') {
-                  return FlutterFlowTheme.of(context).error;
-                } else {
-                  return FlutterFlowTheme.of(context).onPrimary;
-                }
-              }(), FlutterFlowTheme.of(context).onPrimary),
-              backgroundColor: FlutterFlowTheme.of(context).alternate,
-            ),
+            if (widget.loading)
+              CircularPercentIndicator(
+                percent: 0,
+                radius: 7,
+                lineWidth: 2,
+                animation: true,
+                animateFromLastPercent: true,
+                progressColor: valueOrDefault<Color>(() {
+                  if (valueOrDefault<String>(widget.variant, 'primary') ==
+                      'secondary') {
+                    return FlutterFlowTheme.of(context).onSecondary;
+                  } else if (valueOrDefault<String>(
+                        widget.variant,
+                        'primary',
+                      ) ==
+                      'outline') {
+                    return FlutterFlowTheme.of(context).primaryText;
+                  } else if (valueOrDefault<String>(
+                        widget.variant,
+                        'primary',
+                      ) ==
+                      'ghost') {
+                    return FlutterFlowTheme.of(context).primary;
+                  } else if (valueOrDefault<String>(
+                        widget.variant,
+                        'primary',
+                      ) ==
+                      'destructive') {
+                    return FlutterFlowTheme.of(context).error;
+                  } else {
+                    return FlutterFlowTheme.of(context).onPrimary;
+                  }
+                }(), FlutterFlowTheme.of(context).onPrimary),
+                backgroundColor: FlutterFlowTheme.of(context).alternate,
+              ),
           ],
         ),
       ),

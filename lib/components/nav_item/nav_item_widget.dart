@@ -50,7 +50,7 @@ class _NavItemWidgetState extends State<NavItemWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsetsDirectional.fromSTEB(8, 4, 8, 4),
+      padding: const EdgeInsetsDirectional.fromSTEB(4, 4, 4, 4),
       child: InkWell(
         onTap: () {
           // Navegar a la página target
@@ -64,21 +64,22 @@ class _NavItemWidgetState extends State<NavItemWidget> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             if (widget.icon != null) widget.icon!,
-            Text(
-              valueOrDefault<String>(
-                widget.label,
-                'Inicio',
-              ),
-              style: FlutterFlowTheme.of(context).bodyMedium.copyWith(
+            FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Text(
+                valueOrDefault<String>(widget.label, 'Inicio'),
+                maxLines: 1,
+                softWrap: false,
+                style: FlutterFlowTheme.of(context).labelSmall.copyWith(
                     fontFamily: "Poppins",
                     color: widget.selected
                         ? FlutterFlowTheme.of(context).primary
                         : FlutterFlowTheme.of(context).secondaryText,
                     letterSpacing: 0.0,
-                    fontWeight:
-                        FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                    fontWeight: FlutterFlowTheme.of(context).labelSmall.fontWeight,
                     height: 1.5,
                   ),
+              ),
             ),
           ].divide(const SizedBox(height: 2)),
         ),

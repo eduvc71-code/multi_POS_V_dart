@@ -41,79 +41,89 @@ class _BottomNavChildWidgetState extends State<BottomNavChildWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Row(
       mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        wrapWithModel(
-          model: _model.navItemModel1,
-          updateCallback: () => safeSetState(() {}),
-          child: NavItemWidget(
-            label: 'Inicio',
-            icon: Icon(
-              Icons.grid_view_rounded,
-              color: FlutterFlowTheme.of(context).primaryText,
-              size: 24,
+        Expanded(
+          child: wrapWithModel(
+            model: _model.navItemModel1,
+            updateCallback: () => safeSetState(() {}),
+            child: NavItemWidget(
+              label: 'Inicio',
+              icon: Icon(
+                Icons.grid_view_rounded,
+                color: FlutterFlowTheme.of(context).primaryText,
+                size: 24,
+              ),
+              target: 'PanelPrincipal',
+              selected: true,
             ),
-            target: 'PanelPrincipal',
-            selected: true,
           ),
         ),
-        wrapWithModel(
-          model: _model.navItemModel2,
-          updateCallback: () => safeSetState(() {}),
-          child: NavItemWidget(
-            label: 'Vender',
-            icon: Icon(
-              Icons.shopping_cart_rounded,
-              color: FlutterFlowTheme.of(context).primaryText,
-              size: 24,
+        Expanded(
+          child: wrapWithModel(
+            model: _model.navItemModel2,
+            updateCallback: () => safeSetState(() {}),
+            child: NavItemWidget(
+              label: 'Vender',
+              icon: Icon(
+                Icons.shopping_cart_rounded,
+                color: FlutterFlowTheme.of(context).primaryText,
+                size: 24,
+              ),
+              target: 'PuntoDeVenta',
+              selected: false,
             ),
-            target: 'PuntoDeVenta',
-            selected: false,
           ),
         ),
-        wrapWithModel(
-          model: _model.navItemModel3,
-          updateCallback: () => safeSetState(() {}),
-          child: NavItemWidget(
-            label: 'Historial',
-            icon: Icon(
-              Icons.history_rounded,
-              color: FlutterFlowTheme.of(context).primaryText,
-              size: 24,
+        Expanded(
+          child: wrapWithModel(
+            model: _model.navItemModel3,
+            updateCallback: () => safeSetState(() {}),
+            child: NavItemWidget(
+              label: 'Historial',
+              icon: Icon(
+                Icons.history_rounded,
+                color: FlutterFlowTheme.of(context).primaryText,
+                size: 24,
+              ),
+              target: 'HistorialDeVentas',
+              selected: false,
             ),
-            target: 'HistorialDeVentas',
-            selected: false,
           ),
         ),
-        wrapWithModel(
-          model: _model.navItemModel4,
-          updateCallback: () => safeSetState(() {}),
-          child: NavItemWidget(
-            label: 'Reportes',
-            icon: Icon(
-              Icons.insights_rounded,
-              color: FlutterFlowTheme.of(context).primaryText,
-              size: 24,
+        Expanded(
+          child: wrapWithModel(
+            model: _model.navItemModel4,
+            updateCallback: () => safeSetState(() {}),
+            child: NavItemWidget(
+              label: 'Reportes',
+              icon: Icon(
+                Icons.insights_rounded,
+                color: FlutterFlowTheme.of(context).primaryText,
+                size: 24,
+              ),
+              target: 'ReportesYMetricas',
+              selected: false,
             ),
-            target: 'ReportesYMetricas',
-            selected: false,
           ),
         ),
-        wrapWithModel(
-          model: _model.navItemModel5,
-          updateCallback: () => safeSetState(() {}),
-          child: NavItemWidget(
-            label: 'Ajustes',
-            icon: Icon(
-              Icons.settings_rounded,
-              color: FlutterFlowTheme.of(context).primaryText,
-              size: 24,
+        Expanded(
+          child: wrapWithModel(
+            model: _model.navItemModel5,
+            updateCallback: () => safeSetState(() {}),
+            child: NavItemWidget(
+              label: 'Ajustes',
+              icon: Icon(
+                Icons.settings_rounded,
+                color: FlutterFlowTheme.of(context).primaryText,
+                size: 24,
+              ),
+              target: 'ConfiguracionYEmpresas',
+              selected: false,
             ),
-            target: 'ConfiguracionYEmpresas',
-            selected: false,
           ),
         ),
       ],

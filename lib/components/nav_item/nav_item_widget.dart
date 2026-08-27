@@ -51,29 +51,37 @@ class _NavItemWidgetState extends State<NavItemWidget> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsetsDirectional.fromSTEB(8, 4, 8, 4),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          widget.icon!,
-          Text(
-            valueOrDefault<String>(
-              widget.label,
-              'Inicio',
+      child: InkWell(
+        onTap: () {
+          // Navegar a la página target
+          if (widget.target.isNotEmpty) {
+            context.pushNamed(widget.target);
+          }
+        },
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            if (widget.icon != null) widget.icon!,
+            Text(
+              valueOrDefault<String>(
+                widget.label,
+                'Inicio',
+              ),
+              style: FlutterFlowTheme.of(context).bodyMedium.copyWith(
+                    fontFamily: "Poppins",
+                    color: widget.selected
+                        ? FlutterFlowTheme.of(context).primary
+                        : FlutterFlowTheme.of(context).secondaryText,
+                    letterSpacing: 0.0,
+                    fontWeight:
+                        FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                    height: 1.5,
+                  ),
             ),
-            style: FlutterFlowTheme.of(context).bodyMedium.copyWith(
-                  fontFamily: "Poppins",
-                  color: widget.selected
-                      ? FlutterFlowTheme.of(context).primary
-                      : FlutterFlowTheme.of(context).secondaryText,
-                  letterSpacing: 0.0,
-                  fontWeight:
-                      FlutterFlowTheme.of(context).bodyMedium.fontWeight,
-                  height: 1.5,
-                ),
-          ),
-        ].divide(const SizedBox(height: 2)),
+          ].divide(const SizedBox(height: 2)),
+        ),
       ),
     );
   }

@@ -1,8 +1,6 @@
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_icon_button.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
-import 'package:multi_p_o_s/flutter_flow/flutter_flow_widgets.dart';
-import 'package:multi_p_o_s/components/history_stat/history_stat_widget.dart';
 import 'package:multi_p_o_s/components/text_field/text_field_widget.dart';
 import 'package:multi_p_o_s/components/sale_row/sale_row_widget.dart';
 import 'package:multi_p_o_s/pages/panel_principal/panel_principal_widget.dart';

@@ -1,37 +1,36 @@
 ```
-# Flutter/Dart specific
-.dart_tool/
-.build/
-.packages
-flutter_export_environment.sh
-
 # Dependencies
+node_modules/
 .pub/
-pubspec.lock
+.build/
 
 # Build artifacts
 build/
-bin/
+dist/
+release/
+debug/
 
 # Logs
 *.log
-**/logs
+logs/
 
-# Environment variables
+# Environment
 .env
 .env.local
 .env.*
-!.env.example
 
-# IDE specific
-.idea/
+# IDE
 .vscode/
+.idea/
 *.swp
 *.swo
 
-# OS generated files
+# OS
 .DS_Store
 Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+repo_temp/
 ```
-# Widget Preview related
-.widget_preview/

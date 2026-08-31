@@ -233,7 +233,6 @@ class _ReportesYMetricasWidgetState extends State<ReportesYMetricasWidget> {
                                         ),
                                       ),
                                     ),
-                                  ),
                                   Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.start,
@@ -416,7 +415,6 @@ class _ReportesYMetricasWidgetState extends State<ReportesYMetricasWidget> {
                                         ),
                                       ),
                                     ),
-                                  ),
                                   Container(
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
@@ -475,7 +473,6 @@ class _ReportesYMetricasWidgetState extends State<ReportesYMetricasWidget> {
                                         ),
                                       ),
                                     ),
-                                  ),
                                   Container(
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
@@ -740,7 +737,6 @@ class _ReportesYMetricasWidgetState extends State<ReportesYMetricasWidget> {
                                         ),
                                       ),
                                     ),
-                                  ),
                                   Container(
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context).primary5,

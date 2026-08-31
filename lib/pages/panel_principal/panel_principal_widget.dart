@@ -99,13 +99,12 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                   children: [
                                     Text(
                                       'MultiPOS',
-                                      style: FlutterFlowTheme.of(context).titleLarge
+                                      style: FlutterFlowTheme.of(context).titleMedium
                                           .copyWith(
                                             fontFamily: "Urbanist",
                                             color: FlutterFlowTheme.of(context).primary,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w900,
-                                            height: 1.3,
                                           ),
                                     ),
                                     Row(
@@ -113,27 +112,20 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       crossAxisAlignment: CrossAxisAlignment.center,
                                       children: [
-                                        Icon(
-                                          Icons.store_rounded,
-                                          color: Colors.black,
-                                          size: 14,
-                                        ),
                                         Text(
                                           'Sucursal Central',
                                           style: FlutterFlowTheme.of(context).labelSmall
                                               .copyWith(
                                                 fontFamily: "Space Grotesk",
                                                 color: Colors.black,
+                                                fontSize: 10,
                                                 letterSpacing: 0.0,
-                                                fontWeight: FlutterFlowTheme.of(
-                                                  context,
-                                                ).labelSmall.fontWeight,
-                                                height: 1.2,
+                                                fontWeight: FontWeight.normal,
                                               ),
                                         ),
-                                      ].divide(SizedBox(width: 4)),
+                                      ],
                                     ),
-                                  ].divide(SizedBox(height: 4)),
+                                  ].divide(SizedBox(height: 0)),
                                 ),
                                 Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -142,27 +134,36 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                   children: [
                                     FlutterFlowIconButton(
                                       borderRadius: 12,
-                                      buttonSize: 40,
+                                      buttonSize: 32, // Reducido de 40 a 32
                                       fillColor: FlutterFlowTheme.of(
                                         context,
                                       ).surfaceVariant,
-                                      icon: Icon(Icons.search_rounded, size: 24),
+                                      icon: Icon(Icons.search_rounded, size: 18),
                                       onPressed: () {
                                         debugPrint('IconButton pressed ...');
                                       },
                                     ),
                                     FlutterFlowIconButton(
                                       borderRadius: 12,
-                                      buttonSize: 40,
+                                      buttonSize: 32, // Reducido de 40 a 32
                                       fillColor: FlutterFlowTheme.of(
                                         context,
                                       ).surfaceVariant,
-                                      icon: Icon(Icons.notifications_rounded, size: 24),
+                                      icon: Icon(Icons.notifications_rounded, size: 18),
                                       onPressed: () {
                                         debugPrint('IconButton pressed ...');
                                       },
                                     ),
-                                  ].divide(SizedBox(width: 8)),
+                                    FlutterFlowIconButton(
+                                      borderRadius: 12,
+                                      buttonSize: 32,
+                                      fillColor: Colors.red.withOpacity(0.1),
+                                      icon: Icon(Icons.power_settings_new_rounded, color: Colors.red, size: 18),
+                                      onPressed: () {
+                                        SystemNavigator.pop(); // Cierra la aplicación
+                                      },
+                                    ),
+                                  ].divide(SizedBox(width: 4)),
                                 ),
                               ],
                             ),
@@ -282,10 +283,9 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                         color: FlutterFlowTheme.of(
                                                           context,
                                                         ).onBackground,
-                                                        fontSize: 36,
+                                                        fontSize: 24, // Reducido de 36 a 24
                                                         letterSpacing: 0.0,
                                                         fontWeight: FontWeight.w900,
-                                                        height: 1.5,
                                                       ),
                                                 ),
                                                 Divider(

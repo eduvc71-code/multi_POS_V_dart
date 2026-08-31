@@ -23,15 +23,15 @@ class DatabaseHelper {
 
     return await openDatabase(
       path,
-      version: 4,
+      version: 5,
       onCreate: _createDB,
       onUpgrade: _upgradeDB,
     );
   }
 
   Future _upgradeDB(Database db, int oldVersion, int newVersion) async {
-    if (oldVersion < 4) {
-      print('Actualizando DB a versión $newVersion...');
+    if (oldVersion < 5) {
+      print('Actualizando DB a versión $newVersion (Multitenancy)...');
       // Para desarrollo, simplemente borramos y recreamos si el esquema cambia
       await db.execute('DROP TABLE IF EXISTS usuarios');
       await db.execute('DROP TABLE IF EXISTS productos');
@@ -59,7 +59,19 @@ class DatabaseHelper {
         password $textType,
         nombre $textType,
         rol $textType,
+        empresa_id INTEGER,
         activo $boolType DEFAULT 1
+      )
+    ''');
+
+    // Tabla Empresas
+    await db.execute('''
+      CREATE TABLE empresas (
+        id $idType,
+        nombre $textType,
+        tipo $textType,
+        nit $textNullable,
+        telefono $textNullable
       )
     ''');
 
@@ -67,14 +79,16 @@ class DatabaseHelper {
     await db.execute('''
       CREATE TABLE productos (
         id $idType,
-        codigo $textType UNIQUE,
+        codigo $textType,
         nombre $textType,
         precio $realType,
         costo $realType,
         stock $integerType,
         stock_minimo $integerType DEFAULT 5,
         categoria $textNullable,
-        imagen $textNullable
+        imagen $textNullable,
+        empresa_id INTEGER,
+        UNIQUE(codigo, empresa_id)
       )
     ''');
 
@@ -87,7 +101,8 @@ class DatabaseHelper {
         telefono $textNullable,
         email $textNullable,
         direccion $textNullable,
-        deuda $realType DEFAULT 0.0
+        deuda $realType DEFAULT 0.0,
+        empresa_id INTEGER
       )
     ''');
 
@@ -99,6 +114,7 @@ class DatabaseHelper {
         total $realType,
         cliente_id INTEGER,
         usuario_id INTEGER,
+        empresa_id INTEGER,
         metodo_pago $textType,
         estado $textType,
         FOREIGN KEY (cliente_id) REFERENCES clientes (id),
@@ -115,6 +131,7 @@ class DatabaseHelper {
         cantidad $integerType,
         precio_unitario $realType,
         subtotal $realType,
+        empresa_id INTEGER,
         FOREIGN KEY (venta_id) REFERENCES ventas (id),
         FOREIGN KEY (producto_id) REFERENCES productos (id)
       )
@@ -129,18 +146,12 @@ class DatabaseHelper {
         monto $realType,
         descripcion $textType,
         usuario_id INTEGER,
+        empresa_id INTEGER,
         FOREIGN KEY (usuario_id) REFERENCES usuarios (id)
       )
     ''');
 
-    // Insertar un usuario administrador por defecto
-    await db.insert('usuarios', {
-      'username': 'admin',
-      'password': 'admin123',
-      'nombre': 'Administrador',
-      'rol': 'admin',
-      'activo': 1
-    });
+    // YA NO insertar usuario por defecto aquí para dejar la DB limpia
   }
 
   Future<void> clearDatabase() async {
@@ -151,46 +162,98 @@ class DatabaseHelper {
     await db.delete('ventas');
     await db.delete('ventas_detalle');
     await db.delete('movimientos_caja');
+    await db.delete('usuarios');
+    await db.delete('empresas');
     print('Base de datos limpia.');
   }
 
-  Future<void> populateInventory(String businessType) async {
-    print('Poblando inventario para: $businessType');
+  Future<int> registerFullBusiness({
+    required String businessName,
+    required String businessType,
+    required String nit,
+    required String phone,
+    required String ownerName,
+    required String username,
+    required String password,
+  }) async {
     final db = await instance.database;
-    final items = InventoryInitializer.getItemsFor(businessType);
-    final random = Random();
-
-    for (var item in items) {
-      // Generar precios y stock aleatorios para pruebas
-      double costoBase = (random.nextDouble() * 50) + 5; // Costo entre 5 y 55
-      double precioVenta = costoBase * 1.3; // Margen del 30%
-      int stockAleatorio = random.nextInt(101); // Stock entre 0 y 100
-      int stockMinimo = 10; // Stock mínimo estándar para alertas
-
-      await db.insert('productos', {
-        'codigo': item['codigo'],
-        'nombre': item['nombre'],
-        'precio': double.parse(precioVenta.toStringAsFixed(2)),
-        'costo': double.parse(costoBase.toStringAsFixed(2)),
-        'stock': stockAleatorio,
-        'stock_minimo': stockMinimo,
-        'categoria': 'General'
+    
+    return await db.transaction((txn) async {
+      // 1. Crear Empresa
+      final empresaId = await txn.insert('empresas', {
+        'nombre': businessName,
+        'tipo': businessType,
+        'nit': nit,
+        'telefono': phone,
       });
-    }
-    print('Inventario poblado exitosamente.');
+
+      // 2. Crear Usuario Propietario vinculado a la Empresa
+      await txn.insert('usuarios', {
+        'username': username,
+        'password': password,
+        'nombre': ownerName,
+        'rol': 'admin',
+        'empresa_id': empresaId,
+        'activo': 1,
+      });
+
+      // 3. Poblar Inventario para esta empresa específica
+      final items = InventoryInitializer.getItemsFor(businessType);
+      final random = Random();
+
+      for (var item in items) {
+        double costoBase = (random.nextDouble() * 50) + 5;
+        double precioVenta = costoBase * 1.3;
+        
+        await txn.insert('productos', {
+          'codigo': item['codigo'],
+          'nombre': item['nombre'],
+          'precio': double.parse(precioVenta.toStringAsFixed(2)),
+          'costo': double.parse(costoBase.toStringAsFixed(2)),
+          'stock': random.nextInt(101),
+          'stock_minimo': 10,
+          'categoria': 'General',
+          'empresa_id': empresaId,
+        });
+      }
+
+      return empresaId;
+    });
   }
 
-  // --- MÉTODOS PARA PRODUCTOS ---
-
-  Future<int> createProducto(Producto producto) async {
-    final db = await instance.database;
-    return await db.insert('productos', producto.toMap());
+  Future<void> populateInventory(String businessType) async {
+    // Este método queda depreciado por registerFullBusiness pero lo mantenemos por compatibilidad si es necesario
+    print('ADVERTENCIA: Usar registerFullBusiness para nueva estructura.');
   }
+
+  // --- MÉTODOS FILTRADOS POR EMPRESA (Ejemplos) ---
 
   Future<List<Producto>> readAllProductos() async {
     final db = await instance.database;
-    final result = await db.query('productos', orderBy: 'nombre ASC');
+    final prefs = await SharedPreferences.getInstance();
+    final empresaId = prefs.getInt('empresa_id') ?? -1;
+
+    final result = await db.query(
+      'productos', 
+      where: 'empresa_id = ?', 
+      whereArgs: [empresaId],
+      orderBy: 'nombre ASC'
+    );
     return result.map((json) => Producto.fromMap(json)).toList();
+  }
+
+  Future<Producto?> readProductoByCodigo(String codigo) async {
+    final db = await instance.database;
+    final maps = await db.query(
+      'productos',
+      where: 'codigo = ?',
+      whereArgs: [codigo],
+    );
+
+    if (maps.isNotEmpty) {
+      return Producto.fromMap(maps.first);
+    }
+    return null;
   }
 
   Future<Producto?> readProducto(int id) async {

@@ -176,49 +176,41 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Expanded(
-                                  flex: 1,
-                                  child: wrapWithModel(
-                                    model: _model.historyStatModel1,
-                                    updateCallback: () => safeSetState(() {}),
-                                    child: HistoryStatWidget(
-                                      icon: Icon(
-                                        Icons.payments_rounded,
-                                        color: FlutterFlowTheme.of(context)
-                                            .success,
-                                        size: 20,
+                            Container(
+                              width: double.infinity,
+                              padding: const EdgeInsets.all(16),
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context).secondaryBackground,
+                                borderRadius: BorderRadius.circular(24),
+                                border: Border.all(color: FlutterFlowTheme.of(context).alternate),
+                              ),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text('Ventas Hoy', style: FlutterFlowTheme.of(context).labelMedium),
+                                      Text('Bs. 4.250,00', 
+                                        style: FlutterFlowTheme.of(context).headlineSmall.copyWith(
+                                          fontWeight: FontWeight.bold,
+                                          color: FlutterFlowTheme.of(context).success,
+                                        ),
                                       ),
-                                      label: 'Ventas Hoy',
-                                      tone:
-                                      FlutterFlowTheme.of(context).success,
-                                      value: 'Bs. 4.250,00',
-                                    ),
+                                    ],
                                   ),
-                                ),
-                                Expanded(
-                                  flex: 1,
-                                  child: wrapWithModel(
-                                    model: _model.historyStatModel2,
-                                    updateCallback: () => safeSetState(() {}),
-                                    child: HistoryStatWidget(
-                                      icon: Icon(
-                                        Icons.help,
-                                        color: FlutterFlowTheme.of(context)
-                                            .success,
-                                        size: 20,
+                                  const SizedBox(height: 12),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text('Transacciones', style: FlutterFlowTheme.of(context).labelMedium),
+                                      Text('24', 
+                                        style: FlutterFlowTheme.of(context).titleMedium.copyWith(fontWeight: FontWeight.bold),
                                       ),
-                                      label: 'Transacciones',
-                                      tone: FlutterFlowTheme.of(context).info,
-                                      value: '24',
-                                    ),
+                                    ],
                                   ),
-                                ),
-                              ].divide(SizedBox(width: 16)),
+                                ],
+                              ),
                             ),
                             Row(
                               mainAxisSize: MainAxisSize.max,

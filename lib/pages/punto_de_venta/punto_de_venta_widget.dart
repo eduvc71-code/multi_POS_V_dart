@@ -10,6 +10,10 @@ import 'package:multi_p_o_s/pages/panel_principal/panel_principal_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widget_previews.dart';
 import 'package:multi_p_o_s/models/producto_model.dart';
+import 'package:mobile_scanner/mobile_scanner.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:multi_p_o_s/database/database_helper.dart';
+import 'package:multi_p_o_s/database/inventory_initializer.dart';
 
 import 'punto_de_venta_model.dart';
 export 'punto_de_venta_model.dart';
@@ -66,6 +70,81 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
       );
     } else {
       setState(() {});
+    }
+  }
+
+  Future<void> _handleScan() async {
+    final code = await showDialog<String>(
+      context: context,
+      builder: (context) => Scaffold(
+        appBar: AppBar(
+          title: const Text('Escanear para Vender'),
+          leading: IconButton(
+            icon: const Icon(Icons.close),
+            onPressed: () => Navigator.pop(context),
+          ),
+        ),
+        body: MobileScanner(
+          onDetect: (capture) {
+            final List<Barcode> barcodes = capture.barcodes;
+            if (barcodes.isNotEmpty) {
+              final String? code = barcodes.first.rawValue;
+              if (code != null) {
+                Navigator.pop(context, code);
+              }
+            }
+          },
+        ),
+      ),
+    );
+
+    if (code != null && code.isNotEmpty) {
+      // 1. Buscar en DB local
+      final productoDb = await DatabaseHelper.instance.readProductoByCodigo(code);
+      if (productoDb != null) {
+        _handleAddToCart(productoDb);
+      } else {
+        // 2. Buscar en "Librería" según tipo de empresa
+        final prefs = await SharedPreferences.getInstance();
+        final businessType = prefs.getString('selectedBusinessType') ?? 'Tienda';
+        final productLib = InventoryInitializer.lookupProductInLibrary(code, businessType);
+        
+        if (productLib != null) {
+          final confirm = await showDialog<bool>(
+            context: context,
+            builder: (context) => AlertDialog(
+              title: const Text('Producto de Librería'),
+              content: Text('Se encontró "${productLib['nombre']}" en la librería de $businessType.\n\n¿Desea agregarlo al inventario y a la venta actual?'),
+              actions: [
+                TextButton(onPressed: () => Navigator.pop(context, false), child: const Text('Cancelar')),
+                ElevatedButton(
+                  onPressed: () => Navigator.pop(context, true), 
+                  child: const Text('Agregar y Vender')
+                ),
+              ],
+            ),
+          );
+
+          if (confirm == true) {
+            final nuevoProducto = Producto(
+              nombre: productLib['nombre'],
+              codigo: code,
+              costo: 0.0,
+              precio: 0.0,
+              stock: 1, // Agregar con 1 de stock para la venta
+              stockMinimo: 5,
+            );
+            await DatabaseHelper.instance.createProducto(nuevoProducto);
+            // Volver a leer para tener el ID
+            final p = await DatabaseHelper.instance.readProductoByCodigo(code);
+            if (p != null) _handleAddToCart(p);
+          }
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Código $code no encontrado en inventario ni en librería.')),
+          );
+        }
+      }
     }
   }
 
@@ -180,9 +259,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                   color: FlutterFlowTheme.of(context).primary,
                                   size: 24,
                                 ),
-                                onPressed: () {
-                                  debugPrint('IconButton pressed ...');
-                                },
+                                onPressed: _handleScan,
                               ),
                               FlutterFlowIconButton(
                                 borderRadius: 8,

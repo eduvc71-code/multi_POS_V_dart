@@ -10,6 +10,9 @@ import 'package:multi_p_o_s/components/bottom_nav_child2/bottom_nav_child2_widge
 import 'package:flutter/material.dart';
 import 'package:flutter/widget_previews.dart';
 import 'package:pluto_grid/pluto_grid.dart';
+import 'package:mobile_scanner/mobile_scanner.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:multi_p_o_s/database/inventory_initializer.dart';
 
 import 'inventario_de_productos_model.dart';
 export 'inventario_de_productos_model.dart';
@@ -138,16 +141,21 @@ class _InventarioDeProductosWidgetState
   }
 
   Future<void> _showAddProductDialog() async {
-    final nombreController = TextEditingController();
-    final codigoController = TextEditingController();
-    final costoController = TextEditingController();
-    final precioController = TextEditingController();
-    final stockController = TextEditingController();
+    _showAddProductDialogWithData({});
+  }
+
+  Future<void> _showAddProductDialogWithData(Map<String, dynamic> data) async {
+    final nombreController = TextEditingController(text: data['nombre'] ?? '');
+    final codigoController = TextEditingController(text: data['codigo'] ?? '');
+    final costoController = TextEditingController(text: (data['costo'] ?? '').toString());
+    final precioController = TextEditingController(text: (data['precio'] ?? '').toString());
+    final stockController = TextEditingController(text: (data['stock'] ?? '0').toString());
 
     final result = await showDialog<Producto>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Nuevo Producto', style: TextStyle(fontWeight: FontWeight.bold)),
+        title: Text(data.isEmpty ? 'Nuevo Producto' : 'Cargar desde Librería', 
+          style: const TextStyle(fontWeight: FontWeight.bold)),
         content: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -173,7 +181,7 @@ class _InventarioDeProductosWidgetState
                 stockMinimo: 10,
               ));
             },
-            child: const Text('Crear'),
+            child: Text(data.isEmpty ? 'Crear' : 'Agregar'),
           ),
         ],
       ),
@@ -182,6 +190,56 @@ class _InventarioDeProductosWidgetState
     if (result != null) {
       await DatabaseHelper.instance.createProducto(result);
       await _loadData();
+    }
+  }
+
+  Future<void> _handleScan() async {
+    final code = await showDialog<String>(
+      context: context,
+      builder: (context) => Scaffold(
+        appBar: AppBar(
+          title: const Text('Escanear Producto'),
+          leading: IconButton(
+            icon: const Icon(Icons.close),
+            onPressed: () => Navigator.pop(context),
+          ),
+        ),
+        body: MobileScanner(
+          onDetect: (capture) {
+            final List<Barcode> barcodes = capture.barcodes;
+            if (barcodes.isNotEmpty) {
+              final String? code = barcodes.first.rawValue;
+              if (code != null) {
+                Navigator.pop(context, code);
+              }
+            }
+          },
+        ),
+      ),
+    );
+
+    if (code != null && code.isNotEmpty) {
+      // 1. Buscar en DB local
+      final productoDb = await DatabaseHelper.instance.readProductoByCodigo(code);
+      if (productoDb != null) {
+        _onSearchChanged(code); // Filtrar la grilla para mostrar el producto
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Producto en inventario: ${productoDb.nombre}')),
+        );
+      } else {
+        // 2. Buscar en "Librería" según tipo de empresa
+        final prefs = await SharedPreferences.getInstance();
+        final businessType = prefs.getString('selectedBusinessType') ?? 'Tienda';
+        final productLib = InventoryInitializer.lookupProductInLibrary(code, businessType);
+        
+        if (productLib != null) {
+          _showAddProductDialogWithData(productLib);
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Código $code no encontrado en la librería de $businessType')),
+          );
+        }
+      }
     }
   }
 
@@ -358,7 +416,7 @@ class _InventarioDeProductosWidgetState
                                 buttonSize: 40,
                                 fillColor: FlutterFlowTheme.of(context).primary,
                                 icon: const Icon(Icons.qr_code_scanner_rounded, color: Colors.white, size: 24),
-                                onPressed: () => debugPrint('QR pressed'),
+                                onPressed: _handleScan,
                               ),
                             ],
                           ),

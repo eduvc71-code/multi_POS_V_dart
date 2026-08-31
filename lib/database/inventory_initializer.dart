@@ -72,4 +72,12 @@ class InventoryInitializer {
         return [];
     }
   }
+
+  static Map<String, dynamic>? lookupProductInLibrary(String codigo, String businessType) {
+    final items = getItemsFor(businessType);
+    for (var item in items) {
+      if (item['codigo'] == codigo) return item;
+    }
+    return null;
+  }
 }

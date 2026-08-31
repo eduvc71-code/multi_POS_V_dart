@@ -1,7 +1,9 @@
 import 'dart:async';
+import 'dart:math';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import '../models/producto_model.dart';
+import 'inventory_initializer.dart';
 
 class DatabaseHelper {
   static final DatabaseHelper instance = DatabaseHelper._init();
@@ -21,9 +23,24 @@ class DatabaseHelper {
 
     return await openDatabase(
       path,
-      version: 1,
+      version: 4,
       onCreate: _createDB,
+      onUpgrade: _upgradeDB,
     );
+  }
+
+  Future _upgradeDB(Database db, int oldVersion, int newVersion) async {
+    if (oldVersion < 4) {
+      print('Actualizando DB a versión $newVersion...');
+      // Para desarrollo, simplemente borramos y recreamos si el esquema cambia
+      await db.execute('DROP TABLE IF EXISTS usuarios');
+      await db.execute('DROP TABLE IF EXISTS productos');
+      await db.execute('DROP TABLE IF EXISTS clientes');
+      await db.execute('DROP TABLE IF EXISTS ventas');
+      await db.execute('DROP TABLE IF EXISTS ventas_detalle');
+      await db.execute('DROP TABLE IF EXISTS movimientos_caja');
+      await _createDB(db, newVersion);
+    }
   }
 
   Future _createDB(Database db, int version) async {
@@ -55,6 +72,7 @@ class DatabaseHelper {
         precio $realType,
         costo $realType,
         stock $integerType,
+        stock_minimo $integerType DEFAULT 5,
         categoria $textNullable,
         imagen $textNullable
       )
@@ -118,21 +136,48 @@ class DatabaseHelper {
     // Insertar un usuario administrador por defecto
     await db.insert('usuarios', {
       'username': 'admin',
-      'password': 'admin123', // En un futuro usaremos hashing
+      'password': 'admin123',
       'nombre': 'Administrador',
       'rol': 'admin',
       'activo': 1
     });
+  }
 
-    // Insertar algunos productos de ejemplo para pruebas
-    await db.insert('productos', {
-      'codigo': 'MOT-001',
-      'nombre': 'Aceite de Motor 20W-50',
-      'precio': 85.0,
-      'costo': 60.0,
-      'stock': 12,
-      'categoria': 'Aceites'
-    });
+  Future<void> clearDatabase() async {
+    print('Limpiando base de datos...');
+    final db = await instance.database;
+    await db.delete('productos');
+    await db.delete('clientes');
+    await db.delete('ventas');
+    await db.delete('ventas_detalle');
+    await db.delete('movimientos_caja');
+    print('Base de datos limpia.');
+  }
+
+  Future<void> populateInventory(String businessType) async {
+    print('Poblando inventario para: $businessType');
+    final db = await instance.database;
+    final items = InventoryInitializer.getItemsFor(businessType);
+    final random = Random();
+
+    for (var item in items) {
+      // Generar precios y stock aleatorios para pruebas
+      double costoBase = (random.nextDouble() * 50) + 5; // Costo entre 5 y 55
+      double precioVenta = costoBase * 1.3; // Margen del 30%
+      int stockAleatorio = random.nextInt(101); // Stock entre 0 y 100
+      int stockMinimo = 10; // Stock mínimo estándar para alertas
+
+      await db.insert('productos', {
+        'codigo': item['codigo'],
+        'nombre': item['nombre'],
+        'precio': double.parse(precioVenta.toStringAsFixed(2)),
+        'costo': double.parse(costoBase.toStringAsFixed(2)),
+        'stock': stockAleatorio,
+        'stock_minimo': stockMinimo,
+        'categoria': 'General'
+      });
+    }
+    print('Inventario poblado exitosamente.');
   }
 
   // --- MÉTODOS PARA PRODUCTOS ---
@@ -152,7 +197,17 @@ class DatabaseHelper {
     final db = await instance.database;
     final maps = await db.query(
       'productos',
-      columns: ['id', 'codigo', 'nombre', 'precio', 'costo', 'stock', 'categoria', 'imagen'],
+      columns: [
+        'id',
+        'codigo',
+        'nombre',
+        'precio',
+        'costo',
+        'stock',
+        'stock_minimo',
+        'categoria',
+        'imagen'
+      ],
       where: 'id = ?',
       whereArgs: [id],
     );

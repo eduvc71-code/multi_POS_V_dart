@@ -1,17 +1,23 @@
-import 'package:multi_p_o_s/components/bottom_nav/bottom_nav_widget.dart';
-import 'package:multi_p_o_s/components/bottom_nav_child3/bottom_nav_child3_widget.dart';
-import 'package:multi_p_o_s/components/button/button_widget.dart';
-import 'package:multi_p_o_s/components/client_card/client_card_widget.dart';
-import 'package:multi_p_o_s/components/credit_stat/credit_stat_widget.dart';
-import 'package:multi_p_o_s/components/text_field/text_field_widget.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_icon_button.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_widgets.dart';
+import 'package:multi_p_o_s/components/credit_stat/credit_stat_widget.dart';
+import 'package:multi_p_o_s/components/text_field/text_field_widget.dart';
+import 'package:multi_p_o_s/components/client_card/client_card_widget.dart';
+import 'package:multi_p_o_s/components/button/button_widget.dart';
+import 'package:multi_p_o_s/components/bottom_nav/bottom_nav_widget.dart';
+import 'package:multi_p_o_s/components/bottom_nav_child3/bottom_nav_child3_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widget_previews.dart';
 
 import 'clientes_y_cr_ditos_model.dart';
 export 'clientes_y_cr_ditos_model.dart';
+
+@Preview()
+Widget previewClientesYCreditos() {
+  return const ClientesYCreditosWidget();
+}
 
 class ClientesYCreditosWidget extends StatefulWidget {
   const ClientesYCreditosWidget({super.key});
@@ -104,9 +110,7 @@ class _ClientesYCreditosWidgetState extends State<ClientesYCreditosWidget> {
                                         .bodySmall
                                         .copyWith(
                                           fontFamily: "Poppins",
-                                          color: FlutterFlowTheme.of(
-                                            context,
-                                          ).secondaryText,
+                                          color: Colors.black,
                                           letterSpacing: 0.0,
                                           fontWeight: FlutterFlowTheme.of(
                                             context,
@@ -148,7 +152,6 @@ class _ClientesYCreditosWidgetState extends State<ClientesYCreditosWidget> {
                               trailingIconPresent: false,
                               hint: 'Buscar por nombre o QR...',
                               value: '',
-                              onChange: '',
                               onSubmit: '',
                               variant: 'filled',
                               error: false,

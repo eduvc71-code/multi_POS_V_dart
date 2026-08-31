@@ -2,9 +2,19 @@ import 'package:multi_p_o_s/flutter_flow/flutter_flow_icon_button.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widget_previews.dart';
 
 import 'cart_item_model.dart';
 export 'cart_item_model.dart';
+
+@Preview()
+Widget previewCartItem() {
+  return const CartItemWidget(
+    name: 'Aceite de Motor 20W-50',
+    qty: '2',
+    subtotal: '170,00',
+  );
+}
 
 class CartItemWidget extends StatefulWidget {
   const CartItemWidget({
@@ -114,7 +124,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                     fillColor: Colors.transparent,
                     icon: Icon(
                       Icons.remove_circle_outline_rounded,
-                      color: FlutterFlowTheme.of(context).secondaryText,
+                      color: Colors.black,
                       size: 20,
                     ),
                     onPressed: () {

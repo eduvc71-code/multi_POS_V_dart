@@ -1,9 +1,20 @@
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widget_previews.dart';
 
 import 'inventory_stat_model.dart';
 export 'inventory_stat_model.dart';
+
+@Preview()
+Widget previewInventoryStat() {
+  return const InventoryStatWidget(
+    label: 'Productos en Stock',
+    value: '1.284',
+    icon: Icon(Icons.inventory_2_rounded, color: Colors.white, size: 20),
+    color: Color(0xFF0066FF),
+  );
+}
 
 class InventoryStatWidget extends StatefulWidget {
   const InventoryStatWidget({
@@ -91,7 +102,7 @@ class _InventoryStatWidgetState extends State<InventoryStatWidget> {
                   ),
                   style: FlutterFlowTheme.of(context).labelSmall.copyWith(
                         fontFamily: "Space Grotesk",
-                        color: FlutterFlowTheme.of(context).secondaryText,
+                        color: Colors.black,
                         letterSpacing: 0.0,
                         fontWeight: FlutterFlowTheme.of(context).labelSmall.fontWeight,
                         height: 1.2,

@@ -117,8 +117,7 @@ class _MovementItemWidgetState extends State<MovementItemWidget> {
                               .labelSmall
                               .copyWith(
                                 fontFamily: "Space Grotesk",
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
+                                color: Colors.black,
                                 letterSpacing: 0.0,
                                 fontWeight: FlutterFlowTheme.of(context).labelSmall.fontWeight,
                                 height: 1.2,

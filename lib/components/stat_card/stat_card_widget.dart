@@ -1,9 +1,22 @@
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widget_previews.dart';
 
 import 'stat_card_model.dart';
 export 'stat_card_model.dart';
+
+@Preview()
+Widget previewStatCard() {
+  return const StatCardWidget(
+    icon: Icon(Icons.trending_up, color: Colors.white, size: 24),
+    label: 'Ventas del Día',
+    value: 'Bs. 4.850,00',
+    isUp: true,
+    trend: '+15%',
+    tone: Color(0xFF0066FF),
+  );
+}
 
 class StatCardWidget extends StatefulWidget {
   const StatCardWidget({
@@ -108,7 +121,7 @@ class _StatCardWidgetState extends State<StatCardWidget> {
                   widget.label,
                   style: FlutterFlowTheme.of(context).labelMedium.copyWith(
                         fontFamily: "Space Grotesk",
-                        color: FlutterFlowTheme.of(context).secondaryText,
+                        color: Colors.black,
                         letterSpacing: 0.0,
                         fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
                         height: 1.3,

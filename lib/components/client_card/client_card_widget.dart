@@ -2,9 +2,19 @@ import 'package:multi_p_o_s/flutter_flow/flutter_flow_icon_button.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widget_previews.dart';
 
 import 'client_card_model.dart';
 export 'client_card_model.dart';
+
+@Preview()
+Widget previewClientCard() {
+  return const ClientCardWidget(
+    name: 'Juan Pérez',
+    debt: 'Bs. 450,00',
+    isOverdue: false,
+  );
+}
 
 class ClientCardWidget extends StatefulWidget {
   const ClientCardWidget({
@@ -116,7 +126,7 @@ class _ClientCardWidgetState extends State<ClientCardWidget> {
                         'Deuda:',
                         style: FlutterFlowTheme.of(context).bodySmall.copyWith(
                               fontFamily: "Poppins",
-                              color: FlutterFlowTheme.of(context).secondaryText,
+                              color: Colors.black,
                               letterSpacing: 0.0,
                               fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
                               height: 1.4,
@@ -164,7 +174,7 @@ class _ClientCardWidgetState extends State<ClientCardWidget> {
                   'Ver detalle',
                   style: FlutterFlowTheme.of(context).labelSmall.copyWith(
                         fontFamily: "Space Grotesk",
-                        color: FlutterFlowTheme.of(context).secondaryText,
+                        color: Colors.black,
                         letterSpacing: 0.0,
                         fontWeight: FlutterFlowTheme.of(context).labelSmall.fontWeight,
                         height: 1.2,

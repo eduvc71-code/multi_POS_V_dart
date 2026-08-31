@@ -1,9 +1,5 @@
-import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
-import 'package:multi_p_o_s/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 import 'chart_legend_model.dart';
 export 'chart_legend_model.dart';
@@ -24,19 +20,19 @@ class ChartLegendWidget extends StatefulWidget {
     double? labelMaxWidth,
     String? direction,
     String? valueMode,
-  })  : this.data = data ?? 'SlotValue(\$data)',
-        this.labels = labels ?? 'SlotValue(\$labels)',
-        this.colors = colors ?? 'SlotValue(\$colors)',
-        this.markerSize = markerSize ?? 8.0,
-        this.spacing = spacing ?? 6.0,
-        this.runSpacing = runSpacing ?? 8.0,
-        this.labelColor = labelColor ?? const Color(0x00000000),
-        this.valueColor = valueColor ?? const Color(0x00000000),
-        this.textStyle = textStyle ?? 'label_small',
-        this.valueStyle = valueStyle ?? 'label_small',
-        this.labelMaxWidth = labelMaxWidth ?? 0.0,
-        this.direction = direction ?? 'vertical',
-        this.valueMode = valueMode ?? 'percent';
+  })  : data = data ?? 'SlotValue($data)',
+        labels = labels ?? 'SlotValue($labels)',
+        colors = colors ?? 'SlotValue($colors)',
+        markerSize = markerSize ?? 8.0,
+        spacing = spacing ?? 6.0,
+        runSpacing = runSpacing ?? 8.0,
+        labelColor = labelColor ?? const Color(0x00000000),
+        valueColor = valueColor ?? const Color(0x00000000),
+        textStyle = textStyle ?? 'label_small',
+        valueStyle = valueStyle ?? 'label_small',
+        labelMaxWidth = labelMaxWidth ?? 0.0,
+        direction = direction ?? 'vertical',
+        valueMode = valueMode ?? 'percent';
 
   final String data;
   final String labels;

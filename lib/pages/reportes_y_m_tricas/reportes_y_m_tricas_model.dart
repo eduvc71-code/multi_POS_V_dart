@@ -1,18 +1,10 @@
-import 'package:multi_p_o_s/components/bottom_nav/bottom_nav_widget.dart';
-import 'package:multi_p_o_s/components/bottom_nav_child4/bottom_nav_child4_widget.dart';
+import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
 import 'package:multi_p_o_s/components/button/button_widget.dart';
 import 'package:multi_p_o_s/components/metric_card/metric_card_widget.dart';
 import 'package:multi_p_o_s/components/pie_chart/pie_chart_widget.dart';
-import 'package:multi_p_o_s/flutter_flow/flutter_flow_charts.dart';
-import 'package:multi_p_o_s/flutter_flow/flutter_flow_icon_button.dart';
-import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
-import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
-import 'package:multi_p_o_s/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
+import 'package:multi_p_o_s/components/bottom_nav/bottom_nav_widget.dart';
 import 'reportes_y_m_tricas_widget.dart' show ReportesYMetricasWidget;
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 class ReportesYMetricasModel extends FlutterFlowModel<ReportesYMetricasWidget> {
   ///  State fields for stateful widgets in this page.

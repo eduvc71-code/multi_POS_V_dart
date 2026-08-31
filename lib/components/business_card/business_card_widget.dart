@@ -159,7 +159,7 @@ class _BusinessCardWidgetState extends State<BusinessCardWidget> {
                       ),
                       style: FlutterFlowTheme.of(context).labelSmall.copyWith(
                             fontFamily: "Space Grotesk",
-                            color: FlutterFlowTheme.of(context).secondaryText,
+                            color: Colors.black,
                             letterSpacing: 0.0,
                             fontWeight: FlutterFlowTheme.of(context).labelSmall.fontWeight,
                             height: 1.2,

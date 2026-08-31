@@ -1,9 +1,19 @@
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widget_previews.dart';
 
 import 'quick_action_model.dart';
 export 'quick_action_model.dart';
+
+@Preview()
+Widget previewQuickAction() {
+  return const QuickActionWidget(
+    icon: Icon(Icons.add_shopping_cart_rounded, color: Colors.white, size: 28),
+    label: 'Vender',
+    tone: Color(0xFF0066FF),
+  );
+}
 
 class QuickActionWidget extends StatefulWidget {
   const QuickActionWidget({

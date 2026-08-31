@@ -1,9 +1,20 @@
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widget_previews.dart';
 
 import 'settings_tile_model.dart';
 export 'settings_tile_model.dart';
+
+@Preview()
+Widget previewSettingsTile() {
+  return const SettingsTileWidget(
+    title: 'Mi Perfil',
+    subtitle: 'Gestiona tu información personal',
+    icon: Icon(Icons.person_outline_rounded, color: Color(0xFF0066FF), size: 24),
+    iconBg: Color(0x330066FF),
+  );
+}
 
 class SettingsTileWidget extends StatefulWidget {
   const SettingsTileWidget({
@@ -112,7 +123,7 @@ class _SettingsTileWidgetState extends State<SettingsTileWidget> {
                       widget.subtitle,
                       style: FlutterFlowTheme.of(context).labelSmall.copyWith(
                             fontFamily: "Space Grotesk",
-                            color: FlutterFlowTheme.of(context).secondaryText,
+                            color: Colors.black,
                             letterSpacing: 0.0,
                             fontWeight: FlutterFlowTheme.of(context).labelSmall.fontWeight,
                             height: 1.2,
@@ -123,7 +134,7 @@ class _SettingsTileWidgetState extends State<SettingsTileWidget> {
               ),
               Icon(
                 Icons.chevron_right_rounded,
-                color: FlutterFlowTheme.of(context).secondaryText,
+                color: Colors.black,
                 size: 24,
               ),
             ].divide(const SizedBox(width: 16)),

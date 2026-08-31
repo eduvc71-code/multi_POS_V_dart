@@ -118,7 +118,7 @@ class _ProductSearchItemWidgetState extends State<ProductSearchItemWidget> {
                     ),
                     style: FlutterFlowTheme.of(context).labelSmall.copyWith(
                           fontFamily: "Space Grotesk",
-                          color: FlutterFlowTheme.of(context).secondaryText,
+                          color: Colors.black,
                           fontWeight: FlutterFlowTheme.of(context).labelSmall.fontWeight,
                           height: 1.2,
                         ),
@@ -150,7 +150,7 @@ class _ProductSearchItemWidgetState extends State<ProductSearchItemWidget> {
                   ),
                   style: FlutterFlowTheme.of(context).labelSmall.copyWith(
                         fontFamily: "Space Grotesk",
-                        color: FlutterFlowTheme.of(context).secondaryText,
+                        color: Colors.black,
                         fontWeight: FlutterFlowTheme.of(context).labelSmall.fontWeight,
                         height: 1.2,
                       ),

@@ -1,9 +1,21 @@
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widget_previews.dart';
 
 import 'text_field_model.dart';
 export 'text_field_model.dart';
+
+@Preview()
+Widget previewTextField() {
+  return const TextFieldWidget(
+    label: 'Correo Electrónico',
+    labelPresent: true,
+    hint: 'ejemplo@correo.com',
+    leadingIcon: Icon(Icons.email_outlined, size: 20),
+    leadingIconPresent: true,
+  );
+}
 
 class TextFieldWidget extends StatefulWidget {
   const TextFieldWidget({
@@ -18,7 +30,7 @@ class TextFieldWidget extends StatefulWidget {
     bool? trailingIconPresent,
     String? hint,
     String? value,
-    String? onChange,
+    this.onChange,
     String? onSubmit,
     String? variant,
     bool? error,
@@ -30,7 +42,6 @@ class TextFieldWidget extends StatefulWidget {
        trailingIconPresent = trailingIconPresent ?? false,
        hint = hint ?? 'SlotValue($hint)',
        value = value ?? '',
-       onChange = onChange ?? '',
        onSubmit = onSubmit ?? '',
        variant = variant ?? 'outlined',
        error = error ?? false;
@@ -45,7 +56,7 @@ class TextFieldWidget extends StatefulWidget {
   final bool trailingIconPresent;
   final String hint;
   final String value;
-  final String onChange;
+  final void Function(String)? onChange;
   final String onSubmit;
   final String variant;
   final bool error;
@@ -69,6 +80,11 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
     _model = createModel(context, () => TextFieldModel());
 
     _model.inputTextController ??= TextEditingController(text: widget.value);
+    _model.inputTextController?.addListener(() {
+      if (widget.onChange != null) {
+        widget.onChange!(_model.inputTextController!.text);
+      }
+    });
     _model.inputFocusNode ??= FocusNode();
   }
 
@@ -168,7 +184,7 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
                       hintStyle: FlutterFlowTheme.of(context).bodyMedium
                           .copyWith(
                             fontFamily: "Poppins",
-                            color: FlutterFlowTheme.of(context).secondaryText,
+                            color: Colors.black,
                             letterSpacing: 0.0,
                             fontWeight: FlutterFlowTheme.of(
                               context,

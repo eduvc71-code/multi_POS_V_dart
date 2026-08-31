@@ -1,9 +1,22 @@
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widget_previews.dart';
 
 import 'sale_row_model.dart';
 export 'sale_row_model.dart';
+
+@Preview()
+Widget previewSaleRowCompleted() {
+  return const SaleRowWidget(
+    folio: 'F-2041',
+    total: '150,00',
+    time: '10:45',
+    method: 'Efectivo',
+    status: 'completada',
+    statusColor: Color(0xFF24D193),
+  );
+}
 
 class SaleRowWidget extends StatefulWidget {
   const SaleRowWidget({
@@ -143,7 +156,7 @@ class _SaleRowWidgetState extends State<SaleRowWidget> {
                             widget.time,
                             style: FlutterFlowTheme.of(context).bodySmall.copyWith(
                                   fontFamily: "Poppins",
-                                  color: FlutterFlowTheme.of(context).secondaryText,
+                                  color: Colors.black,
                                   letterSpacing: 0.0,
                                   fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
                                   height: 1.4,
@@ -153,7 +166,7 @@ class _SaleRowWidgetState extends State<SaleRowWidget> {
                             '•',
                             style: FlutterFlowTheme.of(context).bodySmall.copyWith(
                                   fontFamily: "Poppins",
-                                  color: FlutterFlowTheme.of(context).secondaryText,
+                                  color: Colors.black,
                                   letterSpacing: 0.0,
                                   fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
                                   height: 1.4,
@@ -163,7 +176,7 @@ class _SaleRowWidgetState extends State<SaleRowWidget> {
                             widget.method,
                             style: FlutterFlowTheme.of(context).bodySmall.copyWith(
                                   fontFamily: "Poppins",
-                                  color: FlutterFlowTheme.of(context).secondaryText,
+                                  color: Colors.black,
                                   letterSpacing: 0.0,
                                   fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
                                   height: 1.4,

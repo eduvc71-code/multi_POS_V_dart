@@ -1,15 +1,21 @@
-import 'package:multi_p_o_s/components/history_stat/history_stat_widget.dart';
-import 'package:multi_p_o_s/components/sale_row/sale_row_widget.dart';
-import 'package:multi_p_o_s/components/text_field/text_field_widget.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_icon_button.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_widgets.dart';
-import 'package:multi_p_o_s/index.dart';
+import 'package:multi_p_o_s/components/history_stat/history_stat_widget.dart';
+import 'package:multi_p_o_s/components/text_field/text_field_widget.dart';
+import 'package:multi_p_o_s/components/sale_row/sale_row_widget.dart';
+import 'package:multi_p_o_s/pages/panel_principal/panel_principal_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widget_previews.dart';
 
 import 'historial_de_ventas_model.dart';
 export 'historial_de_ventas_model.dart';
+
+@Preview()
+Widget previewHistorialDeVentas() {
+  return const HistorialDeVentasWidget();
+}
 
 class HistorialDeVentasWidget extends StatefulWidget {
   const HistorialDeVentasWidget({super.key});
@@ -239,7 +245,6 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
                                       trailingIconPresent: false,
                                       hint: 'Buscar por folio o cliente',
                                       value: '',
-                                      onChange: '',
                                       onSubmit: '',
                                       variant: 'filled',
                                       error: false,
@@ -263,8 +268,7 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
                                   alignment: AlignmentDirectional(0, 0),
                                   child: Icon(
                                     Icons.calendar_today_rounded,
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryText,
+                                    color: Colors.black,
                                     size: 24,
                                   ),
                                 ),
@@ -481,8 +485,7 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
                                       .labelMedium
                                       .copyWith(
                                     fontFamily: "Space Grotesk",
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryText,
+                                    color: Colors.black,
                                     letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -548,8 +551,7 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
                                       .labelMedium
                                       .copyWith(
                                     fontFamily: "Space Grotesk",
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryText,
+                                    color: Colors.black,
                                     letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .labelMedium

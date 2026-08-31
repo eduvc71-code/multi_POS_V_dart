@@ -1,9 +1,19 @@
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widget_previews.dart';
 
 import 'credit_stat_model.dart';
 export 'credit_stat_model.dart';
+
+@Preview()
+Widget previewCreditStat() {
+  return const CreditStatWidget(
+    label: 'Por Cobrar',
+    value: 'Bs. 12.450,00',
+    icon: Icon(Icons.account_balance_wallet_rounded, color: Color(0xFF0066FF), size: 24),
+  );
+}
 
 class CreditStatWidget extends StatefulWidget {
   const CreditStatWidget({
@@ -79,7 +89,7 @@ class _CreditStatWidgetState extends State<CreditStatWidget> {
                   ),
                   style: FlutterFlowTheme.of(context).labelSmall.copyWith(
                         fontFamily: "Space Grotesk",
-                        color: FlutterFlowTheme.of(context).secondaryText,
+                        color: Colors.black,
                         letterSpacing: 0.0,
                         fontWeight: FlutterFlowTheme.of(context).labelSmall.fontWeight,
                         height: 1.2,

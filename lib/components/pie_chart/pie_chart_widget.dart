@@ -3,9 +3,20 @@ import 'package:multi_p_o_s/flutter_flow/flutter_flow_charts.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widget_previews.dart';
 
 import 'pie_chart_model.dart';
 export 'pie_chart_model.dart';
+
+@Preview()
+Widget previewPieChart() {
+  return const PieChartWidget(
+    centerValue: 'Bs. 4.850',
+    centerLabel: 'Total Hoy',
+    data: '50,25,15,10',
+    labels: 'Efectivo,Tarjeta,Transferencia,Crédito',
+  );
+}
 
 class PieChartWidget extends StatefulWidget {
   const PieChartWidget({
@@ -192,7 +203,7 @@ class _PieChartWidgetState extends State<PieChartWidget> {
                         textAlign: TextAlign.center,
                         style: FlutterFlowTheme.of(context).labelSmall.copyWith(
                               fontFamily: "Space Grotesk",
-                              color: FlutterFlowTheme.of(context).secondaryText,
+                              color: Colors.black,
                               letterSpacing: 0.0,
                               fontWeight: FlutterFlowTheme.of(context).labelSmall.fontWeight,
                               height: 1.2,
@@ -213,7 +224,7 @@ class _PieChartWidgetState extends State<PieChartWidget> {
                   spacing: 6.0,
                   runSpacing: 8.0,
                   labelColor: FlutterFlowTheme.of(context).primaryText,
-                  valueColor: FlutterFlowTheme.of(context).secondaryText,
+                  valueColor: Colors.black,
                   textStyle: 'label_small',
                   valueStyle: 'label_small',
                   labelMaxWidth: 0.0,
@@ -235,7 +246,7 @@ class _PieChartWidgetState extends State<PieChartWidget> {
             spacing: 6.0,
             runSpacing: 8.0,
             labelColor: FlutterFlowTheme.of(context).primaryText,
-            valueColor: FlutterFlowTheme.of(context).secondaryText,
+            valueColor: Colors.black,
             textStyle: 'label_small',
             valueStyle: 'label_small',
             labelMaxWidth: 0.0,

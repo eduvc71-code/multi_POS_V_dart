@@ -2,12 +2,23 @@ import 'package:multi_p_o_s/flutter_flow/flutter_flow_charts.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_icon_button.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
-import 'package:multi_p_o_s/index.dart';
+import 'package:multi_p_o_s/flutter_flow/flutter_flow_widgets.dart';
+import 'package:multi_p_o_s/components/button/button_widget.dart';
+import 'package:multi_p_o_s/components/metric_card/metric_card_widget.dart';
+import 'package:multi_p_o_s/components/pie_chart/pie_chart_widget.dart';
+import 'package:multi_p_o_s/components/bottom_nav/bottom_nav_widget.dart';
+import 'package:multi_p_o_s/components/bottom_nav_child4/bottom_nav_child4_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widget_previews.dart';
 import 'package:fl_chart/fl_chart.dart';
 
 import 'reportes_y_m_tricas_model.dart';
 export 'reportes_y_m_tricas_model.dart';
+
+@Preview()
+Widget previewReportesYMetricas() {
+  return const ReportesYMetricasWidget();
+}
 
 class ReportesYMetricasWidget extends StatefulWidget {
   const ReportesYMetricasWidget({super.key});
@@ -92,8 +103,7 @@ class _ReportesYMetricasWidgetState extends State<ReportesYMetricasWidget> {
                                     .bodySmall
                                     .copyWith(
                                   fontFamily: "Poppins",
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryText,
+                                  color: Colors.black,
                                   letterSpacing: 0.0,
                                   fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
                                   height: 1.4,
@@ -173,8 +183,7 @@ class _ReportesYMetricasWidgetState extends State<ReportesYMetricasWidget> {
                                         children: [
                                           Icon(
                                             Icons.calendar_today_rounded,
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryText,
+                                            color: Colors.black,
                                             size: 18,
                                           ),
                                           Text(
@@ -304,8 +313,7 @@ class _ReportesYMetricasWidgetState extends State<ReportesYMetricasWidget> {
                                           ),
                                           Icon(
                                             Icons.more_horiz_rounded,
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryText,
+                                            color: Colors.black,
                                             size: 24,
                                           ),
                                         ],
@@ -377,10 +385,7 @@ class _ReportesYMetricasWidgetState extends State<ReportesYMetricasWidget> {
                                                   .bodySmall
                                                   .copyWith(
                                                 fontFamily: "Poppins",
-                                                color:
-                                                FlutterFlowTheme.of(
-                                                    context)
-                                                    .secondaryText,
+                                                color: Colors.black,
                                                 fontSize: 10,
                                                 letterSpacing: 0.0,
                                                 fontWeight:
@@ -583,9 +588,7 @@ class _ReportesYMetricasWidgetState extends State<ReportesYMetricasWidget> {
                                                           .labelSmall
                                                           .copyWith(
                                                         fontFamily: "Space Grotesk",
-                                                        color: FlutterFlowTheme.of(
-                                                            context)
-                                                            .secondaryText,
+                                                        color: Colors.black,
                                                         letterSpacing:
                                                         0.0,
                                                         fontWeight: FlutterFlowTheme.of(
@@ -688,9 +691,7 @@ class _ReportesYMetricasWidgetState extends State<ReportesYMetricasWidget> {
                                                           .labelSmall
                                                           .copyWith(
                                                         fontFamily: "Space Grotesk",
-                                                        color: FlutterFlowTheme.of(
-                                                            context)
-                                                            .secondaryText,
+                                                        color: Colors.black,
                                                         letterSpacing:
                                                         0.0,
                                                         fontWeight: FlutterFlowTheme.of(

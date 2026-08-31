@@ -1,20 +1,62 @@
-import 'package:multi_p_o_s/components/button/button_widget.dart';
-import 'package:multi_p_o_s/components/cart_item/cart_item_widget.dart';
-import 'package:multi_p_o_s/components/product_search_item/product_search_item_widget.dart';
-import 'package:multi_p_o_s/components/text_field/text_field_widget.dart';
-import 'package:multi_p_o_s/flutter_flow/flutter_flow_icon_button.dart';
-import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
-import 'package:multi_p_o_s/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
-import 'package:multi_p_o_s/index.dart';
+import 'package:multi_p_o_s/database/database_helper.dart';
+import 'package:multi_p_o_s/models/producto_model.dart';
+import 'package:multi_p_o_s/components/text_field/text_field_widget.dart';
+import 'package:multi_p_o_s/components/product_search_item/product_search_item_widget.dart';
+import 'package:multi_p_o_s/components/cart_item/cart_item_widget.dart';
+import 'package:multi_p_o_s/components/button/button_widget.dart';
 import 'punto_de_venta_widget.dart' show PuntoDeVentaWidget;
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 class PuntoDeVentaModel extends FlutterFlowModel<PuntoDeVentaWidget> {
   ///  State fields for stateful widgets in this page.
+
+  List<Producto> searchResults = [];
+  Map<int, int> cart = {}; // productId -> quantity
+  List<Producto> cartProducts = [];
+  bool isLoading = false;
+
+  Future searchProducts(String query) async {
+    isLoading = true;
+    final all = await DatabaseHelper.instance.readAllProductos();
+    searchResults = all.where((p) => 
+      p.nombre.toLowerCase().contains(query.toLowerCase()) || 
+      p.codigo.contains(query)
+    ).toList();
+    isLoading = false;
+  }
+
+  String addToCart(Producto producto) {
+    int currentQty = cart[producto.id!] ?? 0;
+    if (currentQty + 1 > producto.stock) {
+      return 'Stock insuficiente para ${producto.nombre} (${producto.stock} disponibles)';
+    }
+    
+    cart[producto.id!] = currentQty + 1;
+    if (!cartProducts.any((p) => p.id == producto.id)) {
+      cartProducts.add(producto);
+    }
+    return '';
+  }
+
+  void removeFromCart(Producto producto) {
+    int currentQty = cart[producto.id!] ?? 0;
+    if (currentQty > 1) {
+      cart[producto.id!] = currentQty - 1;
+    } else {
+      cart.remove(producto.id);
+      cartProducts.removeWhere((p) => p.id == producto.id);
+    }
+  }
+
+  double get total {
+    double sum = 0;
+    cart.forEach((productId, qty) {
+      final p = cartProducts.firstWhere((p) => p.id == productId);
+      sum += p.precio * qty;
+    });
+    return sum;
+  }
 
   // Model for TextField.
   late TextFieldModel textFieldModel;

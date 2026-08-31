@@ -1,9 +1,21 @@
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widget_previews.dart';
 
 import 'product_item_model.dart';
 export 'product_item_model.dart';
+
+@Preview()
+Widget previewProductItem() {
+  return const ProductItemWidget(
+    name: 'Aceite Sintético 5W-30',
+    price: '85,00',
+    stock: '45',
+    code: 'MOT-001',
+    statusColor: Color(0xFF24D193),
+  );
+}
 
 class ProductItemWidget extends StatefulWidget {
   const ProductItemWidget({
@@ -81,7 +93,7 @@ class _ProductItemWidgetState extends State<ProductItemWidget> {
               alignment: const AlignmentDirectional(0, 0),
               child: Icon(
                 Icons.inventory_2_rounded,
-                color: FlutterFlowTheme.of(context).secondaryText,
+                color: Colors.black,
                 size: 24,
               ),
             ),
@@ -115,7 +127,7 @@ class _ProductItemWidgetState extends State<ProductItemWidget> {
                         'Código:',
                         style: FlutterFlowTheme.of(context).labelSmall.copyWith(
                               fontFamily: "Space Grotesk",
-                              color: FlutterFlowTheme.of(context).secondaryText,
+                              color: Colors.black,
                               fontWeight: FlutterFlowTheme.of(context).labelSmall.fontWeight,
                               height: 1.2,
                             ),
@@ -127,7 +139,7 @@ class _ProductItemWidgetState extends State<ProductItemWidget> {
                         ),
                         style: FlutterFlowTheme.of(context).labelSmall.copyWith(
                               fontFamily: "Space Grotesk",
-                              color: FlutterFlowTheme.of(context).secondaryText,
+                              color: Colors.black,
                               fontWeight: FontWeight.w600,
                               height: 1.2,
                             ),
@@ -178,7 +190,7 @@ class _ProductItemWidgetState extends State<ProductItemWidget> {
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.copyWith(
                             fontFamily: "Poppins",
-                            color: FlutterFlowTheme.of(context).secondaryText,
+                            color: Colors.black,
                             fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
                             height: 1.5,
                           ),

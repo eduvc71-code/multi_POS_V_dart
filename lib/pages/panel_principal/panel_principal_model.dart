@@ -1,21 +1,21 @@
-import 'package:multi_p_o_s/components/bottom_nav/bottom_nav_widget.dart';
-import 'package:multi_p_o_s/components/bottom_nav_child/bottom_nav_child_widget.dart';
-import 'package:multi_p_o_s/components/button/button_widget.dart';
+import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
+import 'package:multi_p_o_s/database/database_helper.dart';
 import 'package:multi_p_o_s/components/quick_action/quick_action_widget.dart';
 import 'package:multi_p_o_s/components/stat_card/stat_card_widget.dart';
-import 'package:multi_p_o_s/flutter_flow/flutter_flow_icon_button.dart';
-import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
-import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
-import 'package:multi_p_o_s/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
-import 'package:multi_p_o_s/index.dart';
+import 'package:multi_p_o_s/components/button/button_widget.dart';
+import 'package:multi_p_o_s/components/bottom_nav/bottom_nav_widget.dart';
 import 'panel_principal_widget.dart' show PanelPrincipalWidget;
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 class PanelPrincipalModel extends FlutterFlowModel<PanelPrincipalWidget> {
   ///  State fields for stateful widgets in this page.
+
+  int lowStockCount = 0;
+
+  Future fetchLowStockCount() async {
+    final productos = await DatabaseHelper.instance.readAllProductos();
+    lowStockCount = productos.where((p) => p.stock <= p.stockMinimo).length;
+  }
 
   // Model for QuickAction.
   late QuickActionModel quickActionModel1;

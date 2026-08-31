@@ -1,15 +1,21 @@
-import 'package:multi_p_o_s/components/button/button_widget.dart';
-import 'package:multi_p_o_s/components/cash_stat/cash_stat_widget.dart';
-import 'package:multi_p_o_s/components/movement_item/movement_item_widget.dart';
-import 'package:multi_p_o_s/components/text_field/text_field_widget.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_icon_button.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_widgets.dart';
+import 'package:multi_p_o_s/components/cash_stat/cash_stat_widget.dart';
+import 'package:multi_p_o_s/components/button/button_widget.dart';
+import 'package:multi_p_o_s/components/movement_item/movement_item_widget.dart';
+import 'package:multi_p_o_s/components/text_field/text_field_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widget_previews.dart';
 
 import 'gesti_n_de_caja_model.dart';
 export 'gesti_n_de_caja_model.dart';
+
+@Preview()
+Widget previewGestionDeCaja() {
+  return const GestionDeCajaWidget();
+}
 
 class GestionDeCajaWidget extends StatefulWidget {
   const GestionDeCajaWidget({super.key});
@@ -112,9 +118,7 @@ class _GestionDeCajaWidgetState extends State<GestionDeCajaWidget> {
                                         .labelMedium
                                         .copyWith(
                                           fontFamily: "Space Grotesk",
-                                          color: FlutterFlowTheme.of(
-                                            context,
-                                          ).onSurface,
+                                          color: Colors.black,
                                           letterSpacing: 0.0,
                                           fontWeight: FlutterFlowTheme.of(
                                             context,
@@ -132,7 +136,7 @@ class _GestionDeCajaWidgetState extends State<GestionDeCajaWidget> {
                             fillColor: Colors.transparent,
                             icon: Icon(
                               Icons.history_rounded,
-                              color: FlutterFlowTheme.of(context).secondaryText,
+                              color: Colors.black,
                               size: 24,
                             ),
                             onPressed: () {
@@ -564,7 +568,6 @@ class _GestionDeCajaWidgetState extends State<GestionDeCajaWidget> {
                                           trailingIconPresent: false,
                                           hint: 'Bs. 0,00',
                                           value: '',
-                                          onChange: '',
                                           onSubmit: '',
                                           variant: 'outlined',
                                           error: false,

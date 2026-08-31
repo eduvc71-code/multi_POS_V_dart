@@ -6,11 +6,18 @@ import 'package:multi_p_o_s/flutter_flow/flutter_flow_icon_button.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_widgets.dart';
-import 'package:multi_p_o_s/index.dart';
+import 'package:multi_p_o_s/pages/panel_principal/panel_principal_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widget_previews.dart';
+import 'package:multi_p_o_s/models/producto_model.dart';
 
 import 'punto_de_venta_model.dart';
 export 'punto_de_venta_model.dart';
+
+@Preview()
+Widget previewPuntoDeVenta() {
+  return const PuntoDeVentaWidget();
+}
 
 class PuntoDeVentaWidget extends StatefulWidget {
   const PuntoDeVentaWidget({super.key});
@@ -31,6 +38,35 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => PuntoDeVentaModel());
+    _loadInitialProducts();
+  }
+
+  Future<void> _loadInitialProducts() async {
+    await _model.searchProducts('');
+    if (mounted) {
+      setState(() {});
+    }
+  }
+
+  void _onSearchChanged(String value) async {
+    await _model.searchProducts(value);
+    if (mounted) {
+      setState(() {});
+    }
+  }
+
+  void _handleAddToCart(Producto producto) {
+    final error = _model.addToCart(producto);
+    if (error.isNotEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(error),
+          backgroundColor: FlutterFlowTheme.of(context).error,
+        ),
+      );
+    } else {
+      setState(() {});
+    }
   }
 
   @override
@@ -116,8 +152,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                         .labelSmall
                                         .copyWith(
                                       fontFamily: "Space Grotesk",
-                                      color: FlutterFlowTheme.of(context)
-                                          .onSurface,
+                                      color: Colors.black,
                                       letterSpacing: 0.0,
                                       fontWeight:
                                       FlutterFlowTheme.of(context)
@@ -155,8 +190,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                 fillColor: Colors.transparent,
                                 icon: Icon(
                                   Icons.person_add_rounded,
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryText,
+                                  color: Colors.black,
                                   size: 24,
                                 ),
                                 onPressed: () {
@@ -222,7 +256,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                         trailingIconPresent: false,
                                         hint: 'Nombre o código de barras...',
                                         value: '',
-                                        onChange: '',
+                                        onChange: _onSearchChanged,
                                         onSubmit: '',
                                         variant: 'outlined',
                                         error: false,
@@ -234,8 +268,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                           .labelMedium
                                           .copyWith(
                                         fontFamily: "Space Grotesk",
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
+                                        color: Colors.black,
                                         letterSpacing: 0.0,
                                         fontWeight:
                                         FlutterFlowTheme.of(context)
@@ -244,66 +277,30 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                         height: 1.3,
                                       ),
                                     ),
-                                    wrapWithModel(
-                                      model: _model.productSearchItemModel1,
-                                      updateCallback: () => safeSetState(() {}),
-                                      child: ProductSearchItemWidget(
-                                        code: 'MOT-001',
-                                        name: 'Aceite de Motor 20W-50',
-                                        price: '85,00',
-                                        tone: FlutterFlowTheme.of(context)
-                                            .tertiary,
-                                        stock: '12',
+                                    if (_model.isLoading)
+                                      const Center(child: CircularProgressIndicator())
+                                    else if (_model.searchResults.isEmpty)
+                                      const Center(child: Text('No se encontraron productos'))
+                                    else
+                                      Column(
+                                        children: _model.searchResults.map((producto) => 
+                                          Padding(
+                                            padding: const EdgeInsets.only(bottom: 8.0),
+                                            child: InkWell(
+                                              onTap: () => _handleAddToCart(producto),
+                                              child: ProductSearchItemWidget(
+                                                code: producto.codigo,
+                                                name: producto.nombre,
+                                                price: producto.precio.toStringAsFixed(2),
+                                                tone: producto.stock <= producto.stockMinimo 
+                                                  ? FlutterFlowTheme.of(context).error 
+                                                  : FlutterFlowTheme.of(context).tertiary,
+                                                stock: producto.stock.toString(),
+                                              ),
+                                            ),
+                                          )
+                                        ).toList(),
                                       ),
-                                    ),
-                                    wrapWithModel(
-                                      model: _model.productSearchItemModel2,
-                                      updateCallback: () => safeSetState(() {}),
-                                      child: ProductSearchItemWidget(
-                                        code: 'FIL-992',
-                                        name: 'Filtro de Aire Premium',
-                                        price: '45,50',
-                                        tone: FlutterFlowTheme.of(context)
-                                            .tertiary,
-                                        stock: '5',
-                                      ),
-                                    ),
-                                    wrapWithModel(
-                                      model: _model.productSearchItemModel3,
-                                      updateCallback: () => safeSetState(() {}),
-                                      child: ProductSearchItemWidget(
-                                        code: 'BUJ-102',
-                                        name: 'Bujía de Iridium',
-                                        price: '32,00',
-                                        tone: FlutterFlowTheme.of(context)
-                                            .tertiary,
-                                        stock: '24',
-                                      ),
-                                    ),
-                                    wrapWithModel(
-                                      model: _model.productSearchItemModel4,
-                                      updateCallback: () => safeSetState(() {}),
-                                      child: ProductSearchItemWidget(
-                                        code: 'FRE-441',
-                                        name: 'Pastillas de Freno Del.',
-                                        price: '120,00',
-                                        tone:
-                                        FlutterFlowTheme.of(context).error,
-                                        stock: '0',
-                                      ),
-                                    ),
-                                    wrapWithModel(
-                                      model: _model.productSearchItemModel5,
-                                      updateCallback: () => safeSetState(() {}),
-                                      child: ProductSearchItemWidget(
-                                        code: 'LIQ-005',
-                                        name: 'Líquido de Frenos 500ml',
-                                        price: '25,00',
-                                        tone: FlutterFlowTheme.of(context)
-                                            .tertiary,
-                                        stock: '18',
-                                      ),
-                                    ),
                                   ].divide(SizedBox(height: 16)),
                                 ),
                               ),
@@ -387,37 +384,22 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                         crossAxisAlignment:
                                         CrossAxisAlignment.center,
                                         children: [
-                                          wrapWithModel(
-                                            model: _model.cartItemModel1,
-                                            updateCallback: () =>
-                                                safeSetState(() {}),
-                                            child: CartItemWidget(
-                                              name: 'Aceite de Motor 20W-50',
-                                              qty: '2',
-                                              subtotal: '170,00',
+                                          if (_model.cart.isEmpty)
+                                            const Center(child: Text('El carrito está vacío'))
+                                          else
+                                            Column(
+                                              children: _model.cartProducts.map((producto) =>
+                                                Padding(
+                                                  padding: const EdgeInsets.only(bottom: 8.0),
+                                                  child: CartItemWidget(
+                                                    name: producto.nombre,
+                                                    qty: _model.cart[producto.id].toString(),
+                                                    subtotal: (producto.precio * _model.cart[producto.id]!).toStringAsFixed(2),
+                                                  ),
+                                                )
+                                              ).toList(),
                                             ),
-                                          ),
-                                          wrapWithModel(
-                                            model: _model.cartItemModel2,
-                                            updateCallback: () =>
-                                                safeSetState(() {}),
-                                            child: CartItemWidget(
-                                              name: 'Filtro de Aire Premium',
-                                              qty: '1',
-                                              subtotal: '45,50',
-                                            ),
-                                          ),
-                                          wrapWithModel(
-                                            model: _model.cartItemModel3,
-                                            updateCallback: () =>
-                                                safeSetState(() {}),
-                                            child: CartItemWidget(
-                                              name: 'Bujía de Iridium',
-                                              qty: '4',
-                                              subtotal: '128,00',
-                                            ),
-                                          ),
-                                        ].divide(SizedBox(height: 8)),
+                                        ],
                                       ),
                                     ),
                                   ),
@@ -464,9 +446,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                           children: [
                                             Icon(
                                               Icons.account_circle_rounded,
-                                              color:
-                                              FlutterFlowTheme.of(context)
-                                                  .secondaryText,
+                                              color: Colors.black,
                                               size: 24,
                                             ),
                                             Expanded(
@@ -519,9 +499,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                                 .bodyMedium
                                                 .copyWith(
                                               fontFamily: "Poppins",
-                                              color: FlutterFlowTheme.of(
-                                                  context)
-                                                  .secondaryText,
+                                              color: Colors.black,
                                               letterSpacing: 0.0,
                                               fontWeight:
                                               FlutterFlowTheme.of(
@@ -532,7 +510,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                             ),
                                           ),
                                           Text(
-                                            'Bs. 343,50',
+                                            'Bs. ${_model.total.toStringAsFixed(2)}',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .copyWith(
@@ -564,9 +542,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                                 .bodyMedium
                                                 .copyWith(
                                               fontFamily: "Poppins",
-                                              color: FlutterFlowTheme.of(
-                                                  context)
-                                                  .secondaryText,
+                                              color: Colors.black,
                                               letterSpacing: 0.0,
                                               fontWeight:
                                               FlutterFlowTheme.of(
@@ -632,7 +608,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                             ),
                                           ),
                                           Text(
-                                            'Bs. 343,50',
+                                            'Bs. ${_model.total.toStringAsFixed(2)}',
                                             style: FlutterFlowTheme.of(context)
                                                 .titleLarge
                                                 .copyWith(
@@ -743,9 +719,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                                 .labelMedium
                                                 .copyWith(
                                               fontFamily: "Space Grotesk",
-                                              color: FlutterFlowTheme.of(
-                                                  context)
-                                                  .primaryText,
+                                              color: Colors.black,
                                               fontSize: 14,
                                               letterSpacing: 0.0,
                                               fontWeight:
@@ -790,9 +764,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                                 .labelMedium
                                                 .copyWith(
                                               fontFamily: "Space Grotesk",
-                                              color: FlutterFlowTheme.of(
-                                                  context)
-                                                  .primaryText,
+                                              color: Colors.black,
                                               fontSize: 14,
                                               letterSpacing: 0.0,
                                               fontWeight:
@@ -837,9 +809,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                                 .labelMedium
                                                 .copyWith(
                                               fontFamily: "Space Grotesk",
-                                              color: FlutterFlowTheme.of(
-                                                  context)
-                                                  .primaryText,
+                                              color: Colors.black,
                                               fontSize: 14,
                                               letterSpacing: 0.0,
                                               fontWeight:
@@ -864,8 +834,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                 .labelSmall
                                 .copyWith(
                               fontFamily: "Space Grotesk",
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryText,
+                              color: Colors.black,
                               letterSpacing: 0.0,
                               fontWeight: FlutterFlowTheme.of(context)
                                   .labelSmall

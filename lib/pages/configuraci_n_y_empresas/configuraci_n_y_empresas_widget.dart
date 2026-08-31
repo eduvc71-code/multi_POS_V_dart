@@ -1,17 +1,24 @@
-import 'package:multi_p_o_s/components/bottom_nav/bottom_nav_widget.dart';
-import 'package:multi_p_o_s/components/bottom_nav_child5/bottom_nav_child5_widget.dart';
-import 'package:multi_p_o_s/components/business_card/business_card_widget.dart';
-import 'package:multi_p_o_s/components/button/button_widget.dart';
-import 'package:multi_p_o_s/components/settings_tile/settings_tile_widget.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_icon_button.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_widgets.dart';
-import 'package:multi_p_o_s/index.dart';
+import 'package:multi_p_o_s/components/button/button_widget.dart';
+import 'package:multi_p_o_s/components/business_card/business_card_widget.dart';
+import 'package:multi_p_o_s/components/settings_tile/settings_tile_widget.dart';
+import 'package:multi_p_o_s/components/bottom_nav/bottom_nav_widget.dart';
+import 'package:multi_p_o_s/components/bottom_nav_child5/bottom_nav_child5_widget.dart';
+import 'package:multi_p_o_s/pages/registro_de_negocio/registro_de_negocio_widget.dart';
+import 'package:multi_p_o_s/pages/inicio_de_sesi_n/inicio_de_sesi_n_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widget_previews.dart';
 
 import 'configuraci_n_y_empresas_model.dart';
 export 'configuraci_n_y_empresas_model.dart';
+
+@Preview()
+Widget previewConfiguracionYEmpresas() {
+  return const ConfiguracionYEmpresasWidget();
+}
 
 class ConfiguracionYEmpresasWidget extends StatefulWidget {
   const ConfiguracionYEmpresasWidget({super.key});
@@ -99,9 +106,7 @@ class _ConfiguracionYEmpresasWidgetState
                                 style: FlutterFlowTheme.of(context).bodySmall
                                     .copyWith(
                                       fontFamily: "Poppins",
-                                      color: FlutterFlowTheme.of(
-                                        context,
-                                      ).secondaryText,
+                                      color: Colors.black,
                                       letterSpacing: 0.0,
                                       height: 1.4,
                                     ),
@@ -250,9 +255,7 @@ class _ConfiguracionYEmpresasWidgetState
                                   child: SettingsTileWidget(
                                     icon: Icon(
                                       Icons.people_rounded,
-                                      color: FlutterFlowTheme.of(
-                                        context,
-                                      ).onSurface,
+                                      color: Colors.black,
                                       size: 24,
                                     ),
                                     iconBg: FlutterFlowTheme.of(
@@ -269,9 +272,7 @@ class _ConfiguracionYEmpresasWidgetState
                                   child: SettingsTileWidget(
                                     icon: Icon(
                                       Icons.security_rounded,
-                                      color: FlutterFlowTheme.of(
-                                        context,
-                                      ).onSurface,
+                                      color: Colors.black,
                                       size: 24,
                                     ),
                                     iconBg: FlutterFlowTheme.of(
@@ -306,9 +307,7 @@ class _ConfiguracionYEmpresasWidgetState
                                   child: SettingsTileWidget(
                                     icon: Icon(
                                       Icons.print_rounded,
-                                      color: FlutterFlowTheme.of(
-                                        context,
-                                      ).onSurface,
+                                      color: Colors.black,
                                       size: 24,
                                     ),
                                     iconBg: FlutterFlowTheme.of(
@@ -325,9 +324,7 @@ class _ConfiguracionYEmpresasWidgetState
                                   child: SettingsTileWidget(
                                     icon: Icon(
                                       Icons.description_rounded,
-                                      color: FlutterFlowTheme.of(
-                                        context,
-                                      ).onSurface,
+                                      color: Colors.black,
                                       size: 24,
                                     ),
                                     iconBg: Color(0x3300C2FF),
@@ -427,10 +424,7 @@ class _ConfiguracionYEmpresasWidgetState
                                                     ).labelSmall.copyWith(
                                                       fontFamily:
                                                           "Space Grotesk",
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                            context,
-                                                          ).secondaryText,
+                                      color: Colors.black,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
                                                           FlutterFlowTheme.of(
@@ -505,9 +499,7 @@ class _ConfiguracionYEmpresasWidgetState
                                         .labelSmall
                                         .copyWith(
                                           fontFamily: "Space Grotesk",
-                                          color: FlutterFlowTheme.of(
-                                            context,
-                                          ).onBackground,
+                                          color: Colors.black,
                                           letterSpacing: 0.0,
                                           fontWeight: FlutterFlowTheme.of(
                                             context,
@@ -521,9 +513,7 @@ class _ConfiguracionYEmpresasWidgetState
                                         .labelSmall
                                         .copyWith(
                                           fontFamily: "Space Grotesk",
-                                          color: FlutterFlowTheme.of(
-                                            context,
-                                          ).onBackground,
+                                          color: Colors.black,
                                           letterSpacing: 0.0,
                                           fontWeight: FlutterFlowTheme.of(
                                             context,

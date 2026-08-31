@@ -1,9 +1,28 @@
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widget_previews.dart';
 
 import 'nav_item_model.dart';
 export 'nav_item_model.dart';
+
+@Preview()
+Widget previewNavItemHome() {
+  return const NavItemWidget(
+    label: 'Inicio',
+    icon: Icon(Icons.home_rounded, color: Color(0xFF0066FF), size: 24),
+    selected: true,
+  );
+}
+
+@Preview()
+Widget previewNavItemSettings() {
+  return const NavItemWidget(
+    label: 'Ajustes',
+    icon: Icon(Icons.settings_rounded, color: Color(0xFF57636C), size: 24),
+    selected: false,
+  );
+}
 
 class NavItemWidget extends StatefulWidget {
   const NavItemWidget({
@@ -74,7 +93,7 @@ class _NavItemWidgetState extends State<NavItemWidget> {
                     fontFamily: "Poppins",
                     color: widget.selected
                         ? FlutterFlowTheme.of(context).primary
-                        : FlutterFlowTheme.of(context).secondaryText,
+                        : Colors.black,
                     letterSpacing: 0.0,
                     fontWeight: FlutterFlowTheme.of(context).labelSmall.fontWeight,
                     height: 1.5,

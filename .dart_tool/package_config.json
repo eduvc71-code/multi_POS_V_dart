@@ -338,6 +338,12 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "pluto_grid",
+      "rootUri": "file:///C:/Users/Eduardo/AppData/Local/Pub/Cache/hosted/pub.dev/pluto_grid-8.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "provider",
       "rootUri": "file:///C:/Users/Eduardo/AppData/Local/Pub/Cache/hosted/pub.dev/provider-6.1.5",
       "packageUri": "lib/",

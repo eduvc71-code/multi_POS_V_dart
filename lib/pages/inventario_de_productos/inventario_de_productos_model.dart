@@ -1,11 +1,12 @@
-import 'package:multi_p_o_s/components/bottom_nav/bottom_nav_widget.dart';
-import 'package:multi_p_o_s/components/inventory_stat/inventory_stat_widget.dart';
-import 'package:multi_p_o_s/components/text_field/text_field_widget.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
 import 'package:multi_p_o_s/database/database_helper.dart';
 import 'package:multi_p_o_s/models/producto_model.dart';
+import 'package:multi_p_o_s/components/inventory_stat/inventory_stat_widget.dart';
+import 'package:multi_p_o_s/components/text_field/text_field_widget.dart';
+import 'package:multi_p_o_s/components/bottom_nav/bottom_nav_widget.dart';
 import 'inventario_de_productos_widget.dart' show InventarioDeProductosWidget;
 import 'package:flutter/material.dart';
+import 'package:pluto_grid/pluto_grid.dart';
 
 class InventarioDeProductosModel
     extends FlutterFlowModel<InventarioDeProductosWidget> {
@@ -23,6 +24,8 @@ class InventarioDeProductosModel
   List<Producto> productos = [];
   bool isLoading = true;
 
+  PlutoGridStateManager? stateManager;
+
   @override
   void initState(BuildContext context) {
     textFieldModel = createModel(context, () => TextFieldModel());
@@ -36,6 +39,9 @@ class InventarioDeProductosModel
     productos = await DatabaseHelper.instance.readAllProductos();
     isLoading = false;
   }
+
+  double get totalCosto => productos.fold(0, (sum, p) => sum + (p.costo * p.stock));
+  double get totalVenta => productos.fold(0, (sum, p) => sum + (p.precio * p.stock));
 
   @override
   void dispose() {

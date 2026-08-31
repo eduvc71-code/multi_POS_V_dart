@@ -1,8 +1,8 @@
 // ignore_for_file: implementation_imports
 
-const String kWidgetPreviewDtdUri = 'ws://127.0.0.1:52001/6nB-1bTYkMk=';
+const String kWidgetPreviewDtdUri = 'ws://127.0.0.1:59504/ZN8xRnEOW7Y=';
 const String kWidgetPreviewService =
-    'widget-preview-802b4bdb-4190-414e-97ea-e084cb4720b9';
+    'widget-preview-c741dafe-1a00-4596-b2e5-49f126358fde';
 const String kWidgetPreviewScaffoldStream =
-    'WidgetPreviewScaffold-802b4bdb-4190-414e-97ea-e084cb4720b9';
+    'WidgetPreviewScaffold-c741dafe-1a00-4596-b2e5-49f126358fde';
 const String kProjectRootPath = r'D:\multi-pos-1';

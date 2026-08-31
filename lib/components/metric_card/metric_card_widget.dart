@@ -1,9 +1,22 @@
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widget_previews.dart';
 
 import 'metric_card_model.dart';
 export 'metric_card_model.dart';
+
+@Preview()
+Widget previewMetricCard() {
+  return const MetricCardWidget(
+    label: 'Ventas Totales',
+    value: 'Bs. 42.850',
+    delta: '+12.5%',
+    isUp: true,
+    icon: Icon(Icons.trending_up_rounded, color: Colors.white, size: 20),
+    tone: Color(0xFF0066FF),
+  );
+}
 
 class MetricCardWidget extends StatefulWidget {
   const MetricCardWidget({
@@ -129,7 +142,7 @@ class _MetricCardWidgetState extends State<MetricCardWidget> {
               ),
               style: FlutterFlowTheme.of(context).labelSmall.copyWith(
                     fontFamily: "Space Grotesk",
-                    color: FlutterFlowTheme.of(context).secondaryText,
+                    color: Colors.black,
                     letterSpacing: 0.0,
                     fontWeight:
                         FlutterFlowTheme.of(context).labelSmall.fontWeight,

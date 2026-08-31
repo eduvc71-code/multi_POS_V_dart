@@ -1,17 +1,24 @@
-import 'package:multi_p_o_s/components/bottom_nav/bottom_nav_widget.dart';
-import 'package:multi_p_o_s/components/bottom_nav_child/bottom_nav_child_widget.dart';
-import 'package:multi_p_o_s/components/button/button_widget.dart';
-import 'package:multi_p_o_s/components/quick_action/quick_action_widget.dart';
-import 'package:multi_p_o_s/components/stat_card/stat_card_widget.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_icon_button.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_widgets.dart';
-import 'package:multi_p_o_s/index.dart';
+import 'package:multi_p_o_s/components/quick_action/quick_action_widget.dart';
+import 'package:multi_p_o_s/components/stat_card/stat_card_widget.dart';
+import 'package:multi_p_o_s/components/button/button_widget.dart';
+import 'package:multi_p_o_s/components/bottom_nav/bottom_nav_widget.dart';
+import 'package:multi_p_o_s/components/bottom_nav_child/bottom_nav_child_widget.dart';
+import 'package:multi_p_o_s/pages/inventario_de_productos/inventario_de_productos_widget.dart';
+import 'package:multi_p_o_s/pages/historial_de_ventas/historial_de_ventas_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widget_previews.dart';
 
 import 'panel_principal_model.dart';
 export 'panel_principal_model.dart';
+
+@Preview()
+Widget previewPanelPrincipal() {
+  return const PanelPrincipalWidget();
+}
 
 class PanelPrincipalWidget extends StatefulWidget {
   const PanelPrincipalWidget({super.key});
@@ -32,6 +39,14 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => PanelPrincipalModel());
+    _loadData();
+  }
+
+  Future<void> _loadData() async {
+    await _model.fetchLowStockCount();
+    if (mounted) {
+      setState(() {});
+    }
   }
 
   @override
@@ -93,9 +108,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                             children: [
                               Icon(
                                 Icons.store_rounded,
-                                color: FlutterFlowTheme.of(
-                                  context,
-                                ).secondaryText,
+                                color: Colors.black,
                                 size: 14,
                               ),
                               Text(
@@ -103,9 +116,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                 style: FlutterFlowTheme.of(context).labelSmall
                                     .copyWith(
                                       fontFamily: "Space Grotesk",
-                                      color: FlutterFlowTheme.of(
-                                        context,
-                                      ).secondaryText,
+                                      color: Colors.black,
                                       letterSpacing: 0.0,
                                       fontWeight: FlutterFlowTheme.of(
                                         context,
@@ -251,10 +262,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                       ).labelSmall.copyWith(
                                                         fontFamily:
                                                             "Space Grotesk",
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                              context,
-                                                            ).onSurface,
+                                                        color: Colors.black,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.bold,
@@ -590,6 +598,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                 ),
                               ].divide(SizedBox(width: 16)),
                             ),
+                            if (_model.lowStockCount > 0)
                             Container(
                               decoration: BoxDecoration(
                                 color: Color(0x1AFF9100),
@@ -622,9 +631,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                         alignment: AlignmentDirectional(0, 0),
                                         child: Icon(
                                           Icons.warning_amber_rounded,
-                                          color: FlutterFlowTheme.of(
-                                            context,
-                                          ).onSurface,
+                                                    color: Colors.black,
                                           size: 24,
                                         ),
                                       ),
@@ -644,16 +651,14 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                     context,
                                                   ).labelLarge.copyWith(
                                                     fontFamily: "Space Grotesk",
-                                                    color: FlutterFlowTheme.of(
-                                                      context,
-                                                    ).onSurface,
+                                                    color: Colors.black,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w800,
                                                     height: 1.3,
                                                   ),
                                             ),
                                             Text(
-                                              '3 productos están por debajo del mínimo',
+                                              '${_model.lowStockCount} productos están por debajo del mínimo',
                                               style:
                                                   FlutterFlowTheme.of(
                                                     context,
@@ -718,30 +723,24 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                             ),
                                       ),
                                     ),
-                                    InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        GoRouter.of(context).goNamed(
-                                          HistorialDeVentasWidget.routeName,
-                                        );
-                                      },
-                                      child: wrapWithModel(
-                                        model: _model.buttonModel,
-                                        updateCallback: () =>
-                                            safeSetState(() {}),
-                                        child: ButtonWidget(
-                                          iconPresent: false,
-                                          iconEndPresent: false,
-                                          content: 'Ver Todo',
-                                          variant: 'ghost',
-                                          size: 'small',
-                                          fullWidth: false,
-                                          loading: false,
-                                          disabled: false,
-                                        ),
+                                    wrapWithModel(
+                                      model: _model.buttonModel,
+                                      updateCallback: () =>
+                                          safeSetState(() {}),
+                                      child: ButtonWidget(
+                                        iconPresent: false,
+                                        iconEndPresent: false,
+                                        content: 'Ver Todo',
+                                        variant: 'ghost',
+                                        size: 'small',
+                                        fullWidth: false,
+                                        loading: false,
+                                        disabled: false,
+                                        onTap: () async {
+                                          GoRouter.of(context).goNamed(
+                                            HistorialDeVentasWidget.routeName,
+                                          );
+                                        },
                                       ),
                                     ),
                                   ],
@@ -833,10 +832,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                           ).labelSmall.copyWith(
                                                             fontFamily:
                                                                 "Space Grotesk",
-                                                            color:
-                                                                FlutterFlowTheme.of(
-                                                                  context,
-                                                                ).secondaryText,
+                                                                color: Colors.black,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FlutterFlowTheme.of(
@@ -857,10 +853,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                       context,
                                                     ).bodyLarge.copyWith(
                                                       fontFamily: "Poppins",
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                            context,
-                                                          ).onSurface,
+                                                      color: Colors.black,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.w800,
@@ -943,10 +936,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                           ).labelSmall.copyWith(
                                                             fontFamily:
                                                                 "Space Grotesk",
-                                                            color:
-                                                                FlutterFlowTheme.of(
-                                                                  context,
-                                                                ).secondaryText,
+                                                                color: Colors.black,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FlutterFlowTheme.of(
@@ -967,10 +957,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                       context,
                                                     ).bodyLarge.copyWith(
                                                       fontFamily: "Poppins",
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                            context,
-                                                          ).onSurface,
+                                                      color: Colors.black,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.w800,

@@ -1,19 +1,15 @@
-import 'package:multi_p_o_s/components/business_type_card/business_type_card_widget.dart';
-import 'package:multi_p_o_s/components/button/button_widget.dart';
-import 'package:multi_p_o_s/components/checkbox/checkbox_widget.dart';
-import 'package:multi_p_o_s/components/form_field/form_field_widget.dart';
-import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
-import 'package:multi_p_o_s/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
-import 'package:multi_p_o_s/index.dart';
+import 'package:multi_p_o_s/components/form_field/form_field_widget.dart';
+import 'package:multi_p_o_s/components/business_type_card/business_type_card_widget.dart';
+import 'package:multi_p_o_s/components/checkbox/checkbox_widget.dart';
+import 'package:multi_p_o_s/components/button/button_widget.dart';
 import 'registro_de_negocio_widget.dart' show RegistroDeNegocioWidget;
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 class RegistroDeNegocioModel extends FlutterFlowModel<RegistroDeNegocioWidget> {
   ///  State fields for stateful widgets in this page.
+
+  String selectedBusinessType = 'Tienda';
 
   // Model for FormField.
   late FormFieldModel formFieldModel1;

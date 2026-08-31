@@ -2,9 +2,18 @@ import 'package:multi_p_o_s/components/text_field/text_field_widget.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widget_previews.dart';
 
 import 'form_field_model.dart';
 export 'form_field_model.dart';
+
+@Preview()
+Widget previewFormField() {
+  return const FormFieldWidget(
+    label: 'Nombre del Negocio',
+    hint: 'Mi Tienda Express',
+  );
+}
 
 class FormFieldWidget extends StatefulWidget {
   const FormFieldWidget({
@@ -63,7 +72,7 @@ class _FormFieldWidgetState extends State<FormFieldWidget> {
           ),
           style: FlutterFlowTheme.of(context).labelMedium.copyWith(
                 fontFamily: "Space Grotesk",
-                color: FlutterFlowTheme.of(context).secondaryText,
+                color: Colors.black,
                 letterSpacing: 0.0,
                 fontWeight: FontWeight.w600,
                 height: 1.3,
@@ -89,7 +98,6 @@ class _FormFieldWidgetState extends State<FormFieldWidget> {
               'Ej. Mi Tienda Express',
             ),
             value: '',
-            onChange: '',
             onSubmit: '',
             variant: 'outlined',
             error: false,

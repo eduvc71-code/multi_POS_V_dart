@@ -1,9 +1,28 @@
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widget_previews.dart';
 
 import 'checkbox_model.dart';
 export 'checkbox_model.dart';
+
+@Preview()
+Widget previewCheckboxChecked() {
+  return const CheckboxWidget(
+    label: 'Acepto los términos y condiciones',
+    isChecked: true,
+  );
+}
+
+@Preview()
+Widget previewCheckboxUnchecked() {
+  return const CheckboxWidget(
+    label: 'Suscribirse al boletín',
+    isChecked: false,
+    hasSubtitle: true,
+    subtitle: 'Recibe noticias y ofertas especiales',
+  );
+}
 
 class CheckboxWidget extends StatefulWidget {
   const CheckboxWidget({
@@ -123,7 +142,7 @@ class _CheckboxWidgetState extends State<CheckboxWidget> {
                       maxLines: 3,
                       style: FlutterFlowTheme.of(context).bodySmall.copyWith(
                             fontFamily: "Poppins",
-                            color: FlutterFlowTheme.of(context).secondaryText,
+                            color: Colors.black,
                             letterSpacing: 0.0,
                             fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
                             height: 1.4,

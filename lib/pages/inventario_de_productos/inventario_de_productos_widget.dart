@@ -1,20 +1,12 @@
-import 'package:multi_p_o_s/flutter_flow/flutter_flow_icon_button.dart';
-import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
-import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
-import 'package:multi_p_o_s/flutter_flow/flutter_flow_widgets.dart';
 import 'package:multi_p_o_s/index.dart';
-import 'package:multi_p_o_s/components/inventory_stat/inventory_stat_widget.dart';
-import 'package:multi_p_o_s/components/text_field/text_field_widget.dart';
-import 'package:multi_p_o_s/components/bottom_nav/bottom_nav_widget.dart';
-import 'package:multi_p_o_s/components/bottom_nav_child2/bottom_nav_child2_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widget_previews.dart';
 import 'package:pluto_grid/pluto_grid.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:multi_p_o_s/database/inventory_initializer.dart';
+import 'package:multi_p_o_s/database/database_helper.dart';
 
-import 'inventario_de_productos_model.dart';
 export 'inventario_de_productos_model.dart';
 
 @Preview()
@@ -92,11 +84,16 @@ class _InventarioDeProductosWidgetState
         field: 'acciones',
         type: PlutoColumnType.text(),
         enableEditingMode: false,
-        width: 120,
+        width: 150,
         renderer: (rendererContext) {
           return Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              IconButton(
+                icon: const Icon(Icons.history_rounded, color: Colors.purple, size: 20),
+                tooltip: 'Kardex / Movimientos',
+                onPressed: () => _showKardexDialog(rendererContext.row),
+              ),
               IconButton(
                 icon: const Icon(Icons.edit_rounded, color: Colors.blue, size: 20),
                 onPressed: () => _showEditDialog(rendererContext.row),
@@ -110,6 +107,63 @@ class _InventarioDeProductosWidgetState
         },
       ),
     ];
+  }
+
+  Future<void> _showKardexDialog(PlutoRow row) async {
+    final int? prodId = row.cells['id']?.value;
+    final String nombre = row.cells['nombre']?.value ?? '';
+
+    if (prodId == null) return;
+
+    final movs = await DatabaseHelper.instance.readMovimientosInventario(prodId);
+
+    if (!mounted) return;
+
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text('Kardex - $nombre'),
+          content: SizedBox(
+            width: double.maxFinite,
+            height: 350,
+            child: movs.isEmpty
+                ? const Center(child: Text('No hay movimientos registrados para este producto.'))
+                : ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: movs.length,
+                    itemBuilder: (context, index) {
+                      final m = movs[index];
+                      final String tipo = m['tipo'] ?? 'VENTA';
+                      final int cantidad = m['cantidad'] ?? 0;
+                      final String fecha = m['fecha'] ?? '';
+                      final String motivo = m['motivo'] ?? '';
+
+                      Color tipoColor = Colors.green;
+                      if (tipo == 'VENTA') tipoColor = Colors.red;
+                      if (tipo == 'DEVOLUCION') tipoColor = Colors.orange;
+
+                      return ListTile(
+                        leading: Icon(
+                          tipo == 'VENTA' ? Icons.remove_circle_outline : Icons.add_circle_outline,
+                          color: tipoColor,
+                        ),
+                        title: Text('$tipo: $cantidad unidades', style: TextStyle(color: tipoColor, fontWeight: FontWeight.bold)),
+                        subtitle: Text('$motivo\nFecha: ${fecha.length > 16 ? fecha.substring(0, 16) : fecha}'),
+                        isThreeLine: true,
+                      );
+                    },
+                  ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text('Cerrar'),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   Future<void> _loadData() async {

@@ -97,8 +97,8 @@ class _SaleRowWidgetState extends State<SaleRowWidget> {
                 borderRadius: BorderRadius.circular(24),
                 shape: BoxShape.rectangle,
               ),
-              child: Stack(
-                alignment: const AlignmentDirectional(0, 0),
+              child: const Stack(
+                alignment: AlignmentDirectional(0, 0),
                 children: [
                   Icon(
                     Icons.shopping_bag_rounded,

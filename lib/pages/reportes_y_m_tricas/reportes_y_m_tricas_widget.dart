@@ -2,12 +2,13 @@ import 'package:multi_p_o_s/flutter_flow/flutter_flow_charts.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_icon_button.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
-import 'package:multi_p_o_s/flutter_flow/flutter_flow_widgets.dart';
 import 'package:multi_p_o_s/components/button/button_widget.dart';
 import 'package:multi_p_o_s/components/metric_card/metric_card_widget.dart';
 import 'package:multi_p_o_s/components/pie_chart/pie_chart_widget.dart';
 import 'package:multi_p_o_s/components/bottom_nav/bottom_nav_widget.dart';
 import 'package:multi_p_o_s/components/bottom_nav_child4/bottom_nav_child4_widget.dart';
+import 'package:multi_p_o_s/pages/panel_principal/panel_principal_widget.dart';
+import 'package:multi_p_o_s/database/database_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widget_previews.dart';
 import 'package:fl_chart/fl_chart.dart';
@@ -32,6 +33,10 @@ class ReportesYMetricasWidget extends StatefulWidget {
 
 class _ReportesYMetricasWidgetState extends State<ReportesYMetricasWidget> {
   late ReportesYMetricasModel _model;
+  double _totalVentas = 0.0;
+  int _totalTransacciones = 0;
+  double _promedioTicket = 0.0;
+  bool _isLoading = true;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -39,6 +44,29 @@ class _ReportesYMetricasWidgetState extends State<ReportesYMetricasWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ReportesYMetricasModel());
+    _loadMetrics();
+  }
+
+  Future<void> _loadMetrics() async {
+    final sales = await DatabaseHelper.instance.readAllVentas();
+    double sum = 0;
+    int count = 0;
+
+    for (var s in sales) {
+      if (s['estado'] != 'ANULADA') {
+        sum += (s['total'] as num? ?? 0.0).toDouble();
+        count++;
+      }
+    }
+
+    if (mounted) {
+      setState(() {
+        _totalVentas = sum;
+        _totalTransacciones = count;
+        _promedioTicket = count > 0 ? (sum / count) : 0.0;
+        _isLoading = false;
+      });
+    }
   }
 
   @override
@@ -63,9 +91,9 @@ class _ReportesYMetricasWidgetState extends State<ReportesYMetricasWidget> {
           child: LayoutBuilder(
             builder: (context, constraints) {
               return Padding(
-                padding: EdgeInsets.all(24.0),
+                padding: const EdgeInsets.all(24.0),
                 child: ConstrainedBox(
-                  constraints: BoxConstraints(maxWidth: 480),
+                  constraints: const BoxConstraints(maxWidth: 480),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -87,37 +115,51 @@ class _ReportesYMetricasWidgetState extends State<ReportesYMetricasWidget> {
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      mainAxisAlignment: MainAxisAlignment.start,
-                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                    Row(
                                       children: [
-                                        Text(
-                                          'Reportes y Métricas',
-                                          style: FlutterFlowTheme.of(context)
-                                              .headlineMedium
-                                              .copyWith(
-                                            fontFamily: "Urbanist",
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w800,
-                                            height: 1.25,
-                                          ),
+                                        FlutterFlowIconButton(
+                                          borderRadius: 8,
+                                          buttonSize: 40,
+                                          fillColor: Colors.transparent,
+                                          icon: const Icon(Icons.arrow_back_rounded, size: 24),
+                                          onPressed: () async {
+                                            context.goNamed(PanelPrincipalWidget.routeName);
+                                          },
                                         ),
-                                        Text(
-                                          'Análisis de rendimiento del negocio',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodySmall
-                                              .copyWith(
-                                            fontFamily: "Poppins",
-                                            color: Colors.black,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
-                                            height: 1.4,
-                                          ),
+                                        const SizedBox(width: 8),
+                                        Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          mainAxisAlignment: MainAxisAlignment.start,
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              'Reportes y Métricas',
+                                              style: FlutterFlowTheme.of(context)
+                                                  .headlineMedium
+                                                  .copyWith(
+                                                fontFamily: "Urbanist",
+                                                color: FlutterFlowTheme.of(context)
+                                                    .primaryText,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w800,
+                                                height: 1.25,
+                                              ),
+                                            ),
+                                            Text(
+                                              'Análisis de rendimiento del negocio',
+                                              style: FlutterFlowTheme.of(context)
+                                                  .bodySmall
+                                                  .copyWith(
+                                                fontFamily: "Poppins",
+                                                color: Colors.black,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FlutterFlowTheme.of(context).bodySmall.fontWeight,
+                                                height: 1.4,
+                                              ),
+                                            ),
+                                          ].divide(const SizedBox(height: 4)),
                                         ),
-                                      ].divide(const SizedBox(height: 4)),
+                                      ],
                                     ),
                                     FlutterFlowIconButton(
                                       borderRadius: 24,
@@ -145,7 +187,7 @@ class _ReportesYMetricasWidgetState extends State<ReportesYMetricasWidget> {
                           ],
                         ),
                       ),
-                      Spacer(flex: 1),
+                      const Spacer(flex: 1),
                       // BLOQUE 2: CUERPO (Contenido con gráficos y métricas - scroll interno necesario)
                       Expanded(
                         flex: 4,
@@ -189,7 +231,7 @@ class _ReportesYMetricasWidgetState extends State<ReportesYMetricasWidget> {
                                               crossAxisAlignment:
                                               CrossAxisAlignment.center,
                                               children: [
-                                                Icon(
+                                                const Icon(
                                                   Icons.calendar_today_rounded,
                                                   color: Colors.black,
                                                   size: 18,
@@ -218,7 +260,7 @@ class _ReportesYMetricasWidgetState extends State<ReportesYMetricasWidget> {
                                               model: _model.buttonModel1,
                                               updateCallback: () =>
                                                   safeSetState(() {}),
-                                              child: ButtonWidget(
+                                              child: const ButtonWidget(
                                                 iconPresent: false,
                                                 iconEndPresent: false,
                                                 content: 'Cambiar',
@@ -244,7 +286,7 @@ class _ReportesYMetricasWidgetState extends State<ReportesYMetricasWidget> {
                                           model: _model.metricCardModel1,
                                           updateCallback: () => safeSetState(() {}),
                                           child: MetricCardWidget(
-                                            delta: '+12.5%',
+                                            delta: '$_totalTransacciones ventas',
                                             icon: Icon(
                                               Icons.payments_rounded,
                                               color: FlutterFlowTheme.of(context)
@@ -254,7 +296,7 @@ class _ReportesYMetricasWidgetState extends State<ReportesYMetricasWidget> {
                                             label: 'Ventas Totales',
                                             tone:
                                             FlutterFlowTheme.of(context).primary,
-                                            value: 'Bs. 42.850',
+                                            value: 'Bs. ${_totalVentas.toStringAsFixed(2)}',
                                             isUp: true,
                                           ),
                                         ),
@@ -265,17 +307,17 @@ class _ReportesYMetricasWidgetState extends State<ReportesYMetricasWidget> {
                                           model: _model.metricCardModel2,
                                           updateCallback: () => safeSetState(() {}),
                                           child: MetricCardWidget(
-                                            delta: '+8.2%',
+                                            delta: 'Promedio',
                                             icon: Icon(
                                               Icons.insights_rounded,
                                               color: FlutterFlowTheme.of(context)
                                                   .primary,
                                               size: 20,
                                             ),
-                                            label: 'Rentabilidad',
+                                            label: 'Ticket Promedio',
                                             tone: FlutterFlowTheme.of(context)
                                                 .secondary,
-                                            value: 'Bs. 12.400',
+                                            value: 'Bs. ${_promedioTicket.toStringAsFixed(2)}',
                                             isUp: true,
                                           ),
                                         ),
@@ -319,16 +361,16 @@ class _ReportesYMetricasWidgetState extends State<ReportesYMetricasWidget> {
                                                     height: 1.4,
                                                   ),
                                                 ),
-                                                Icon(
+                                                const Icon(
                                                   Icons.more_horiz_rounded,
                                                   color: Colors.black,
                                                   size: 24,
                                                 ),
                                               ],
                                             ),
-                                            Container(
+                                            SizedBox(
                                               height: 200,
-                                              child: Container(
+                                              child: SizedBox(
                                                 height: 200,
                                                 child: FlutterFlowLineChart(
                                                   data: [
@@ -366,18 +408,18 @@ class _ReportesYMetricasWidgetState extends State<ReportesYMetricasWidget> {
                                                       ),
                                                     )
                                                   ],
-                                                  chartStylingInfo: ChartStylingInfo(
+                                                  chartStylingInfo: const ChartStylingInfo(
                                                     backgroundColor:
                                                     Colors.transparent,
                                                     showBorder: false,
                                                   ),
-                                                  axisBounds: AxisBounds(
+                                                  axisBounds: const AxisBounds(
                                                     minX: 0,
                                                     minY: 0,
                                                     maxX: 6,
                                                     maxY: 3720,
                                                   ),
-                                                  xLabels: [
+                                                  xLabels: const [
                                                     'Sem 1',
                                                     'Sem 2',
                                                     'Sem 3',
@@ -405,7 +447,7 @@ class _ReportesYMetricasWidgetState extends State<ReportesYMetricasWidget> {
                                                     ),
                                                     reservedSize: 28,
                                                   ),
-                                                  yAxisLabelInfo: AxisLabelInfo(
+                                                  yAxisLabelInfo: const AxisLabelInfo(
                                                     reservedSize: 0,
                                                   ),
                                                 ),
@@ -449,7 +491,7 @@ class _ReportesYMetricasWidgetState extends State<ReportesYMetricasWidget> {
                                               model: _model.pieChartModel,
                                               updateCallback: () =>
                                                   safeSetState(() {}),
-                                              child: PieChartWidget(
+                                              child: const PieChartWidget(
                                                 centerValue: '',
                                                 centerValuePresent: false,
                                                 centerLabel: '',
@@ -514,7 +556,7 @@ class _ReportesYMetricasWidgetState extends State<ReportesYMetricasWidget> {
                                                   model: _model.buttonModel2,
                                                   updateCallback: () =>
                                                       safeSetState(() {}),
-                                                  child: ButtonWidget(
+                                                  child: const ButtonWidget(
                                                     iconPresent: false,
                                                     iconEndPresent: false,
                                                     content: 'Ver todos',
@@ -822,7 +864,7 @@ class _ReportesYMetricasWidgetState extends State<ReportesYMetricasWidget> {
                                             model: _model.buttonModel3,
                                             updateCallback: () =>
                                                 safeSetState(() {}),
-                                            child: ButtonWidget(
+                                            child: const ButtonWidget(
                                               iconPresent: false,
                                               iconEndPresent: false,
                                               content: 'Generar',
@@ -843,7 +885,7 @@ class _ReportesYMetricasWidgetState extends State<ReportesYMetricasWidget> {
                           ),
                         ),
                       ),
-                      Spacer(flex: 1),
+                      const Spacer(flex: 1),
                       // BLOQUE 3: FOOTER (Bottom Navigation)
                       Align(
                         alignment: const AlignmentDirectional(0, 1),

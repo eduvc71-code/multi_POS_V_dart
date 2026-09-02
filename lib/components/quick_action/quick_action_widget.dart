@@ -83,7 +83,7 @@ class _QuickActionWidgetState extends State<QuickActionWidget> {
               borderRadius: BorderRadius.circular(16),
               shape: BoxShape.rectangle,
             ),
-            alignment: AlignmentDirectional(0, 0),
+            alignment: const AlignmentDirectional(0, 0),
             child: widget.icon,
           ),
           Text(

@@ -58,6 +58,10 @@ abstract class FlutterFlowTheme {
         fontSize: 24,
         fontWeight: FontWeight.normal,
       );
+  TextStyle get headlineSmall => GoogleFonts.urbanist(
+        fontSize: 20,
+        fontWeight: FontWeight.normal,
+      );
   TextStyle get titleLarge => GoogleFonts.urbanist(
         fontSize: 22,
         fontWeight: FontWeight.w500,
@@ -97,47 +101,88 @@ abstract class FlutterFlowTheme {
 }
 
 class LightModeTheme extends FlutterFlowTheme {
-  late Color primary = const Color(0xFF0066FF);
+  @override
+  late Color primary = const Color(0xFF020D1D);
+  @override
   late Color secondary = const Color(0xFFFF2D87);
+  @override
   late Color tertiary = const Color(0xFFFFE500);
+  @override
   late Color alternate = const Color(0xFFE0E3E7);
+  @override
   late Color primaryBackground = const Color(0xFFF1F4F8);
+  @override
   late Color secondaryBackground = const Color(0xFFFFFFFF);
+  @override
   late Color primaryText = const Color(0xFF14181B);
+  @override
   late Color secondaryText = const Color(0xFF57636C);
+  @override
   late Color accent1 = const Color(0x4C0066FF);
+  @override
   late Color accent2 = const Color(0x4CFF2D87);
+  @override
   late Color accent3 = const Color(0x4CFFE500);
+  @override
   late Color accent4 = const Color(0xCCFFFFFF);
+  @override
   late Color accent20 = const Color(0x33FF2D87);
+  @override
   late Color onAccent = const Color(0xFFFFFFFF);
+  @override
   late Color success = const Color(0xFF24D193);
+  @override
   late Color warning = const Color(0xFFFF9100);
+  @override
   late Color error = const Color(0xFFFF5963);
+  @override
   late Color info = const Color(0xFFFFFFFF);
 
+  @override
   late Color primary5 = const Color(0x0D0066FF);
+  @override
   late Color primary10 = const Color(0x1A0066FF);
+  @override
   late Color primary15 = const Color(0x260066FF);
+  @override
   late Color primary20 = const Color(0x330066FF);
+  @override
   late Color primary25 = const Color(0x400066FF);
+  @override
   late Color primary27 = const Color(0x450066FF);
+  @override
   late Color primary30 = const Color(0x4D0066FF);
+  @override
   late Color onPrimary = const Color(0xFFFFFFFF);
+  @override
   late Color onSecondary = const Color(0xFFFFFFFF);
+  @override
   late Color onSuccess = const Color(0xFFFFFFFF);
+  @override
   late Color onError = const Color(0xFFFFFFFF);
+  @override
   late Color onSurface = const Color(0xFF14181B);
+  @override
   late Color onBackground = const Color(0xFFFFFFFF);
+  @override
   late Color onBackground70 = const Color(0xB3FFFFFF);
+  @override
   late Color onBackground80 = const Color(0xCCFFFFFF);
+  @override
   late Color onPrimary20 = const Color(0x33FFFFFF);
+  @override
   late Color onPrimaryContainer = const Color(0xFF0066FF);
+  @override
   late Color onAccent4 = const Color(0x1A000000);
+  @override
   late Color surfaceVariant = const Color(0xFFF1F4F8);
+  @override
   late Color surfaceVariant30 = const Color(0x4DF1F4F8);
+  @override
   late Color surface40 = const Color(0x66FFFFFF);
+  @override
   late Color secondary10 = const Color(0x1AFF2D87);
+  @override
   late Color secondary20 = const Color(0x33FF2D87);
 }
 

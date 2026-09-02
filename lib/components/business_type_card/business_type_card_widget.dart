@@ -84,7 +84,7 @@ class _BusinessTypeCardWidgetState extends State<BusinessTypeCardWidget> {
           ),
         ),
         child: Padding(
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           child: Container(
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -116,7 +116,7 @@ class _BusinessTypeCardWidgetState extends State<BusinessTypeCardWidget> {
                         height: 1.3,
                       ),
                 ),
-              ].divide(SizedBox(height: 8)),
+              ].divide(const SizedBox(height: 8)),
             ),
           ),
         ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 export 'package:go_router/go_router.dart';
 
@@ -11,7 +10,7 @@ void safeSetState(VoidCallback callback) {
 }
 
 abstract class FlutterFlowModel<W extends StatefulWidget> {
-  bool _isInitialized = false;
+  final bool _isInitialized = false;
   void initState(BuildContext context);
   void dispose();
   void onUpdate() {}

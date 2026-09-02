@@ -69,7 +69,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
         ),
       ),
       child: Padding(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Container(
           child: Row(
             mainAxisSize: MainAxisSize.max,
@@ -110,7 +110,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                             height: 1.3,
                           ),
                     ),
-                  ].divide(SizedBox(height: 4)),
+                  ].divide(const SizedBox(height: 4)),
                 ),
               ),
               Row(
@@ -122,7 +122,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                     borderRadius: 8,
                     buttonSize: 40,
                     fillColor: Colors.transparent,
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.remove_circle_outline_rounded,
                       color: Colors.black,
                       size: 20,
@@ -132,10 +132,10 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                     },
                   ),
                   Container(
-                    constraints: BoxConstraints(
+                    constraints: const BoxConstraints(
                       minWidth: 32,
                     ),
-                    alignment: AlignmentDirectional(0, 0),
+                    alignment: const AlignmentDirectional(0, 0),
                     child: Text(
                       valueOrDefault<String>(
                         widget.qty,
@@ -163,9 +163,9 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                       debugPrint('IconButton pressed ...');
                     },
                   ),
-                ].divide(SizedBox(width: 8)),
+                ].divide(const SizedBox(width: 8)),
               ),
-            ].divide(SizedBox(width: 16)),
+            ].divide(const SizedBox(width: 16)),
           ),
         ),
       ),

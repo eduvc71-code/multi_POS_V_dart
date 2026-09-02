@@ -132,7 +132,7 @@ class _SettingsTileWidgetState extends State<SettingsTileWidget> {
                   ],
                 ),
               ),
-              Icon(
+              const Icon(
                 Icons.chevron_right_rounded,
                 color: Colors.black,
                 size: 24,

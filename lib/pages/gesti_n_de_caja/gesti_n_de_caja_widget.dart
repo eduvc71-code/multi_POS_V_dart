@@ -1,11 +1,12 @@
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_icon_button.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
-import 'package:multi_p_o_s/flutter_flow/flutter_flow_widgets.dart';
 import 'package:multi_p_o_s/components/cash_stat/cash_stat_widget.dart';
 import 'package:multi_p_o_s/components/button/button_widget.dart';
 import 'package:multi_p_o_s/components/movement_item/movement_item_widget.dart';
 import 'package:multi_p_o_s/components/text_field/text_field_widget.dart';
+import 'package:multi_p_o_s/pages/panel_principal/panel_principal_widget.dart';
+import 'package:multi_p_o_s/database/database_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widget_previews.dart';
 
@@ -29,6 +30,9 @@ class GestionDeCajaWidget extends StatefulWidget {
 
 class _GestionDeCajaWidgetState extends State<GestionDeCajaWidget> {
   late GestionDeCajaModel _model;
+  Map<String, dynamic>? _sesionActiva;
+  List<Map<String, dynamic>> _movimientos = [];
+  bool _isLoading = true;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -36,6 +40,140 @@ class _GestionDeCajaWidgetState extends State<GestionDeCajaWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => GestionDeCajaModel());
+    _loadCajaData();
+  }
+
+  Future<void> _loadCajaData() async {
+    final sesion = await DatabaseHelper.instance.getCajaSesionActiva();
+    final movs = await DatabaseHelper.instance.readAllMovimientosCaja();
+    if (mounted) {
+      setState(() {
+        _sesionActiva = sesion;
+        _movimientos = movs;
+        _isLoading = false;
+      });
+    }
+  }
+
+  Future<void> _handleAbrirCaja() async {
+    double montoInicial = 0.0;
+
+    final confirm = await showDialog<bool>(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text('Apertura de Caja'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Text('Ingrese el monto inicial con el que abre la caja:'),
+              const SizedBox(height: 12),
+              TextField(
+                keyboardType: const TextInputType.numberWithOptions(decimal: true),
+                decoration: const InputDecoration(labelText: 'Monto Inicial (Bs.)', hintText: '100.00'),
+                onChanged: (val) {
+                  montoInicial = double.tryParse(val) ?? 0.0;
+                },
+              ),
+            ],
+          ),
+          actions: [
+            TextButton(onPressed: () => Navigator.pop(context, false), child: const Text('Cancelar')),
+            ElevatedButton(
+              onPressed: () => Navigator.pop(context, true),
+              child: const Text('Abrir Caja'),
+            ),
+          ],
+        );
+      },
+    );
+
+    if (confirm == true) {
+      try {
+        await DatabaseHelper.instance.abrirCajaSesion(montoInicial);
+        await _loadCajaData();
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('Caja abierta con monto inicial de Bs. ${montoInicial.toStringAsFixed(2)}'),
+              backgroundColor: FlutterFlowTheme.of(context).success,
+            ),
+          );
+        }
+      } catch (e) {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('Error: $e'),
+              backgroundColor: FlutterFlowTheme.of(context).error,
+            ),
+          );
+        }
+      }
+    }
+  }
+
+  Future<void> _handleCerrarCaja() async {
+    if (_sesionActiva == null) return;
+    final int sesionId = _sesionActiva!['id'];
+    double montoFinal = 0.0;
+
+    final confirm = await showDialog<bool>(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text('Arqueo y Cierre de Caja'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text('Monto Inicial: Bs. ${(_sesionActiva!['monto_inicial'] as num).toStringAsFixed(2)}'),
+              const SizedBox(height: 12),
+              const Text('Ingrese el conteo físico de dinero al cierre:'),
+              const SizedBox(height: 12),
+              TextField(
+                keyboardType: const TextInputType.numberWithOptions(decimal: true),
+                decoration: const InputDecoration(labelText: 'Monto Conteo Físico (Bs.)'),
+                onChanged: (val) {
+                  montoFinal = double.tryParse(val) ?? 0.0;
+                },
+              ),
+            ],
+          ),
+          actions: [
+            TextButton(onPressed: () => Navigator.pop(context, false), child: const Text('Cancelar')),
+            ElevatedButton(
+              onPressed: () => Navigator.pop(context, true),
+              style: ElevatedButton.styleFrom(backgroundColor: Colors.orange),
+              child: const Text('Cerrar Turno'),
+            ),
+          ],
+        );
+      },
+    );
+
+    if (confirm == true) {
+      try {
+        await DatabaseHelper.instance.cerrarCajaSesion(sesionId, montoFinal);
+        await _loadCajaData();
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: const Text('Caja cerrada exitosamente.'),
+              backgroundColor: FlutterFlowTheme.of(context).success,
+            ),
+          );
+        }
+      } catch (e) {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('Error al cerrar caja: $e'),
+              backgroundColor: FlutterFlowTheme.of(context).error,
+            ),
+          );
+        }
+      }
+    }
   }
 
   @override
@@ -70,78 +208,96 @@ class _GestionDeCajaWidgetState extends State<GestionDeCajaWidget> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Padding(
-                    padding: EdgeInsets.all(24),
+                    padding: const EdgeInsets.all(24),
                     child: Container(
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Column(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.center,
+                          Row(
                             children: [
-                              Text(
-                                'Gestión de Caja',
-                                style: FlutterFlowTheme.of(context)
-                                    .headlineMedium
-                                    .copyWith(
-                                      fontFamily: "Urbanist",
-                                      color: FlutterFlowTheme.of(
-                                        context,
-                                      ).primaryText,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.bold,
-                                      height: 1.25,
-                                    ),
+                              FlutterFlowIconButton(
+                                borderRadius: 8,
+                                buttonSize: 40,
+                                fillColor: Colors.transparent,
+                                icon: const Icon(Icons.arrow_back_rounded, size: 24),
+                                onPressed: () async {
+                                  context.goNamed(PanelPrincipalWidget.routeName);
+                                },
                               ),
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
+                              const SizedBox(width: 8),
+                              Column(
+                                mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Container(
-                                    width: 8,
-                                    height: 8,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(
-                                        context,
-                                      ).success,
-                                      borderRadius: BorderRadius.circular(9999),
-                                      shape: BoxShape.rectangle,
-                                    ),
-                                  ),
                                   Text(
-                                    'Caja abierta · Turno Mañana',
+                                    'Gestión de Caja',
                                     style: FlutterFlowTheme.of(context)
-                                        .labelMedium
+                                        .headlineMedium
                                         .copyWith(
-                                          fontFamily: "Space Grotesk",
-                                          color: Colors.black,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FlutterFlowTheme.of(
+                                          fontFamily: "Urbanist",
+                                          color: FlutterFlowTheme.of(
                                             context,
-                                          ).labelMedium.fontWeight,
-                                          height: 1.3,
+                                          ).primaryText,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                          height: 1.25,
                                         ),
                                   ),
-                                ].divide(SizedBox(width: 4)),
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [
+                                      Container(
+                                        width: 8,
+                                        height: 8,
+                                        decoration: BoxDecoration(
+                                          color: _sesionActiva != null
+                                              ? FlutterFlowTheme.of(context).success
+                                              : FlutterFlowTheme.of(context).error,
+                                          borderRadius: BorderRadius.circular(9999),
+                                          shape: BoxShape.rectangle,
+                                        ),
+                                      ),
+                                      Text(
+                                        _sesionActiva != null
+                                            ? 'Caja abierta · Inicial: Bs. ${(_sesionActiva!['monto_inicial'] as num).toStringAsFixed(2)}'
+                                            : 'Caja Cerrada · Sin turno activo',
+                                        style: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .copyWith(
+                                              fontFamily: "Space Grotesk",
+                                              color: Colors.black,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FlutterFlowTheme.of(
+                                                context,
+                                              ).labelMedium.fontWeight,
+                                              height: 1.3,
+                                            ),
+                                      ),
+                                    ].divide(const SizedBox(width: 4)),
+                                  ),
+                                ].divide(const SizedBox(height: 4)),
                               ),
-                            ].divide(SizedBox(height: 4)),
+                            ],
                           ),
-                          FlutterFlowIconButton(
-                            borderRadius: 8,
-                            buttonSize: 40,
-                            fillColor: Colors.transparent,
-                            icon: Icon(
-                              Icons.history_rounded,
-                              color: Colors.black,
-                              size: 24,
-                            ),
-                            onPressed: () {
-                              debugPrint('IconButton pressed ...');
-                            },
+                          Row(
+                            children: [
+                              ElevatedButton.icon(
+                                onPressed: _sesionActiva != null ? _handleCerrarCaja : _handleAbrirCaja,
+                                icon: Icon(_sesionActiva != null ? Icons.lock_outline : Icons.lock_open, size: 18),
+                                label: Text(_sesionActiva != null ? 'Cerrar Caja' : 'Abrir Caja'),
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: _sesionActiva != null
+                                      ? FlutterFlowTheme.of(context).warning
+                                      : FlutterFlowTheme.of(context).primary,
+                                  foregroundColor: Colors.white,
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
@@ -167,7 +323,7 @@ class _GestionDeCajaWidgetState extends State<GestionDeCajaWidget> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Padding(
-                      padding: EdgeInsets.all(24),
+                      padding: const EdgeInsets.all(24),
                       child: Container(
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
@@ -229,7 +385,7 @@ class _GestionDeCajaWidgetState extends State<GestionDeCajaWidget> {
                                         ),
                                       ),
                                     ),
-                                  ].divide(SizedBox(width: 16)),
+                                  ].divide(const SizedBox(width: 16)),
                                 ),
                                 Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -280,9 +436,9 @@ class _GestionDeCajaWidgetState extends State<GestionDeCajaWidget> {
                                         ),
                                       ),
                                     ),
-                                  ].divide(SizedBox(width: 16)),
+                                  ].divide(const SizedBox(width: 16)),
                                 ),
-                              ].divide(SizedBox(height: 16)),
+                              ].divide(const SizedBox(height: 16)),
                             ),
                             Row(
                               mainAxisSize: MainAxisSize.max,
@@ -337,7 +493,7 @@ class _GestionDeCajaWidgetState extends State<GestionDeCajaWidget> {
                                     ),
                                   ),
                                 ),
-                              ].divide(SizedBox(width: 16)),
+                              ].divide(const SizedBox(width: 16)),
                             ),
                             Column(
                               mainAxisSize: MainAxisSize.min,
@@ -461,7 +617,7 @@ class _GestionDeCajaWidgetState extends State<GestionDeCajaWidget> {
                                     ),
                                   ),
                                 ),
-                              ].divide(SizedBox(height: 16)),
+                              ].divide(const SizedBox(height: 16)),
                             ),
                             Container(
                               decoration: BoxDecoration(
@@ -474,7 +630,7 @@ class _GestionDeCajaWidgetState extends State<GestionDeCajaWidget> {
                                 ),
                               ),
                               child: Padding(
-                                padding: EdgeInsets.all(24),
+                                padding: const EdgeInsets.all(24),
                                 child: Container(
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
@@ -543,10 +699,10 @@ class _GestionDeCajaWidgetState extends State<GestionDeCajaWidget> {
                                                         height: 1.4,
                                                       ),
                                                 ),
-                                              ].divide(SizedBox(height: 4)),
+                                              ].divide(const SizedBox(height: 4)),
                                             ),
                                           ),
-                                        ].divide(SizedBox(width: 16)),
+                                        ].divide(const SizedBox(width: 16)),
                                       ),
                                       wrapWithModel(
                                         model: _model.textFieldModel,
@@ -595,12 +751,12 @@ class _GestionDeCajaWidgetState extends State<GestionDeCajaWidget> {
                                           disabled: false,
                                         ),
                                       ),
-                                    ].divide(SizedBox(height: 16)),
+                                    ].divide(const SizedBox(height: 16)),
                                   ),
                                 ),
                               ),
                             ),
-                          ].divide(SizedBox(height: 24)),
+                          ].divide(const SizedBox(height: 24)),
                         ),
                       ),
                     ),

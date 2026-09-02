@@ -1,13 +1,14 @@
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_icon_button.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
-import 'package:multi_p_o_s/flutter_flow/flutter_flow_widgets.dart';
 import 'package:multi_p_o_s/components/credit_stat/credit_stat_widget.dart';
 import 'package:multi_p_o_s/components/text_field/text_field_widget.dart';
 import 'package:multi_p_o_s/components/client_card/client_card_widget.dart';
 import 'package:multi_p_o_s/components/button/button_widget.dart';
 import 'package:multi_p_o_s/components/bottom_nav/bottom_nav_widget.dart';
 import 'package:multi_p_o_s/components/bottom_nav_child3/bottom_nav_child3_widget.dart';
+import 'package:multi_p_o_s/pages/panel_principal/panel_principal_widget.dart';
+import 'package:multi_p_o_s/database/database_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widget_previews.dart';
 
@@ -32,6 +33,8 @@ class ClientesYCreditosWidget extends StatefulWidget {
 
 class _ClientesYCreditosWidgetState extends State<ClientesYCreditosWidget> {
   late ClientesYCreditosModel _model;
+  List<Map<String, dynamic>> _clientes = [];
+  bool _isLoading = true;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -39,6 +42,172 @@ class _ClientesYCreditosWidgetState extends State<ClientesYCreditosWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ClientesYCreditosModel());
+    _loadClientes();
+  }
+
+  Future<void> _loadClientes() async {
+    final list = await DatabaseHelper.instance.readAllClientes();
+    if (mounted) {
+      setState(() {
+        _clientes = list;
+        _isLoading = false;
+      });
+    }
+  }
+
+  double get _totalPorCobrar {
+    double sum = 0;
+    for (var c in _clientes) {
+      sum += (c['deuda'] as num? ?? 0.0).toDouble();
+    }
+    return sum;
+  }
+
+  Future<void> _handleAgregarCliente() async {
+    String nombre = '';
+    String nit = '';
+    String telefono = '';
+    String direccion = '';
+
+    final confirm = await showDialog<bool>(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text('Nuevo Cliente'),
+          content: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                TextField(
+                  decoration: const InputDecoration(labelText: 'Nombre Completo *'),
+                  onChanged: (val) => nombre = val,
+                ),
+                TextField(
+                  decoration: const InputDecoration(labelText: 'NIT / CI'),
+                  onChanged: (val) => nit = val,
+                ),
+                TextField(
+                  decoration: const InputDecoration(labelText: 'Teléfono'),
+                  onChanged: (val) => telefono = val,
+                ),
+                TextField(
+                  decoration: const InputDecoration(labelText: 'Dirección'),
+                  onChanged: (val) => direccion = val,
+                ),
+              ],
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context, false),
+              child: const Text('Cancelar'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                if (nombre.trim().isNotEmpty) {
+                  Navigator.pop(context, true);
+                }
+              },
+              child: const Text('Guardar'),
+            ),
+          ],
+        );
+      },
+    );
+
+    if (confirm == true && nombre.trim().isNotEmpty) {
+      await DatabaseHelper.instance.createCliente(
+        nombre: nombre,
+        nit: nit,
+        telefono: telefono,
+        direccion: direccion,
+      );
+      await _loadClientes();
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Cliente "$nombre" registrado correctamente.'),
+            backgroundColor: FlutterFlowTheme.of(context).success,
+          ),
+        );
+      }
+    }
+  }
+
+  Future<void> _handleAbono(Map<String, dynamic> cliente) async {
+    final int clienteId = cliente['id'];
+    final String nombre = cliente['nombre'] ?? '';
+    final double deudaActual = (cliente['deuda'] as num? ?? 0.0).toDouble();
+
+    if (deudaActual <= 0) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Este cliente no tiene saldo deudor.')),
+      );
+      return;
+    }
+
+    double montoAbono = 0.0;
+
+    final confirm = await showDialog<bool>(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text('Abono - $nombre'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text('Deuda Actual: Bs. ${deudaActual.toStringAsFixed(2)}'),
+              const SizedBox(height: 12),
+              TextField(
+                keyboardType: const TextInputType.numberWithOptions(decimal: true),
+                decoration: const InputDecoration(labelText: 'Monto a Abonar (Bs.)'),
+                onChanged: (val) {
+                  montoAbono = double.tryParse(val) ?? 0.0;
+                },
+              ),
+            ],
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context, false),
+              child: const Text('Cancelar'),
+            ),
+            ElevatedButton(
+              onPressed: () => Navigator.pop(context, true),
+              child: const Text('Registrar Abono'),
+            ),
+          ],
+        );
+      },
+    );
+
+    if (confirm == true && montoAbono > 0) {
+      try {
+        await DatabaseHelper.instance.processAbonoCredito(
+          clienteId: clienteId,
+          monto: montoAbono,
+          descripcion: 'Abono realizado desde Clientes y Créditos',
+        );
+        await _loadClientes();
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('Abono de Bs. ${montoAbono.toStringAsFixed(2)} registrado exitosamente.'),
+              backgroundColor: FlutterFlowTheme.of(context).success,
+            ),
+          );
+        }
+      } catch (e) {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('Error al registrar abono: $e'),
+              backgroundColor: FlutterFlowTheme.of(context).error,
+            ),
+          );
+        }
+      }
+    }
   }
 
   @override
@@ -73,7 +242,7 @@ class _ClientesYCreditosWidgetState extends State<ClientesYCreditosWidget> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Padding(
-                    padding: EdgeInsets.all(24),
+                    padding: const EdgeInsets.all(24),
                     child: Container(
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
@@ -85,40 +254,54 @@ class _ClientesYCreditosWidgetState extends State<ClientesYCreditosWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Column(
-                                mainAxisSize: MainAxisSize.min,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.center,
+                              Row(
                                 children: [
-                                  Text(
-                                    'Clientes y Créditos',
-                                    style: FlutterFlowTheme.of(context)
-                                        .headlineMedium
-                                        .copyWith(
-                                          fontFamily: "Urbanist",
-                                          color: FlutterFlowTheme.of(
-                                            context,
-                                          ).primaryText,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.bold,
-                                          height: 1.25,
-                                        ),
+                                  FlutterFlowIconButton(
+                                    borderRadius: 8,
+                                    buttonSize: 40,
+                                    fillColor: Colors.transparent,
+                                    icon: const Icon(Icons.arrow_back_rounded, size: 24),
+                                    onPressed: () async {
+                                      context.goNamed(PanelPrincipalWidget.routeName);
+                                    },
                                   ),
-                                  Text(
-                                    'Gestiona deudas y estados de cuenta',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodySmall
-                                        .copyWith(
-                                          fontFamily: "Poppins",
-                                          color: Colors.black,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FlutterFlowTheme.of(
-                                            context,
-                                          ).bodySmall.fontWeight,
-                                          height: 1.4,
-                                        ),
+                                  const SizedBox(width: 8),
+                                  Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'Clientes y Créditos',
+                                        style: FlutterFlowTheme.of(context)
+                                            .headlineMedium
+                                            .copyWith(
+                                              fontFamily: "Urbanist",
+                                              color: FlutterFlowTheme.of(
+                                                context,
+                                              ).primaryText,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.bold,
+                                              height: 1.25,
+                                            ),
+                                      ),
+                                      Text(
+                                        'Gestiona deudas y estados de cuenta',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodySmall
+                                            .copyWith(
+                                              fontFamily: "Poppins",
+                                              color: Colors.black,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FlutterFlowTheme.of(
+                                                context,
+                                              ).bodySmall.fontWeight,
+                                              height: 1.4,
+                                            ),
+                                      ),
+                                    ].divide(const SizedBox(height: 4)),
                                   ),
-                                ].divide(SizedBox(height: 4)),
+                                ],
                               ),
                               FlutterFlowIconButton(
                                 borderRadius: 24,
@@ -129,9 +312,7 @@ class _ClientesYCreditosWidgetState extends State<ClientesYCreditosWidget> {
                                   color: FlutterFlowTheme.of(context).onPrimary,
                                   size: 24,
                                 ),
-                                onPressed: () {
-                                  debugPrint('IconButton pressed ...');
-                                },
+                                onPressed: _handleAgregarCliente,
                               ),
                             ],
                           ),
@@ -157,7 +338,7 @@ class _ClientesYCreditosWidgetState extends State<ClientesYCreditosWidget> {
                               error: false,
                             ),
                           ),
-                        ].divide(SizedBox(height: 16)),
+                        ].divide(const SizedBox(height: 16)),
                       ),
                     ),
                   ),
@@ -181,7 +362,7 @@ class _ClientesYCreditosWidgetState extends State<ClientesYCreditosWidget> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Padding(
-                      padding: EdgeInsets.all(24),
+                      padding: const EdgeInsets.all(24),
                       child: Container(
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
@@ -210,7 +391,7 @@ class _ClientesYCreditosWidgetState extends State<ClientesYCreditosWidget> {
                                       tone: FlutterFlowTheme.of(
                                         context,
                                       ).primary,
-                                      value: 'Bs. 12.450,00',
+                                      value: 'Bs. ${_totalPorCobrar.toStringAsFixed(2)}',
                                     ),
                                   ),
                                 ),
@@ -221,19 +402,19 @@ class _ClientesYCreditosWidgetState extends State<ClientesYCreditosWidget> {
                                     updateCallback: () => safeSetState(() {}),
                                     child: CreditStatWidget(
                                       icon: Icon(
-                                        Icons.warning_amber_rounded,
+                                        Icons.people_alt_rounded,
                                         color: FlutterFlowTheme.of(
                                           context,
                                         ).primary,
                                         size: 20,
                                       ),
-                                      label: 'Vencidos',
-                                      tone: FlutterFlowTheme.of(context).error,
-                                      value: 'Bs. 3.120,00',
+                                      label: 'Clientes',
+                                      tone: FlutterFlowTheme.of(context).secondary,
+                                      value: '${_clientes.length}',
                                     ),
                                   ),
                                 ),
-                              ].divide(SizedBox(width: 16)),
+                              ].divide(const SizedBox(width: 16)),
                             ),
                             SingleChildScrollView(
                               scrollDirection: Axis.horizontal,
@@ -256,9 +437,9 @@ class _ClientesYCreditosWidgetState extends State<ClientesYCreditosWidget> {
                                         width: 1,
                                       ),
                                     ),
-                                    alignment: AlignmentDirectional(0, 0),
+                                    alignment: const AlignmentDirectional(0, 0),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                         12,
                                         0,
                                         12,
@@ -296,7 +477,7 @@ class _ClientesYCreditosWidgetState extends State<ClientesYCreditosWidget> {
                                                   height: 1.3,
                                                 ),
                                           ),
-                                        ].divide(SizedBox(width: 6)),
+                                        ].divide(const SizedBox(width: 6)),
                                       ),
                                     ),
                                   ),
@@ -314,9 +495,9 @@ class _ClientesYCreditosWidgetState extends State<ClientesYCreditosWidget> {
                                         width: 1,
                                       ),
                                     ),
-                                    alignment: AlignmentDirectional(0, 0),
+                                    alignment: const AlignmentDirectional(0, 0),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                         12,
                                         0,
                                         12,
@@ -347,7 +528,7 @@ class _ClientesYCreditosWidgetState extends State<ClientesYCreditosWidget> {
                                                   height: 1.3,
                                                 ),
                                           ),
-                                        ].divide(SizedBox(width: 6)),
+                                        ].divide(const SizedBox(width: 6)),
                                       ),
                                     ),
                                   ),
@@ -365,9 +546,9 @@ class _ClientesYCreditosWidgetState extends State<ClientesYCreditosWidget> {
                                         width: 1,
                                       ),
                                     ),
-                                    alignment: AlignmentDirectional(0, 0),
+                                    alignment: const AlignmentDirectional(0, 0),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                         12,
                                         0,
                                         12,
@@ -398,7 +579,7 @@ class _ClientesYCreditosWidgetState extends State<ClientesYCreditosWidget> {
                                                   height: 1.3,
                                                 ),
                                           ),
-                                        ].divide(SizedBox(width: 6)),
+                                        ].divide(const SizedBox(width: 6)),
                                       ),
                                     ),
                                   ),
@@ -416,9 +597,9 @@ class _ClientesYCreditosWidgetState extends State<ClientesYCreditosWidget> {
                                         width: 1,
                                       ),
                                     ),
-                                    alignment: AlignmentDirectional(0, 0),
+                                    alignment: const AlignmentDirectional(0, 0),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                         12,
                                         0,
                                         12,
@@ -449,80 +630,56 @@ class _ClientesYCreditosWidgetState extends State<ClientesYCreditosWidget> {
                                                   height: 1.3,
                                                 ),
                                           ),
-                                        ].divide(SizedBox(width: 6)),
+                                        ].divide(const SizedBox(width: 6)),
                                       ),
                                     ),
                                   ),
-                                ].divide(SizedBox(width: 8)),
+                                ].divide(const SizedBox(width: 8)),
                               ),
                             ),
-                            Column(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
-                              children: [
-                                Text(
-                                  'Directorio de Clientes',
-                                  style: FlutterFlowTheme.of(context)
-                                      .titleMedium
-                                      .copyWith(
-                                        fontFamily: "Urbanist",
-                                        color: FlutterFlowTheme.of(
-                                          context,
-                                        ).primaryText,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.bold,
-                                        height: 1.4,
+                            if (_isLoading)
+                              const Center(child: CircularProgressIndicator())
+                            else if (_clientes.isEmpty)
+                              const Center(child: Text('No hay clientes registrados.'))
+                            else
+                              Column(
+                                mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                                children: [
+                                  Text(
+                                    'Directorio de Clientes (${_clientes.length})',
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .copyWith(
+                                          fontFamily: "Urbanist",
+                                          color: FlutterFlowTheme.of(
+                                            context,
+                                          ).primaryText,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                          height: 1.4,
+                                        ),
+                                  ),
+                                  ..._clientes.map((c) {
+                                    final String nombre = c['nombre'] ?? '';
+                                    final double deuda = (c['deuda'] as num? ?? 0.0).toDouble();
+
+                                    return Padding(
+                                      padding: const EdgeInsets.only(bottom: 8.0),
+                                      child: InkWell(
+                                        onTap: () => _handleAbono(c),
+                                        child: ClientCardWidget(
+                                          debt: 'Bs. ${deuda.toStringAsFixed(2)}',
+                                          name: nombre,
+                                          isOverdue: deuda > 1000,
+                                        ),
                                       ),
-                                ),
-                                wrapWithModel(
-                                  model: _model.clientCardModel1,
-                                  updateCallback: () => safeSetState(() {}),
-                                  child: ClientCardWidget(
-                                    debt: 'Bs. 450,00',
-                                    name: 'Carlos Rodríguez',
-                                    isOverdue: false,
-                                  ),
-                                ),
-                                wrapWithModel(
-                                  model: _model.clientCardModel2,
-                                  updateCallback: () => safeSetState(() {}),
-                                  child: ClientCardWidget(
-                                    debt: 'Bs. 1.200,50',
-                                    name: 'María Elena Gómez',
-                                    isOverdue: true,
-                                  ),
-                                ),
-                                wrapWithModel(
-                                  model: _model.clientCardModel3,
-                                  updateCallback: () => safeSetState(() {}),
-                                  child: ClientCardWidget(
-                                    debt: 'Bs. 0,00',
-                                    name: 'Tienda El Sol',
-                                    isOverdue: false,
-                                  ),
-                                ),
-                                wrapWithModel(
-                                  model: _model.clientCardModel4,
-                                  updateCallback: () => safeSetState(() {}),
-                                  child: ClientCardWidget(
-                                    debt: 'Bs. 85,00',
-                                    name: 'Juan Pablo Duarte',
-                                    isOverdue: false,
-                                  ),
-                                ),
-                                wrapWithModel(
-                                  model: _model.clientCardModel5,
-                                  updateCallback: () => safeSetState(() {}),
-                                  child: ClientCardWidget(
-                                    debt: 'Bs. 2.340,00',
-                                    name: 'Lucía Fernández',
-                                    isOverdue: true,
-                                  ),
-                                ),
-                              ].divide(SizedBox(height: 16)),
-                            ),
-                          ].divide(SizedBox(height: 24)),
+                                    );
+                                  }),
+                                ].divide(const SizedBox(height: 12)),
+                              ),
+                          ].divide(const SizedBox(height: 24)),
                         ),
                       ),
                     ),
@@ -531,7 +688,7 @@ class _ClientesYCreditosWidgetState extends State<ClientesYCreditosWidget> {
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(0, 1),
+              alignment: const AlignmentDirectional(0, 1),
               child: Container(
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
@@ -539,14 +696,14 @@ class _ClientesYCreditosWidgetState extends State<ClientesYCreditosWidget> {
                       FlutterFlowTheme.of(context).primaryBackground,
                       Colors.transparent,
                     ],
-                    stops: [0, 1],
-                    begin: AlignmentDirectional(0, 1),
-                    end: AlignmentDirectional(0, -1),
+                    stops: const [0, 1],
+                    begin: const AlignmentDirectional(0, 1),
+                    end: const AlignmentDirectional(0, -1),
                   ),
                   shape: BoxShape.rectangle,
                 ),
                 child: Padding(
-                  padding: EdgeInsets.all(24),
+                  padding: const EdgeInsets.all(24),
                   child: Container(
                     child: wrapWithModel(
                       model: _model.buttonModel,
@@ -572,12 +729,12 @@ class _ClientesYCreditosWidgetState extends State<ClientesYCreditosWidget> {
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(0, 1),
+              alignment: const AlignmentDirectional(0, 1),
               child: Container(
                 child: wrapWithModel(
                   model: _model.bottomNavModel,
                   updateCallback: () => safeSetState(() {}),
-                  child: BottomNavWidget(child: () => BottomNavChild3Widget()),
+                  child: BottomNavWidget(child: () => const BottomNavChild3Widget()),
                 ),
               ),
             ),

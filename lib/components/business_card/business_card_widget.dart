@@ -84,7 +84,7 @@ class _BusinessCardWidgetState extends State<BusinessCardWidget> {
         ),
       ),
       child: Padding(
-        padding: EdgeInsets.all(24),
+        padding: const EdgeInsets.all(24),
         child: Container(
           child: Row(
             mainAxisSize: MainAxisSize.max,
@@ -106,7 +106,7 @@ class _BusinessCardWidgetState extends State<BusinessCardWidget> {
                   ),
                   shape: BoxShape.circle,
                 ),
-                alignment: AlignmentDirectional(0, 0),
+                alignment: const AlignmentDirectional(0, 0),
                 child: Text(
                   'MN',
                   textAlign: TextAlign.center,
@@ -165,13 +165,13 @@ class _BusinessCardWidgetState extends State<BusinessCardWidget> {
                             height: 1.2,
                           ),
                     ),
-                  ].divide(SizedBox(height: 4)),
+                  ].divide(const SizedBox(height: 4)),
                 ),
               ),
               Builder(builder: (_) {
                 return widget.isActiveSlot != null
                     ? widget.isActiveSlot!()
-                    : SizedBox.shrink();
+                    : const SizedBox.shrink();
               }),
               Container(
                 decoration: BoxDecoration(
@@ -180,7 +180,7 @@ class _BusinessCardWidgetState extends State<BusinessCardWidget> {
                   shape: BoxShape.rectangle,
                 ),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(16, 4, 16, 4),
+                  padding: const EdgeInsetsDirectional.fromSTEB(16, 4, 16, 4),
                   child: Container(
                     child: Text(
                       'ACTIVA',
@@ -195,7 +195,7 @@ class _BusinessCardWidgetState extends State<BusinessCardWidget> {
                   ),
                 ),
               ),
-            ].divide(SizedBox(width: 16)),
+            ].divide(const SizedBox(width: 16)),
           ),
         ),
       ),

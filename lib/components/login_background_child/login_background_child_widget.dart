@@ -4,6 +4,8 @@ import 'package:multi_p_o_s/components/button/button_widget.dart';
 import 'package:multi_p_o_s/components/text_field/text_field_widget.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
+import 'package:multi_p_o_s/database/database_helper.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:ui';
 import 'package:flutter/material.dart';
 
@@ -43,8 +45,6 @@ class _LoginBackgroundChildWidgetState
 
   @override
   Widget build(BuildContext context) {
-    final screenHeight = MediaQuery.of(context).size.height;
-    
     return LayoutBuilder(
       builder: (context, constraints) {
         final isCompact = constraints.maxWidth < 600;
@@ -128,10 +128,10 @@ class _LoginBackgroundChildWidgetState
                         filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
                         child: Container(
                           decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context).surface40.withOpacity(0.8),
+                            color: FlutterFlowTheme.of(context).surface40.withValues(alpha: 0.8),
                             borderRadius: BorderRadius.circular(32),
                             border: Border.all(
-                              color: FlutterFlowTheme.of(context).alternate.withOpacity(0.3),
+                              color: FlutterFlowTheme.of(context).alternate.withValues(alpha: 0.3),
                               width: 1,
                             ),
                           ),
@@ -201,7 +201,28 @@ class _LoginBackgroundChildWidgetState
                                     size: 'large',
                                     fullWidth: true,
                                     onTap: () async {
-                                      context.goNamed(PanelPrincipalWidget.routeName);
+                                      final user = await DatabaseHelper.instance.login(
+                                        _model.textFieldModel1.inputTextController?.text ?? '',
+                                        _model.textFieldModel2.inputTextController?.text ?? '',
+                                      );
+
+                                      if (user != null) {
+                                        final prefs = await SharedPreferences.getInstance();
+                                        await prefs.setInt('empresa_id', user['empresa_id']);
+                                        await prefs.setInt('usuario_id', user['id']);
+                                        await prefs.setString('user_role', user['rol'] ?? 'admin');
+                                        await prefs.setString('user_name', user['nombre'] ?? user['username'] ?? '');
+                                        
+                                        if (mounted) {
+                                          context.goNamed(PanelPrincipalWidget.routeName);
+                                        }
+                                      } else {
+                                        if (mounted) {
+                                          ScaffoldMessenger.of(context).showSnackBar(
+                                            const SnackBar(content: Text('Usuario o contraseña incorrectos')),
+                                          );
+                                        }
+                                      }
                                     },
                                   ),
                                 ),

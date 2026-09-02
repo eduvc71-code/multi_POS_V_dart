@@ -4,6 +4,7 @@ import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
 import 'package:multi_p_o_s/components/text_field/text_field_widget.dart';
 import 'package:multi_p_o_s/components/sale_row/sale_row_widget.dart';
 import 'package:multi_p_o_s/pages/panel_principal/panel_principal_widget.dart';
+import 'package:multi_p_o_s/database/database_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widget_previews.dart';
 
@@ -28,6 +29,8 @@ class HistorialDeVentasWidget extends StatefulWidget {
 
 class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
   late HistorialDeVentasModel _model;
+  List<Map<String, dynamic>> _ventas = [];
+  bool _isLoading = true;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -35,6 +38,90 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => HistorialDeVentasModel());
+    _loadVentas();
+  }
+
+  Future<void> _loadVentas() async {
+    final list = await DatabaseHelper.instance.readAllVentas();
+    if (mounted) {
+      setState(() {
+        _ventas = list;
+        _isLoading = false;
+      });
+    }
+  }
+
+  Future<void> _handleAnularVenta(Map<String, dynamic> venta) async {
+    final int ventaId = venta['id'];
+    final String estado = venta['estado'] ?? 'COMPLETADA';
+
+    if (estado == 'ANULADA') {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Esta venta ya se encuentra anulada.')),
+      );
+      return;
+    }
+
+    String motivo = 'Cliente solicitó devolución';
+
+    final confirm = await showDialog<bool>(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text('Anular Venta #$ventaId'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text('Total: Bs. ${(venta['total'] as num).toStringAsFixed(2)}'),
+              Text('Método: ${venta['metodo_pago']}'),
+              const SizedBox(height: 12),
+              TextField(
+                decoration: const InputDecoration(labelText: 'Motivo de anulación'),
+                onChanged: (val) => motivo = val,
+              ),
+            ],
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context, false),
+              child: const Text('Cancelar'),
+            ),
+            ElevatedButton(
+              onPressed: () => Navigator.pop(context, true),
+              style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+              child: const Text('Anular y Reintegrar Stock'),
+            ),
+          ],
+        );
+      },
+    );
+
+    if (confirm == true) {
+      try {
+        await DatabaseHelper.instance.processReturnSale(
+          ventaId: ventaId,
+          motivo: motivo,
+        );
+        await _loadVentas();
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('Venta #$ventaId anulada correctamente.'),
+              backgroundColor: FlutterFlowTheme.of(context).success,
+            ),
+          );
+        }
+      } catch (e) {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('Error al anular venta: $e'),
+              backgroundColor: FlutterFlowTheme.of(context).error,
+            ),
+          );
+        }
+      }
+    }
   }
 
   @override
@@ -92,7 +179,7 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(24, 16, 24, 16),
+                    padding: const EdgeInsetsDirectional.fromSTEB(24, 16, 24, 16),
                     child: Container(
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -108,7 +195,7 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
                                 borderRadius: 8,
                                 buttonSize: 40,
                                 fillColor: Colors.transparent,
-                                icon: Icon(
+                                icon: const Icon(
                                   Icons.arrow_back_rounded,
                                   size: 24,
                                 ),
@@ -128,7 +215,7 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
                                   height: 1.3,
                                 ),
                               ),
-                            ].divide(SizedBox(width: 16)),
+                            ].divide(const SizedBox(width: 16)),
                           ),
                           FlutterFlowIconButton(
                             borderRadius: 8,
@@ -167,7 +254,7 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Padding(
-                      padding: EdgeInsets.all(24),
+                      padding: const EdgeInsets.all(24),
                       child: Container(
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
@@ -255,14 +342,14 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
                                       width: 1,
                                     ),
                                   ),
-                                  alignment: AlignmentDirectional(0, 0),
-                                  child: Icon(
+                                  alignment: const AlignmentDirectional(0, 0),
+                                  child: const Icon(
                                     Icons.calendar_today_rounded,
                                     color: Colors.black,
                                     size: 24,
                                   ),
                                 ),
-                              ].divide(SizedBox(width: 16)),
+                              ].divide(const SizedBox(width: 16)),
                             ),
                             SingleChildScrollView(
                               scrollDirection: Axis.horizontal,
@@ -283,9 +370,9 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
                                         width: 1,
                                       ),
                                     ),
-                                    alignment: AlignmentDirectional(0, 0),
+                                    alignment: const AlignmentDirectional(0, 0),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           12, 0, 12, 0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.min,
@@ -319,7 +406,7 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
                                               height: 1.3,
                                             ),
                                           ),
-                                        ].divide(SizedBox(width: 6)),
+                                        ].divide(const SizedBox(width: 6)),
                                       ),
                                     ),
                                   ),
@@ -335,9 +422,9 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
                                         width: 1,
                                       ),
                                     ),
-                                    alignment: AlignmentDirectional(0, 0),
+                                    alignment: const AlignmentDirectional(0, 0),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           12, 0, 12, 0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.min,
@@ -365,7 +452,7 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
                                               height: 1.3,
                                             ),
                                           ),
-                                        ].divide(SizedBox(width: 6)),
+                                        ].divide(const SizedBox(width: 6)),
                                       ),
                                     ),
                                   ),
@@ -381,9 +468,9 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
                                         width: 1,
                                       ),
                                     ),
-                                    alignment: AlignmentDirectional(0, 0),
+                                    alignment: const AlignmentDirectional(0, 0),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           12, 0, 12, 0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.min,
@@ -411,7 +498,7 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
                                               height: 1.3,
                                             ),
                                           ),
-                                        ].divide(SizedBox(width: 6)),
+                                        ].divide(const SizedBox(width: 6)),
                                       ),
                                     ),
                                   ),
@@ -427,9 +514,9 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
                                         width: 1,
                                       ),
                                     ),
-                                    alignment: AlignmentDirectional(0, 0),
+                                    alignment: const AlignmentDirectional(0, 0),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           12, 0, 12, 0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.min,
@@ -457,140 +544,52 @@ class _HistorialDeVentasWidgetState extends State<HistorialDeVentasWidget> {
                                               height: 1.3,
                                             ),
                                           ),
-                                        ].divide(SizedBox(width: 6)),
+                                        ].divide(const SizedBox(width: 6)),
                                       ),
                                     ),
                                   ),
-                                ].divide(SizedBox(width: 8)),
+                                ].divide(const SizedBox(width: 8)),
                               ),
                             ),
-                            Column(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
-                              children: [
-                                Text(
-                                  'Hoy, 24 de Mayo',
-                                  style: FlutterFlowTheme.of(context)
-                                      .labelMedium
-                                      .copyWith(
-                                    fontFamily: "Space Grotesk",
-                                    color: Colors.black,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .fontWeight,
-                                    height: 1.3,
-                                  ),
-                                ),
-                                wrapWithModel(
-                                  model: _model.saleRowModel1,
-                                  updateCallback: () => safeSetState(() {}),
-                                  child: SaleRowWidget(
-                                    folio: 'V-000482',
-                                    method: 'Efectivo',
-                                    statusColor:
-                                    FlutterFlowTheme.of(context).success,
-                                    time: '14:20',
-                                    total: '348,50',
-                                    status: 'completada',
-                                  ),
-                                ),
-                                wrapWithModel(
-                                  model: _model.saleRowModel2,
-                                  updateCallback: () => safeSetState(() {}),
-                                  child: SaleRowWidget(
-                                    folio: 'V-000481',
-                                    method: 'Crédito',
-                                    statusColor:
-                                    FlutterFlowTheme.of(context).warning,
-                                    time: '13:45',
-                                    total: '1.200,00',
-                                    status: 'Pendiente',
-                                  ),
-                                ),
-                                wrapWithModel(
-                                  model: _model.saleRowModel3,
-                                  updateCallback: () => safeSetState(() {}),
-                                  child: SaleRowWidget(
-                                    folio: 'V-000480',
-                                    method: 'Transferencia',
-                                    statusColor:
-                                    FlutterFlowTheme.of(context).error,
-                                    time: '12:10',
-                                    total: '85,00',
-                                    status: 'anulada',
-                                  ),
-                                ),
-                                wrapWithModel(
-                                  model: _model.saleRowModel4,
-                                  updateCallback: () => safeSetState(() {}),
-                                  child: SaleRowWidget(
-                                    folio: 'V-000479',
-                                    method: 'Tarjeta',
-                                    statusColor:
-                                    FlutterFlowTheme.of(context).success,
-                                    time: '11:30',
-                                    total: '520,00',
-                                    status: 'completada',
-                                  ),
-                                ),
-                                Text(
-                                  'Ayer, 23 de Mayo',
-                                  style: FlutterFlowTheme.of(context)
-                                      .labelMedium
-                                      .copyWith(
-                                    fontFamily: "Space Grotesk",
-                                    color: Colors.black,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .fontWeight,
-                                    height: 1.3,
-                                  ),
-                                ),
-                                wrapWithModel(
-                                  model: _model.saleRowModel5,
-                                  updateCallback: () => safeSetState(() {}),
-                                  child: SaleRowWidget(
-                                    folio: 'V-000478',
-                                    method: 'Efectivo',
-                                    statusColor:
-                                    FlutterFlowTheme.of(context).success,
-                                    time: '18:05',
-                                    total: '210,00',
-                                    status: 'completada',
-                                  ),
-                                ),
-                                wrapWithModel(
-                                  model: _model.saleRowModel6,
-                                  updateCallback: () => safeSetState(() {}),
-                                  child: SaleRowWidget(
-                                    folio: 'V-000477',
-                                    method: 'Crédito',
-                                    statusColor:
-                                    FlutterFlowTheme.of(context).success,
-                                    time: '17:40',
-                                    total: '1.540,00',
-                                    status: 'completada',
-                                  ),
-                                ),
-                                wrapWithModel(
-                                  model: _model.saleRowModel7,
-                                  updateCallback: () => safeSetState(() {}),
-                                  child: SaleRowWidget(
-                                    folio: 'V-000476',
-                                    method: 'Efectivo',
-                                    statusColor:
-                                    FlutterFlowTheme.of(context).tertiary,
-                                    time: '16:15',
-                                    total: '45,50',
-                                    status: 'Devolución',
-                                  ),
-                                ),
-                              ].divide(SizedBox(height: 16)),
-                            ),
-                          ].divide(SizedBox(height: 24)),
+                            if (_isLoading)
+                              const Center(child: CircularProgressIndicator())
+                            else if (_ventas.isEmpty)
+                              const Center(child: Text('No hay ventas registradas.'))
+                            else
+                              Column(
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                                children: _ventas.map((v) {
+                                  final int id = v['id'];
+                                  final double total = (v['total'] as num).toDouble();
+                                  final String metodo = v['metodo_pago'] ?? 'EFECTIVO';
+                                  final String estado = v['estado'] ?? 'COMPLETADA';
+                                  final String fecha = v['fecha'] ?? '';
+
+                                  Color statusColor = FlutterFlowTheme.of(context).success;
+                                  if (estado == 'ANULADA') {
+                                    statusColor = FlutterFlowTheme.of(context).error;
+                                  } else if (metodo == 'CREDITO') {
+                                    statusColor = FlutterFlowTheme.of(context).warning;
+                                  }
+
+                                  return Padding(
+                                    padding: const EdgeInsets.only(bottom: 8.0),
+                                    child: InkWell(
+                                      onTap: () => _handleAnularVenta(v),
+                                      child: SaleRowWidget(
+                                        folio: 'V-${id.toString().padLeft(6, '0')}',
+                                        method: metodo,
+                                        statusColor: statusColor,
+                                        time: fecha.length > 16 ? fecha.substring(11, 16) : fecha,
+                                        total: total.toStringAsFixed(2),
+                                        status: estado,
+                                      ),
+                                    ),
+                                  );
+                                }).toList(),
+                              ),
+                          ].divide(const SizedBox(height: 24)),
                         ),
                       ),
                     ),

@@ -9,7 +9,9 @@ import 'package:multi_p_o_s/components/bottom_nav/bottom_nav_widget.dart';
 import 'package:multi_p_o_s/components/bottom_nav_child/bottom_nav_child_widget.dart';
 import 'package:multi_p_o_s/pages/inventario_de_productos/inventario_de_productos_widget.dart';
 import 'package:multi_p_o_s/pages/historial_de_ventas/historial_de_ventas_widget.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/widget_previews.dart';
 
 import 'panel_principal_model.dart';
@@ -32,6 +34,8 @@ class PanelPrincipalWidget extends StatefulWidget {
 
 class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
   late PanelPrincipalModel _model;
+  String _userName = 'Administrador';
+  String _userRole = 'admin';
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -44,8 +48,12 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
 
   Future<void> _loadData() async {
     await _model.fetchLowStockCount();
+    final prefs = await SharedPreferences.getInstance();
     if (mounted) {
-      setState(() {});
+      setState(() {
+        _userName = prefs.getString('user_name') ?? 'Administrador';
+        _userRole = prefs.getString('user_role') ?? 'admin';
+      });
     }
   }
 
@@ -85,7 +93,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                           shape: BoxShape.rectangle,
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(24, 24, 24, 16),
+                          padding: const EdgeInsetsDirectional.fromSTEB(24, 24, 24, 16),
                           child: Container(
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -113,19 +121,19 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                       crossAxisAlignment: CrossAxisAlignment.center,
                                       children: [
                                         Text(
-                                          'Sucursal Central',
+                                          '$_userName · ${_userRole.toUpperCase()}',
                                           style: FlutterFlowTheme.of(context).labelSmall
                                               .copyWith(
                                                 fontFamily: "Space Grotesk",
                                                 color: Colors.black,
                                                 fontSize: 10,
                                                 letterSpacing: 0.0,
-                                                fontWeight: FontWeight.normal,
+                                                fontWeight: FontWeight.bold,
                                               ),
                                         ),
                                       ],
                                     ),
-                                  ].divide(SizedBox(height: 0)),
+                                  ].divide(const SizedBox(height: 0)),
                                 ),
                                 Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -138,7 +146,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                       fillColor: FlutterFlowTheme.of(
                                         context,
                                       ).surfaceVariant,
-                                      icon: Icon(Icons.search_rounded, size: 18),
+                                      icon: const Icon(Icons.search_rounded, size: 18),
                                       onPressed: () {
                                         debugPrint('IconButton pressed ...');
                                       },
@@ -149,7 +157,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                       fillColor: FlutterFlowTheme.of(
                                         context,
                                       ).surfaceVariant,
-                                      icon: Icon(Icons.notifications_rounded, size: 18),
+                                      icon: const Icon(Icons.notifications_rounded, size: 18),
                                       onPressed: () {
                                         debugPrint('IconButton pressed ...');
                                       },
@@ -157,13 +165,13 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                     FlutterFlowIconButton(
                                       borderRadius: 12,
                                       buttonSize: 32,
-                                      fillColor: Colors.red.withOpacity(0.1),
-                                      icon: Icon(Icons.power_settings_new_rounded, color: Colors.red, size: 18),
+                                      fillColor: Colors.red.withValues(alpha: 0.1),
+                                      icon: const Icon(Icons.power_settings_new_rounded, color: Colors.red, size: 18),
                                       onPressed: () {
                                         SystemNavigator.pop(); // Cierra la aplicación
                                       },
                                     ),
-                                  ].divide(SizedBox(width: 4)),
+                                  ].divide(const SizedBox(width: 4)),
                                 ),
                               ],
                             ),
@@ -181,7 +189,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
                               Padding(
-                                padding: EdgeInsets.all(24),
+                                padding: const EdgeInsets.all(24),
                                 child: Container(
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
@@ -196,7 +204,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                               color: FlutterFlowTheme.of(
                                                 context,
                                               ).primary25,
-                                              offset: Offset(0, 12),
+                                              offset: const Offset(0, 12),
                                               spreadRadius: 0,
                                             ),
                                           ],
@@ -205,15 +213,15 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                               FlutterFlowTheme.of(context).primary,
                                               FlutterFlowTheme.of(context).secondary,
                                             ],
-                                            stops: [0, 1],
-                                            begin: AlignmentDirectional(1, 1),
-                                            end: AlignmentDirectional(-1, -1),
+                                            stops: const [0, 1],
+                                            begin: const AlignmentDirectional(1, 1),
+                                            end: const AlignmentDirectional(-1, -1),
                                           ),
                                           borderRadius: BorderRadius.circular(32),
                                           shape: BoxShape.rectangle,
                                         ),
                                         child: Padding(
-                                          padding: EdgeInsets.all(32),
+                                          padding: const EdgeInsets.all(32),
                                           child: Container(
                                             child: Column(
                                               mainAxisSize: MainAxisSize.min,
@@ -250,7 +258,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                         shape: BoxShape.rectangle,
                                                       ),
                                                       child: Padding(
-                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                                           8,
                                                           4,
                                                           8,
@@ -340,7 +348,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                               height: 1.5,
                                                             ),
                                                           ),
-                                                        ].divide(SizedBox(height: 4)),
+                                                        ].divide(const SizedBox(height: 4)),
                                                       ),
                                                     ),
                                                     Expanded(
@@ -399,14 +407,14 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                                   height: 1.5,
                                                                 ),
                                                               ),
-                                                            ].divide(SizedBox(width: 4)),
+                                                            ].divide(const SizedBox(width: 4)),
                                                           ),
-                                                        ].divide(SizedBox(height: 4)),
+                                                        ].divide(const SizedBox(height: 4)),
                                                       ),
                                                     ),
                                                   ],
                                                 ),
-                                              ].divide(SizedBox(height: 16)),
+                                              ].divide(const SizedBox(height: 16)),
                                             ),
                                           ),
                                         ),
@@ -520,9 +528,9 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                   ),
                                                 ),
                                               ),
-                                            ].divide(SizedBox(width: 16)),
+                                            ].divide(const SizedBox(width: 16)),
                                           ),
-                                        ].divide(SizedBox(height: 16)),
+                                        ].divide(const SizedBox(height: 16)),
                                       ),
                                       Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -534,7 +542,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                             child: wrapWithModel(
                                               model: _model.statCardModel1,
                                               updateCallback: () => safeSetState(() {}),
-                                              child: StatCardWidget(
+                                              child: const StatCardWidget(
                                                 icon: Icon(
                                                   Icons.credit_score_rounded,
                                                   color: Color(0xFFFF9100),
@@ -553,7 +561,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                             child: wrapWithModel(
                                               model: _model.statCardModel2,
                                               updateCallback: () => safeSetState(() {}),
-                                              child: StatCardWidget(
+                                              child: const StatCardWidget(
                                                 icon: Icon(
                                                   Icons.payments_rounded,
                                                   color: Color(0xFFFF9100),
@@ -567,21 +575,21 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                               ),
                                             ),
                                           ),
-                                        ].divide(SizedBox(width: 16)),
+                                        ].divide(const SizedBox(width: 16)),
                                       ),
                                       if (_model.lowStockCount > 0)
                                       Container(
                                         decoration: BoxDecoration(
-                                          color: Color(0x1AFF9100),
+                                          color: const Color(0x1AFF9100),
                                           borderRadius: BorderRadius.circular(24),
                                           shape: BoxShape.rectangle,
                                           border: Border.all(
-                                            color: Color(0x4DFF9100),
+                                            color: const Color(0x4DFF9100),
                                             width: 1,
                                           ),
                                         ),
                                         child: Padding(
-                                          padding: EdgeInsets.all(24),
+                                          padding: const EdgeInsets.all(24),
                                           child: Container(
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -592,14 +600,14 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                   width: 48,
                                                   height: 48,
                                                   decoration: BoxDecoration(
-                                                    color: Color(0xFFFF9100),
+                                                    color: const Color(0xFFFF9100),
                                                     borderRadius: BorderRadius.circular(
                                                       16,
                                                     ),
                                                     shape: BoxShape.rectangle,
                                                   ),
-                                                  alignment: AlignmentDirectional(0, 0),
-                                                  child: Icon(
+                                                  alignment: const AlignmentDirectional(0, 0),
+                                                  child: const Icon(
                                                     Icons.warning_amber_rounded,
                                                     color: Colors.black,
                                                     size: 24,
@@ -640,14 +648,14 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                           height: 1.4,
                                                         ),
                                                       ),
-                                                    ].divide(SizedBox(height: 4)),
+                                                    ].divide(const SizedBox(height: 4)),
                                                   ),
                                                 ),
                                                 FlutterFlowIconButton(
                                                   borderRadius: 8,
                                                   buttonSize: 40,
                                                   fillColor: Colors.transparent,
-                                                  icon: Icon(
+                                                  icon: const Icon(
                                                     Icons.arrow_forward_ios_rounded,
                                                     color: Color(0xFFFF9100),
                                                     size: 16,
@@ -659,7 +667,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                     );
                                                   },
                                                 ),
-                                              ].divide(SizedBox(width: 16)),
+                                              ].divide(const SizedBox(width: 16)),
                                             ),
                                           ),
                                         ),
@@ -731,7 +739,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                 crossAxisAlignment: CrossAxisAlignment.center,
                                                 children: [
                                                   Padding(
-                                                    padding: EdgeInsets.all(24),
+                                                    padding: const EdgeInsets.all(24),
                                                     child: Row(
                                                       mainAxisSize: MainAxisSize.max,
                                                       mainAxisAlignment: MainAxisAlignment.start,
@@ -747,7 +755,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                             borderRadius: BorderRadius.circular(12),
                                                             shape: BoxShape.rectangle,
                                                           ),
-                                                          alignment: AlignmentDirectional(
+                                                          alignment: const AlignmentDirectional(
                                                             0,
                                                             0,
                                                           ),
@@ -793,7 +801,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                                   height: 1.2,
                                                                 ),
                                                               ),
-                                                            ].divide(SizedBox(height: 4)),
+                                                            ].divide(const SizedBox(height: 4)),
                                                           ),
                                                         ),
                                                         Text(
@@ -808,7 +816,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                             height: 1.5,
                                                           ),
                                                         ),
-                                                      ].divide(SizedBox(width: 16)),
+                                                      ].divide(const SizedBox(width: 16)),
                                                     ),
                                                   ),
                                                   Divider(
@@ -821,7 +829,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                     ).alternate,
                                                   ),
                                                   Padding(
-                                                    padding: EdgeInsets.all(24),
+                                                    padding: const EdgeInsets.all(24),
                                                     child: Row(
                                                       mainAxisSize: MainAxisSize.max,
                                                       mainAxisAlignment: MainAxisAlignment.start,
@@ -837,7 +845,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                             borderRadius: BorderRadius.circular(12),
                                                             shape: BoxShape.rectangle,
                                                           ),
-                                                          alignment: AlignmentDirectional(
+                                                          alignment: const AlignmentDirectional(
                                                             0,
                                                             0,
                                                           ),
@@ -883,7 +891,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                                   height: 1.2,
                                                                 ),
                                                               ),
-                                                            ].divide(SizedBox(height: 4)),
+                                                            ].divide(const SizedBox(height: 4)),
                                                           ),
                                                         ),
                                                         Text(
@@ -898,16 +906,16 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                                             height: 1.5,
                                                           ),
                                                         ),
-                                                      ].divide(SizedBox(width: 16)),
+                                                      ].divide(const SizedBox(width: 16)),
                                                     ),
                                                   ),
                                                 ],
                                               ),
                                             ),
                                           ),
-                                        ].divide(SizedBox(height: 16)),
+                                        ].divide(const SizedBox(height: 16)),
                                       ),
-                                    ].divide(SizedBox(height: 24)),
+                                    ].divide(const SizedBox(height: 24)),
                                   ),
                                 ),
                               ),
@@ -917,7 +925,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                       ),
                       // BLOQUE 3: FOOTER (Bottom Navigation)
                       Align(
-                        alignment: AlignmentDirectional(0, 1),
+                        alignment: const AlignmentDirectional(0, 1),
                         child: Container(
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -938,7 +946,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                 model: _model.bottomNavModel,
                                 updateCallback: () => safeSetState(() {}),
                                 child: BottomNavWidget(
-                                  child: () => BottomNavChildWidget(),
+                                  child: () => const BottomNavChildWidget(),
                                 ),
                               ),
                             ],

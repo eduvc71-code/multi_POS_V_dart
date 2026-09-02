@@ -91,7 +91,7 @@ class _ProductItemWidgetState extends State<ProductItemWidget> {
                 shape: BoxShape.rectangle,
               ),
               alignment: const AlignmentDirectional(0, 0),
-              child: Icon(
+              child: const Icon(
                 Icons.inventory_2_rounded,
                 color: Colors.black,
                 size: 24,

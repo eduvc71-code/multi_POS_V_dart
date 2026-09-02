@@ -5,7 +5,6 @@ import 'package:multi_p_o_s/components/text_field/text_field_widget.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_icon_button.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
-import 'package:multi_p_o_s/flutter_flow/flutter_flow_widgets.dart';
 import 'package:multi_p_o_s/pages/panel_principal/panel_principal_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widget_previews.dart';
@@ -148,6 +147,110 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
     }
   }
 
+  Future<void> _handleCheckout() async {
+    if (_model.cart.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('El carrito está vacío')),
+      );
+      return;
+    }
+
+    String selectedMetodo = 'EFECTIVO';
+
+    final result = await showDialog<String>(
+      context: context,
+      builder: (context) {
+        return StatefulBuilder(
+          builder: (context, setStateDialog) {
+            return AlertDialog(
+              title: const Text('Procesar Cobro'),
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    'Total a Cobrar: Bs. ${_model.total.toStringAsFixed(2)}',
+                    style: FlutterFlowTheme.of(context).titleMedium,
+                  ),
+                  const SizedBox(height: 16),
+                  const Text('Seleccione Método de Pago:'),
+                  DropdownButton<String>(
+                    value: selectedMetodo,
+                    isExpanded: true,
+                    items: const [
+                      DropdownMenuItem(value: 'EFECTIVO', child: Text('Efectivo')),
+                      DropdownMenuItem(value: 'TARJETA', child: Text('Tarjeta Débito/Crédito')),
+                      DropdownMenuItem(value: 'TRANSFERENCIA', child: Text('Transferencia / QR')),
+                      DropdownMenuItem(value: 'CREDITO', child: Text('Venta a Crédito')),
+                    ],
+                    onChanged: (val) {
+                      if (val != null) setStateDialog(() => selectedMetodo = val);
+                    },
+                  ),
+                ],
+              ),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(context, null),
+                  child: const Text('Cancelar'),
+                ),
+                ElevatedButton(
+                  onPressed: () => Navigator.pop(context, selectedMetodo),
+                  child: const Text('Confirmar Venta'),
+                ),
+              ],
+            );
+          },
+        );
+      },
+    );
+
+    if (result != null) {
+      try {
+        final items = <Map<String, dynamic>>[];
+        _model.cart.forEach((productId, qty) {
+          final p = _model.cartProducts.firstWhere((p) => p.id == productId);
+          items.add({
+            'producto_id': productId,
+            'cantidad': qty,
+            'precio_unitario': p.precio,
+            'subtotal': p.precio * qty,
+          });
+        });
+
+        final ventaId = await DatabaseHelper.instance.processAtomicSale(
+          items: items,
+          total: _model.total,
+          subtotal: _model.total,
+          descuento: 0.0,
+          metodoPago: result,
+        );
+
+        _model.cart.clear();
+        _model.cartProducts.clear();
+        await _model.searchProducts('');
+
+        if (mounted) {
+          setState(() {});
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('Venta #$ventaId registrada exitosamente ($result)'),
+              backgroundColor: FlutterFlowTheme.of(context).success,
+            ),
+          );
+        }
+      } catch (e) {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('Error al procesar la venta: $e'),
+              backgroundColor: FlutterFlowTheme.of(context).error,
+            ),
+          );
+        }
+      }
+    }
+  }
+
   @override
   void dispose() {
     _model.dispose();
@@ -180,7 +283,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(24, 16, 24, 16),
+                    padding: const EdgeInsetsDirectional.fromSTEB(24, 16, 24, 16),
                     child: Container(
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -242,7 +345,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                   ),
                                 ],
                               ),
-                            ].divide(SizedBox(width: 16)),
+                            ].divide(const SizedBox(width: 16)),
                           ),
                           Row(
                             mainAxisSize: MainAxisSize.max,
@@ -265,7 +368,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                 borderRadius: 8,
                                 buttonSize: 40,
                                 fillColor: Colors.transparent,
-                                icon: Icon(
+                                icon: const Icon(
                                   Icons.person_add_rounded,
                                   color: Colors.black,
                                   size: 24,
@@ -274,7 +377,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                   debugPrint('IconButton pressed ...');
                                 },
                               ),
-                            ].divide(SizedBox(width: 8)),
+                            ].divide(const SizedBox(width: 8)),
                           ),
                         ],
                       ),
@@ -308,7 +411,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
                             Padding(
-                              padding: EdgeInsets.all(24),
+                              padding: const EdgeInsets.all(24),
                               child: Container(
                                 child: Column(
                                   mainAxisSize: MainAxisSize.min,
@@ -378,7 +481,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                           )
                                         ).toList(),
                                       ),
-                                  ].divide(SizedBox(height: 16)),
+                                  ].divide(const SizedBox(height: 16)),
                                 ),
                               ),
                             ),
@@ -399,7 +502,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         Container(
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             shape: BoxShape.rectangle,
                           ),
                           child: Column(
@@ -407,7 +510,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
                               Padding(
-                                padding: EdgeInsets.all(16),
+                                padding: const EdgeInsets.all(16),
                                 child: Container(
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -452,7 +555,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.stretch,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsets.all(16),
+                                    padding: const EdgeInsets.all(16),
                                     child: Container(
                                       child: Column(
                                         mainAxisSize: MainAxisSize.min,
@@ -492,7 +595,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                             shape: BoxShape.rectangle,
                           ),
                           child: Padding(
-                            padding: EdgeInsets.all(24),
+                            padding: const EdgeInsets.all(24),
                             child: Container(
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
@@ -512,7 +615,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                       ),
                                     ),
                                     child: Padding(
-                                      padding: EdgeInsets.all(16),
+                                      padding: const EdgeInsets.all(16),
                                       child: Container(
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -521,7 +624,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                           crossAxisAlignment:
                                           CrossAxisAlignment.center,
                                           children: [
-                                            Icon(
+                                            const Icon(
                                               Icons.account_circle_rounded,
                                               color: Colors.black,
                                               size: 24,
@@ -552,7 +655,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                                   .primary,
                                               size: 16,
                                             ),
-                                          ].divide(SizedBox(width: 8)),
+                                          ].divide(const SizedBox(width: 8)),
                                         ),
                                       ),
                                     ),
@@ -650,7 +753,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                         ],
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0, 8, 0, 8),
                                         child: Container(
                                           child: Divider(
@@ -700,29 +803,32 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                           ),
                                         ],
                                       ),
-                                    ].divide(SizedBox(height: 4)),
+                                    ].divide(const SizedBox(height: 4)),
                                   ),
-                                  wrapWithModel(
-                                    model: _model.buttonModel,
-                                    updateCallback: () => safeSetState(() {}),
-                                    child: ButtonWidget(
-                                      icon: Icon(
-                                        Icons.payments_rounded,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                        size: 24,
+                                  InkWell(
+                                    onTap: _handleCheckout,
+                                    child: wrapWithModel(
+                                      model: _model.buttonModel,
+                                      updateCallback: () => safeSetState(() {}),
+                                      child: ButtonWidget(
+                                        icon: Icon(
+                                          Icons.payments_rounded,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                          size: 24,
+                                        ),
+                                        iconPresent: true,
+                                        iconEndPresent: false,
+                                        content: 'COBRAR AHORA',
+                                        variant: 'primary',
+                                        size: 'large',
+                                        fullWidth: true,
+                                        loading: false,
+                                        disabled: false,
                                       ),
-                                      iconPresent: true,
-                                      iconEndPresent: false,
-                                      content: 'COBRAR AHORA',
-                                      variant: 'primary',
-                                      size: 'large',
-                                      fullWidth: true,
-                                      loading: false,
-                                      disabled: false,
                                     ),
                                   ),
-                                ].divide(SizedBox(height: 16)),
+                                ].divide(const SizedBox(height: 16)),
                               ),
                             ),
                           ),
@@ -750,7 +856,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(24, 8, 24, 8),
+                    padding: const EdgeInsetsDirectional.fromSTEB(24, 8, 24, 8),
                     child: Container(
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -773,9 +879,9 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                           .secondaryBackground,
                                       borderRadius: BorderRadius.circular(8),
                                     ),
-                                    alignment: AlignmentDirectional(0, 0),
+                                    alignment: const AlignmentDirectional(0, 0),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           12, 0, 12, 0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.min,
@@ -807,7 +913,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                               height: 1.3,
                                             ),
                                           ),
-                                        ].divide(SizedBox(width: 6)),
+                                        ].divide(const SizedBox(width: 6)),
                                       ),
                                     ),
                                   ),
@@ -818,9 +924,9 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                           .secondaryBackground,
                                       borderRadius: BorderRadius.circular(8),
                                     ),
-                                    alignment: AlignmentDirectional(0, 0),
+                                    alignment: const AlignmentDirectional(0, 0),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           12, 0, 12, 0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.min,
@@ -852,7 +958,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                               height: 1.3,
                                             ),
                                           ),
-                                        ].divide(SizedBox(width: 6)),
+                                        ].divide(const SizedBox(width: 6)),
                                       ),
                                     ),
                                   ),
@@ -863,9 +969,9 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                           .secondaryBackground,
                                       borderRadius: BorderRadius.circular(8),
                                     ),
-                                    alignment: AlignmentDirectional(0, 0),
+                                    alignment: const AlignmentDirectional(0, 0),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           12, 0, 12, 0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.min,
@@ -897,11 +1003,11 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                                               height: 1.3,
                                             ),
                                           ),
-                                        ].divide(SizedBox(width: 6)),
+                                        ].divide(const SizedBox(width: 6)),
                                       ),
                                     ),
                                   ),
-                                ].divide(SizedBox(width: 16)),
+                                ].divide(const SizedBox(width: 16)),
                               ),
                             ),
                           ),

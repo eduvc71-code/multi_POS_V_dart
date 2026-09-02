@@ -104,9 +104,7 @@ class _StatCardWidgetState extends State<StatCardWidget> {
                 borderRadius: const BorderRadius.all(Radius.circular(12)),
                 shape: BoxShape.rectangle,
               ),
-              child: widget.icon != null
-                  ? widget.icon
-                  : Icon(
+              child: widget.icon ?? Icon(
                       Icons.bar_chart,
                       color: FlutterFlowTheme.of(context).onPrimary,
                       size: 24,

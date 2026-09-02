@@ -20,6 +20,7 @@ Widget previewTextField() {
 class TextFieldWidget extends StatefulWidget {
   const TextFieldWidget({
     super.key,
+    this.model,
     String? label,
     bool? labelPresent,
     String? helper,
@@ -40,12 +41,13 @@ class TextFieldWidget extends StatefulWidget {
        helperPresent = helperPresent ?? false,
        leadingIconPresent = leadingIconPresent ?? false,
        trailingIconPresent = trailingIconPresent ?? false,
-       hint = hint ?? 'SlotValue($hint)',
+       hint = hint ?? '',
        value = value ?? '',
        onSubmit = onSubmit ?? '',
        variant = variant ?? 'outlined',
        error = error ?? false;
 
+  final TextFieldModel? model;
   final String label;
   final bool labelPresent;
   final String helper;
@@ -77,7 +79,7 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => TextFieldModel());
+    _model = widget.model ?? createModel(context, () => TextFieldModel());
 
     _model.inputTextController ??= TextEditingController(text: widget.value);
     _model.inputTextController?.addListener(() {
@@ -90,7 +92,9 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
 
   @override
   void dispose() {
-    _model.maybeDispose();
+    if (widget.model == null) {
+      _model.maybeDispose();
+    }
 
     super.dispose();
   }

@@ -4,7 +4,6 @@ import 'package:multi_p_o_s/components/checkbox/checkbox_widget.dart';
 import 'package:multi_p_o_s/components/form_field/form_field_widget.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
-import 'package:multi_p_o_s/flutter_flow/flutter_flow_widgets.dart';
 import 'package:multi_p_o_s/pages/panel_principal/panel_principal_widget.dart';
 import 'package:multi_p_o_s/pages/inicio_de_sesi_n/inicio_de_sesi_n_widget.dart';
 import 'package:flutter/material.dart';
@@ -33,6 +32,7 @@ class RegistroDeNegocioWidget extends StatefulWidget {
 
 class _RegistroDeNegocioWidgetState extends State<RegistroDeNegocioWidget> {
   late RegistroDeNegocioModel _model;
+  bool _populateStandardInventory = false;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -76,53 +76,50 @@ class _RegistroDeNegocioWidgetState extends State<RegistroDeNegocioWidget> {
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
                     borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(24),
-                      bottomRight: Radius.circular(24),
+                      bottomLeft: Radius.circular(16),
+                      bottomRight: Radius.circular(16),
                     ),
                     shape: BoxShape.rectangle,
                   ),
                   child: Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(24, 16, 24, 16),
+                    padding: const EdgeInsetsDirectional.fromSTEB(24, 8, 24, 8),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Column(
-                          mainAxisSize: MainAxisSize.min,
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Text(
-                              'MultiPOS',
+                              'MultiPOS ',
                               style: FlutterFlowTheme.of(context)
-                                  .headlineSmall
+                                  .titleMedium
                                   .copyWith(
                                     fontFamily: "Urbanist",
                                     color: FlutterFlowTheme.of(context).primary,
-                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.w900,
                                   ),
                             ),
                             Text(
-                              'Configura tu nuevo negocio',
+                              '| Configura tu nuevo negocio',
                               style: FlutterFlowTheme.of(context)
-                                  .headlineSmall
+                                  .titleMedium
                                   .copyWith(
                                     fontFamily: "Poppins",
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    letterSpacing: 0.0,
+                                    color: Colors.black54,
+                                    fontSize: 14,
                                     fontWeight: FontWeight.w500,
                                   ),
                             ),
-                          ].divide(const SizedBox(height: 2)),
+                          ],
                         ),
                       ],
                     ),
                   ),
                 ),
-                      Spacer(flex: 1),
+                      const SizedBox(height: 8),
                       // BLOQUE 2: CUERPO (Formularios/Cards)
                       Expanded(
                         child: SingleChildScrollView(
@@ -144,19 +141,17 @@ class _RegistroDeNegocioWidgetState extends State<RegistroDeNegocioWidget> {
                                       Icon(
                                         Icons.business_center_rounded,
                                         color: FlutterFlowTheme.of(context).secondary,
-                                        size: 20,
+                                        size: 18,
                                       ),
                                       Text(
                                         'Información del Negocio',
                                         style: FlutterFlowTheme.of(context)
-                                            .titleMedium
+                                            .titleSmall
                                             .copyWith(
                                               fontFamily: "Urbanist",
                                               color: FlutterFlowTheme.of(context)
                                                   .primaryText,
-                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.bold,
-                                              height: 1.4,
                                             ),
                                       ),
                                     ].divide(const SizedBox(width: 8)),
@@ -164,11 +159,12 @@ class _RegistroDeNegocioWidgetState extends State<RegistroDeNegocioWidget> {
                                   wrapWithModel(
                                     model: _model.formFieldModel1,
                                     updateCallback: () => safeSetState(() {}),
-                                    child: const FormFieldWidget(
-                                      hint: 'Ej. Mi Tienda Express',
+                                    child: FormFieldWidget(
+                                      model: _model.formFieldModel1,
+                                      hint: 'Nombre Comercial',
                                       icon: 'store_rounded',
                                       label: 'Nombre Comercial',
-                                      isPassword: true,
+                                      isPassword: false,
                                     ),
                                   ),
                                   Column(
@@ -183,9 +179,7 @@ class _RegistroDeNegocioWidgetState extends State<RegistroDeNegocioWidget> {
                                             .copyWith(
                                               fontFamily: "Space Grotesk",
                                               color: Colors.black,
-                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
-                                              height: 1.3,
                                             ),
                                       ),
                                       Column(
@@ -310,37 +304,33 @@ class _RegistroDeNegocioWidgetState extends State<RegistroDeNegocioWidget> {
                                           ),
                                         ].divide(const SizedBox(height: 8)),
                                       ),
-                                    ].divide(const SizedBox(height: 8)),
+                                    ].divide(const SizedBox(height: 4)),
                                   ),
                                   wrapWithModel(
                                     model: _model.formFieldModel2,
                                     updateCallback: () => safeSetState(() {}),
-                                    child: const FormFieldWidget(
-                                      hint: '123456789',
+                                    child: FormFieldWidget(
+                                      model: _model.formFieldModel2,
+                                      hint: 'NIT / ID Fiscal',
                                       icon: 'description_rounded',
-                                      label: 'NIT / Identificación Fiscal (Opcional)',
-                                      isPassword: true,
+                                      label: 'NIT (Opcional)',
+                                      isPassword: false,
                                     ),
                                   ),
                                   wrapWithModel(
                                     model: _model.formFieldModel3,
                                     updateCallback: () => safeSetState(() {}),
-                                    child: const FormFieldWidget(
-                                      hint: '70000000',
+                                    child: FormFieldWidget(
+                                      model: _model.formFieldModel3,
+                                      hint: 'Teléfono',
                                       icon: 'phone_rounded',
-                                      label: 'Teléfono de Contacto',
-                                      isPassword: true,
+                                      label: 'Teléfono',
+                                      isPassword: false,
                                     ),
                                   ),
-                                ].divide(const SizedBox(height: 16)),
+                                ].divide(const SizedBox(height: 8)),
                               ),
-                              const Divider(
-                                height: 16,
-                                thickness: 1,
-                                indent: 0,
-                                endIndent: 0,
-                                color: Color(0xFFE0E3E7),
-                              ),
+                              const Divider(height: 12, thickness: 1, color: Color(0xFFE0E3E7)),
                               Column(
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.start,
@@ -354,19 +344,17 @@ class _RegistroDeNegocioWidgetState extends State<RegistroDeNegocioWidget> {
                                       Icon(
                                         Icons.account_circle_rounded,
                                         color: FlutterFlowTheme.of(context).primaryText,
-                                        size: 20,
+                                        size: 18,
                                       ),
                                       Text(
-                                        'Cuenta del Propietario',
+                                        'Cuenta Propietario',
                                         style: FlutterFlowTheme.of(context)
-                                            .titleMedium
+                                            .titleSmall
                                             .copyWith(
                                               fontFamily: "Urbanist",
                                               color: FlutterFlowTheme.of(context)
                                                   .primaryText,
-                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.bold,
-                                              height: 1.4,
                                             ),
                                       ),
                                     ].divide(const SizedBox(width: 8)),
@@ -374,51 +362,76 @@ class _RegistroDeNegocioWidgetState extends State<RegistroDeNegocioWidget> {
                                   wrapWithModel(
                                     model: _model.formFieldModel4,
                                     updateCallback: () => safeSetState(() {}),
-                                    child: const FormFieldWidget(
-                                      hint: 'Nombre y Apellidos',
+                                    child: FormFieldWidget(
+                                      model: _model.formFieldModel4,
+                                      hint: 'Nombre Completo',
                                       icon: 'person_rounded',
                                       label: 'Nombre Completo',
-                                      isPassword: true,
+                                      isPassword: false,
                                     ),
                                   ),
                                   wrapWithModel(
                                     model: _model.formFieldModel5,
                                     updateCallback: () => safeSetState(() {}),
-                                    child: const FormFieldWidget(
-                                      hint: 'usuario123',
+                                    child: FormFieldWidget(
+                                      model: _model.formFieldModel5,
+                                      hint: 'Usuario',
                                       icon: 'alternate_email_rounded',
                                       label: 'Nombre de Usuario',
-                                      isPassword: true,
+                                      isPassword: false,
                                     ),
                                   ),
-                                  wrapWithModel(
-                                    model: _model.formFieldModel6,
-                                    updateCallback: () => safeSetState(() {}),
-                                    child: const FormFieldWidget(
-                                      hint: 'Mínimo 8 caracteres',
-                                      icon: 'lock_rounded',
-                                      label: 'Contraseña',
-                                      isPassword: true,
-                                    ),
+                                  Row(
+                                    children: [
+                                      Expanded(
+                                        child: wrapWithModel(
+                                          model: _model.formFieldModel6,
+                                          updateCallback: () => safeSetState(() {}),
+                                          child: FormFieldWidget(
+                                            model: _model.formFieldModel6,
+                                            hint: 'Contraseña',
+                                            icon: 'lock_rounded',
+                                            label: 'Contraseña',
+                                            isPassword: true,
+                                          ),
+                                        ),
+                                      ),
+                                      const SizedBox(width: 8),
+                                      Expanded(
+                                        child: wrapWithModel(
+                                          model: _model.formFieldModel7,
+                                          updateCallback: () => safeSetState(() {}),
+                                          child: FormFieldWidget(
+                                            model: _model.formFieldModel7,
+                                            hint: 'Confirmar',
+                                            icon: 'lock_clock_rounded',
+                                            label: 'Confirmar',
+                                            isPassword: true,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                  wrapWithModel(
-                                    model: _model.formFieldModel7,
-                                    updateCallback: () => safeSetState(() {}),
-                                    child: const FormFieldWidget(
-                                      hint: 'Repite tu contraseña',
-                                      icon: 'lock_clock_rounded',
-                                      label: 'Confirmar Contraseña',
-                                      isPassword: true,
-                                    ),
-                                  ),
-                                ].divide(const SizedBox(height: 16)),
+                                ].divide(const SizedBox(height: 8)),
+                              ),
+                              CheckboxWidget(
+                                label: 'Cargar catálogo estándar para mi rubro',
+                                subtitle: 'Carga todos los productos del rubro. Solo 10 tendrán precio y stock inicial.',
+                                color: FlutterFlowTheme.of(context).primary,
+                                isChecked: _populateStandardInventory,
+                                hasSubtitle: true,
+                                disabled: false,
+                                onTap: () {
+                                  setState(() {
+                                    _populateStandardInventory = !_populateStandardInventory;
+                                  });
+                                },
                               ),
                               wrapWithModel(
                                 model: _model.checkboxModel,
                                 updateCallback: () => safeSetState(() {}),
                                 child: CheckboxWidget(
-                                  label: 'Acepto los términos y condiciones de MultiPOS',
-                                  subtitle: 'Receive weekly updates',
+                                  label: 'Acepto los términos y condiciones',
                                   color: FlutterFlowTheme.of(context).primary,
                                   isChecked: true,
                                   hasSubtitle: false,
@@ -429,7 +442,7 @@ class _RegistroDeNegocioWidgetState extends State<RegistroDeNegocioWidget> {
                           ),
                         ),
                       ),
-                      Spacer(flex: 1),
+                      const SizedBox(height: 8),
                       // BLOQUE 3: FOOTER (Botones finales/Links)
                       Column(
                         mainAxisSize: MainAxisSize.min,
@@ -444,22 +457,31 @@ class _RegistroDeNegocioWidgetState extends State<RegistroDeNegocioWidget> {
                               iconEndPresent: false,
                               content: 'Finalizar Registro',
                               variant: 'primary',
-                              size: 'medium', // Reducido de large a medium
+                              size: 'small', // Reducido a small
                               fullWidth: true,
                               loading: false,
                               disabled: false,
                               onTap: () async {
                                 print('Finalizando registro...');
                                 try {
+                                  // Capturar datos de los modelos
+                                  final businessName = _model.formFieldModel1.textFieldModel.inputTextController?.text ?? '';
+                                  final nit = _model.formFieldModel2.textFieldModel.inputTextController?.text ?? '';
+                                  final phone = _model.formFieldModel3.textFieldModel.inputTextController?.text ?? '';
+                                  final ownerName = _model.formFieldModel4.textFieldModel.inputTextController?.text ?? '';
+                                  final username = _model.formFieldModel5.textFieldModel.inputTextController?.text ?? '';
+                                  final password = _model.formFieldModel6.textFieldModel.inputTextController?.text ?? '';
+
                                   // Llamada al nuevo método de registro multitenancy
                                   final empresaId = await DatabaseHelper.instance.registerFullBusiness(
-                                    businessName: 'Nombre del Negocio', // Aquí deberías mapear los controllers
+                                    businessName: businessName,
                                     businessType: _model.selectedBusinessType,
-                                    nit: '123456', 
-                                    phone: '70000000',
-                                    ownerName: 'Propietario',
-                                    username: 'user1',
-                                    password: 'pass',
+                                    nit: nit, 
+                                    phone: phone,
+                                    ownerName: ownerName,
+                                    username: username,
+                                    password: password,
+                                    populateStandardInventory: _populateStandardInventory,
                                   );
 
                                   final prefs = await SharedPreferences.getInstance();
@@ -476,7 +498,7 @@ class _RegistroDeNegocioWidgetState extends State<RegistroDeNegocioWidget> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(24, 16, 24, 0),
+                            padding: const EdgeInsetsDirectional.fromSTEB(24, 8, 24, 0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -487,11 +509,7 @@ class _RegistroDeNegocioWidgetState extends State<RegistroDeNegocioWidget> {
                                   style: FlutterFlowTheme.of(context).bodySmall.copyWith(
                                         fontFamily: "Poppins",
                                         color: Colors.black,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FlutterFlowTheme.of(context)
-                                            .bodySmall
-                                            .fontWeight,
-                                        height: 1.4,
+                                        fontSize: 12,
                                       ),
                                 ),
                                 wrapWithModel(

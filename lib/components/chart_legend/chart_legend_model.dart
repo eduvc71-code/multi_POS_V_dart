@@ -1,4 +1,3 @@
-import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
 import 'chart_legend_widget.dart' show ChartLegendWidget;
 import 'package:flutter/material.dart';

@@ -1,4 +1,3 @@
-import '../models/producto_model.dart';
 
 class InventoryInitializer {
   static List<Map<String, dynamic>> getItemsFor(String businessType) {

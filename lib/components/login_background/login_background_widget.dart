@@ -43,7 +43,7 @@ class _LoginBackgroundWidgetState extends State<LoginBackgroundWidget> {
   @override
   Widget build(BuildContext context) {
     return Stack(
-      alignment: AlignmentDirectional(-1, -1),
+      alignment: const AlignmentDirectional(-1, -1),
       children: [
         Container(
           decoration: BoxDecoration(
@@ -52,7 +52,7 @@ class _LoginBackgroundWidgetState extends State<LoginBackgroundWidget> {
           ),
         ),
         Align(
-          alignment: AlignmentDirectional(-1.2, -1.2),
+          alignment: const AlignmentDirectional(-1.2, -1.2),
           child: ClipRect(
             child: ImageFiltered(
               imageFilter: ImageFilter.blur(
@@ -72,7 +72,7 @@ class _LoginBackgroundWidgetState extends State<LoginBackgroundWidget> {
           ),
         ),
         Align(
-          alignment: AlignmentDirectional(1.2, 1.2),
+          alignment: const AlignmentDirectional(1.2, 1.2),
           child: ClipRect(
             child: ImageFiltered(
               imageFilter: ImageFilter.blur(
@@ -92,7 +92,7 @@ class _LoginBackgroundWidgetState extends State<LoginBackgroundWidget> {
           ),
         ),
         Builder(builder: (_) {
-          return widget.child != null ? widget.child!() : SizedBox.shrink();
+          return widget.child != null ? widget.child!() : const SizedBox.shrink();
         }),
       ],
     );

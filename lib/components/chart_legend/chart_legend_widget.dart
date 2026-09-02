@@ -76,7 +76,7 @@ class _ChartLegendWidgetState extends State<ChartLegendWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return const SizedBox(
       width: 1,
       height: 1,
     );

@@ -18,6 +18,7 @@ Widget previewFormField() {
 class FormFieldWidget extends StatefulWidget {
   const FormFieldWidget({
     super.key,
+    this.model,
     String? hint,
     String? icon,
     String? label,
@@ -27,6 +28,7 @@ class FormFieldWidget extends StatefulWidget {
         label = label ?? 'Nombre Comercial',
         isPassword = isPassword ?? true;
 
+  final FormFieldModel? model;
   final String hint;
   final String icon;
   final String label;
@@ -48,12 +50,14 @@ class _FormFieldWidgetState extends State<FormFieldWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => FormFieldModel());
+    _model = widget.model ?? createModel(context, () => FormFieldModel());
   }
 
   @override
   void dispose() {
-    _model.maybeDispose();
+    if (widget.model == null) {
+      _model.maybeDispose();
+    }
 
     super.dispose();
   }
@@ -82,6 +86,7 @@ class _FormFieldWidgetState extends State<FormFieldWidget> {
           model: _model.textFieldModel,
           updateCallback: () => safeSetState(() {}),
           child: TextFieldWidget(
+            model: _model.textFieldModel,
             label: '',
             labelPresent: false,
             helper: '',

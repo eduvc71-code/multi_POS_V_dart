@@ -51,7 +51,7 @@ class _MovementItemWidgetState extends State<MovementItemWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         shape: BoxShape.rectangle,
       ),
       child: Column(
@@ -59,7 +59,7 @@ class _MovementItemWidgetState extends State<MovementItemWidget> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Padding(
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             child: Container(
               child: Row(
                 mainAxisSize: MainAxisSize.max,
@@ -123,7 +123,7 @@ class _MovementItemWidgetState extends State<MovementItemWidget> {
                                 height: 1.2,
                               ),
                         ),
-                      ].divide(SizedBox(height: 4)),
+                      ].divide(const SizedBox(height: 4)),
                     ),
                   ),
                   Text(
@@ -141,7 +141,7 @@ class _MovementItemWidgetState extends State<MovementItemWidget> {
                           height: 1.4,
                         ),
                   ),
-                ].divide(SizedBox(width: 16)),
+                ].divide(const SizedBox(width: 16)),
               ),
             ),
           ),

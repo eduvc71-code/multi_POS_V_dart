@@ -178,746 +178,291 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                           ),
                         ),
                       ),
-                      // BLOQUE 2: CUERPO (Contenido del Dashboard con scroll interno)
+                      // BLOQUE 2: CUERPO (Contenido del Dashboard completamente estático sin scroll)
                       Expanded(
-                        flex: 1,
-                        child: SingleChildScrollView(
-                          primary: false,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                           child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
-                              Padding(
-                                padding: const EdgeInsets.all(24),
-                                child: Container(
+                              // 1. Tarjeta Ventas del Día
+                              Container(
+                                decoration: BoxDecoration(
+                                  boxShadow: [
+                                    BoxShadow(
+                                      blurRadius: 16,
+                                      color: FlutterFlowTheme.of(context).primary25,
+                                      offset: const Offset(0, 8),
+                                      spreadRadius: 0,
+                                    ),
+                                  ],
+                                  gradient: LinearGradient(
+                                    colors: [
+                                      FlutterFlowTheme.of(context).primary,
+                                      FlutterFlowTheme.of(context).secondary,
+                                    ],
+                                    stops: const [0, 1],
+                                    begin: const AlignmentDirectional(1, 1),
+                                    end: const AlignmentDirectional(-1, -1),
+                                  ),
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(16),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment: CrossAxisAlignment.stretch,
                                     children: [
-                                      Container(
-                                        decoration: BoxDecoration(
-                                          boxShadow: [
-                                            BoxShadow(
-                                              blurRadius: 24,
-                                              color: FlutterFlowTheme.of(
-                                                context,
-                                              ).primary25,
-                                              offset: const Offset(0, 12),
-                                              spreadRadius: 0,
-                                            ),
-                                          ],
-                                          gradient: LinearGradient(
-                                            colors: [
-                                              FlutterFlowTheme.of(context).primary,
-                                              FlutterFlowTheme.of(context).secondary,
-                                            ],
-                                            stops: const [0, 1],
-                                            begin: const AlignmentDirectional(1, 1),
-                                            end: const AlignmentDirectional(-1, -1),
-                                          ),
-                                          borderRadius: BorderRadius.circular(32),
-                                          shape: BoxShape.rectangle,
-                                        ),
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(32),
-                                          child: Container(
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.min,
-                                              mainAxisAlignment: MainAxisAlignment.start,
-                                              crossAxisAlignment: CrossAxisAlignment.center,
-                                              children: [
-                                                Row(
-                                                  mainAxisSize: MainAxisSize.max,
-                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                                  children: [
-                                                    Text(
-                                                      'Ventas del Día',
-                                                      style: FlutterFlowTheme.of(context)
-                                                          .labelLarge
-                                                          .copyWith(
-                                                            fontFamily: "Space Grotesk",
-                                                            color: FlutterFlowTheme.of(
-                                                              context,
-                                                            ).onBackground80,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight: FlutterFlowTheme.of(
-                                                              context,
-                                                            ).labelLarge.fontWeight,
-                                                            height: 1.3,
-                                                          ),
-                                                    ),
-                                                    Container(
-                                                      decoration: BoxDecoration(
-                                                        color: FlutterFlowTheme.of(
-                                                          context,
-                                                        ).onPrimary20,
-                                                        borderRadius: BorderRadius.circular(9999),
-                                                        shape: BoxShape.rectangle,
-                                                      ),
-                                                      child: Padding(
-                                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                                          8,
-                                                          4,
-                                                          8,
-                                                          4,
-                                                        ),
-                                                        child: Container(
-                                                          child: Text(
-                                                            'HOY',
-                                                            style: FlutterFlowTheme.of(
-                                                              context,
-                                                            ).labelSmall.copyWith(
-                                                              fontFamily: "Space Grotesk",
-                                                              color: Colors.black,
-                                                              letterSpacing: 0.0,
-                                                              fontWeight: FontWeight.bold,
-                                                              height: 1.2,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                Text(
-                                                  'Bs. 4.850,00',
-                                                  style: FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .copyWith(
-                                                        fontFamily: "Poppins",
-                                                        color: FlutterFlowTheme.of(
-                                                          context,
-                                                        ).onBackground,
-                                                        fontSize: 24, // Reducido de 36 a 24
-                                                        letterSpacing: 0.0,
-                                                        fontWeight: FontWeight.w900,
-                                                      ),
-                                                ),
-                                                Divider(
-                                                  height: 16,
-                                                  thickness: 1,
-                                                  indent: 0,
-                                                  endIndent: 0,
-                                                  color: FlutterFlowTheme.of(
-                                                    context,
-                                                  ).onPrimary20,
-                                                ),
-                                                Row(
-                                                  mainAxisSize: MainAxisSize.max,
-                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                                  children: [
-                                                    Expanded(
-                                                      child: Column(
-                                                        mainAxisSize: MainAxisSize.min,
-                                                        mainAxisAlignment: MainAxisAlignment.start,
-                                                        crossAxisAlignment: CrossAxisAlignment.center,
-                                                        children: [
-                                                          Text(
-                                                            'Transacciones',
-                                                            style: FlutterFlowTheme.of(
-                                                              context,
-                                                            ).labelSmall.copyWith(
-                                                              fontFamily: "Space Grotesk",
-                                                              color: FlutterFlowTheme.of(
-                                                                context,
-                                                              ).onBackground70,
-                                                              letterSpacing: 0.0,
-                                                              fontWeight: FlutterFlowTheme.of(
-                                                                    context,
-                                                                  )
-                                                                  .labelSmall
-                                                                  .fontWeight,
-                                                              height: 1.2,
-                                                            ),
-                                                          ),
-                                                          Text(
-                                                            '24 ventas',
-                                                            style: FlutterFlowTheme.of(
-                                                              context,
-                                                            ).bodyMedium.copyWith(
-                                                              fontFamily: "Poppins",
-                                                              color: FlutterFlowTheme.of(
-                                                                context,
-                                                              ).onBackground,
-                                                              letterSpacing: 0.0,
-                                                              fontWeight: FontWeight.w600,
-                                                              height: 1.5,
-                                                            ),
-                                                          ),
-                                                        ].divide(const SizedBox(height: 4)),
-                                                      ),
-                                                    ),
-                                                    Expanded(
-                                                      child: Column(
-                                                        mainAxisSize: MainAxisSize.min,
-                                                        mainAxisAlignment: MainAxisAlignment.start,
-                                                        crossAxisAlignment: CrossAxisAlignment.end,
-                                                        children: [
-                                                          Text(
-                                                            'Estado de Caja',
-                                                            style: FlutterFlowTheme.of(
-                                                              context,
-                                                            ).labelSmall.copyWith(
-                                                              fontFamily: "Space Grotesk",
-                                                              color: FlutterFlowTheme.of(
-                                                                context,
-                                                              ).onBackground70,
-                                                              letterSpacing: 0.0,
-                                                              fontWeight: FlutterFlowTheme.of(
-                                                                    context,
-                                                                  )
-                                                                  .labelSmall
-                                                                  .fontWeight,
-                                                              height: 1.2,
-                                                            ),
-                                                          ),
-                                                          Row(
-                                                            mainAxisSize: MainAxisSize.max,
-                                                            mainAxisAlignment: MainAxisAlignment.start,
-                                                            crossAxisAlignment: CrossAxisAlignment.center,
-                                                            children: [
-                                                              Container(
-                                                                width: 8,
-                                                                height: 8,
-                                                                decoration: BoxDecoration(
-                                                                  color: FlutterFlowTheme.of(
-                                                                    context,
-                                                                  ).tertiary,
-                                                                  borderRadius: BorderRadius.circular(
-                                                                    9999,
-                                                                  ),
-                                                                  shape: BoxShape.rectangle,
-                                                                ),
-                                                              ),
-                                                              Text(
-                                                                'Abierta',
-                                                                style: FlutterFlowTheme.of(
-                                                                  context,
-                                                                ).bodyMedium.copyWith(
-                                                                  fontFamily: "Poppins",
-                                                                  color: FlutterFlowTheme.of(
-                                                                    context,
-                                                                  ).onBackground,
-                                                                  letterSpacing: 0.0,
-                                                                  fontWeight: FontWeight.w600,
-                                                                  height: 1.5,
-                                                                ),
-                                                              ),
-                                                            ].divide(const SizedBox(width: 4)),
-                                                          ),
-                                                        ].divide(const SizedBox(height: 4)),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ].divide(const SizedBox(height: 16)),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      Column(
-                                        mainAxisSize: MainAxisSize.min,
-                                        mainAxisAlignment: MainAxisAlignment.start,
-                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: [
                                           Text(
-                                            'Accesos Rápidos',
-                                            style: FlutterFlowTheme.of(context)
-                                                .titleMedium
-                                                .copyWith(
-                                                  fontFamily: "Urbanist",
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w800,
-                                                  height: 1.4,
+                                            'Ventas del Día',
+                                            style: FlutterFlowTheme.of(context).labelMedium.copyWith(
+                                                  color: Colors.white70,
                                                 ),
                                           ),
-                                          Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment: MainAxisAlignment.start,
-                                            crossAxisAlignment: CrossAxisAlignment.center,
-                                            children: [
-                                              Expanded(
-                                                flex: 1,
-                                                child: wrapWithModel(
-                                                  model: _model.quickActionModel1,
-                                                  updateCallback: () =>
-                                                      safeSetState(() {}),
-                                                  child: QuickActionWidget(
-                                                    icon: Icon(
-                                                      Icons.add_shopping_cart_rounded,
-                                                      color: FlutterFlowTheme.of(
-                                                        context,
-                                                      ).onPrimary,
-                                                      size: 28,
-                                                    ),
-                                                    label: 'Vender',
-                                                    target: 'PuntoDeVenta',
-                                                    tone: FlutterFlowTheme.of(
-                                                      context,
-                                                    ).primary,
-                                                  ),
-                                                ),
+                                          Container(
+                                            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                                            decoration: BoxDecoration(
+                                              color: Colors.white24,
+                                              borderRadius: BorderRadius.circular(12),
+                                            ),
+                                            child: const Text(
+                                              'HOY',
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 10,
+                                                fontWeight: FontWeight.bold,
                                               ),
-                                              Expanded(
-                                                flex: 1,
-                                                child: wrapWithModel(
-                                                  model: _model.quickActionModel2,
-                                                  updateCallback: () =>
-                                                      safeSetState(() {}),
-                                                  child: QuickActionWidget(
-                                                    icon: Icon(
-                                                      Icons.account_balance_wallet_rounded,
-                                                      color: FlutterFlowTheme.of(
-                                                        context,
-                                                      ).onPrimary,
-                                                      size: 28,
-                                                    ),
-                                                    label: 'Caja',
-                                                    target: 'GestionDeCaja',
-                                                    tone: FlutterFlowTheme.of(
-                                                      context,
-                                                    ).success,
-                                                  ),
-                                                ),
-                                              ),
-                                              Expanded(
-                                                flex: 1,
-                                                child: wrapWithModel(
-                                                  model: _model.quickActionModel3,
-                                                  updateCallback: () =>
-                                                      safeSetState(() {}),
-                                                  child: QuickActionWidget(
-                                                    icon: Icon(
-                                                      Icons.inventory_2_rounded,
-                                                      color: FlutterFlowTheme.of(
-                                                        context,
-                                                      ).onPrimary,
-                                                      size: 28,
-                                                    ),
-                                                    label: 'Inventario',
-                                                    target: 'InventarioDeProductos',
-                                                    tone: FlutterFlowTheme.of(
-                                                      context,
-                                                    ).secondary,
-                                                  ),
-                                                ),
-                                              ),
-                                              Expanded(
-                                                flex: 1,
-                                                child: wrapWithModel(
-                                                  model: _model.quickActionModel4,
-                                                  updateCallback: () =>
-                                                      safeSetState(() {}),
-                                                  child: QuickActionWidget(
-                                                    icon: Icon(
-                                                      Icons.group_rounded,
-                                                      color: FlutterFlowTheme.of(
-                                                        context,
-                                                      ).onPrimary,
-                                                      size: 28,
-                                                    ),
-                                                    label: 'Clientes',
-                                                    target: 'ClientesYCreditos',
-                                                    tone: FlutterFlowTheme.of(
-                                                      context,
-                                                    ).tertiary,
-                                                  ),
-                                                ),
-                                              ),
-                                            ].divide(const SizedBox(width: 16)),
+                                            ),
                                           ),
-                                        ].divide(const SizedBox(height: 16)),
+                                        ],
                                       ),
+                                      const SizedBox(height: 4),
+                                      Text(
+                                        'Bs. 4.850,00',
+                                        style: FlutterFlowTheme.of(context).headlineSmall.copyWith(
+                                              fontFamily: "Poppins",
+                                              color: Colors.white,
+                                              fontSize: 22,
+                                              fontWeight: FontWeight.w900,
+                                            ),
+                                      ),
+                                      const Divider(height: 12, thickness: 0.5, color: Colors.white24),
                                       Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment: MainAxisAlignment.start,
-                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Expanded(
-                                            flex: 1,
-                                            child: wrapWithModel(
-                                              model: _model.statCardModel1,
-                                              updateCallback: () => safeSetState(() {}),
-                                              child: const StatCardWidget(
-                                                icon: Icon(
-                                                  Icons.credit_score_rounded,
-                                                  color: Color(0xFFFF9100),
-                                                  size: 22,
-                                                ),
-                                                label: 'Créditos Hoy',
-                                                tone: Color(0xFFFF9100),
-                                                value: 'Bs. 1.200',
-                                                isUp: true,
-                                                trend: '+12%',
-                                              ),
-                                            ),
-                                          ),
-                                          Expanded(
-                                            flex: 1,
-                                            child: wrapWithModel(
-                                              model: _model.statCardModel2,
-                                              updateCallback: () => safeSetState(() {}),
-                                              child: const StatCardWidget(
-                                                icon: Icon(
-                                                  Icons.payments_rounded,
-                                                  color: Color(0xFFFF9100),
-                                                  size: 22,
-                                                ),
-                                                label: 'Egresos',
-                                                tone: Colors.red,
-                                                value: 'Bs. 450',
-                                                isUp: false,
-                                                trend: '-5%',
-                                              ),
-                                            ),
-                                          ),
-                                        ].divide(const SizedBox(width: 16)),
-                                      ),
-                                      if (_model.lowStockCount > 0)
-                                      Container(
-                                        decoration: BoxDecoration(
-                                          color: const Color(0x1AFF9100),
-                                          borderRadius: BorderRadius.circular(24),
-                                          shape: BoxShape.rectangle,
-                                          border: Border.all(
-                                            color: const Color(0x4DFF9100),
-                                            width: 1,
-                                          ),
-                                        ),
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(24),
-                                          child: Container(
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment: MainAxisAlignment.start,
-                                              crossAxisAlignment: CrossAxisAlignment.center,
-                                              children: [
-                                                Container(
-                                                  width: 48,
-                                                  height: 48,
-                                                  decoration: BoxDecoration(
-                                                    color: const Color(0xFFFF9100),
-                                                    borderRadius: BorderRadius.circular(
-                                                      16,
-                                                    ),
-                                                    shape: BoxShape.rectangle,
-                                                  ),
-                                                  alignment: const AlignmentDirectional(0, 0),
-                                                  child: const Icon(
-                                                    Icons.warning_amber_rounded,
-                                                    color: Colors.black,
-                                                    size: 24,
-                                                  ),
-                                                ),
-                                                Expanded(
-                                                  flex: 1,
-                                                  child: Column(
-                                                    mainAxisSize: MainAxisSize.min,
-                                                    mainAxisAlignment: MainAxisAlignment.start,
-                                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                                    children: [
-                                                      Text(
-                                                        'Stock Bajo',
-                                                        style: FlutterFlowTheme.of(
-                                                          context,
-                                                        ).labelLarge.copyWith(
-                                                          fontFamily: "Space Grotesk",
-                                                          color: Colors.black,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight: FontWeight.w800,
-                                                          height: 1.3,
-                                                        ),
-                                                      ),
-                                                      Text(
-                                                        '${_model.lowStockCount} productos están por debajo del mínimo',
-                                                        style: FlutterFlowTheme.of(
-                                                          context,
-                                                        ).bodySmall.copyWith(
-                                                          fontFamily: "Poppins",
-                                                          color: FlutterFlowTheme.of(
-                                                            context,
-                                                          ).primaryText,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight: FlutterFlowTheme.of(
-                                                            context,
-                                                          ).bodySmall.fontWeight,
-                                                          height: 1.4,
-                                                        ),
-                                                      ),
-                                                    ].divide(const SizedBox(height: 4)),
-                                                  ),
-                                                ),
-                                                FlutterFlowIconButton(
-                                                  borderRadius: 8,
-                                                  buttonSize: 40,
-                                                  fillColor: Colors.transparent,
-                                                  icon: const Icon(
-                                                    Icons.arrow_forward_ios_rounded,
-                                                    color: Color(0xFFFF9100),
-                                                    size: 16,
-                                                  ),
-                                                  onPressed: () async {
-                                                    GoRouter.of(context).goNamed(
-                                                      InventarioDeProductosWidget
-                                                          .routeName,
-                                                    );
-                                                  },
-                                                ),
-                                              ].divide(const SizedBox(width: 16)),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      Column(
-                                        mainAxisSize: MainAxisSize.min,
-                                        mainAxisAlignment: MainAxisAlignment.start,
-                                        crossAxisAlignment: CrossAxisAlignment.center,
-                                        children: [
-                                          Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                            crossAxisAlignment: CrossAxisAlignment.center,
+                                          Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
                                             children: [
-                                              Flexible(
-                                                child: Text(
-                                                  'Últimas Ventas',
-                                                  style: FlutterFlowTheme.of(context)
-                                                      .titleMedium
-                                                      .copyWith(
-                                                        fontFamily: "Urbanist",
-                                                        letterSpacing: 0.0,
-                                                        fontWeight: FontWeight.w800,
-                                                        height: 1.4,
-                                                      ),
-                                                ),
-                                              ),
-                                              wrapWithModel(
-                                                model: _model.buttonModel,
-                                                updateCallback: () =>
-                                                    safeSetState(() {}),
-                                                child: ButtonWidget(
-                                                  iconPresent: false,
-                                                  iconEndPresent: false,
-                                                  content: 'Ver Todo',
-                                                  variant: 'ghost',
-                                                  size: 'small',
-                                                  fullWidth: false,
-                                                  loading: false,
-                                                  disabled: false,
-                                                  onTap: () async {
-                                                    GoRouter.of(context).goNamed(
-                                                      HistorialDeVentasWidget.routeName,
-                                                    );
-                                                  },
-                                                ),
+                                              Text('Transacciones', style: FlutterFlowTheme.of(context).labelSmall.copyWith(color: Colors.white60, fontSize: 10)),
+                                              const Text('24 ventas', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 12)),
+                                            ],
+                                          ),
+                                          Column(
+                                            crossAxisAlignment: CrossAxisAlignment.end,
+                                            children: [
+                                              Text('Estado de Caja', style: FlutterFlowTheme.of(context).labelSmall.copyWith(color: Colors.white60, fontSize: 10)),
+                                              Row(
+                                                children: [
+                                                  Container(width: 6, height: 6, decoration: const BoxDecoration(color: Colors.greenAccent, shape: BoxShape.circle)),
+                                                  const SizedBox(width: 4),
+                                                  const Text('Abierta', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 12)),
+                                                ],
                                               ),
                                             ],
                                           ),
-                                          ClipRRect(
-                                            borderRadius: BorderRadius.circular(24),
-                                            child: Container(
-                                              decoration: BoxDecoration(
-                                                color: FlutterFlowTheme.of(
-                                                  context,
-                                                ).secondaryBackground,
-                                                borderRadius: BorderRadius.circular(24),
-                                                shape: BoxShape.rectangle,
-                                                border: Border.all(
-                                                  color: FlutterFlowTheme.of(
-                                                    context,
-                                                  ).alternate,
-                                                  width: 1,
-                                                ),
-                                              ),
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.min,
-                                                mainAxisAlignment: MainAxisAlignment.start,
-                                                crossAxisAlignment: CrossAxisAlignment.center,
-                                                children: [
-                                                  Padding(
-                                                    padding: const EdgeInsets.all(24),
-                                                    child: Row(
-                                                      mainAxisSize: MainAxisSize.max,
-                                                      mainAxisAlignment: MainAxisAlignment.start,
-                                                      crossAxisAlignment: CrossAxisAlignment.center,
-                                                      children: [
-                                                        Container(
-                                                          width: 40,
-                                                          height: 40,
-                                                          decoration: BoxDecoration(
-                                                            color: FlutterFlowTheme.of(
-                                                              context,
-                                                            ).surfaceVariant,
-                                                            borderRadius: BorderRadius.circular(12),
-                                                            shape: BoxShape.rectangle,
-                                                          ),
-                                                          alignment: const AlignmentDirectional(
-                                                            0,
-                                                            0,
-                                                          ),
-                                                          child: Icon(
-                                                            Icons.receipt_long_rounded,
-                                                            color: FlutterFlowTheme.of(
-                                                              context,
-                                                            ).primary,
-                                                            size: 24,
-                                                          ),
-                                                        ),
-                                                        Expanded(
-                                                          flex: 1,
-                                                          child: Column(
-                                                            mainAxisSize: MainAxisSize.min,
-                                                            mainAxisAlignment: MainAxisAlignment.start,
-                                                            crossAxisAlignment: CrossAxisAlignment.center,
-                                                            children: [
-                                                              Text(
-                                                                'Venta #F-2041',
-                                                                style: FlutterFlowTheme.of(
-                                                                  context,
-                                                                ).bodyMedium.copyWith(
-                                                                  fontFamily: "Poppins",
-                                                                  letterSpacing: 0.0,
-                                                                  fontWeight: FontWeight.bold,
-                                                                  height: 1.5,
-                                                                ),
-                                                              ),
-                                                              Text(
-                                                                'Hace 5 min • Efectivo',
-                                                                style: FlutterFlowTheme.of(
-                                                                  context,
-                                                                ).labelSmall.copyWith(
-                                                                  fontFamily: "Space Grotesk",
-                                                                  color: Colors.black,
-                                                                  letterSpacing: 0.0,
-                                                                  fontWeight: FlutterFlowTheme.of(
-                                                                        context,
-                                                                      )
-                                                                      .labelSmall
-                                                                      .fontWeight,
-                                                                  height: 1.2,
-                                                                ),
-                                                              ),
-                                                            ].divide(const SizedBox(height: 4)),
-                                                          ),
-                                                        ),
-                                                        Text(
-                                                          'Bs. 150,00',
-                                                          style: FlutterFlowTheme.of(
-                                                            context,
-                                                          ).bodyLarge.copyWith(
-                                                            fontFamily: "Poppins",
-                                                            color: Colors.black,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight: FontWeight.w800,
-                                                            height: 1.5,
-                                                          ),
-                                                        ),
-                                                      ].divide(const SizedBox(width: 16)),
-                                                    ),
-                                                  ),
-                                                  Divider(
-                                                    height: 16,
-                                                    thickness: 1,
-                                                    indent: 24,
-                                                    endIndent: 24,
-                                                    color: FlutterFlowTheme.of(
-                                                      context,
-                                                    ).alternate,
-                                                  ),
-                                                  Padding(
-                                                    padding: const EdgeInsets.all(24),
-                                                    child: Row(
-                                                      mainAxisSize: MainAxisSize.max,
-                                                      mainAxisAlignment: MainAxisAlignment.start,
-                                                      crossAxisAlignment: CrossAxisAlignment.center,
-                                                      children: [
-                                                        Container(
-                                                          width: 40,
-                                                          height: 40,
-                                                          decoration: BoxDecoration(
-                                                            color: FlutterFlowTheme.of(
-                                                              context,
-                                                            ).surfaceVariant,
-                                                            borderRadius: BorderRadius.circular(12),
-                                                            shape: BoxShape.rectangle,
-                                                          ),
-                                                          alignment: const AlignmentDirectional(
-                                                            0,
-                                                            0,
-                                                          ),
-                                                          child: Icon(
-                                                            Icons.receipt_long_rounded,
-                                                            color: FlutterFlowTheme.of(
-                                                              context,
-                                                            ).primary,
-                                                            size: 24,
-                                                          ),
-                                                        ),
-                                                        Expanded(
-                                                          flex: 1,
-                                                          child: Column(
-                                                            mainAxisSize: MainAxisSize.min,
-                                                            mainAxisAlignment: MainAxisAlignment.start,
-                                                            crossAxisAlignment: CrossAxisAlignment.center,
-                                                            children: [
-                                                              Text(
-                                                                'Venta #F-2040',
-                                                                style: FlutterFlowTheme.of(
-                                                                  context,
-                                                                ).bodyMedium.copyWith(
-                                                                  fontFamily: "Poppins",
-                                                                  letterSpacing: 0.0,
-                                                                  fontWeight: FontWeight.bold,
-                                                                  height: 1.5,
-                                                                ),
-                                                              ),
-                                                              Text(
-                                                                'Hace 12 min • Tarjeta',
-                                                                style: FlutterFlowTheme.of(
-                                                                  context,
-                                                                ).labelSmall.copyWith(
-                                                                  fontFamily: "Space Grotesk",
-                                                                  color: Colors.black,
-                                                                  letterSpacing: 0.0,
-                                                                  fontWeight: FlutterFlowTheme.of(
-                                                                        context,
-                                                                      )
-                                                                      .labelSmall
-                                                                      .fontWeight,
-                                                                  height: 1.2,
-                                                                ),
-                                                              ),
-                                                            ].divide(const SizedBox(height: 4)),
-                                                          ),
-                                                        ),
-                                                        Text(
-                                                          'Bs. 842,50',
-                                                          style: FlutterFlowTheme.of(
-                                                            context,
-                                                          ).bodyLarge.copyWith(
-                                                            fontFamily: "Poppins",
-                                                            color: Colors.black,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight: FontWeight.w800,
-                                                            height: 1.5,
-                                                          ),
-                                                        ),
-                                                      ].divide(const SizedBox(width: 16)),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        ].divide(const SizedBox(height: 16)),
+                                        ],
                                       ),
-                                    ].divide(const SizedBox(height: 24)),
+                                    ],
                                   ),
                                 ),
+                              ),
+
+                              // 2. Accesos Rápidos
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Text(
+                                    'Accesos Rápidos',
+                                    style: FlutterFlowTheme.of(context).titleSmall.copyWith(
+                                          fontFamily: "Urbanist",
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                  ),
+                                  const SizedBox(height: 8),
+                                  Row(
+                                    children: [
+                                      Expanded(
+                                        child: wrapWithModel(
+                                          model: _model.quickActionModel1,
+                                          updateCallback: () => safeSetState(() {}),
+                                          child: QuickActionWidget(
+                                            icon: Icon(Icons.add_shopping_cart_rounded, color: FlutterFlowTheme.of(context).onPrimary, size: 22),
+                                            label: 'Vender',
+                                            target: 'PuntoDeVenta',
+                                            tone: FlutterFlowTheme.of(context).primary,
+                                          ),
+                                        ),
+                                      ),
+                                      const SizedBox(width: 8),
+                                      Expanded(
+                                        child: wrapWithModel(
+                                          model: _model.quickActionModel2,
+                                          updateCallback: () => safeSetState(() {}),
+                                          child: QuickActionWidget(
+                                            icon: Icon(Icons.account_balance_wallet_rounded, color: FlutterFlowTheme.of(context).onPrimary, size: 22),
+                                            label: 'Caja',
+                                            target: 'GestionDeCaja',
+                                            tone: FlutterFlowTheme.of(context).success,
+                                          ),
+                                        ),
+                                      ),
+                                      const SizedBox(width: 8),
+                                      Expanded(
+                                        child: wrapWithModel(
+                                          model: _model.quickActionModel3,
+                                          updateCallback: () => safeSetState(() {}),
+                                          child: QuickActionWidget(
+                                            icon: Icon(Icons.inventory_2_rounded, color: FlutterFlowTheme.of(context).onPrimary, size: 22),
+                                            label: 'Inventario',
+                                            target: 'InventarioDeProductos',
+                                            tone: FlutterFlowTheme.of(context).secondary,
+                                          ),
+                                        ),
+                                      ),
+                                      const SizedBox(width: 8),
+                                      Expanded(
+                                        child: wrapWithModel(
+                                          model: _model.quickActionModel4,
+                                          updateCallback: () => safeSetState(() {}),
+                                          child: QuickActionWidget(
+                                            icon: Icon(Icons.group_rounded, color: FlutterFlowTheme.of(context).onPrimary, size: 22),
+                                            label: 'Clientes',
+                                            target: 'ClientesYCreditos',
+                                            tone: FlutterFlowTheme.of(context).tertiary,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+
+                              // 3. Stats Row
+                              Row(
+                                children: [
+                                  Expanded(
+                                    child: wrapWithModel(
+                                      model: _model.statCardModel1,
+                                      updateCallback: () => safeSetState(() {}),
+                                      child: const StatCardWidget(
+                                        icon: Icon(Icons.credit_score_rounded, color: Color(0xFFFF9100), size: 18),
+                                        label: 'Créditos Hoy',
+                                        tone: Color(0xFFFF9100),
+                                        value: 'Bs. 1.200',
+                                        isUp: true,
+                                        trend: '+12%',
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(width: 8),
+                                  Expanded(
+                                    child: wrapWithModel(
+                                      model: _model.statCardModel2,
+                                      updateCallback: () => safeSetState(() {}),
+                                      child: const StatCardWidget(
+                                        icon: Icon(Icons.payments_rounded, color: Colors.red, size: 18),
+                                        label: 'Egresos',
+                                        tone: Colors.red,
+                                        value: 'Bs. 450',
+                                        isUp: false,
+                                        trend: '-5%',
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+
+                              // 4. Alerta Stock Bajo (Si aplica)
+                              if (_model.lowStockCount > 0)
+                                Container(
+                                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                                  decoration: BoxDecoration(
+                                    color: const Color(0x1AFF9100),
+                                    borderRadius: BorderRadius.circular(16),
+                                    border: Border.all(color: const Color(0x4DFF9100)),
+                                  ),
+                                  child: Row(
+                                    children: [
+                                      const Icon(Icons.warning_amber_rounded, color: Color(0xFFFF9100), size: 20),
+                                      const SizedBox(width: 8),
+                                      Expanded(
+                                        child: Text(
+                                          'Stock Bajo: ${_model.lowStockCount} productos por debajo del mínimo',
+                                          style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w600),
+                                        ),
+                                      ),
+                                      IconButton(
+                                        icon: const Icon(Icons.arrow_forward_ios_rounded, color: Color(0xFFFF9100), size: 14),
+                                        onPressed: () => context.goNamed(InventarioDeProductosWidget.routeName),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+
+                              // 5. Últimas Ventas
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        'Últimas Ventas',
+                                        style: FlutterFlowTheme.of(context).titleSmall.copyWith(
+                                              fontFamily: "Urbanist",
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                      ),
+                                      TextButton(
+                                        onPressed: () => context.goNamed(HistorialDeVentasWidget.routeName),
+                                        child: const Text('Ver Todo', style: TextStyle(fontSize: 12)),
+                                      ),
+                                    ],
+                                  ),
+                                  Container(
+                                    padding: const EdgeInsets.all(12),
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                                      borderRadius: BorderRadius.circular(16),
+                                      border: Border.all(color: FlutterFlowTheme.of(context).alternate),
+                                    ),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Icon(Icons.receipt_long_rounded, color: FlutterFlowTheme.of(context).primary, size: 20),
+                                            const SizedBox(width: 8),
+                                            Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: const [
+                                                Text('Venta #F-2041', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
+                                                Text('Hace 5 min • Efectivo', style: TextStyle(fontSize: 10, color: Colors.grey)),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                        const Text('Bs. 150,00', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
+                                      ],
+                                    ),
+                                  ),
+                                ],
                               ),
                             ],
                           ),

@@ -51,73 +51,69 @@ class _BusinessTypeCardWidgetState extends State<BusinessTypeCardWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final bool isSelected = widget.selected;
+    final Color cardColor = widget.color == const Color(0x00000000)
+        ? FlutterFlowTheme.of(context).primary
+        : widget.color;
+
     return InkWell(
       splashColor: Colors.transparent,
       focusColor: Colors.transparent,
       hoverColor: Colors.transparent,
       highlightColor: Colors.transparent,
-      onTap: widget.onTap != null ? () => widget.onTap!() : null,
-      child: Container(
+      onTap: widget.onTap,
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 200),
         decoration: BoxDecoration(
-          color: FlutterFlowTheme.of(context).secondaryBackground,
-          borderRadius: BorderRadius.circular(24),
+          color: isSelected
+              ? cardColor.withValues(alpha: 0.08)
+              : FlutterFlowTheme.of(context).secondaryBackground,
+          borderRadius: BorderRadius.circular(16),
           shape: BoxShape.rectangle,
           border: Border.all(
-            color: valueOrDefault<Color>(
-              valueOrDefault<bool>(
-                widget.selected,
-                true,
-              )
-                  ? FlutterFlowTheme.of(context).primary
-                  : FlutterFlowTheme.of(context).alternate,
-              FlutterFlowTheme.of(context).primary,
-            ),
-            width: valueOrDefault<double>(
-              valueOrDefault<bool>(
-                widget.selected,
-                true,
-              )
-                  ? 2.0
-                  : 2.0,
-              2.0,
-            ),
+            color: isSelected
+                ? cardColor
+                : FlutterFlowTheme.of(context).alternate,
+            width: isSelected ? 2.0 : 1.0,
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Container(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Container(
-                  width: 48,
-                  height: 48,
-                  decoration: BoxDecoration(
-                    color: valueOrDefault<Color>(
-                      widget.color,
-                      FlutterFlowTheme.of(context).primary,
+          padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                width: 44,
+                height: 44,
+                decoration: BoxDecoration(
+                  color: cardColor.withValues(alpha: isSelected ? 0.2 : 0.12),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                alignment: Alignment.center,
+                child: widget.icon ?? Icon(
+                  Icons.storefront_rounded,
+                  color: cardColor,
+                  size: 24,
+                ),
+              ),
+              const SizedBox(height: 6),
+              Text(
+                valueOrDefault<String>(widget.title, 'Tienda'),
+                textAlign: TextAlign.center,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: FlutterFlowTheme.of(context).labelMedium.copyWith(
+                      fontFamily: "Space Grotesk",
+                      fontWeight: isSelected ? FontWeight.bold : FontWeight.w600,
+                      color: isSelected
+                          ? cardColor
+                          : FlutterFlowTheme.of(context).primaryText,
+                      fontSize: 12,
                     ),
-                    shape: BoxShape.rectangle,
-                  ),
-                  child: widget.icon!,
-                ),
-                Text(
-                  valueOrDefault<String>(
-                    widget.title,
-                    'Tienda',
-                  ),
-                  style: FlutterFlowTheme.of(context).labelMedium.copyWith(
-                        fontFamily: "Space Grotesk",
-                        fontWeight: FontWeight.bold,
-                        color: FlutterFlowTheme.of(context).primaryText,
-                        letterSpacing: 0.0,
-                        height: 1.3,
-                      ),
-                ),
-              ].divide(const SizedBox(height: 8)),
-            ),
+              ),
+            ],
           ),
         ),
       ),

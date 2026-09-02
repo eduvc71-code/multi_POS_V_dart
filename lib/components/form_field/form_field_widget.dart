@@ -106,6 +106,7 @@ class _FormFieldWidgetState extends State<FormFieldWidget> {
             onSubmit: '',
             variant: 'outlined',
             error: false,
+            isPassword: widget.isPassword,
           ),
         ),
       ].divide(const SizedBox(height: 4)),

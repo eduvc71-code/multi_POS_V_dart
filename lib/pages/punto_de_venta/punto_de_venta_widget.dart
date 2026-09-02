@@ -857,176 +857,40 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                   ),
                   Padding(
                     padding: const EdgeInsetsDirectional.fromSTEB(24, 8, 24, 8),
-                    child: Container(
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Expanded(
-                            flex: 1,
-                            child: SingleChildScrollView(
-                              scrollDirection: Axis.horizontal,
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    height: 34,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(8),
-                                    ),
-                                    alignment: const AlignmentDirectional(0, 0),
-                                    child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          12, 0, 12, 0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.min,
-                                        mainAxisAlignment:
-                                        MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                        children: [
-                                          Icon(
-                                            Icons.search_rounded,
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                            size: 18,
-                                          ),
-                                          Text(
-                                            'F1: Buscar',
-                                            style: FlutterFlowTheme.of(context)
-                                                .labelMedium
-                                                .copyWith(
-                                              fontFamily: "Space Grotesk",
-                                              color: Colors.black,
-                                              fontSize: 14,
-                                              letterSpacing: 0.0,
-                                              fontWeight:
-                                              FlutterFlowTheme.of(
-                                                  context)
-                                                  .labelMedium
-                                                  .fontWeight,
-                                              height: 1.3,
-                                            ),
-                                          ),
-                                        ].divide(const SizedBox(width: 6)),
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    height: 34,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(8),
-                                    ),
-                                    alignment: const AlignmentDirectional(0, 0),
-                                    child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          12, 0, 12, 0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.min,
-                                        mainAxisAlignment:
-                                        MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                        children: [
-                                          Icon(
-                                            Icons.center_focus_weak_rounded,
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                            size: 18,
-                                          ),
-                                          Text(
-                                            'F2: Escanear',
-                                            style: FlutterFlowTheme.of(context)
-                                                .labelMedium
-                                                .copyWith(
-                                              fontFamily: "Space Grotesk",
-                                              color: Colors.black,
-                                              fontSize: 14,
-                                              letterSpacing: 0.0,
-                                              fontWeight:
-                                              FlutterFlowTheme.of(
-                                                  context)
-                                                  .labelMedium
-                                                  .fontWeight,
-                                              height: 1.3,
-                                            ),
-                                          ),
-                                        ].divide(const SizedBox(width: 6)),
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    height: 34,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(8),
-                                    ),
-                                    alignment: const AlignmentDirectional(0, 0),
-                                    child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          12, 0, 12, 0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.min,
-                                        mainAxisAlignment:
-                                        MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                        children: [
-                                          Icon(
-                                            Icons.check_circle_rounded,
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                            size: 18,
-                                          ),
-                                          Text(
-                                            'F10: Pagar',
-                                            style: FlutterFlowTheme.of(context)
-                                                .labelMedium
-                                                .copyWith(
-                                              fontFamily: "Space Grotesk",
-                                              color: Colors.black,
-                                              fontSize: 14,
-                                              letterSpacing: 0.0,
-                                              fontWeight:
-                                              FlutterFlowTheme.of(
-                                                  context)
-                                                  .labelMedium
-                                                  .fontWeight,
-                                              height: 1.3,
-                                            ),
-                                          ),
-                                        ].divide(const SizedBox(width: 6)),
-                                      ),
-                                    ),
-                                  ),
-                                ].divide(const SizedBox(width: 16)),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Row(
+                          children: [
+                            Container(
+                              width: 8,
+                              height: 8,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context).success,
+                                shape: BoxShape.circle,
                               ),
                             ),
-                          ),
-                          Text(
-                            'Vendedor: Carlos Méndez',
-                            style: FlutterFlowTheme.of(context)
-                                .labelSmall
-                                .copyWith(
-                              fontFamily: "Space Grotesk",
-                              color: Colors.black,
-                              letterSpacing: 0.0,
-                              fontWeight: FlutterFlowTheme.of(context)
-                                  .labelSmall
-                                  .fontWeight,
-                              height: 1.2,
+                            const SizedBox(width: 6),
+                            Text(
+                              'Modo Táctil / Escáner Activo',
+                              style: FlutterFlowTheme.of(context).labelSmall.copyWith(
+                                color: Colors.black87,
+                                fontSize: 12,
+                              ),
                             ),
+                          ],
+                        ),
+                        Text(
+                          'Vendedor: Administrador',
+                          style: FlutterFlowTheme.of(context).labelSmall.copyWith(
+                            fontFamily: "Space Grotesk",
+                            color: Colors.black,
+                            fontWeight: FontWeight.w500,
+                            height: 1.2,
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 ],

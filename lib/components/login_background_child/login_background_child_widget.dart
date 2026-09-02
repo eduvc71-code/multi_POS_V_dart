@@ -172,10 +172,9 @@ class _LoginBackgroundChildWidgetState
                                     labelPresent: true,
                                     leadingIcon: Icon(Icons.lock_outline_rounded, size: 24),
                                     leadingIconPresent: true,
-                                    trailingIcon: Icon(Icons.visibility_off_rounded, size: 24),
-                                    trailingIconPresent: true,
                                     hint: '••••••••',
                                     variant: 'filled',
+                                    isPassword: true,
                                   ),
                                 ),
                                 Align(

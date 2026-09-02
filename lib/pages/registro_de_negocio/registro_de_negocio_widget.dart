@@ -58,7 +58,7 @@ class _RegistroDeNegocioWidgetState extends State<RegistroDeNegocioWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        resizeToAvoidBottomInset: false,
+        resizeToAvoidBottomInset: true,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: SafeArea(
           top: false,
@@ -198,10 +198,10 @@ class _RegistroDeNegocioWidgetState extends State<RegistroDeNegocioWidget> {
                                                   model: _model.businessTypeCardModel1,
                                                   updateCallback: () => safeSetState(() {}),
                                                   child: BusinessTypeCardWidget(
-                                                    color: FlutterFlowTheme.of(context).primary,
-                                                    icon: Icon(
-                                                      Icons.shopping_basket_rounded,
-                                                      color: FlutterFlowTheme.of(context).primary,
+                                                    color: const Color(0xFF0066FF),
+                                                    icon: const Icon(
+                                                      Icons.storefront_rounded,
+                                                      color: Color(0xFF0066FF),
                                                       size: 24,
                                                     ),
                                                     title: 'Tienda',
@@ -216,10 +216,10 @@ class _RegistroDeNegocioWidgetState extends State<RegistroDeNegocioWidget> {
                                                   model: _model.businessTypeCardModel2,
                                                   updateCallback: () => safeSetState(() {}),
                                                   child: BusinessTypeCardWidget(
-                                                    color: FlutterFlowTheme.of(context).secondary,
-                                                    icon: Icon(
-                                                      Icons.build_rounded,
-                                                      color: FlutterFlowTheme.of(context).primary,
+                                                    color: const Color(0xFFFF9100),
+                                                    icon: const Icon(
+                                                      Icons.construction_rounded,
+                                                      color: Color(0xFFFF9100),
                                                       size: 24,
                                                     ),
                                                     title: 'Ferretería',
@@ -241,10 +241,10 @@ class _RegistroDeNegocioWidgetState extends State<RegistroDeNegocioWidget> {
                                                   model: _model.businessTypeCardModel3,
                                                   updateCallback: () => safeSetState(() {}),
                                                   child: BusinessTypeCardWidget(
-                                                    color: FlutterFlowTheme.of(context).tertiary,
-                                                    icon: Icon(
-                                                      Icons.directions_car_rounded,
-                                                      color: FlutterFlowTheme.of(context).primary,
+                                                    color: const Color(0xFFE91E63),
+                                                    icon: const Icon(
+                                                      Icons.directions_car_filled_rounded,
+                                                      color: Color(0xFFE91E63),
                                                       size: 24,
                                                     ),
                                                     title: 'Autopartes',
@@ -259,10 +259,10 @@ class _RegistroDeNegocioWidgetState extends State<RegistroDeNegocioWidget> {
                                                   model: _model.businessTypeCardModel4,
                                                   updateCallback: () => safeSetState(() {}),
                                                   child: BusinessTypeCardWidget(
-                                                    color: FlutterFlowTheme.of(context).success,
-                                                    icon: Icon(
-                                                      Icons.two_wheeler_rounded,
-                                                      color: FlutterFlowTheme.of(context).primary,
+                                                    color: const Color(0xFF00C853),
+                                                    icon: const Icon(
+                                                      Icons.moped_rounded,
+                                                      color: Color(0xFF00C853),
                                                       size: 24,
                                                     ),
                                                     title: 'Motopartes',
@@ -285,9 +285,9 @@ class _RegistroDeNegocioWidgetState extends State<RegistroDeNegocioWidget> {
                                                   updateCallback: () => safeSetState(() {}),
                                                   child: BusinessTypeCardWidget(
                                                     color: const Color(0xFF6200EA),
-                                                    icon: Icon(
-                                                      Icons.local_pharmacy_rounded,
-                                                      color: FlutterFlowTheme.of(context).primary,
+                                                    icon: const Icon(
+                                                      Icons.medical_services_rounded,
+                                                      color: Color(0xFF6200EA),
                                                       size: 24,
                                                     ),
                                                     title: 'Farmacia',
@@ -463,22 +463,42 @@ class _RegistroDeNegocioWidgetState extends State<RegistroDeNegocioWidget> {
                               disabled: false,
                               onTap: () async {
                                 print('Finalizando registro...');
-                                try {
-                                  // Capturar datos de los modelos
-                                  final businessName = _model.formFieldModel1.textFieldModel.inputTextController?.text ?? '';
-                                  final nit = _model.formFieldModel2.textFieldModel.inputTextController?.text ?? '';
-                                  final phone = _model.formFieldModel3.textFieldModel.inputTextController?.text ?? '';
-                                  final ownerName = _model.formFieldModel4.textFieldModel.inputTextController?.text ?? '';
-                                  final username = _model.formFieldModel5.textFieldModel.inputTextController?.text ?? '';
-                                  final password = _model.formFieldModel6.textFieldModel.inputTextController?.text ?? '';
+                                // Capturar datos de los modelos
+                                final businessName = _model.formFieldModel1.textFieldModel.inputTextController?.text.trim() ?? '';
+                                final nit = _model.formFieldModel2.textFieldModel.inputTextController?.text.trim() ?? '';
+                                final phone = _model.formFieldModel3.textFieldModel.inputTextController?.text.trim() ?? '';
+                                final ownerName = _model.formFieldModel4.textFieldModel.inputTextController?.text.trim() ?? '';
+                                final username = _model.formFieldModel5.textFieldModel.inputTextController?.text.trim() ?? '';
+                                final password = _model.formFieldModel6.textFieldModel.inputTextController?.text ?? '';
 
-                                  // Llamada al nuevo método de registro multitenancy
+                                // Validaciones
+                                if (businessName.isEmpty) {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(content: Text('Por favor ingrese el Nombre Comercial')),
+                                  );
+                                  return;
+                                }
+                                if (username.isEmpty) {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(content: Text('Por favor ingrese el Nombre de Usuario')),
+                                  );
+                                  return;
+                                }
+                                if (password.isEmpty) {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(content: Text('Por favor ingrese una Contraseña')),
+                                  );
+                                  return;
+                                }
+
+                                try {
+                                  // Llamada al método de registro multitenancy
                                   final empresaId = await DatabaseHelper.instance.registerFullBusiness(
                                     businessName: businessName,
                                     businessType: _model.selectedBusinessType,
                                     nit: nit, 
                                     phone: phone,
-                                    ownerName: ownerName,
+                                    ownerName: ownerName.isEmpty ? username : ownerName,
                                     username: username,
                                     password: password,
                                     populateStandardInventory: _populateStandardInventory,
@@ -487,12 +507,19 @@ class _RegistroDeNegocioWidgetState extends State<RegistroDeNegocioWidget> {
                                   final prefs = await SharedPreferences.getInstance();
                                   await prefs.setInt('empresa_id', empresaId);
                                   await prefs.setString('selectedBusinessType', _model.selectedBusinessType);
+                                  await prefs.setString('user_name', ownerName.isEmpty ? username : ownerName);
+                                  await prefs.setString('user_role', 'admin');
 
                                   if (mounted) {
                                     context.goNamed(PanelPrincipalWidget.routeName);
                                   }
                                 } catch (e) {
-                                  print('Error: $e');
+                                  print('Error registrando empresa: $e');
+                                  if (mounted) {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(content: Text('Error al crear negocio: $e')),
+                                    );
+                                  }
                                 }
                               },
                             ),

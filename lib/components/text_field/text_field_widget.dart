@@ -35,6 +35,7 @@ class TextFieldWidget extends StatefulWidget {
     String? onSubmit,
     String? variant,
     bool? error,
+    bool? isPassword,
   }) : label = label ?? '',
        labelPresent = labelPresent ?? false,
        helper = helper ?? '',
@@ -45,7 +46,8 @@ class TextFieldWidget extends StatefulWidget {
        value = value ?? '',
        onSubmit = onSubmit ?? '',
        variant = variant ?? 'outlined',
-       error = error ?? false;
+       error = error ?? false,
+       isPassword = isPassword ?? false;
 
   final TextFieldModel? model;
   final String label;
@@ -62,6 +64,7 @@ class TextFieldWidget extends StatefulWidget {
   final String onSubmit;
   final String variant;
   final bool error;
+  final bool isPassword;
 
   @override
   State<TextFieldWidget> createState() => _TextFieldWidgetState();
@@ -69,6 +72,7 @@ class TextFieldWidget extends StatefulWidget {
 
 class _TextFieldWidgetState extends State<TextFieldWidget> {
   late TextFieldModel _model;
+  late bool _obscureText;
 
   @override
   void setState(VoidCallback callback) {
@@ -80,6 +84,7 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
   void initState() {
     super.initState();
     _model = widget.model ?? createModel(context, () => TextFieldModel());
+    _obscureText = widget.isPassword;
 
     _model.inputTextController ??= TextEditingController(text: widget.value);
     _model.inputTextController?.addListener(() {
@@ -178,7 +183,7 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
                   child: TextFormField(
                     controller: _model.inputTextController,
                     focusNode: _model.inputFocusNode,
-                    obscureText: false,
+                    obscureText: widget.isPassword ? _obscureText : false,
                     decoration: InputDecoration(
                       isDense: true,
                       hintText: valueOrDefault<String>(
@@ -188,7 +193,7 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
                       hintStyle: FlutterFlowTheme.of(context).bodyMedium
                           .copyWith(
                             fontFamily: "Poppins",
-                            color: Colors.black,
+                            color: Colors.black54,
                             letterSpacing: 0.0,
                             fontWeight: FlutterFlowTheme.of(
                               context,
@@ -217,7 +222,22 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
                           ),
                   ),
                 ),
-                if (widget.trailingIconPresent && widget.trailingIcon != null)
+                if (widget.isPassword)
+                  IconButton(
+                    icon: Icon(
+                      _obscureText
+                          ? Icons.visibility_off_rounded
+                          : Icons.visibility_rounded,
+                      color: FlutterFlowTheme.of(context).secondaryText,
+                      size: 20,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        _obscureText = !_obscureText;
+                      });
+                    },
+                  )
+                else if (widget.trailingIconPresent && widget.trailingIcon != null)
                   widget.trailingIcon!,
               ],
             ),

@@ -4,7 +4,6 @@ import 'package:multi_p_o_s/components/checkbox/checkbox_widget.dart';
 import 'package:multi_p_o_s/components/form_field/form_field_widget.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
-import 'package:multi_p_o_s/pages/panel_principal/panel_principal_widget.dart';
 import 'package:multi_p_o_s/pages/inicio_de_sesi_n/inicio_de_sesi_n_widget.dart';
 import 'dart:io';
 import 'package:flutter/material.dart';
@@ -464,7 +463,7 @@ class _RegistroDeNegocioWidgetState extends State<RegistroDeNegocioWidget> {
                               loading: false,
                               disabled: false,
                               onTap: () async {
-                                print('Finalizando registro...');
+                                debugPrint('Finalizando registro...');
                                 // Capturar datos de los modelos
                                 final businessName = _model.formFieldModel1.textFieldModel.inputTextController?.text.trim() ?? '';
                                 final nit = _model.formFieldModel2.textFieldModel.inputTextController?.text.trim() ?? '';
@@ -543,12 +542,11 @@ class _RegistroDeNegocioWidgetState extends State<RegistroDeNegocioWidget> {
                                     exit(0); // Forzar cierre total e inmediato
                                   }
                                 } catch (e) {
-                                  print('Error registrando empresa: $e');
-                                  if (mounted) {
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(content: Text('Error al crear negocio: $e')),
-                                    );
-                                  }
+                                  debugPrint('Error registrando empresa: $e');
+                                  if (!mounted) return;
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(content: Text('Error al crear negocio: $e')),
+                                  );
                                 }
                               },
                             ),

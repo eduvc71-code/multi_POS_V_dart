@@ -6,7 +6,6 @@ import 'package:multi_p_o_s/components/business_card/business_card_widget.dart';
 import 'package:multi_p_o_s/components/settings_tile/settings_tile_widget.dart';
 import 'package:multi_p_o_s/components/bottom_nav/bottom_nav_widget.dart';
 import 'package:multi_p_o_s/components/bottom_nav_child5/bottom_nav_child5_widget.dart';
-import 'package:multi_p_o_s/pages/registro_de_negocio/registro_de_negocio_widget.dart';
 import 'package:multi_p_o_s/pages/inicio_de_sesi_n/inicio_de_sesi_n_widget.dart';
 import 'package:multi_p_o_s/pages/panel_principal/panel_principal_widget.dart';
 import 'package:multi_p_o_s/database/database_helper.dart';

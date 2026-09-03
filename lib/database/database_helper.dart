@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:math';
+import 'package:flutter/foundation.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -31,7 +32,7 @@ class DatabaseHelper {
   }
 
   Future _upgradeDB(Database db, int oldVersion, int newVersion) async {
-    print('Migrando Base de Datos incrementalmente de v$oldVersion a v$newVersion...');
+    debugPrint('Migrando Base de Datos incrementalmente de v$oldVersion a v$newVersion...');
     // Ejecutar _createDB con CREATE TABLE IF NOT EXISTS para conservar todos los datos locales
     await _createDB(db, newVersion);
   }
@@ -242,7 +243,7 @@ class DatabaseHelper {
   }
 
   Future<void> clearDatabase() async {
-    print('Limpiando base de datos...');
+    debugPrint('Limpiando base de datos...');
     final db = await instance.database;
     await db.delete('productos');
     await db.delete('clientes');
@@ -251,7 +252,7 @@ class DatabaseHelper {
     await db.delete('movimientos_caja');
     await db.delete('usuarios');
     await db.delete('empresas');
-    print('Base de datos limpia.');
+    debugPrint('Base de datos limpia.');
   }
 
   Future<int> registerFullBusiness({
@@ -326,7 +327,7 @@ class DatabaseHelper {
 
   Future<void> populateInventory(String businessType) async {
     // Este método queda depreciado por registerFullBusiness pero lo mantenemos por compatibilidad si es necesario
-    print('ADVERTENCIA: Usar registerFullBusiness para nueva estructura.');
+    debugPrint('ADVERTENCIA: Usar registerFullBusiness para nueva estructura.');
   }
 
   // --- MÉTODOS PARA PRODUCTOS ---
@@ -597,7 +598,7 @@ class DatabaseHelper {
     final normalizedUsername = username.trim().toLowerCase();
     final cleanPassword = password.trim();
 
-    print('DEBUG LOGIN: intentando login con user="$normalizedUsername" pass="$cleanPassword"');
+    debugPrint('DEBUG LOGIN: intentando login con user="$normalizedUsername" pass="$cleanPassword"');
 
     final maps = await db.query(
       'usuarios',
@@ -606,15 +607,15 @@ class DatabaseHelper {
     );
 
     if (maps.isNotEmpty) {
-      print('DEBUG LOGIN: Exitoso para ID=${maps.first['id']} rol=${maps.first['rol']}');
+      debugPrint('DEBUG LOGIN: Exitoso para ID=${maps.first['id']} rol=${maps.first['rol']}');
       return maps.first;
     } else {
-      print('DEBUG LOGIN: Falló. Verificando si usuario existe...');
+      debugPrint('DEBUG LOGIN: Falló. Verificando si usuario existe...');
       final checkUser = await db.query('usuarios', where: 'LOWER(username) = ?', whereArgs: [normalizedUsername]);
       if (checkUser.isNotEmpty) {
-        print('DEBUG LOGIN: Usuario existe en DB pero la contraseña no coincide. Pass guardado="${checkUser.first['password']}"');
+        debugPrint('DEBUG LOGIN: Usuario existe en DB pero la contraseña no coincide. Pass guardado="${checkUser.first['password']}"');
       } else {
-        print('DEBUG LOGIN: Usuario "$normalizedUsername" NO existe en la base de datos.');
+        debugPrint('DEBUG LOGIN: Usuario "$normalizedUsername" NO existe en la base de datos.');
       }
     }
     return null;
@@ -1048,6 +1049,29 @@ class DatabaseHelper {
       'rol': rol,
       'empresa_id': empresaId,
       'activo': 1,
+    });
+  }
+
+  Future<int> createMovimientoCaja({
+    required String tipo,
+    required double monto,
+    required String descripcion,
+  }) async {
+    final db = await instance.database;
+    final prefs = await SharedPreferences.getInstance();
+    final empresaId = prefs.getInt('empresa_id') ?? -1;
+    final usuarioId = prefs.getInt('usuario_id') ?? -1;
+    final sesion = await getCajaSesionActiva();
+    final sesionId = sesion != null ? sesion['id'] as int : null;
+
+    return await db.insert('movimientos_caja', {
+      'empresa_id': empresaId,
+      'usuario_id': usuarioId,
+      'sesion_id': sesionId,
+      'tipo': tipo,
+      'monto': monto,
+      'descripcion': descripcion,
+      'fecha': DateTime.now().toIso8601String(),
     });
   }
 

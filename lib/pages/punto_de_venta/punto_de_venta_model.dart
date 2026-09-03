@@ -2,113 +2,149 @@ import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
 import 'package:multi_p_o_s/database/database_helper.dart';
 import 'package:multi_p_o_s/models/producto_model.dart';
 import 'package:multi_p_o_s/components/text_field/text_field_widget.dart';
-import 'package:multi_p_o_s/components/product_search_item/product_search_item_widget.dart';
-import 'package:multi_p_o_s/components/cart_item/cart_item_widget.dart';
 import 'package:multi_p_o_s/components/button/button_widget.dart';
 import 'punto_de_venta_widget.dart' show PuntoDeVentaWidget;
 import 'package:flutter/material.dart';
 
+class PosCartItem {
+  final int? productoId;
+  String nombre;
+  String codigo;
+  double precioUnitario;
+  int cantidad;
+  int stockDisponible;
+
+  PosCartItem({
+    this.productoId,
+    required this.nombre,
+    required this.codigo,
+    required this.precioUnitario,
+    required this.cantidad,
+    this.stockDisponible = 999999,
+  });
+
+  double get subtotal => precioUnitario * cantidad;
+}
+
 class PuntoDeVentaModel extends FlutterFlowModel<PuntoDeVentaWidget> {
-  ///  State fields for stateful widgets in this page.
+  /// State fields for stateful widgets in this page.
 
   List<Producto> searchResults = [];
-  Map<int, int> cart = {}; // productId -> quantity
-  List<Producto> cartProducts = [];
+  List<PosCartItem> cartItems = [];
   bool isLoading = false;
 
   Future searchProducts(String query) async {
     isLoading = true;
     final all = await DatabaseHelper.instance.readAllProductos();
-    searchResults = all.where((p) => 
-      p.nombre.toLowerCase().contains(query.toLowerCase()) || 
-      p.codigo.contains(query)
-    ).toList();
+    if (query.trim().isEmpty) {
+      searchResults = all;
+    } else {
+      searchResults = all.where((p) => 
+        p.nombre.toLowerCase().contains(query.toLowerCase()) || 
+        p.codigo.contains(query)
+      ).toList();
+    }
     isLoading = false;
   }
 
-  String addToCart(Producto producto) {
-    int currentQty = cart[producto.id!] ?? 0;
-    if (currentQty + 1 > producto.stock) {
-      return 'Stock insuficiente para ${producto.nombre} (${producto.stock} disponibles)';
-    }
-    
-    cart[producto.id!] = currentQty + 1;
-    if (!cartProducts.any((p) => p.id == producto.id)) {
-      cartProducts.add(producto);
+  String addProductoToCart(Producto producto) {
+    final existingIndex = cartItems.indexWhere((item) => item.productoId == producto.id);
+    if (existingIndex >= 0) {
+      final currentItem = cartItems[existingIndex];
+      if (currentItem.cantidad + 1 > producto.stock) {
+        return 'Stock insuficiente para ${producto.nombre} (${producto.stock} disponibles)';
+      }
+      currentItem.cantidad += 1;
+    } else {
+      if (producto.stock < 1) {
+        return 'Sin stock disponible para ${producto.nombre}';
+      }
+      cartItems.add(PosCartItem(
+        productoId: producto.id,
+        nombre: producto.nombre,
+        codigo: producto.codigo,
+        precioUnitario: producto.precio,
+        cantidad: 1,
+        stockDisponible: producto.stock,
+      ));
     }
     return '';
   }
 
-  void removeFromCart(Producto producto) {
-    int currentQty = cart[producto.id!] ?? 0;
-    if (currentQty > 1) {
-      cart[producto.id!] = currentQty - 1;
-    } else {
-      cart.remove(producto.id);
-      cartProducts.removeWhere((p) => p.id == producto.id);
+  void addManualItemToCart(String nombre, double precio, int cantidad) {
+    cartItems.add(PosCartItem(
+      productoId: null,
+      nombre: nombre.trim().isEmpty ? 'Ítem Manual' : nombre.trim(),
+      codigo: 'MANUAL',
+      precioUnitario: precio,
+      cantidad: cantidad <= 0 ? 1 : cantidad,
+      stockDisponible: 999999,
+    ));
+  }
+
+  void updateCartItemQuantity(int index, int newQty) {
+    if (index >= 0 && index < cartItems.length) {
+      if (newQty <= 0) {
+        cartItems.removeAt(index);
+      } else {
+        final item = cartItems[index];
+        if (item.productoId != null && newQty > item.stockDisponible) {
+          item.cantidad = item.stockDisponible;
+        } else {
+          item.cantidad = newQty;
+        }
+      }
     }
+  }
+
+  void updateCartItemPrice(int index, double newPrice) {
+    if (index >= 0 && index < cartItems.length) {
+      if (newPrice >= 0) {
+        cartItems[index].precioUnitario = newPrice;
+      }
+    }
+  }
+
+  void removeCartItem(int index) {
+    if (index >= 0 && index < cartItems.length) {
+      cartItems.removeAt(index);
+    }
+  }
+
+  void clearCart() {
+    cartItems.clear();
   }
 
   double get total {
     double sum = 0;
-    cart.forEach((productId, qty) {
-      final p = cartProducts.firstWhere((p) => p.id == productId);
-      sum += p.precio * qty;
-    });
+    for (var item in cartItems) {
+      sum += item.subtotal;
+    }
+    return sum;
+  }
+
+  int get totalItemsCount {
+    int sum = 0;
+    for (var item in cartItems) {
+      sum += item.cantidad;
+    }
     return sum;
   }
 
   // Model for TextField.
   late TextFieldModel textFieldModel;
-  // Model for ProductSearchItem.
-  late ProductSearchItemModel productSearchItemModel1;
-  // Model for ProductSearchItem.
-  late ProductSearchItemModel productSearchItemModel2;
-  // Model for ProductSearchItem.
-  late ProductSearchItemModel productSearchItemModel3;
-  // Model for ProductSearchItem.
-  late ProductSearchItemModel productSearchItemModel4;
-  // Model for ProductSearchItem.
-  late ProductSearchItemModel productSearchItemModel5;
-  // Model for CartItem.
-  late CartItemModel cartItemModel1;
-  // Model for CartItem.
-  late CartItemModel cartItemModel2;
-  // Model for CartItem.
-  late CartItemModel cartItemModel3;
   // Model for Button.
   late ButtonModel buttonModel;
 
   @override
   void initState(BuildContext context) {
     textFieldModel = createModel(context, () => TextFieldModel());
-    productSearchItemModel1 =
-        createModel(context, () => ProductSearchItemModel());
-    productSearchItemModel2 =
-        createModel(context, () => ProductSearchItemModel());
-    productSearchItemModel3 =
-        createModel(context, () => ProductSearchItemModel());
-    productSearchItemModel4 =
-        createModel(context, () => ProductSearchItemModel());
-    productSearchItemModel5 =
-        createModel(context, () => ProductSearchItemModel());
-    cartItemModel1 = createModel(context, () => CartItemModel());
-    cartItemModel2 = createModel(context, () => CartItemModel());
-    cartItemModel3 = createModel(context, () => CartItemModel());
     buttonModel = createModel(context, () => ButtonModel());
   }
 
   @override
   void dispose() {
     textFieldModel.dispose();
-    productSearchItemModel1.dispose();
-    productSearchItemModel2.dispose();
-    productSearchItemModel3.dispose();
-    productSearchItemModel4.dispose();
-    productSearchItemModel5.dispose();
-    cartItemModel1.dispose();
-    cartItemModel2.dispose();
-    cartItemModel3.dispose();
     buttonModel.dispose();
   }
 }

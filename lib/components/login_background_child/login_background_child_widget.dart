@@ -227,15 +227,13 @@ class _LoginBackgroundChildWidgetState
                                           await prefs.setString('user_role', user['rol'] ?? 'admin');
                                           await prefs.setString('user_name', user['nombre'] ?? user['username'] ?? '');
                                           
-                                          if (mounted) {
-                                            context.goNamed(PanelPrincipalWidget.routeName);
-                                          }
+                                          if (!mounted) return;
+                                          context.goNamed(PanelPrincipalWidget.routeName);
                                         } else {
-                                          if (mounted) {
-                                            ScaffoldMessenger.of(context).showSnackBar(
-                                              const SnackBar(content: Text('Usuario o contraseña incorrectos')),
-                                            );
-                                          }
+                                          if (!mounted) return;
+                                          ScaffoldMessenger.of(context).showSnackBar(
+                                            const SnackBar(content: Text('Usuario o contraseña incorrectos')),
+                                          );
                                         }
                                       },
                                     ),

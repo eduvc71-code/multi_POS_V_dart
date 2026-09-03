@@ -36,7 +36,6 @@ class _ReportesYMetricasWidgetState extends State<ReportesYMetricasWidget> {
   double _totalVentas = 0.0;
   int _totalTransacciones = 0;
   double _promedioTicket = 0.0;
-  bool _isLoading = true;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -64,7 +63,6 @@ class _ReportesYMetricasWidgetState extends State<ReportesYMetricasWidget> {
         _totalVentas = sum;
         _totalTransacciones = count;
         _promedioTicket = count > 0 ? (sum / count) : 0.0;
-        _isLoading = false;
       });
     }
   }

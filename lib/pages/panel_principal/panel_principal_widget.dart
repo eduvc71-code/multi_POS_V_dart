@@ -1,10 +1,8 @@
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_icon_button.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
-import 'package:multi_p_o_s/flutter_flow/flutter_flow_widgets.dart';
 import 'package:multi_p_o_s/components/quick_action/quick_action_widget.dart';
 import 'package:multi_p_o_s/components/stat_card/stat_card_widget.dart';
-import 'package:multi_p_o_s/components/button/button_widget.dart';
 import 'package:multi_p_o_s/components/bottom_nav/bottom_nav_widget.dart';
 import 'package:multi_p_o_s/components/bottom_nav_child/bottom_nav_child_widget.dart';
 import 'package:multi_p_o_s/pages/inventario_de_productos/inventario_de_productos_widget.dart';

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:multi_p_o_s/database/database_helper.dart';
 import 'flutter_flow/flutter_flow_localizations.dart';
 import 'index.dart';
 

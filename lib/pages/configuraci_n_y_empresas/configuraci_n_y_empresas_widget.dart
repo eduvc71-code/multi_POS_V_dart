@@ -57,429 +57,416 @@ class _ConfiguracionYEmpresasWidgetState
   }
 
   Future<void> _showEmpleadosDialog() async {
-    final usuarios = await DatabaseHelper.instance.readAllUsuarios();
+    List<Map<String, dynamic>> usuarios = await DatabaseHelper.instance.readAllUsuarios();
 
     if (!mounted) return;
 
     await showDialog(
       context: context,
-      builder: (context) {
+      builder: (dialogCtx) {
+        bool isAddingNew = false;
+        bool isEditing = false;
+        int? editingUserId;
+
+        final nombreCtrl = TextEditingController();
+        final usernameCtrl = TextEditingController();
+        final passwordCtrl = TextEditingController();
+        String rol = 'Cajero';
+
+        bool canVender = true;
+        bool canAddInventory = false;
+        bool canDeleteInventory = false;
+        bool canEditStock = false;
+        bool canViewReportes = false;
+
         return StatefulBuilder(
-          builder: (context, setStateDialog) {
+          builder: (dialogCtx, setStateDialog) {
             return AlertDialog(
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
-              title: const Row(
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+              insetPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+              title: Row(
                 children: [
-                  Icon(Icons.people_alt_rounded, color: Color(0xFF0066FF), size: 26),
-                  SizedBox(width: 8),
-                  Text('Gestión de Colaboradores', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+                  Icon(
+                    isAddingNew ? Icons.person_add_rounded : (isEditing ? Icons.edit_rounded : Icons.people_alt_rounded),
+                    color: const Color(0xFF0066FF),
+                    size: 24,
+                  ),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: Text(
+                      isAddingNew
+                          ? 'Nuevo Colaborador'
+                          : (isEditing ? 'Editar Colaborador' : 'Gestión de Colaboradores'),
+                      style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
                 ],
               ),
               content: SizedBox(
                 width: double.maxFinite,
-                height: 440,
-                child: Column(
-                  children: [
-                    SizedBox(
-                      width: double.infinity,
-                      child: ElevatedButton.icon(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: FlutterFlowTheme.of(context).primary,
-                          foregroundColor: Colors.white,
-                          padding: const EdgeInsets.symmetric(vertical: 12),
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                child: SingleChildScrollView(
+                  child: AnimatedCrossFade(
+                    duration: const Duration(milliseconds: 250),
+                    crossFadeState: (isAddingNew || isEditing)
+                        ? CrossFadeState.showSecond
+                        : CrossFadeState.showFirst,
+                    firstChild: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        SizedBox(
+                          width: double.infinity,
+                          child: ElevatedButton.icon(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: FlutterFlowTheme.of(context).primary,
+                              foregroundColor: Colors.white,
+                              padding: const EdgeInsets.symmetric(vertical: 12),
+                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                            ),
+                            onPressed: () {
+                              setStateDialog(() {
+                                isAddingNew = true;
+                                isEditing = false;
+                                nombreCtrl.clear();
+                                usernameCtrl.text = 'cajero1';
+                                passwordCtrl.text = '12345678';
+                                rol = 'Cajero';
+                                canVender = true;
+                                canAddInventory = false;
+                                canDeleteInventory = false;
+                                canEditStock = false;
+                                canViewReportes = false;
+                              });
+                            },
+                            icon: const Icon(Icons.person_add_rounded, size: 20),
+                            label: const Text('Crear Colaborador', style: TextStyle(fontWeight: FontWeight.bold)),
+                          ),
                         ),
-                        onPressed: () async {
-                          final nombreCtrl = TextEditingController();
-                          final usernameCtrl = TextEditingController(text: 'cajero1');
-                          final passwordCtrl = TextEditingController(text: '12345678');
-                          String rol = 'Cajero';
+                        const SizedBox(height: 12),
+                        usuarios.isEmpty
+                            ? const Padding(
+                                padding: EdgeInsets.all(16.0),
+                                child: Text('No hay colaboradores registrados.', style: TextStyle(color: Colors.grey)),
+                              )
+                            : ListView.builder(
+                                shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
+                                itemCount: usuarios.length,
+                                itemBuilder: (ctx, index) {
+                                  final u = usuarios[index];
+                                  final int uId = u['id'];
+                                  final String uNombre = u['nombre'] ?? '';
+                                  final String uRol = u['rol'] ?? 'cajero';
+                                  final bool activo = (u['activo'] ?? 1) == 1;
 
-                          bool canVender = true;
-                          bool canAddInventory = false;
-                          bool canDeleteInventory = false;
-                          bool canEditStock = false;
-                          bool canViewReportes = false;
+                                  Color roleColor = Colors.blue;
+                                  if (uRol == 'admin') roleColor = const Color(0xFF6200EA);
+                                  if (uRol == 'cajero') roleColor = Colors.green;
 
-                          final confirm = await showDialog<bool>(
-                            context: context,
-                            builder: (dialogCtx) => StatefulBuilder(
-                              builder: (dialogCtx, setStateNew) => AlertDialog(
-                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                                title: const Text('Nuevo Colaborador', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-                                content: ConstrainedBox(
-                                  constraints: const BoxConstraints(maxWidth: 420),
-                                  child: SingleChildScrollView(
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        TextField(
-                                          controller: nombreCtrl,
-                                          decoration: const InputDecoration(
-                                            labelText: 'Nombre Completo del Colaborador *',
-                                            isDense: true,
-                                            border: OutlineInputBorder(),
+                                  String roleLabel = uRol.toUpperCase();
+                                  if (uRol == 'admin') roleLabel = 'ADMINISTRADOR';
+
+                                  return Container(
+                                    margin: const EdgeInsets.only(bottom: 8),
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                                      borderRadius: BorderRadius.circular(12),
+                                      border: Border.all(color: FlutterFlowTheme.of(context).alternate),
+                                    ),
+                                    child: ListTile(
+                                      contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
+                                      leading: CircleAvatar(
+                                        radius: 18,
+                                        backgroundColor: roleColor.withValues(alpha: 0.15),
+                                        child: Icon(Icons.person_rounded, color: roleColor, size: 18),
+                                      ),
+                                      title: Text(uNombre, maxLines: 1, overflow: TextOverflow.ellipsis, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
+                                      subtitle: Row(
+                                        children: [
+                                          Container(
+                                            padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                                            decoration: BoxDecoration(
+                                              color: roleColor.withValues(alpha: 0.15),
+                                              borderRadius: BorderRadius.circular(6),
+                                            ),
+                                            child: Text(
+                                              roleLabel,
+                                              style: TextStyle(color: roleColor, fontSize: 9, fontWeight: FontWeight.bold),
+                                            ),
                                           ),
-                                        ),
-                                        const SizedBox(height: 10),
-                                        TextField(
-                                          controller: usernameCtrl,
-                                          decoration: const InputDecoration(
-                                            labelText: 'Nombre de Usuario *',
-                                            isDense: true,
-                                            border: OutlineInputBorder(),
+                                          const SizedBox(width: 6),
+                                          Expanded(
+                                            child: Text(
+                                              '@${u['username']}',
+                                              maxLines: 1,
+                                              overflow: TextOverflow.ellipsis,
+                                              style: const TextStyle(fontSize: 11, color: Colors.grey),
+                                            ),
                                           ),
-                                        ),
-                                        const SizedBox(height: 10),
-                                        TextField(
-                                          controller: passwordCtrl,
-                                          decoration: const InputDecoration(
-                                            labelText: 'Contraseña Provisional *',
-                                            helperText: 'El colaborador la cambiará al iniciar sesión',
-                                            isDense: true,
-                                            border: OutlineInputBorder(),
+                                        ],
+                                      ),
+                                      trailing: Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          Switch(
+                                            value: activo,
+                                            activeColor: FlutterFlowTheme.of(context).primary,
+                                            onChanged: (val) async {
+                                              await DatabaseHelper.instance.updateUsuarioStatus(uId, val);
+                                              final updated = await DatabaseHelper.instance.readAllUsuarios();
+                                              setStateDialog(() {
+                                                usuarios = updated;
+                                              });
+                                            },
                                           ),
-                                        ),
-                                        const SizedBox(height: 12),
-                                        const Text('Rol de Trabajo:', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
-                                        const SizedBox(height: 4),
-                                        Container(
-                                          padding: const EdgeInsets.symmetric(horizontal: 12),
-                                          decoration: BoxDecoration(
-                                            border: Border.all(color: Colors.grey.shade400),
-                                            borderRadius: BorderRadius.circular(8),
-                                          ),
-                                          child: DropdownButtonHideUnderline(
-                                            child: DropdownButton<String>(
-                                              value: rol,
-                                              isExpanded: true,
-                                              items: const [
-                                                DropdownMenuItem(
-                                                  value: 'Administrador',
-                                                  child: Text('Administrador (Acceso Total como Dueño)'),
-                                                ),
-                                                DropdownMenuItem(
-                                                  value: 'Cajero',
-                                                  child: Text('Cajero (Solo Módulo Punto de Venta)'),
-                                                ),
-                                                DropdownMenuItem(
-                                                  value: 'Vendedor',
-                                                  child: Text('Vendedor (Punto de Venta + Añadir Productos)'),
-                                                ),
-                                              ],
-                                              onChanged: (val) {
-                                                if (val != null) {
-                                                  setStateNew(() {
-                                                    rol = val;
-                                                    if (rol == 'Administrador') {
-                                                      canVender = true;
-                                                      canAddInventory = true;
-                                                      canDeleteInventory = true;
-                                                      canEditStock = true;
-                                                      canViewReportes = true;
-                                                    } else if (rol == 'Vendedor') {
-                                                      canVender = true;
-                                                      canAddInventory = true;
-                                                      canDeleteInventory = false;
-                                                      canEditStock = false;
-                                                      canViewReportes = false;
-                                                    } else {
-                                                      // Cajero
-                                                      canVender = true;
-                                                      canAddInventory = false;
-                                                      canDeleteInventory = false;
-                                                      canEditStock = false;
-                                                      canViewReportes = false;
-                                                    }
-                                                  });
-                                                }
+                                          if (uRol != 'admin') ...[
+                                            IconButton(
+                                              constraints: const BoxConstraints(),
+                                              padding: const EdgeInsets.all(4),
+                                              icon: const Icon(Icons.edit_rounded, color: Colors.blue, size: 18),
+                                              onPressed: () {
+                                                setStateDialog(() {
+                                                  isEditing = true;
+                                                  isAddingNew = false;
+                                                  editingUserId = uId;
+                                                  nombreCtrl.text = uNombre;
+                                                  usernameCtrl.text = u['username'] ?? '';
+                                                  passwordCtrl.text = u['password'] ?? '';
+                                                  rol = uRol == 'admin' ? 'Administrador' : (uRol == 'vendedor' ? 'Vendedor' : 'Cajero');
+                                                  canVender = true;
+                                                  canAddInventory = uRol == 'vendedor' || uRol == 'admin';
+                                                  canDeleteInventory = uRol == 'admin';
+                                                  canEditStock = uRol == 'admin';
+                                                  canViewReportes = uRol == 'admin';
+                                                });
                                               },
                                             ),
-                                          ),
-                                        ),
-                                        const SizedBox(height: 12),
-                                        const Text('Módulos y Permisos Autorizados:', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
-                                        const SizedBox(height: 4),
-                                        CheckboxListTile(
-                                          title: const Text('Módulo Punto de Venta (Vender)', style: TextStyle(fontSize: 12)),
-                                          value: canVender,
-                                          dense: true,
-                                          activeColor: const Color(0xFF0066FF),
-                                          onChanged: (val) => setStateNew(() => canVender = val ?? true),
-                                        ),
-                                        CheckboxListTile(
-                                          title: const Text('Adicionar Productos al Inventario (Escáner/Manual)', style: TextStyle(fontSize: 12)),
-                                          subtitle: const Text('Permitido para Vendedor y Administrador', style: TextStyle(fontSize: 10, color: Colors.grey)),
-                                          value: canAddInventory,
-                                          dense: true,
-                                          activeColor: const Color(0xFF0066FF),
-                                          onChanged: (val) => setStateNew(() => canAddInventory = val ?? false),
-                                        ),
-                                        CheckboxListTile(
-                                          title: const Text('Eliminar Productos del Inventario', style: TextStyle(fontSize: 12)),
-                                          subtitle: const Text('Restringido únicamente a Administrador/Dueño', style: TextStyle(fontSize: 10, color: Colors.grey)),
-                                          value: canDeleteInventory,
-                                          dense: true,
-                                          activeColor: const Color(0xFF0066FF),
-                                          enabled: rol == 'Administrador',
-                                          onChanged: (val) => setStateNew(() => canDeleteInventory = val ?? false),
-                                        ),
-                                        CheckboxListTile(
-                                          title: const Text('Editar Precios o Modificar Stock Manualmente', style: TextStyle(fontSize: 12)),
-                                          subtitle: const Text('Restringido únicamente a Administrador/Dueño', style: TextStyle(fontSize: 10, color: Colors.grey)),
-                                          value: canEditStock,
-                                          dense: true,
-                                          activeColor: const Color(0xFF0066FF),
-                                          enabled: rol == 'Administrador',
-                                          onChanged: (val) => setStateNew(() => canEditStock = val ?? false),
-                                        ),
-                                        CheckboxListTile(
-                                          title: const Text('Ver Reportes y Configuración', style: TextStyle(fontSize: 12)),
-                                          value: canViewReportes,
-                                          dense: true,
-                                          activeColor: const Color(0xFF0066FF),
-                                          enabled: rol == 'Administrador',
-                                          onChanged: (val) => setStateNew(() => canViewReportes = val ?? false),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                actions: [
-                                  TextButton(
-                                    onPressed: () => Navigator.pop(dialogCtx, false),
-                                    child: const Text('Cancelar'),
-                                  ),
-                                  ElevatedButton(
-                                    style: ElevatedButton.styleFrom(
-                                      backgroundColor: FlutterFlowTheme.of(context).primary,
-                                      foregroundColor: Colors.white,
-                                    ),
-                                    onPressed: () => Navigator.pop(dialogCtx, true),
-                                    child: const Text('Guardar Colaborador'),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          );
-
-                          final usernameVal = usernameCtrl.text.trim();
-                          final passwordVal = passwordCtrl.text.trim();
-                          final nombreVal = nombreCtrl.text.trim();
-
-                          if (confirm == true && usernameVal.isNotEmpty && passwordVal.isNotEmpty) {
-                            final Map<String, bool> permisos = {
-                              'can_vender': canVender,
-                              'can_add_inventory': canAddInventory,
-                              'can_delete_inventory': canDeleteInventory,
-                              'can_edit_stock': canEditStock,
-                              'can_view_reportes': canViewReportes,
-                            };
-
-                            final roleCode = rol == 'Administrador' ? 'admin' : (rol == 'Cajero' ? 'cajero' : 'vendedor');
-
-                            try {
-                              await DatabaseHelper.instance.createUsuarioWithPermissions(
-                                username: usernameVal,
-                                password: passwordVal,
-                                nombre: nombreVal.isEmpty ? usernameVal : nombreVal,
-                                rol: roleCode,
-                                permisos: permisos,
-                              );
-                              final updated = await DatabaseHelper.instance.readAllUsuarios();
-                              setStateDialog(() {
-                                usuarios.clear();
-                                usuarios.addAll(updated);
-                              });
-                            } catch (e) {
-                              if (mounted) {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(content: Text('Error: $e')),
-                                );
-                              }
-                            }
-                          }
-                        },
-                        icon: const Icon(Icons.person_add_rounded, size: 20),
-                        label: const Text('Crear Colaborador', style: TextStyle(fontWeight: FontWeight.bold)),
-                      ),
-                    ),
-                    const SizedBox(height: 12),
-                    Expanded(
-                      child: ListView.builder(
-                        shrinkWrap: true,
-                        itemCount: usuarios.length,
-                        itemBuilder: (context, index) {
-                          final u = usuarios[index];
-                          final int uId = u['id'];
-                          final String uNombre = u['nombre'] ?? '';
-                          final String uRol = u['rol'] ?? 'cajero';
-                          final bool activo = (u['activo'] ?? 1) == 1;
-
-                          Color roleColor = Colors.blue;
-                          if (uRol == 'admin') roleColor = const Color(0xFF6200EA);
-                          if (uRol == 'cajero') roleColor = Colors.green;
-
-                          String roleLabel = uRol.toUpperCase();
-                          if (uRol == 'admin') roleLabel = 'ADMINISTRADOR';
-
-                          return Container(
-                            margin: const EdgeInsets.only(bottom: 8),
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context).secondaryBackground,
-                              borderRadius: BorderRadius.circular(12),
-                              border: Border.all(color: FlutterFlowTheme.of(context).alternate),
-                            ),
-                            child: ListTile(
-                              leading: CircleAvatar(
-                                backgroundColor: roleColor.withValues(alpha: 0.15),
-                                child: Icon(Icons.person_rounded, color: roleColor, size: 20),
-                              ),
-                              title: Text(uNombre, maxLines: 1, overflow: TextOverflow.ellipsis, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
-                              subtitle: Row(
-                                children: [
-                                  Container(
-                                    padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                                    decoration: BoxDecoration(
-                                      color: roleColor.withValues(alpha: 0.15),
-                                      borderRadius: BorderRadius.circular(6),
-                                    ),
-                                    child: Text(
-                                      roleLabel,
-                                      style: TextStyle(color: roleColor, fontSize: 10, fontWeight: FontWeight.bold),
-                                    ),
-                                  ),
-                                  const SizedBox(width: 6),
-                                  Expanded(
-                                    child: Text(
-                                      '@${u['username']}',
-                                      maxLines: 1,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: const TextStyle(fontSize: 11, color: Colors.grey),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              trailing: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Switch(
-                                    value: activo,
-                                    activeColor: FlutterFlowTheme.of(context).primary,
-                                    onChanged: (val) async {
-                                      await DatabaseHelper.instance.updateUsuarioStatus(uId, val);
-                                      final updated = await DatabaseHelper.instance.readAllUsuarios();
-                                      setStateDialog(() {
-                                        usuarios.clear();
-                                        usuarios.addAll(updated);
-                                      });
-                                    },
-                                  ),
-                                  if (uRol != 'admin') ...[
-                                    IconButton(
-                                      icon: const Icon(Icons.edit_rounded, color: Colors.blue, size: 18),
-                                      onPressed: () async {
-                                        final editNombreCtrl = TextEditingController(text: uNombre);
-                                        final editPasswordCtrl = TextEditingController(text: u['password'] ?? '');
-                                        String editRol = uRol == 'admin' ? 'Administrador' : (uRol == 'vendedor' ? 'Vendedor' : 'Cajero');
-
-                                        final confirmEdit = await showDialog<bool>(
-                                          context: context,
-                                          builder: (editCtx) => StatefulBuilder(
-                                            builder: (editCtx, setStateEdit) => AlertDialog(
-                                              title: Text('Editar @${u['username']}'),
-                                              content: Column(
-                                                mainAxisSize: MainAxisSize.min,
-                                                children: [
-                                                  TextField(
-                                                    controller: editNombreCtrl,
-                                                    decoration: const InputDecoration(labelText: 'Nombre Completo'),
-                                                  ),
-                                                  TextField(
-                                                    controller: editPasswordCtrl,
-                                                    decoration: const InputDecoration(labelText: 'Contraseña'),
-                                                  ),
-                                                  const SizedBox(height: 12),
-                                                  DropdownButton<String>(
-                                                    value: editRol,
-                                                    isExpanded: true,
-                                                    items: const [
-                                                      DropdownMenuItem(value: 'Administrador', child: Text('Administrador')),
-                                                      DropdownMenuItem(value: 'Cajero', child: Text('Cajero')),
-                                                      DropdownMenuItem(value: 'Vendedor', child: Text('Vendedor')),
-                                                    ],
-                                                    onChanged: (val) {
-                                                      if (val != null) setStateEdit(() => editRol = val);
-                                                    },
-                                                  ),
-                                                ],
-                                              ),
-                                              actions: [
-                                                TextButton(onPressed: () => Navigator.pop(editCtx, false), child: const Text('Cancelar')),
-                                                ElevatedButton(onPressed: () => Navigator.pop(editCtx, true), child: const Text('Guardar')),
-                                              ],
+                                            IconButton(
+                                              constraints: const BoxConstraints(),
+                                              padding: const EdgeInsets.all(4),
+                                              icon: const Icon(Icons.delete_outline_rounded, color: Colors.red, size: 18),
+                                              onPressed: () async {
+                                                await DatabaseHelper.instance.deleteUsuario(uId);
+                                                final updated = await DatabaseHelper.instance.readAllUsuarios();
+                                                setStateDialog(() {
+                                                  usuarios = updated;
+                                                });
+                                              },
                                             ),
-                                          ),
-                                        );
-
-                                        if (confirmEdit == true) {
-                                          final roleCode = editRol == 'Administrador' ? 'admin' : (editRol == 'Cajero' ? 'cajero' : 'vendedor');
-                                          await DatabaseHelper.instance.updateUsuario(
-                                            usuarioId: uId,
-                                            nombre: editNombreCtrl.text,
-                                            password: editPasswordCtrl.text,
-                                            rol: roleCode,
-                                          );
-                                          final updated = await DatabaseHelper.instance.readAllUsuarios();
-                                          setStateDialog(() {
-                                            usuarios.clear();
-                                            usuarios.addAll(updated);
-                                          });
-                                        }
-                                      },
+                                          ],
+                                        ],
+                                      ),
                                     ),
-                                    IconButton(
-                                      icon: const Icon(Icons.delete_outline_rounded, color: Colors.red, size: 18),
-                                      onPressed: () async {
-                                        final confirmDelete = await showDialog<bool>(
-                                          context: context,
-                                          builder: (delCtx) => AlertDialog(
-                                            title: const Text('Eliminar Colaborador'),
-                                            content: Text('¿Está seguro de eliminar al usuario @${u['username']}?'),
-                                            actions: [
-                                              TextButton(onPressed: () => Navigator.pop(delCtx, false), child: const Text('Cancelar')),
-                                              TextButton(onPressed: () => Navigator.pop(delCtx, true), child: const Text('Eliminar', style: TextStyle(color: Colors.red))),
-                                            ],
-                                          ),
-                                        );
-
-                                        if (confirmDelete == true) {
-                                          await DatabaseHelper.instance.deleteUsuario(uId);
-                                          final updated = await DatabaseHelper.instance.readAllUsuarios();
-                                          setStateDialog(() {
-                                            usuarios.clear();
-                                            usuarios.addAll(updated);
-                                          });
-                                        }
-                                      },
-                                    ),
-                                  ],
-                                ],
+                                  );
+                                },
                               ),
-                            ),
-                          );
-                        },
-                      ),
+                      ],
                     ),
-                  ],
+                    secondChild: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        TextField(
+                          controller: nombreCtrl,
+                          decoration: const InputDecoration(
+                            labelText: 'Nombre Completo del Colaborador *',
+                            isDense: true,
+                            border: OutlineInputBorder(),
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        TextField(
+                          controller: usernameCtrl,
+                          enabled: !isEditing,
+                          decoration: const InputDecoration(
+                            labelText: 'Nombre de Usuario *',
+                            isDense: true,
+                            border: OutlineInputBorder(),
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        TextField(
+                          controller: passwordCtrl,
+                          decoration: const InputDecoration(
+                            labelText: 'Contraseña Provisional *',
+                            helperText: 'El colaborador la cambiará al iniciar sesión',
+                            isDense: true,
+                            border: OutlineInputBorder(),
+                          ),
+                        ),
+                        const SizedBox(height: 12),
+                        const Text('Rol de Trabajo:', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
+                        const SizedBox(height: 4),
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 12),
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.grey.shade400),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: DropdownButtonHideUnderline(
+                            child: DropdownButton<String>(
+                              value: rol,
+                              isExpanded: true,
+                              items: const [
+                                DropdownMenuItem(value: 'Administrador', child: Text('Administrador (Acceso Total)')),
+                                DropdownMenuItem(value: 'Cajero', child: Text('Cajero (Solo Punto de Venta)')),
+                                DropdownMenuItem(value: 'Vendedor', child: Text('Vendedor (Punto de Venta + Añadir Productos)')),
+                              ],
+                              onChanged: (val) {
+                                if (val != null) {
+                                  setStateDialog(() {
+                                    rol = val;
+                                    if (rol == 'Administrador') {
+                                      canVender = true;
+                                      canAddInventory = true;
+                                      canDeleteInventory = true;
+                                      canEditStock = true;
+                                      canViewReportes = true;
+                                    } else if (rol == 'Vendedor') {
+                                      canVender = true;
+                                      canAddInventory = true;
+                                      canDeleteInventory = false;
+                                      canEditStock = false;
+                                      canViewReportes = false;
+                                    } else {
+                                      canVender = true;
+                                      canAddInventory = false;
+                                      canDeleteInventory = false;
+                                      canEditStock = false;
+                                      canViewReportes = false;
+                                    }
+                                  });
+                                }
+                              },
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        const Text('Módulos y Permisos Autorizados:', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
+                        CheckboxListTile(
+                          title: const Text('Módulo Punto de Venta (Vender)', style: TextStyle(fontSize: 11)),
+                          value: canVender,
+                          dense: true,
+                          activeColor: const Color(0xFF0066FF),
+                          onChanged: (val) => setStateDialog(() => canVender = val ?? true),
+                        ),
+                        CheckboxListTile(
+                          title: const Text('Adicionar Productos al Inventario (Escáner/Manual)', style: TextStyle(fontSize: 11)),
+                          subtitle: const Text('Permitido para Vendedor y Administrador', style: TextStyle(fontSize: 9, color: Colors.grey)),
+                          value: canAddInventory,
+                          dense: true,
+                          activeColor: const Color(0xFF0066FF),
+                          onChanged: (val) => setStateDialog(() => canAddInventory = val ?? false),
+                        ),
+                        CheckboxListTile(
+                          title: const Text('Eliminar Productos del Inventario', style: TextStyle(fontSize: 11)),
+                          subtitle: const Text('Restringido únicamente a Administrador/Dueño', style: TextStyle(fontSize: 9, color: Colors.grey)),
+                          value: canDeleteInventory,
+                          dense: true,
+                          activeColor: const Color(0xFF0066FF),
+                          enabled: rol == 'Administrador',
+                          onChanged: (val) => setStateDialog(() => canDeleteInventory = val ?? false),
+                        ),
+                        CheckboxListTile(
+                          title: const Text('Editar Precios o Modificar Stock Manualmente', style: TextStyle(fontSize: 11)),
+                          subtitle: const Text('Restringido únicamente a Administrador/Dueño', style: TextStyle(fontSize: 9, color: Colors.grey)),
+                          value: canEditStock,
+                          dense: true,
+                          activeColor: const Color(0xFF0066FF),
+                          enabled: rol == 'Administrador',
+                          onChanged: (val) => setStateDialog(() => canEditStock = val ?? false),
+                        ),
+                        CheckboxListTile(
+                          title: const Text('Ver Reportes y Configuración', style: TextStyle(fontSize: 11)),
+                          value: canViewReportes,
+                          dense: true,
+                          activeColor: const Color(0xFF0066FF),
+                          enabled: rol == 'Administrador',
+                          onChanged: (val) => setStateDialog(() => canViewReportes = val ?? false),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ),
               actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(context),
-                  child: const Text('Cerrar'),
-                ),
+                if (isAddingNew || isEditing) ...[
+                  TextButton(
+                    onPressed: () {
+                      setStateDialog(() {
+                        isAddingNew = false;
+                        isEditing = false;
+                      });
+                    },
+                    child: const Text('Volver a la Lista'),
+                  ),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: FlutterFlowTheme.of(context).primary,
+                      foregroundColor: Colors.white,
+                    ),
+                    onPressed: () async {
+                      final usernameVal = usernameCtrl.text.trim();
+                      final passwordVal = passwordCtrl.text.trim();
+                      final nombreVal = nombreCtrl.text.trim();
+
+                      if (usernameVal.isEmpty || passwordVal.isEmpty) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('Por favor ingrese usuario y contraseña')),
+                        );
+                        return;
+                      }
+
+                      final roleCode = rol == 'Administrador' ? 'admin' : (rol == 'Cajero' ? 'cajero' : 'vendedor');
+
+                      try {
+                        if (isEditing && editingUserId != null) {
+                          await DatabaseHelper.instance.updateUsuario(
+                            usuarioId: editingUserId!,
+                            nombre: nombreVal,
+                            password: passwordVal,
+                            rol: roleCode,
+                          );
+                        } else {
+                          final Map<String, bool> permisos = {
+                            'can_vender': canVender,
+                            'can_add_inventory': canAddInventory,
+                            'can_delete_inventory': canDeleteInventory,
+                            'can_edit_stock': canEditStock,
+                            'can_view_reportes': canViewReportes,
+                          };
+
+                          await DatabaseHelper.instance.createUsuarioWithPermissions(
+                            username: usernameVal,
+                            password: passwordVal,
+                            nombre: nombreVal.isEmpty ? usernameVal : nombreVal,
+                            rol: roleCode,
+                            permisos: permisos,
+                          );
+                        }
+
+                        final updated = await DatabaseHelper.instance.readAllUsuarios();
+                        setStateDialog(() {
+                          usuarios = updated;
+                          isAddingNew = false;
+                          isEditing = false;
+                        });
+                      } catch (e) {
+                        if (context.mounted) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text('Error: $e')),
+                          );
+                        }
+                      }
+                    },
+                    child: Text(isEditing ? 'Guardar Cambios' : 'Guardar Colaborador'),
+                  ),
+                ] else ...[
+                  TextButton(
+                    onPressed: () => Navigator.pop(dialogCtx),
+                    child: const Text('Cerrar'),
+                  ),
+                ],
               ],
             );
           },

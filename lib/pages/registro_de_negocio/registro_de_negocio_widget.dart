@@ -6,7 +6,9 @@ import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
 import 'package:multi_p_o_s/pages/panel_principal/panel_principal_widget.dart';
 import 'package:multi_p_o_s/pages/inicio_de_sesi_n/inicio_de_sesi_n_widget.dart';
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/widget_previews.dart';
 import 'package:multi_p_o_s/database/database_helper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -511,7 +513,34 @@ class _RegistroDeNegocioWidgetState extends State<RegistroDeNegocioWidget> {
                                   await prefs.setString('user_role', 'admin');
 
                                   if (mounted) {
-                                    context.goNamed(PanelPrincipalWidget.routeName);
+                                    await showDialog(
+                                      context: context,
+                                      barrierDismissible: false,
+                                      builder: (dialogContext) => AlertDialog(
+                                        title: const Row(
+                                          children: [
+                                            Icon(Icons.check_circle_rounded, color: Colors.green, size: 28),
+                                            SizedBox(width: 8),
+                                            Text('¡Registro Exitoso!'),
+                                          ],
+                                        ),
+                                        content: const Text(
+                                          'Se guardó correctamente la empresa y la cuenta del propietario.\n\nLa aplicación se cerrará a continuación. Por favor vuelva a abrirla para iniciar sesión.',
+                                        ),
+                                        actions: [
+                                          ElevatedButton(
+                                            onPressed: () {
+                                              Navigator.pop(dialogContext);
+                                              SystemNavigator.pop();
+                                              exit(0); // Forzar cierre total e inmediato del proceso
+                                            },
+                                            child: const Text('Aceptar y Salir'),
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                    SystemNavigator.pop();
+                                    exit(0); // Forzar cierre total e inmediato
                                   }
                                 } catch (e) {
                                   print('Error registrando empresa: $e');

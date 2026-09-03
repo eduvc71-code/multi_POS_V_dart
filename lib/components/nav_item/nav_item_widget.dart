@@ -1,5 +1,6 @@
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widget_previews.dart';
 
@@ -71,10 +72,27 @@ class _NavItemWidgetState extends State<NavItemWidget> {
     return Padding(
       padding: const EdgeInsetsDirectional.fromSTEB(4, 4, 4, 4),
       child: InkWell(
-        onTap: () {
-          // Navegar a la página target
+        onTap: () async {
           if (widget.target.isNotEmpty) {
-            context.pushNamed(widget.target);
+            final prefs = await SharedPreferences.getInstance();
+            final role = prefs.getString('user_role') ?? 'admin';
+            final restricted = ['ConfiguracionYEmpresas', 'ReportesYMetricas'];
+
+            if (role != 'admin' && restricted.contains(widget.target)) {
+              if (context.mounted) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Acceso Restringido: Requiere rol de Propietario'),
+                    duration: Duration(seconds: 2),
+                  ),
+                );
+              }
+              return;
+            }
+
+            if (context.mounted) {
+              context.goNamed(widget.target);
+            }
           }
         },
         child: Column(

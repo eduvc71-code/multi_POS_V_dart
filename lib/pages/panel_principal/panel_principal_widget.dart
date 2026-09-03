@@ -8,6 +8,7 @@ import 'package:multi_p_o_s/components/button/button_widget.dart';
 import 'package:multi_p_o_s/components/bottom_nav/bottom_nav_widget.dart';
 import 'package:multi_p_o_s/components/bottom_nav_child/bottom_nav_child_widget.dart';
 import 'package:multi_p_o_s/pages/inventario_de_productos/inventario_de_productos_widget.dart';
+import 'dart:io';
 import 'package:multi_p_o_s/pages/historial_de_ventas/historial_de_ventas_widget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
@@ -47,7 +48,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
   }
 
   Future<void> _loadData() async {
-    await _model.fetchLowStockCount();
+    await _model.fetchDashboardMetrics();
     final prefs = await SharedPreferences.getInstance();
     if (mounted) {
       setState(() {
@@ -168,7 +169,8 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                       fillColor: Colors.red.withValues(alpha: 0.1),
                                       icon: const Icon(Icons.power_settings_new_rounded, color: Colors.red, size: 18),
                                       onPressed: () {
-                                        SystemNavigator.pop(); // Cierra la aplicación
+                                        SystemNavigator.pop();
+                                        exit(0); // Cierra completamente la app
                                       },
                                     ),
                                   ].divide(const SizedBox(width: 4)),
@@ -242,7 +244,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                       ),
                                       const SizedBox(height: 4),
                                       Text(
-                                        'Bs. 4.850,00',
+                                        'Bs. ${_model.todayTotalVentas.toStringAsFixed(2)}',
                                         style: FlutterFlowTheme.of(context).headlineSmall.copyWith(
                                               fontFamily: "Poppins",
                                               color: Colors.white,
@@ -258,7 +260,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                             crossAxisAlignment: CrossAxisAlignment.start,
                                             children: [
                                               Text('Transacciones', style: FlutterFlowTheme.of(context).labelSmall.copyWith(color: Colors.white60, fontSize: 10)),
-                                              const Text('24 ventas', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 12)),
+                                              Text('${_model.todayNumVentas} ventas', style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 12)),
                                             ],
                                           ),
                                           Column(
@@ -267,9 +269,19 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                               Text('Estado de Caja', style: FlutterFlowTheme.of(context).labelSmall.copyWith(color: Colors.white60, fontSize: 10)),
                                               Row(
                                                 children: [
-                                                  Container(width: 6, height: 6, decoration: const BoxDecoration(color: Colors.greenAccent, shape: BoxShape.circle)),
+                                                  Container(
+                                                    width: 6,
+                                                    height: 6,
+                                                    decoration: BoxDecoration(
+                                                      color: _model.isCajaAbierta ? Colors.greenAccent : Colors.orangeAccent,
+                                                      shape: BoxShape.circle,
+                                                    ),
+                                                  ),
                                                   const SizedBox(width: 4),
-                                                  const Text('Abierta', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 12)),
+                                                  Text(
+                                                    _model.isCajaAbierta ? 'Abierta' : 'Cerrada',
+                                                    style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 12),
+                                                  ),
                                                 ],
                                               ),
                                             ],
@@ -363,9 +375,9 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                         icon: Icon(Icons.credit_score_rounded, color: Color(0xFFFF9100), size: 18),
                                         label: 'Créditos Hoy',
                                         tone: Color(0xFFFF9100),
-                                        value: 'Bs. 1.200',
+                                        value: 'Bs. 0,00',
                                         isUp: true,
-                                        trend: '+12%',
+                                        trend: '0%',
                                       ),
                                     ),
                                   ),
@@ -378,9 +390,9 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                         icon: Icon(Icons.payments_rounded, color: Colors.red, size: 18),
                                         label: 'Egresos',
                                         tone: Colors.red,
-                                        value: 'Bs. 450',
+                                        value: 'Bs. 0,00',
                                         isUp: false,
-                                        trend: '-5%',
+                                        trend: '0%',
                                       ),
                                     ),
                                   ),
@@ -414,7 +426,7 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                   ),
                                 ),
 
-                              // 5. Últimas Ventas
+                              // 5. Últimas Ventas (Dinámicas de SQLite)
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisSize: MainAxisSize.min,
@@ -435,33 +447,57 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                       ),
                                     ],
                                   ),
-                                  Container(
-                                    padding: const EdgeInsets.all(12),
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                                      borderRadius: BorderRadius.circular(16),
-                                      border: Border.all(color: FlutterFlowTheme.of(context).alternate),
+                                  if (_model.ultimasVentas.isEmpty)
+                                    Container(
+                                      padding: const EdgeInsets.all(12),
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                                        borderRadius: BorderRadius.circular(16),
+                                        border: Border.all(color: FlutterFlowTheme.of(context).alternate),
+                                      ),
+                                      alignment: Alignment.center,
+                                      child: const Text(
+                                        'Sin ventas registradas el día de hoy',
+                                        style: TextStyle(fontSize: 12, color: Colors.grey),
+                                      ),
+                                    )
+                                  else
+                                    Column(
+                                      children: _model.ultimasVentas.map((venta) {
+                                        final double tot = (venta['total'] as num?)?.toDouble() ?? 0.0;
+                                        final String metodo = venta['metodo_pago'] as String? ?? 'Efectivo';
+                                        final int id = venta['id'] as int? ?? 0;
+
+                                        return Container(
+                                          margin: const EdgeInsets.only(bottom: 6),
+                                          padding: const EdgeInsets.all(10),
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context).secondaryBackground,
+                                            borderRadius: BorderRadius.circular(12),
+                                            border: Border.all(color: FlutterFlowTheme.of(context).alternate),
+                                          ),
+                                          child: Row(
+                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Row(
+                                                children: [
+                                                  Icon(Icons.receipt_long_rounded, color: FlutterFlowTheme.of(context).primary, size: 20),
+                                                  const SizedBox(width: 8),
+                                                  Column(
+                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                    children: [
+                                                      Text('Venta #$id', style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
+                                                      Text(metodo, style: const TextStyle(fontSize: 10, color: Colors.grey)),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
+                                              Text('Bs. ${tot.toStringAsFixed(2)}', style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
+                                            ],
+                                          ),
+                                        );
+                                      }).toList(),
                                     ),
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Row(
-                                          children: [
-                                            Icon(Icons.receipt_long_rounded, color: FlutterFlowTheme.of(context).primary, size: 20),
-                                            const SizedBox(width: 8),
-                                            Column(
-                                              crossAxisAlignment: CrossAxisAlignment.start,
-                                              children: const [
-                                                Text('Venta #F-2041', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
-                                                Text('Hace 5 min • Efectivo', style: TextStyle(fontSize: 10, color: Colors.grey)),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                        const Text('Bs. 150,00', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
-                                      ],
-                                    ),
-                                  ),
                                 ],
                               ),
                             ],

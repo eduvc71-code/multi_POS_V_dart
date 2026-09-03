@@ -63,7 +63,7 @@ class _InventoryStatWidgetState extends State<InventoryStatWidget> {
     return Container(
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
-        borderRadius: BorderRadius.circular(24),
+        borderRadius: BorderRadius.circular(12),
         shape: BoxShape.rectangle,
         border: Border.all(
           color: FlutterFlowTheme.of(context).alternate,
@@ -71,59 +71,64 @@ class _InventoryStatWidgetState extends State<InventoryStatWidget> {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
         child: Row(
-          mainAxisSize: MainAxisSize.min,
+          mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              width: 40,
-              height: 40,
+              width: 32,
+              height: 32,
               decoration: BoxDecoration(
                 color: valueOrDefault<Color>(
                   widget.color,
                   FlutterFlowTheme.of(context).primary,
                 ),
-                borderRadius: BorderRadius.circular(9999),
-                shape: BoxShape.rectangle,
+                shape: BoxShape.circle,
               ),
+              alignment: Alignment.center,
               child: widget.icon ?? const SizedBox.shrink(),
             ),
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  valueOrDefault<String>(
-                    widget.label,
-                    'Total Items',
+            const SizedBox(width: 8),
+            Expanded(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    valueOrDefault<String>(
+                      widget.label,
+                      'Total Items',
+                    ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: FlutterFlowTheme.of(context).labelSmall.copyWith(
+                          fontFamily: "Space Grotesk",
+                          color: Colors.black87,
+                          fontSize: 10,
+                          fontWeight: FontWeight.w600,
+                        ),
                   ),
-                  style: FlutterFlowTheme.of(context).labelSmall.copyWith(
-                        fontFamily: "Space Grotesk",
-                        color: Colors.black,
-                        letterSpacing: 0.0,
-                        fontWeight: FlutterFlowTheme.of(context).labelSmall.fontWeight,
-                        height: 1.2,
-                      ),
-                ),
-                Text(
-                  valueOrDefault<String>(
-                    widget.value,
-                    '1,284',
+                  Text(
+                    valueOrDefault<String>(
+                      widget.value,
+                      '0',
+                    ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: FlutterFlowTheme.of(context).titleMedium.copyWith(
+                          fontFamily: "Urbanist",
+                          color: FlutterFlowTheme.of(context).primaryText,
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                        ),
                   ),
-                  style: FlutterFlowTheme.of(context).titleMedium.copyWith(
-                        fontFamily: "Urbanist",
-                        color: FlutterFlowTheme.of(context).primaryText,
-                        letterSpacing: 0.0,
-                        fontWeight: FontWeight.bold,
-                        height: 1.4,
-                      ),
-                ),
-              ].divide(const SizedBox(height: 4)),
+                ],
+              ),
             ),
-          ].divide(const SizedBox(width: 8)),
+          ],
         ),
       ),
     );

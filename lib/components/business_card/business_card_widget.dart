@@ -49,154 +49,102 @@ class _BusinessCardWidgetState extends State<BusinessCardWidget> {
 
   @override
   Widget build(BuildContext context) {
+    // Generar iniciales dinámicas
+    final words = widget.name.trim().split(' ');
+    String initials = 'MP';
+    if (words.length >= 2) {
+      initials = '${words[0][0]}${words[1][0]}'.toUpperCase();
+    } else if (words.isNotEmpty && words[0].isNotEmpty) {
+      initials = words[0].substring(0, words[0].length >= 2 ? 2 : 1).toUpperCase();
+    }
+
     return Container(
       decoration: BoxDecoration(
-        color: valueOrDefault<Color>(
-          valueOrDefault<bool>(
-            widget.isActive,
-            true,
-          )
-              ? FlutterFlowTheme.of(context).primary10
-              : FlutterFlowTheme.of(context).secondaryBackground,
-          FlutterFlowTheme.of(context).primary10,
-        ),
-        borderRadius: BorderRadius.circular(24),
+        color: widget.isActive
+            ? FlutterFlowTheme.of(context).primary10
+            : FlutterFlowTheme.of(context).secondaryBackground,
+        borderRadius: BorderRadius.circular(16),
         shape: BoxShape.rectangle,
         border: Border.all(
-          color: valueOrDefault<Color>(
-            valueOrDefault<bool>(
-              widget.isActive,
-              true,
-            )
-                ? FlutterFlowTheme.of(context).primary
-                : FlutterFlowTheme.of(context).alternate,
-            FlutterFlowTheme.of(context).primary,
-          ),
-          width: valueOrDefault<double>(
-            valueOrDefault<bool>(
-              widget.isActive,
-              true,
-            )
-                ? 2.0
-                : 2.0,
-            2.0,
-          ),
+          color: widget.isActive
+              ? FlutterFlowTheme.of(context).primary
+              : FlutterFlowTheme.of(context).alternate,
+          width: 1.5,
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(24),
-        child: Container(
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(
-                width: 48,
-                height: 48,
-                decoration: BoxDecoration(
-                  color: valueOrDefault<Color>(
-                    valueOrDefault<bool>(
-                      widget.isActive,
-                      true,
-                    )
-                        ? FlutterFlowTheme.of(context).primary
-                        : FlutterFlowTheme.of(context).secondaryBackground,
-                    FlutterFlowTheme.of(context).primary,
-                  ),
-                  shape: BoxShape.circle,
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              width: 44,
+              height: 44,
+              decoration: BoxDecoration(
+                color: widget.isActive
+                    ? FlutterFlowTheme.of(context).primary
+                    : FlutterFlowTheme.of(context).secondaryBackground,
+                shape: BoxShape.circle,
+              ),
+              alignment: Alignment.center,
+              child: Text(
+                initials,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
                 ),
-                alignment: const AlignmentDirectional(0, 0),
-                child: Text(
-                  'MN',
-                  textAlign: TextAlign.center,
-                  maxLines: 1,
-                  style: FlutterFlowTheme.of(context).labelMedium.copyWith(
-                        fontFamily: "Space Grotesk",
-                        color: valueOrDefault<Color>(
-                          valueOrDefault<bool>(
-                            widget.isActive,
-                            true,
-                          )
-                              ? FlutterFlowTheme.of(context).onPrimary
-                              : FlutterFlowTheme.of(context).primaryText,
-                          FlutterFlowTheme.of(context).onPrimary,
+              ),
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    widget.name,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: FlutterFlowTheme.of(context).titleSmall.copyWith(
+                          fontFamily: "Urbanist",
+                          color: FlutterFlowTheme.of(context).primaryText,
+                          fontWeight: FontWeight.bold,
                         ),
-                        fontSize: 18.24,
-                        letterSpacing: 0.0,
-                        fontWeight: FontWeight.w600,
-                        fontStyle:
-                            FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                        height: 1.3,
-                        overflow: TextOverflow.clip,
-                      ),
-                ),
-              ),
-              Expanded(
-                flex: 1,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      valueOrDefault<String>(
-                        widget.name,
-                        'Ferretería El Tornillo',
-                      ),
-                      style: FlutterFlowTheme.of(context).titleMedium.copyWith(
-                            fontFamily: "Urbanist",
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            letterSpacing: 0.0,
-                            fontWeight: FontWeight.bold,
-                            height: 1.4,
-                          ),
-                    ),
-                    Text(
-                      valueOrDefault<String>(
-                        widget.type,
-                        'Ferretería',
-                      ),
-                      style: FlutterFlowTheme.of(context).labelSmall.copyWith(
-                            fontFamily: "Space Grotesk",
-                            color: Colors.black,
-                            letterSpacing: 0.0,
-                            fontWeight: FlutterFlowTheme.of(context).labelSmall.fontWeight,
-                            height: 1.2,
-                          ),
-                    ),
-                  ].divide(const SizedBox(height: 4)),
-                ),
-              ),
-              Builder(builder: (_) {
-                return widget.isActiveSlot != null
-                    ? widget.isActiveSlot!()
-                    : const SizedBox.shrink();
-              }),
-              Container(
-                decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).success,
-                  borderRadius: BorderRadius.circular(9999),
-                  shape: BoxShape.rectangle,
-                ),
-                child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(16, 4, 16, 4),
-                  child: Container(
-                    child: Text(
-                      'ACTIVA',
-                      style: FlutterFlowTheme.of(context).labelSmall.copyWith(
-                            fontFamily: "Space Grotesk",
-                            color: FlutterFlowTheme.of(context).onSuccess,
-                            letterSpacing: 0.0,
-                            fontWeight: FontWeight.bold,
-                            height: 1.2,
-                          ),
-                    ),
                   ),
-                ),
+                  Text(
+                    widget.type,
+                    style: FlutterFlowTheme.of(context).labelSmall.copyWith(
+                          fontFamily: "Space Grotesk",
+                          color: Colors.black54,
+                          fontSize: 11,
+                        ),
+                  ),
+                ],
               ),
-            ].divide(const SizedBox(width: 16)),
-          ),
+            ),
+            const SizedBox(width: 8),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+              decoration: BoxDecoration(
+                color: FlutterFlowTheme.of(context).success,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Text(
+                'ACTIVA',
+                style: FlutterFlowTheme.of(context).labelSmall.copyWith(
+                      fontFamily: "Space Grotesk",
+                      color: FlutterFlowTheme.of(context).onSuccess,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 10,
+                    ),
+              ),
+            ),
+          ],
         ),
       ),
     );

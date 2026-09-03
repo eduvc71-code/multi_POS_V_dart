@@ -11,10 +11,20 @@ class PanelPrincipalModel extends FlutterFlowModel<PanelPrincipalWidget> {
   ///  State fields for stateful widgets in this page.
 
   int lowStockCount = 0;
+  double todayTotalVentas = 0.0;
+  int todayNumVentas = 0;
+  bool isCajaAbierta = false;
+  List<Map<String, dynamic>> ultimasVentas = [];
 
-  Future fetchLowStockCount() async {
+  Future fetchDashboardMetrics() async {
     final productos = await DatabaseHelper.instance.readAllProductos();
     lowStockCount = productos.where((p) => p.stock <= p.stockMinimo).length;
+
+    final metrics = await DatabaseHelper.instance.fetchDashboardMetrics();
+    todayTotalVentas = metrics['total_ventas'];
+    todayNumVentas = metrics['num_ventas'];
+    isCajaAbierta = metrics['caja_abierta'];
+    ultimasVentas = List<Map<String, dynamic>>.from(metrics['ultimas_ventas']);
   }
 
   // Model for QuickAction.

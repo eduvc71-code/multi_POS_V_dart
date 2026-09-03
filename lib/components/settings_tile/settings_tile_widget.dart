@@ -24,9 +24,10 @@ class SettingsTileWidget extends StatefulWidget {
     String? subtitle,
     String? target,
     String? title,
+    this.onTap,
   })  : iconBg = iconBg ?? const Color(0x00000000),
         subtitle = subtitle ?? 'Subtitle',
-        target = target ?? 'Target',
+        target = target ?? '',
         title = title ?? 'Title';
 
   final Widget? icon;
@@ -34,6 +35,7 @@ class SettingsTileWidget extends StatefulWidget {
   final String subtitle;
   final String target;
   final String title;
+  final VoidCallback? onTap;
 
   @override
   State<SettingsTileWidget> createState() => _SettingsTileWidgetState();
@@ -69,7 +71,11 @@ class _SettingsTileWidgetState extends State<SettingsTileWidget> {
       hoverColor: Colors.transparent,
       highlightColor: Colors.transparent,
       onTap: () async {
-        GoRouter.of(context).pushNamed(widget.target);
+        if (widget.onTap != null) {
+          widget.onTap!();
+        } else if (widget.target.isNotEmpty && widget.target != 'Target') {
+          GoRouter.of(context).pushNamed(widget.target);
+        }
       },
       child: Container(
         decoration: BoxDecoration(

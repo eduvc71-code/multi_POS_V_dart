@@ -48,16 +48,18 @@ class _BottomNavWidgetState extends State<BottomNavWidget> {
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
         shape: BoxShape.rectangle,
-        border: Border.all(
-          color: FlutterFlowTheme.of(context).alternate,
-          width: 1,
+        border: Border(
+          top: BorderSide(
+            color: FlutterFlowTheme.of(context).alternate,
+            width: 1,
+          ),
         ),
       ),
       child: SafeArea(
         top: false,
-        bottom: false,
+        bottom: true,
         child: Padding(
-          padding: const EdgeInsetsDirectional.fromSTEB(16, 8, 16, 8),
+          padding: const EdgeInsetsDirectional.fromSTEB(8, 4, 8, 6),
           child: Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceAround,

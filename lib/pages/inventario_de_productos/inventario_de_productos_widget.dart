@@ -1,4 +1,11 @@
-import 'package:multi_p_o_s/index.dart';
+import 'package:multi_p_o_s/flutter_flow/flutter_flow_icon_button.dart';
+import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
+import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
+import 'package:multi_p_o_s/components/inventory_stat/inventory_stat_widget.dart';
+import 'package:multi_p_o_s/components/text_field/text_field_widget.dart';
+import 'package:multi_p_o_s/components/bottom_nav/bottom_nav_widget.dart';
+import 'package:multi_p_o_s/components/bottom_nav_child2/bottom_nav_child2_widget.dart';
+import 'package:multi_p_o_s/models/producto_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widget_previews.dart';
 import 'package:pluto_grid/pluto_grid.dart';
@@ -6,6 +13,7 @@ import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:multi_p_o_s/database/inventory_initializer.dart';
 import 'package:multi_p_o_s/database/database_helper.dart';
+import 'inventario_de_productos_model.dart';
 
 export 'inventario_de_productos_model.dart';
 
@@ -199,6 +207,18 @@ class _InventarioDeProductosWidgetState
   }
 
   Future<void> _showAddProductDialogWithData(Map<String, dynamic> data) async {
+    final prefs = await SharedPreferences.getInstance();
+    final role = prefs.getString('user_role') ?? 'admin';
+
+    if (role == 'cajero') {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Acceso Restringido: El rol de Cajero solo puede visualizar el inventario')),
+        );
+      }
+      return;
+    }
+
     final nombreController = TextEditingController(text: data['nombre'] ?? '');
     final codigoController = TextEditingController(text: data['codigo'] ?? '');
     final costoController = TextEditingController(text: (data['costo'] ?? '').toString());
@@ -298,6 +318,18 @@ class _InventarioDeProductosWidgetState
   }
 
   Future<void> _showEditDialog(PlutoRow row) async {
+    final prefs = await SharedPreferences.getInstance();
+    final role = prefs.getString('user_role') ?? 'admin';
+
+    if (role != 'admin') {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Acceso Restringido: Solo el Administrador/Dueño puede editar precios o stock')),
+        );
+      }
+      return;
+    }
+
     final id = row.cells['id']?.value;
     if (id == null) return;
 
@@ -350,6 +382,18 @@ class _InventarioDeProductosWidgetState
   }
 
   Future<void> _handleDelete(PlutoRow row) async {
+    final prefs = await SharedPreferences.getInstance();
+    final role = prefs.getString('user_role') ?? 'admin';
+
+    if (role != 'admin') {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Acceso Restringido: Solo el Administrador/Dueño puede eliminar productos')),
+        );
+      }
+      return;
+    }
+
     final id = row.cells['id']?.value;
     if (id != null) {
       final confirm = await showDialog<bool>(
@@ -372,6 +416,19 @@ class _InventarioDeProductosWidgetState
   }
 
   Future<void> _handleCellChange(PlutoGridOnChangedEvent event) async {
+    final prefs = await SharedPreferences.getInstance();
+    final role = prefs.getString('user_role') ?? 'admin';
+
+    if (role != 'admin') {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Acceso Restringido: Solo el Administrador/Dueño puede modificar celdas del inventario')),
+        );
+      }
+      _updateRows(); // Revertir edición
+      return;
+    }
+
     final id = event.row.cells['id']?.value;
     if (id == null) return;
 
@@ -429,28 +486,29 @@ class _InventarioDeProductosWidgetState
                   color: FlutterFlowTheme.of(context).secondaryBackground,
                 ),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(24, 24, 24, 16),
+                  padding: const EdgeInsetsDirectional.fromSTEB(16, 10, 16, 8),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                          Row(
                             children: [
                               Text(
                                 'Inventario',
-                                style: FlutterFlowTheme.of(context).headlineMedium.copyWith(
+                                style: FlutterFlowTheme.of(context).titleMedium.copyWith(
                                       fontFamily: "Urbanist",
                                       fontWeight: FontWeight.bold,
                                     ),
                               ),
+                              const SizedBox(width: 8),
                               Text(
-                                'Gestion de existencias y precios',
-                                style: FlutterFlowTheme.of(context).bodySmall.copyWith(
+                                '| Existencias',
+                                style: FlutterFlowTheme.of(context).labelSmall.copyWith(
                                       fontFamily: "Poppins",
-                                      color: Colors.black,
+                                      color: Colors.grey,
+                                      fontSize: 11,
                                     ),
                               ),
                             ],
@@ -458,30 +516,30 @@ class _InventarioDeProductosWidgetState
                           Row(
                             children: [
                               FlutterFlowIconButton(
-                                borderRadius: 24,
-                                buttonSize: 40,
+                                borderRadius: 12,
+                                buttonSize: 32,
                                 fillColor: FlutterFlowTheme.of(context).primary,
-                                icon: const Icon(Icons.add_rounded, color: Colors.white, size: 24),
+                                icon: const Icon(Icons.add_rounded, color: Colors.white, size: 18),
                                 onPressed: _showAddProductDialog,
                               ),
-                              const SizedBox(width: 8),
+                              const SizedBox(width: 6),
                               FlutterFlowIconButton(
-                                borderRadius: 24,
-                                buttonSize: 40,
+                                borderRadius: 12,
+                                buttonSize: 32,
                                 fillColor: FlutterFlowTheme.of(context).primary,
-                                icon: const Icon(Icons.qr_code_scanner_rounded, color: Colors.white, size: 24),
+                                icon: const Icon(Icons.qr_code_scanner_rounded, color: Colors.white, size: 18),
                                 onPressed: _handleScan,
                               ),
                             ],
                           ),
                         ],
                       ),
-                      const SizedBox(height: 16),
+                      const SizedBox(height: 6),
                       wrapWithModel(
                         model: _model.textFieldModel,
                         updateCallback: () => safeSetState(() {}),
                         child: TextFieldWidget(
-                          hint: 'Buscar por nombre o codigo...',
+                          hint: 'Buscar por nombre o código...',
                           onChange: _onSearchChanged,
                           variant: 'filled',
                         ),
@@ -491,7 +549,7 @@ class _InventarioDeProductosWidgetState
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
                 child: Row(
                   children: [
                     Expanded(
@@ -500,20 +558,20 @@ class _InventarioDeProductosWidgetState
                         updateCallback: () => safeSetState(() {}),
                         child: InventoryStatWidget(
                           color: FlutterFlowTheme.of(context).primary,
-                          icon: const Icon(Icons.inventory_rounded, color: Colors.white, size: 20),
+                          icon: const Icon(Icons.inventory_rounded, color: Colors.white, size: 16),
                           label: 'Total Items',
                           value: _model.productos.length.toString(),
                         ),
                       ),
                     ),
-                    const SizedBox(width: 16),
+                    const SizedBox(width: 8),
                     Expanded(
                       child: wrapWithModel(
                         model: _model.inventoryStatModel2,
                         updateCallback: () => safeSetState(() {}),
                         child: InventoryStatWidget(
                           color: FlutterFlowTheme.of(context).secondary,
-                          icon: const Icon(Icons.warning_rounded, color: Colors.white, size: 20),
+                          icon: const Icon(Icons.warning_rounded, color: Colors.white, size: 16),
                           label: 'Stock Bajo',
                           value: _model.productos.where((p) => p.stock <= p.stockMinimo).length.toString(),
                         ),
@@ -524,7 +582,7 @@ class _InventarioDeProductosWidgetState
               ),
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.fromLTRB(24, 0, 24, 0),
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
                   child: Column(
                     children: [
                       Expanded(
@@ -539,17 +597,19 @@ class _InventarioDeProductosWidgetState
                                 style: PlutoGridStyleConfig(
                                   gridBackgroundColor: FlutterFlowTheme.of(context).primaryBackground,
                                   rowColor: FlutterFlowTheme.of(context).secondaryBackground,
-                                  columnTextStyle: const TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
-                                  cellTextStyle: const TextStyle(color: Colors.black),
+                                  columnTextStyle: const TextStyle(fontWeight: FontWeight.bold, color: Colors.black, fontSize: 12),
+                                  cellTextStyle: const TextStyle(color: Colors.black, fontSize: 11),
+                                  rowHeight: 38,
+                                  columnHeight: 34,
                                 ),
                               ),
                             ),
                       ),
                       Container(
-                        padding: const EdgeInsets.all(16),
+                        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.of(context).secondaryBackground,
-                          boxShadow: const [BoxShadow(blurRadius: 4, color: Color(0x33000000), offset: Offset(0, -2))],
+                          boxShadow: const [BoxShadow(blurRadius: 2, color: Color(0x22000000), offset: Offset(0, -1))],
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -558,16 +618,16 @@ class _InventarioDeProductosWidgetState
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisSize: MainAxisSize.min,
                               children: [
-                                const Text('Total Costo (Stock)', style: TextStyle(fontSize: 12)),
-                                Text('Bs. ${_model.totalCosto.toStringAsFixed(2)}', style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                                const Text('Total Costo (Stock)', style: TextStyle(fontSize: 10, color: Colors.grey)),
+                                Text('Bs. ${_model.totalCosto.toStringAsFixed(2)}', style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
                               ],
                             ),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.end,
                               mainAxisSize: MainAxisSize.min,
                               children: [
-                                const Text('Total Venta (Stock)', style: TextStyle(fontSize: 12)),
-                                Text('Bs. ${_model.totalVenta.toStringAsFixed(2)}', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: FlutterFlowTheme.of(context).primary)),
+                                const Text('Total Venta (Stock)', style: TextStyle(fontSize: 10, color: Colors.grey)),
+                                Text('Bs. ${_model.totalVenta.toStringAsFixed(2)}', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13, color: FlutterFlowTheme.of(context).primary)),
                               ],
                             ),
                           ],

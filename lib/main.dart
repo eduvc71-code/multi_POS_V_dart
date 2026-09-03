@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:multi_p_o_s/database/database_helper.dart';
 import 'flutter_flow/flutter_flow_localizations.dart';
 import 'index.dart';
 
@@ -79,16 +81,61 @@ class AppStateNotifier extends ChangeNotifier {
   }
 }
 
+class AppInitializerWidget extends StatefulWidget {
+  const AppInitializerWidget({super.key});
+
+  @override
+  State<AppInitializerWidget> createState() => _AppInitializerWidgetState();
+}
+
+class _AppInitializerWidgetState extends State<AppInitializerWidget> {
+  @override
+  void initState() {
+    super.initState();
+    _checkAppState();
+  }
+
+  Future<void> _checkAppState() async {
+    try {
+      final dbHelper = DatabaseHelper.instance;
+      final hasCompany = await dbHelper.hasAnyCompany();
+
+      if (!mounted) return;
+
+      if (!hasCompany) {
+        // No hay empresa registrada en este dispositivo -> Ir al registro
+        context.goNamed(RegistroDeNegocioWidget.routeName);
+      } else {
+        // Ya hay una empresa registrada -> Iniciar SIEMPRE en Login para probar roles (admin, cajero, vendedor)
+        context.goNamed(InicioDeSesionWidget.routeName);
+      }
+    } catch (e) {
+      if (mounted) {
+        context.goNamed(InicioDeSesionWidget.routeName);
+      }
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      body: Center(
+        child: CircularProgressIndicator(),
+      ),
+    );
+  }
+}
+
 GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) => const InicioDeSesionWidget(),
+      errorBuilder: (context, state) => const AppInitializerWidget(),
       routes: [
         GoRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => const InicioDeSesionWidget(),
+          builder: (context, _) => const AppInitializerWidget(),
         ),
         GoRoute(
           name: 'InicioDeSesion',

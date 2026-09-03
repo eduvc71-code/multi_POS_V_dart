@@ -51,7 +51,7 @@ class _InicioDeSesionWidgetState extends State<InicioDeSesionWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        resizeToAvoidBottomInset: false,
+        resizeToAvoidBottomInset: true,
         body: SafeArea(
           child: wrapWithModel(
             model: _model.loginBackgroundModel,

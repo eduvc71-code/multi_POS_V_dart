@@ -24,31 +24,16 @@ class DatabaseHelper {
 
     return await openDatabase(
       path,
-      version: 8,
+      version: 9,
       onCreate: _createDB,
       onUpgrade: _upgradeDB,
     );
   }
 
   Future _upgradeDB(Database db, int oldVersion, int newVersion) async {
-    if (oldVersion < 8) {
-      print('Limpiando y recreando DB por completo a versión $newVersion...');
-      await db.execute('DROP TABLE IF EXISTS usuarios');
-      await db.execute('DROP TABLE IF EXISTS empresas');
-      await db.execute('DROP TABLE IF EXISTS productos');
-      await db.execute('DROP TABLE IF EXISTS clientes');
-      await db.execute('DROP TABLE IF EXISTS ventas');
-      await db.execute('DROP TABLE IF EXISTS ventas_detalle');
-      await db.execute('DROP TABLE IF EXISTS movimientos_caja');
-      await db.execute('DROP TABLE IF EXISTS caja_sesiones');
-      await db.execute('DROP TABLE IF EXISTS movimientos_inventario');
-      await db.execute('DROP TABLE IF EXISTS devoluciones');
-      await db.execute('DROP TABLE IF EXISTS devoluciones_detalle');
-      await db.execute('DROP TABLE IF EXISTS movimientos_credito');
-      await db.execute('DROP TABLE IF EXISTS auditoria');
-      await db.execute('DROP TABLE IF EXISTS credenciales_clientes');
-      await _createDB(db, newVersion);
-    }
+    print('Migrando Base de Datos incrementalmente de v$oldVersion a v$newVersion...');
+    // Ejecutar _createDB con CREATE TABLE IF NOT EXISTS para conservar todos los datos locales
+    await _createDB(db, newVersion);
   }
 
   Future _createDB(Database db, int version) async {
@@ -461,7 +446,14 @@ class DatabaseHelper {
   Future<List<Map<String, dynamic>>> readAllUsuarios() async {
     final db = await instance.database;
     final prefs = await SharedPreferences.getInstance();
-    final empresaId = prefs.getInt('empresa_id') ?? -1;
+    int empresaId = prefs.getInt('empresa_id') ?? -1;
+
+    if (empresaId == -1) {
+      final empresas = await db.query('empresas', limit: 1);
+      if (empresas.isNotEmpty) {
+        empresaId = empresas.first['id'] as int;
+      }
+    }
 
     return await db.query(
       'usuarios',
@@ -602,16 +594,61 @@ class DatabaseHelper {
 
   Future<Map<String, dynamic>?> login(String username, String password) async {
     final db = await instance.database;
+    final normalizedUsername = username.trim().toLowerCase();
+    final cleanPassword = password.trim();
+
+    print('DEBUG LOGIN: intentando login con user="$normalizedUsername" pass="$cleanPassword"');
+
     final maps = await db.query(
       'usuarios',
-      where: 'username = ? AND password = ? AND activo = 1',
-      whereArgs: [username, password],
+      where: 'LOWER(username) = ? AND password = ? AND activo = 1',
+      whereArgs: [normalizedUsername, cleanPassword],
     );
 
     if (maps.isNotEmpty) {
+      print('DEBUG LOGIN: Exitoso para ID=${maps.first['id']} rol=${maps.first['rol']}');
       return maps.first;
+    } else {
+      print('DEBUG LOGIN: Falló. Verificando si usuario existe...');
+      final checkUser = await db.query('usuarios', where: 'LOWER(username) = ?', whereArgs: [normalizedUsername]);
+      if (checkUser.isNotEmpty) {
+        print('DEBUG LOGIN: Usuario existe en DB pero la contraseña no coincide. Pass guardado="${checkUser.first['password']}"');
+      } else {
+        print('DEBUG LOGIN: Usuario "$normalizedUsername" NO existe en la base de datos.');
+      }
     }
     return null;
+  }
+
+  Future<int> updateUsuario({
+    required int usuarioId,
+    required String nombre,
+    required String password,
+    required String rol,
+  }) async {
+    final db = await instance.database;
+    final map = <String, dynamic>{
+      'nombre': nombre.trim(),
+      'rol': rol,
+    };
+    if (password.trim().isNotEmpty) {
+      map['password'] = password.trim();
+    }
+    return await db.update(
+      'usuarios',
+      map,
+      where: 'id = ?',
+      whereArgs: [usuarioId],
+    );
+  }
+
+  Future<int> deleteUsuario(int usuarioId) async {
+    final db = await instance.database;
+    return await db.delete(
+      'usuarios',
+      where: 'id = ? AND rol != ?',
+      whereArgs: [usuarioId, 'admin'],
+    );
   }
 
   // --- MÉTODOS PARA ATOMICIDAD DE VENTAS Y CAJA ---
@@ -909,6 +946,109 @@ class DatabaseHelper {
       whereArgs: [empresaId, productoId],
       orderBy: 'fecha DESC',
     );
+  }
+
+  Future<Map<String, dynamic>> fetchDashboardMetrics() async {
+    final db = await instance.database;
+    final prefs = await SharedPreferences.getInstance();
+    final empresaId = prefs.getInt('empresa_id') ?? -1;
+    final todayStr = DateTime.now().toIso8601String().substring(0, 10);
+
+    final ventasHoy = await db.rawQuery(
+      'SELECT SUM(total) as total_ventas, COUNT(id) as num_ventas FROM ventas WHERE empresa_id = ? AND fecha LIKE ? AND estado = ?',
+      [empresaId, '$todayStr%', 'COMPLETADA'],
+    );
+
+    double totalVentas = 0.0;
+    int numVentas = 0;
+    if (ventasHoy.isNotEmpty) {
+      totalVentas = (ventasHoy.first['total_ventas'] as num?)?.toDouble() ?? 0.0;
+      numVentas = (ventasHoy.first['num_ventas'] as num?)?.toInt() ?? 0;
+    }
+
+    final cajaActiva = await db.query(
+      'caja_sesiones',
+      where: 'empresa_id = ? AND estado = ?',
+      whereArgs: [empresaId, 'ABIERTA'],
+      limit: 1,
+    );
+
+    final ultimasVentas = await db.query(
+      'ventas',
+      where: 'empresa_id = ?',
+      whereArgs: [empresaId],
+      orderBy: 'fecha DESC',
+      limit: 2,
+    );
+
+    return {
+      'total_ventas': totalVentas,
+      'num_ventas': numVentas,
+      'caja_abierta': cajaActiva.isNotEmpty,
+      'ultimas_ventas': ultimasVentas,
+    };
+  }
+
+  Future<bool> hasAnyCompany() async {
+    final db = await instance.database;
+    final result = await db.query('empresas', limit: 1);
+    return result.isNotEmpty;
+  }
+
+  Future<Map<String, dynamic>?> getEmpresaActiva() async {
+    final db = await instance.database;
+    final prefs = await SharedPreferences.getInstance();
+    int empresaId = prefs.getInt('empresa_id') ?? -1;
+
+    if (empresaId == -1) {
+      final empresas = await db.query('empresas', limit: 1);
+      if (empresas.isNotEmpty) {
+        empresaId = empresas.first['id'] as int;
+      }
+    }
+
+    final result = await db.query(
+      'empresas',
+      where: 'id = ?',
+      whereArgs: [empresaId],
+      limit: 1,
+    );
+    if (result.isNotEmpty) return result.first;
+    return null;
+  }
+
+  Future<int> createUsuarioWithPermissions({
+    required String username,
+    required String password,
+    required String nombre,
+    required String rol,
+    required Map<String, bool> permisos,
+  }) async {
+    final db = await instance.database;
+    final prefs = await SharedPreferences.getInstance();
+    final empresaId = prefs.getInt('empresa_id') ?? -1;
+
+    final normalizedUser = username.trim().toLowerCase();
+
+    // Verificar si el usuario ya existe
+    final existing = await db.query(
+      'usuarios',
+      where: 'username = ?',
+      whereArgs: [normalizedUser],
+    );
+
+    if (existing.isNotEmpty) {
+      throw Exception('El usuario "$normalizedUser" ya existe. Intente con otro nombre de usuario.');
+    }
+
+    return await db.insert('usuarios', {
+      'username': normalizedUser,
+      'password': password.trim(),
+      'nombre': nombre.trim().isEmpty ? normalizedUser : nombre.trim(),
+      'rol': rol,
+      'empresa_id': empresaId,
+      'activo': 1,
+    });
   }
 
   Future<void> close() async {

@@ -10,6 +10,7 @@ import 'package:multi_p_o_s/pages/registro_de_negocio/registro_de_negocio_widget
 import 'package:multi_p_o_s/pages/inicio_de_sesi_n/inicio_de_sesi_n_widget.dart';
 import 'package:multi_p_o_s/pages/panel_principal/panel_principal_widget.dart';
 import 'package:multi_p_o_s/database/database_helper.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widget_previews.dart';
 
@@ -35,6 +36,7 @@ class ConfiguracionYEmpresasWidget extends StatefulWidget {
 class _ConfiguracionYEmpresasWidgetState
     extends State<ConfiguracionYEmpresasWidget> {
   late ConfiguracionYEmpresasModel _model;
+  Map<String, dynamic>? _empresaActiva;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -42,6 +44,16 @@ class _ConfiguracionYEmpresasWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => ConfiguracionYEmpresasModel());
+    _loadEmpresaActiva();
+  }
+
+  Future<void> _loadEmpresaActiva() async {
+    final empresa = await DatabaseHelper.instance.getEmpresaActiva();
+    if (mounted) {
+      setState(() {
+        _empresaActiva = empresa;
+      });
+    }
   }
 
   Future<void> _showEmpleadosDialog() async {
@@ -55,79 +67,243 @@ class _ConfiguracionYEmpresasWidgetState
         return StatefulBuilder(
           builder: (context, setStateDialog) {
             return AlertDialog(
-              title: const Text('Gestión de Empleados'),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
+              title: const Row(
+                children: [
+                  Icon(Icons.people_alt_rounded, color: Color(0xFF0066FF), size: 26),
+                  SizedBox(width: 8),
+                  Text('Gestión de Colaboradores', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+                ],
+              ),
               content: SizedBox(
                 width: double.maxFinite,
-                height: 380,
+                height: 440,
                 child: Column(
                   children: [
-                    ElevatedButton.icon(
-                      onPressed: () async {
-                        String nombre = '';
-                        String username = '';
-                        String password = '';
-                        String rol = 'cajero';
+                    SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton.icon(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: FlutterFlowTheme.of(context).primary,
+                          foregroundColor: Colors.white,
+                          padding: const EdgeInsets.symmetric(vertical: 12),
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                        ),
+                        onPressed: () async {
+                          final nombreCtrl = TextEditingController();
+                          final usernameCtrl = TextEditingController(text: 'cajero1');
+                          final passwordCtrl = TextEditingController(text: '12345678');
+                          String rol = 'Cajero';
 
-                        final confirm = await showDialog<bool>(
-                          context: context,
-                          builder: (context) => StatefulBuilder(
-                            builder: (context, setStateNew) => AlertDialog(
-                              title: const Text('Nuevo Empleado'),
-                              content: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  TextField(
-                                    decoration: const InputDecoration(labelText: 'Nombre Completo *'),
-                                    onChanged: (val) => nombre = val,
+                          bool canVender = true;
+                          bool canAddInventory = false;
+                          bool canDeleteInventory = false;
+                          bool canEditStock = false;
+                          bool canViewReportes = false;
+
+                          final confirm = await showDialog<bool>(
+                            context: context,
+                            builder: (dialogCtx) => StatefulBuilder(
+                              builder: (dialogCtx, setStateNew) => AlertDialog(
+                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                                title: const Text('Nuevo Colaborador', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                                content: ConstrainedBox(
+                                  constraints: const BoxConstraints(maxWidth: 420),
+                                  child: SingleChildScrollView(
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        TextField(
+                                          controller: nombreCtrl,
+                                          decoration: const InputDecoration(
+                                            labelText: 'Nombre Completo del Colaborador *',
+                                            isDense: true,
+                                            border: OutlineInputBorder(),
+                                          ),
+                                        ),
+                                        const SizedBox(height: 10),
+                                        TextField(
+                                          controller: usernameCtrl,
+                                          decoration: const InputDecoration(
+                                            labelText: 'Nombre de Usuario *',
+                                            isDense: true,
+                                            border: OutlineInputBorder(),
+                                          ),
+                                        ),
+                                        const SizedBox(height: 10),
+                                        TextField(
+                                          controller: passwordCtrl,
+                                          decoration: const InputDecoration(
+                                            labelText: 'Contraseña Provisional *',
+                                            helperText: 'El colaborador la cambiará al iniciar sesión',
+                                            isDense: true,
+                                            border: OutlineInputBorder(),
+                                          ),
+                                        ),
+                                        const SizedBox(height: 12),
+                                        const Text('Rol de Trabajo:', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
+                                        const SizedBox(height: 4),
+                                        Container(
+                                          padding: const EdgeInsets.symmetric(horizontal: 12),
+                                          decoration: BoxDecoration(
+                                            border: Border.all(color: Colors.grey.shade400),
+                                            borderRadius: BorderRadius.circular(8),
+                                          ),
+                                          child: DropdownButtonHideUnderline(
+                                            child: DropdownButton<String>(
+                                              value: rol,
+                                              isExpanded: true,
+                                              items: const [
+                                                DropdownMenuItem(
+                                                  value: 'Administrador',
+                                                  child: Text('Administrador (Acceso Total como Dueño)'),
+                                                ),
+                                                DropdownMenuItem(
+                                                  value: 'Cajero',
+                                                  child: Text('Cajero (Solo Módulo Punto de Venta)'),
+                                                ),
+                                                DropdownMenuItem(
+                                                  value: 'Vendedor',
+                                                  child: Text('Vendedor (Punto de Venta + Añadir Productos)'),
+                                                ),
+                                              ],
+                                              onChanged: (val) {
+                                                if (val != null) {
+                                                  setStateNew(() {
+                                                    rol = val;
+                                                    if (rol == 'Administrador') {
+                                                      canVender = true;
+                                                      canAddInventory = true;
+                                                      canDeleteInventory = true;
+                                                      canEditStock = true;
+                                                      canViewReportes = true;
+                                                    } else if (rol == 'Vendedor') {
+                                                      canVender = true;
+                                                      canAddInventory = true;
+                                                      canDeleteInventory = false;
+                                                      canEditStock = false;
+                                                      canViewReportes = false;
+                                                    } else {
+                                                      // Cajero
+                                                      canVender = true;
+                                                      canAddInventory = false;
+                                                      canDeleteInventory = false;
+                                                      canEditStock = false;
+                                                      canViewReportes = false;
+                                                    }
+                                                  });
+                                                }
+                                              },
+                                            ),
+                                          ),
+                                        ),
+                                        const SizedBox(height: 12),
+                                        const Text('Módulos y Permisos Autorizados:', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
+                                        const SizedBox(height: 4),
+                                        CheckboxListTile(
+                                          title: const Text('Módulo Punto de Venta (Vender)', style: TextStyle(fontSize: 12)),
+                                          value: canVender,
+                                          dense: true,
+                                          activeColor: const Color(0xFF0066FF),
+                                          onChanged: (val) => setStateNew(() => canVender = val ?? true),
+                                        ),
+                                        CheckboxListTile(
+                                          title: const Text('Adicionar Productos al Inventario (Escáner/Manual)', style: TextStyle(fontSize: 12)),
+                                          subtitle: const Text('Permitido para Vendedor y Administrador', style: TextStyle(fontSize: 10, color: Colors.grey)),
+                                          value: canAddInventory,
+                                          dense: true,
+                                          activeColor: const Color(0xFF0066FF),
+                                          onChanged: (val) => setStateNew(() => canAddInventory = val ?? false),
+                                        ),
+                                        CheckboxListTile(
+                                          title: const Text('Eliminar Productos del Inventario', style: TextStyle(fontSize: 12)),
+                                          subtitle: const Text('Restringido únicamente a Administrador/Dueño', style: TextStyle(fontSize: 10, color: Colors.grey)),
+                                          value: canDeleteInventory,
+                                          dense: true,
+                                          activeColor: const Color(0xFF0066FF),
+                                          enabled: rol == 'Administrador',
+                                          onChanged: (val) => setStateNew(() => canDeleteInventory = val ?? false),
+                                        ),
+                                        CheckboxListTile(
+                                          title: const Text('Editar Precios o Modificar Stock Manualmente', style: TextStyle(fontSize: 12)),
+                                          subtitle: const Text('Restringido únicamente a Administrador/Dueño', style: TextStyle(fontSize: 10, color: Colors.grey)),
+                                          value: canEditStock,
+                                          dense: true,
+                                          activeColor: const Color(0xFF0066FF),
+                                          enabled: rol == 'Administrador',
+                                          onChanged: (val) => setStateNew(() => canEditStock = val ?? false),
+                                        ),
+                                        CheckboxListTile(
+                                          title: const Text('Ver Reportes y Configuración', style: TextStyle(fontSize: 12)),
+                                          value: canViewReportes,
+                                          dense: true,
+                                          activeColor: const Color(0xFF0066FF),
+                                          enabled: rol == 'Administrador',
+                                          onChanged: (val) => setStateNew(() => canViewReportes = val ?? false),
+                                        ),
+                                      ],
+                                    ),
                                   ),
-                                  TextField(
-                                    decoration: const InputDecoration(labelText: 'Usuario / Login *'),
-                                    onChanged: (val) => username = val,
+                                ),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () => Navigator.pop(dialogCtx, false),
+                                    child: const Text('Cancelar'),
                                   ),
-                                  TextField(
-                                    obscureText: true,
-                                    decoration: const InputDecoration(labelText: 'Contraseña *'),
-                                    onChanged: (val) => password = val,
-                                  ),
-                                  const SizedBox(height: 12),
-                                  DropdownButton<String>(
-                                    value: rol,
-                                    isExpanded: true,
-                                    items: const [
-                                      DropdownMenuItem(value: 'admin', child: Text('Administrador')),
-                                      DropdownMenuItem(value: 'cajero', child: Text('Cajero')),
-                                      DropdownMenuItem(value: 'vendedor', child: Text('Vendedor')),
-                                    ],
-                                    onChanged: (val) {
-                                      if (val != null) setStateNew(() => rol = val);
-                                    },
+                                  ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: FlutterFlowTheme.of(context).primary,
+                                      foregroundColor: Colors.white,
+                                    ),
+                                    onPressed: () => Navigator.pop(dialogCtx, true),
+                                    child: const Text('Guardar Colaborador'),
                                   ),
                                 ],
                               ),
-                              actions: [
-                                TextButton(onPressed: () => Navigator.pop(context, false), child: const Text('Cancelar')),
-                                ElevatedButton(onPressed: () => Navigator.pop(context, true), child: const Text('Guardar')),
-                              ],
                             ),
-                          ),
-                        );
-
-                        if (confirm == true && username.isNotEmpty && password.isNotEmpty) {
-                          await DatabaseHelper.instance.createUsuario(
-                            username: username,
-                            password: password,
-                            nombre: nombre.isEmpty ? username : nombre,
-                            rol: rol,
                           );
-                          final updated = await DatabaseHelper.instance.readAllUsuarios();
-                          setStateDialog(() {
-                            usuarios.clear();
-                            usuarios.addAll(updated);
-                          });
-                        }
-                      },
-                      icon: const Icon(Icons.person_add_rounded),
-                      label: const Text('Agregar Nuevo Empleado'),
+
+                          final usernameVal = usernameCtrl.text.trim();
+                          final passwordVal = passwordCtrl.text.trim();
+                          final nombreVal = nombreCtrl.text.trim();
+
+                          if (confirm == true && usernameVal.isNotEmpty && passwordVal.isNotEmpty) {
+                            final Map<String, bool> permisos = {
+                              'can_vender': canVender,
+                              'can_add_inventory': canAddInventory,
+                              'can_delete_inventory': canDeleteInventory,
+                              'can_edit_stock': canEditStock,
+                              'can_view_reportes': canViewReportes,
+                            };
+
+                            final roleCode = rol == 'Administrador' ? 'admin' : (rol == 'Cajero' ? 'cajero' : 'vendedor');
+
+                            try {
+                              await DatabaseHelper.instance.createUsuarioWithPermissions(
+                                username: usernameVal,
+                                password: passwordVal,
+                                nombre: nombreVal.isEmpty ? usernameVal : nombreVal,
+                                rol: roleCode,
+                                permisos: permisos,
+                              );
+                              final updated = await DatabaseHelper.instance.readAllUsuarios();
+                              setStateDialog(() {
+                                usuarios.clear();
+                                usuarios.addAll(updated);
+                              });
+                            } catch (e) {
+                              if (mounted) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(content: Text('Error: $e')),
+                                );
+                              }
+                            }
+                          }
+                        },
+                        icon: const Icon(Icons.person_add_rounded, size: 20),
+                        label: const Text('Crear Colaborador', style: TextStyle(fontWeight: FontWeight.bold)),
+                      ),
                     ),
                     const SizedBox(height: 12),
                     Expanded(
@@ -141,19 +317,156 @@ class _ConfiguracionYEmpresasWidgetState
                           final String uRol = u['rol'] ?? 'cajero';
                           final bool activo = (u['activo'] ?? 1) == 1;
 
-                          return ListTile(
-                            title: Text(uNombre, style: const TextStyle(fontWeight: FontWeight.bold)),
-                            subtitle: Text('Rol: ${uRol.toUpperCase()} · Login: ${u['username']}'),
-                            trailing: Switch(
-                              value: activo,
-                              onChanged: (val) async {
-                                await DatabaseHelper.instance.updateUsuarioStatus(uId, val);
-                                final updated = await DatabaseHelper.instance.readAllUsuarios();
-                                setStateDialog(() {
-                                  usuarios.clear();
-                                  usuarios.addAll(updated);
-                                });
-                              },
+                          Color roleColor = Colors.blue;
+                          if (uRol == 'admin') roleColor = const Color(0xFF6200EA);
+                          if (uRol == 'cajero') roleColor = Colors.green;
+
+                          String roleLabel = uRol.toUpperCase();
+                          if (uRol == 'admin') roleLabel = 'ADMINISTRADOR';
+
+                          return Container(
+                            margin: const EdgeInsets.only(bottom: 8),
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context).secondaryBackground,
+                              borderRadius: BorderRadius.circular(12),
+                              border: Border.all(color: FlutterFlowTheme.of(context).alternate),
+                            ),
+                            child: ListTile(
+                              leading: CircleAvatar(
+                                backgroundColor: roleColor.withValues(alpha: 0.15),
+                                child: Icon(Icons.person_rounded, color: roleColor, size: 20),
+                              ),
+                              title: Text(uNombre, maxLines: 1, overflow: TextOverflow.ellipsis, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
+                              subtitle: Row(
+                                children: [
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                                    decoration: BoxDecoration(
+                                      color: roleColor.withValues(alpha: 0.15),
+                                      borderRadius: BorderRadius.circular(6),
+                                    ),
+                                    child: Text(
+                                      roleLabel,
+                                      style: TextStyle(color: roleColor, fontSize: 10, fontWeight: FontWeight.bold),
+                                    ),
+                                  ),
+                                  const SizedBox(width: 6),
+                                  Expanded(
+                                    child: Text(
+                                      '@${u['username']}',
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: const TextStyle(fontSize: 11, color: Colors.grey),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              trailing: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Switch(
+                                    value: activo,
+                                    activeColor: FlutterFlowTheme.of(context).primary,
+                                    onChanged: (val) async {
+                                      await DatabaseHelper.instance.updateUsuarioStatus(uId, val);
+                                      final updated = await DatabaseHelper.instance.readAllUsuarios();
+                                      setStateDialog(() {
+                                        usuarios.clear();
+                                        usuarios.addAll(updated);
+                                      });
+                                    },
+                                  ),
+                                  if (uRol != 'admin') ...[
+                                    IconButton(
+                                      icon: const Icon(Icons.edit_rounded, color: Colors.blue, size: 18),
+                                      onPressed: () async {
+                                        final editNombreCtrl = TextEditingController(text: uNombre);
+                                        final editPasswordCtrl = TextEditingController(text: u['password'] ?? '');
+                                        String editRol = uRol == 'admin' ? 'Administrador' : (uRol == 'vendedor' ? 'Vendedor' : 'Cajero');
+
+                                        final confirmEdit = await showDialog<bool>(
+                                          context: context,
+                                          builder: (editCtx) => StatefulBuilder(
+                                            builder: (editCtx, setStateEdit) => AlertDialog(
+                                              title: Text('Editar @${u['username']}'),
+                                              content: Column(
+                                                mainAxisSize: MainAxisSize.min,
+                                                children: [
+                                                  TextField(
+                                                    controller: editNombreCtrl,
+                                                    decoration: const InputDecoration(labelText: 'Nombre Completo'),
+                                                  ),
+                                                  TextField(
+                                                    controller: editPasswordCtrl,
+                                                    decoration: const InputDecoration(labelText: 'Contraseña'),
+                                                  ),
+                                                  const SizedBox(height: 12),
+                                                  DropdownButton<String>(
+                                                    value: editRol,
+                                                    isExpanded: true,
+                                                    items: const [
+                                                      DropdownMenuItem(value: 'Administrador', child: Text('Administrador')),
+                                                      DropdownMenuItem(value: 'Cajero', child: Text('Cajero')),
+                                                      DropdownMenuItem(value: 'Vendedor', child: Text('Vendedor')),
+                                                    ],
+                                                    onChanged: (val) {
+                                                      if (val != null) setStateEdit(() => editRol = val);
+                                                    },
+                                                  ),
+                                                ],
+                                              ),
+                                              actions: [
+                                                TextButton(onPressed: () => Navigator.pop(editCtx, false), child: const Text('Cancelar')),
+                                                ElevatedButton(onPressed: () => Navigator.pop(editCtx, true), child: const Text('Guardar')),
+                                              ],
+                                            ),
+                                          ),
+                                        );
+
+                                        if (confirmEdit == true) {
+                                          final roleCode = editRol == 'Administrador' ? 'admin' : (editRol == 'Cajero' ? 'cajero' : 'vendedor');
+                                          await DatabaseHelper.instance.updateUsuario(
+                                            usuarioId: uId,
+                                            nombre: editNombreCtrl.text,
+                                            password: editPasswordCtrl.text,
+                                            rol: roleCode,
+                                          );
+                                          final updated = await DatabaseHelper.instance.readAllUsuarios();
+                                          setStateDialog(() {
+                                            usuarios.clear();
+                                            usuarios.addAll(updated);
+                                          });
+                                        }
+                                      },
+                                    ),
+                                    IconButton(
+                                      icon: const Icon(Icons.delete_outline_rounded, color: Colors.red, size: 18),
+                                      onPressed: () async {
+                                        final confirmDelete = await showDialog<bool>(
+                                          context: context,
+                                          builder: (delCtx) => AlertDialog(
+                                            title: const Text('Eliminar Colaborador'),
+                                            content: Text('¿Está seguro de eliminar al usuario @${u['username']}?'),
+                                            actions: [
+                                              TextButton(onPressed: () => Navigator.pop(delCtx, false), child: const Text('Cancelar')),
+                                              TextButton(onPressed: () => Navigator.pop(delCtx, true), child: const Text('Eliminar', style: TextStyle(color: Colors.red))),
+                                            ],
+                                          ),
+                                        );
+
+                                        if (confirmDelete == true) {
+                                          await DatabaseHelper.instance.deleteUsuario(uId);
+                                          final updated = await DatabaseHelper.instance.readAllUsuarios();
+                                          setStateDialog(() {
+                                            usuarios.clear();
+                                            usuarios.addAll(updated);
+                                          });
+                                        }
+                                      },
+                                    ),
+                                  ],
+                                ],
+                              ),
                             ),
                           );
                         },
@@ -222,50 +535,58 @@ class _ConfiguracionYEmpresasWidgetState
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    Row(
-                                      children: [
-                                        FlutterFlowIconButton(
-                                          borderRadius: 8,
-                                          buttonSize: 40,
-                                          fillColor: Colors.transparent,
-                                          icon: const Icon(Icons.arrow_back_rounded, size: 24),
-                                          onPressed: () async {
-                                            context.goNamed(PanelPrincipalWidget.routeName);
-                                          },
-                                        ),
-                                        const SizedBox(width: 8),
-                                        Column(
-                                          mainAxisSize: MainAxisSize.min,
-                                          mainAxisAlignment: MainAxisAlignment.start,
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              'Configuración',
-                                              style: FlutterFlowTheme.of(context)
-                                                  .headlineMedium
-                                                  .copyWith(
-                                                    fontFamily: "Urbanist",
-                                                    color: FlutterFlowTheme.of(
-                                                      context,
-                                                    ).primaryText,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.bold,
-                                                    height: 1.25,
-                                                  ),
+                                    Expanded(
+                                      child: Row(
+                                        children: [
+                                          FlutterFlowIconButton(
+                                            borderRadius: 8,
+                                            buttonSize: 40,
+                                            fillColor: Colors.transparent,
+                                            icon: const Icon(Icons.arrow_back_rounded, size: 24),
+                                            onPressed: () async {
+                                              context.goNamed(PanelPrincipalWidget.routeName);
+                                            },
+                                          ),
+                                          const SizedBox(width: 8),
+                                          Expanded(
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.min,
+                                              mainAxisAlignment: MainAxisAlignment.start,
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  'Configuración',
+                                                  maxLines: 1,
+                                                  overflow: TextOverflow.ellipsis,
+                                                  style: FlutterFlowTheme.of(context)
+                                                      .headlineMedium
+                                                      .copyWith(
+                                                        fontFamily: "Urbanist",
+                                                        color: FlutterFlowTheme.of(
+                                                          context,
+                                                        ).primaryText,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight: FontWeight.bold,
+                                                        height: 1.25,
+                                                      ),
+                                                ),
+                                                Text(
+                                                  'Gestión de MultiPOS y Empresas',
+                                                  maxLines: 1,
+                                                  overflow: TextOverflow.ellipsis,
+                                                  style: FlutterFlowTheme.of(context).bodySmall
+                                                      .copyWith(
+                                                        fontFamily: "Poppins",
+                                                        color: Colors.black,
+                                                        letterSpacing: 0.0,
+                                                        height: 1.4,
+                                                      ),
+                                                ),
+                                              ],
                                             ),
-                                            Text(
-                                              'Gestión de MultiPOS y Empresas',
-                                              style: FlutterFlowTheme.of(context).bodySmall
-                                                  .copyWith(
-                                                    fontFamily: "Poppins",
-                                                    color: Colors.black,
-                                                    letterSpacing: 0.0,
-                                                    height: 1.4,
-                                                  ),
-                                            ),
-                                          ].divide(const SizedBox(height: 4)),
-                                        ),
-                                      ],
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                     FlutterFlowIconButton(
                                       borderRadius: 8,
@@ -295,7 +616,7 @@ class _ConfiguracionYEmpresasWidgetState
                         ),
                       ),
                       const Spacer(flex: 1),
-                      // BLOQUE 2: CUERPO (Contenido principal con scroll interno si es necesario)
+                      // BLOQUE 2: CUERPO
                       Expanded(
                         flex: 3,
                         child: SingleChildScrollView(
@@ -322,7 +643,7 @@ class _ConfiguracionYEmpresasWidgetState
                                         crossAxisAlignment: CrossAxisAlignment.center,
                                         children: [
                                           Text(
-                                            'Mis Empresas',
+                                            'Mi Empresa',
                                             style: FlutterFlowTheme.of(context)
                                                 .titleLarge
                                                 .copyWith(
@@ -332,57 +653,15 @@ class _ConfiguracionYEmpresasWidgetState
                                                   height: 1.3,
                                                 ),
                                           ),
-                                          InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              GoRouter.of(context).goNamed(
-                                                RegistroDeNegocioWidget.routeName,
-                                              );
-                                            },
-                                            child: wrapWithModel(
-                                              model: _model.buttonModel1,
-                                              updateCallback: () =>
-                                                  safeSetState(() {}),
-                                              child: ButtonWidget(
-                                                icon: Icon(
-                                                  Icons.add_rounded,
-                                                  color: FlutterFlowTheme.of(
-                                                    context,
-                                                  ).primaryText,
-                                                  size: 24,
-                                                ),
-                                                iconPresent: true,
-                                                iconEndPresent: false,
-                                                content: 'Nueva Empresa',
-                                                variant: 'ghost',
-                                                size: 'small',
-                                                fullWidth: false,
-                                                loading: false,
-                                                disabled: false,
-                                              ),
-                                            ),
-                                          ),
                                         ],
                                       ),
                                       wrapWithModel(
                                         model: _model.businessCardModel1,
                                         updateCallback: () => safeSetState(() {}),
-                                        child: const BusinessCardWidget(
-                                          name: 'Ferretería El Tornillo',
-                                          type: 'Ferretería',
+                                        child: BusinessCardWidget(
+                                          name: _empresaActiva?['nombre'] ?? 'Mi Empresa Activa',
+                                          type: _empresaActiva?['tipo'] ?? 'Comercial',
                                           isActive: true,
-                                        ),
-                                      ),
-                                      wrapWithModel(
-                                        model: _model.businessCardModel2,
-                                        updateCallback: () => safeSetState(() {}),
-                                        child: const BusinessCardWidget(
-                                          name: 'Repuestos Central',
-                                          type: 'Autopartes',
-                                          isActive: false,
                                         ),
                                       ),
                                     ].divide(const SizedBox(height: 16)),
@@ -402,24 +681,21 @@ class _ConfiguracionYEmpresasWidgetState
                                               height: 1.3,
                                             ),
                                       ),
-                                      InkWell(
-                                        onTap: _showEmpleadosDialog,
-                                        child: wrapWithModel(
-                                          model: _model.settingsTileModel1,
-                                          updateCallback: () => safeSetState(() {}),
-                                          child: SettingsTileWidget(
-                                            icon: const Icon(
-                                              Icons.people_rounded,
-                                              color: Colors.black,
-                                              size: 24,
-                                            ),
-                                            iconBg: FlutterFlowTheme.of(
-                                              context,
-                                            ).primary20,
-                                            subtitle: 'Gestionar roles y accesos',
-                                            target: 'Target',
-                                            title: 'Empleados',
+                                      wrapWithModel(
+                                        model: _model.settingsTileModel1,
+                                        updateCallback: () => safeSetState(() {}),
+                                        child: SettingsTileWidget(
+                                          icon: const Icon(
+                                            Icons.people_rounded,
+                                            color: Colors.black,
+                                            size: 24,
                                           ),
+                                          iconBg: FlutterFlowTheme.of(
+                                            context,
+                                          ).primary20,
+                                          subtitle: 'Gestionar colaboradores y roles',
+                                          title: 'Colaboradores',
+                                          onTap: _showEmpleadosDialog,
                                         ),
                                       ),
                                       wrapWithModel(
@@ -505,140 +781,81 @@ class _ConfiguracionYEmpresasWidgetState
                                     ),
                                     child: Padding(
                                       padding: const EdgeInsets.all(24),
-                                      child: Container(
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.min,
-                                          mainAxisAlignment: MainAxisAlignment.start,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.stretch,
-                                          children: [
-                                            Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
-                                              children: [
-                                                Container(
-                                                  width: 40,
-                                                  height: 40,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                      context,
-                                                    ).tertiary,
-                                                    shape: BoxShape.circle,
-                                                  ),
-                                                  alignment: const AlignmentDirectional(
-                                                    0,
-                                                    0,
-                                                  ),
-                                                  child: Text(
-                                                    'AR',
-                                                    textAlign: TextAlign.center,
-                                                    maxLines: 1,
-                                                    style:
-                                                        FlutterFlowTheme.of(
-                                                          context,
-                                                        ).labelMedium.copyWith(
-                                                          fontFamily: "Space Grotesk",
-                                                          color: FlutterFlowTheme.of(
-                                                            context,
-                                                          ).onAccent,
-                                                          fontSize: 15.2,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight: FontWeight.w600,
-                                                          height: 1.3,
-                                                          overflow: TextOverflow.clip,
-                                                        ),
-                                                  ),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                                        children: [
+                                          Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment: MainAxisAlignment.start,
+                                            crossAxisAlignment: CrossAxisAlignment.center,
+                                            children: [
+                                              Container(
+                                                width: 40,
+                                                height: 40,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(context).tertiary,
+                                                  shape: BoxShape.circle,
                                                 ),
-                                                Column(
-                                                  mainAxisSize: MainAxisSize.min,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
-                                                  children: [
-                                                    Text(
-                                                      'Alex Rivera',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                            context,
-                                                          ).titleMedium.copyWith(
-                                                            fontFamily: "Urbanist",
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.bold,
-                                                            height: 1.4,
-                                                          ),
-                                                    ),
-                                                    Text(
-                                                      'Rol: Propietario',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                            context,
-                                                          ).labelSmall.copyWith(
-                                                            fontFamily:
-                                                                "Space Grotesk",
-                                      color: Colors.black,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FlutterFlowTheme.of(
-                                                                      context,
-                                                                    )
-                                                                    .labelSmall
-                                                                    .fontWeight,
-                                                            height: 1.2,
-                                                          ),
-                                                    ),
-                                                  ].divide(const SizedBox(height: 4)),
-                                                ),
-                                              ].divide(const SizedBox(width: 16)),
-                                            ),
-                                            Divider(
-                                              height: 16,
-                                              thickness: 1,
-                                              indent: 0,
-                                              endIndent: 0,
-                                              color: FlutterFlowTheme.of(
-                                                context,
-                                              ).alternate,
-                                            ),
-                                            InkWell(
-                                              splashColor: Colors.transparent,
-                                              focusColor: Colors.transparent,
-                                              hoverColor: Colors.transparent,
-                                              highlightColor: Colors.transparent,
-                                              onTap: () async {
-                                                GoRouter.of(context).goNamed(
-                                                  InicioDeSesionWidget.routeName,
-                                                );
-                                              },
-                                              child: wrapWithModel(
-                                                model: _model.buttonModel2,
-                                                updateCallback: () =>
-                                                    safeSetState(() {}),
-                                                child: ButtonWidget(
-                                                  icon: Icon(
-                                                    Icons.logout_rounded,
-                                                    color: FlutterFlowTheme.of(
-                                                      context,
-                                                    ).primaryText,
-                                                    size: 24,
+                                                alignment: const AlignmentDirectional(0, 0),
+                                                child: const Text(
+                                                  'MP',
+                                                  textAlign: TextAlign.center,
+                                                  style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontWeight: FontWeight.bold,
                                                   ),
-                                                  iconPresent: true,
-                                                  iconEndPresent: false,
-                                                  content: 'Cerrar Sesión',
-                                                  variant: 'destructive',
-                                                  size: 'medium',
-                                                  fullWidth: true,
-                                                  loading: false,
-                                                  disabled: false,
                                                 ),
                                               ),
+                                              const SizedBox(width: 12),
+                                              Column(
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    _empresaActiva?['nombre'] ?? 'Mi Empresa',
+                                                    style: FlutterFlowTheme.of(context).titleMedium.copyWith(
+                                                          fontWeight: FontWeight.bold,
+                                                        ),
+                                                  ),
+                                                  const Text(
+                                                    'Sesión Activa',
+                                                    style: TextStyle(fontSize: 12, color: Colors.grey),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                          const Divider(height: 16, thickness: 1),
+                                          InkWell(
+                                            onTap: () async {
+                                              final prefs = await SharedPreferences.getInstance();
+                                              await prefs.clear();
+                                              if (context.mounted) {
+                                                context.goNamed(InicioDeSesionWidget.routeName);
+                                              }
+                                            },
+                                            child: wrapWithModel(
+                                              model: _model.buttonModel2,
+                                              updateCallback: () => safeSetState(() {}),
+                                              child: ButtonWidget(
+                                                icon: Icon(
+                                                  Icons.logout_rounded,
+                                                  color: FlutterFlowTheme.of(context).primaryText,
+                                                  size: 24,
+                                                ),
+                                                iconPresent: true,
+                                                iconEndPresent: false,
+                                                content: 'Cerrar Sesión',
+                                                variant: 'destructive',
+                                                size: 'medium',
+                                                fullWidth: true,
+                                                loading: false,
+                                                disabled: false,
+                                              ),
                                             ),
-                                          ].divide(const SizedBox(height: 16)),
-                                        ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ),
@@ -651,29 +868,17 @@ class _ConfiguracionYEmpresasWidgetState
                                       children: [
                                         Text(
                                           'MultiPOS v2.4.0',
-                                          style: FlutterFlowTheme.of(context)
-                                              .labelSmall
-                                              .copyWith(
+                                          style: FlutterFlowTheme.of(context).labelSmall.copyWith(
                                                 fontFamily: "Space Grotesk",
                                                 color: Colors.black,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FlutterFlowTheme.of(
-                                                  context,
-                                                ).labelSmall.fontWeight,
                                                 height: 1.2,
                                               ),
                                         ),
                                         Text(
                                           'Hecho con ❤️ para tu negocio',
-                                          style: FlutterFlowTheme.of(context)
-                                              .labelSmall
-                                              .copyWith(
+                                          style: FlutterFlowTheme.of(context).labelSmall.copyWith(
                                                 fontFamily: "Space Grotesk",
                                                 color: Colors.black,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FlutterFlowTheme.of(
-                                                  context,
-                                                ).labelSmall.fontWeight,
                                                 height: 1.2,
                                               ),
                                         ),
@@ -687,7 +892,7 @@ class _ConfiguracionYEmpresasWidgetState
                         ),
                       ),
                       const Spacer(flex: 1),
-                      // BLOQUE 3: FOOTER (Bottom Navigation)
+                      // BLOQUE 3: FOOTER
                       Align(
                         alignment: const AlignmentDirectional(0, 1),
                         child: Container(

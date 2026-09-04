@@ -1,0 +1,33 @@
+```
+# Environment and temp files
+.env
+.env.local
+*.env.*
+
+# Logs and temp files
+*.log
+*.tmp
+
+# Editors
+.vscode/
+.idea/
+
+# System files
+.DS_Store
+Thumbs.db
+```
+# Widget Preview related
+.widget_preview/
+
+# Flutter / Dart generated
+.dart_tool/
+build/
+android/build/
+android/app/build/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+pubspec.lock
+.gradle/
+.idea/
+*.iml

@@ -5,6 +5,8 @@ plugins {
 }
 
 android {
+    ndkVersion = "28.2.13676358"
+
     namespace = "com.example.multi_p_o_s"
     compileSdk = 36
 
@@ -23,12 +25,6 @@ android {
         targetSdk = 36
         versionCode = 1
         versionName = "1.0.0"
-    }
-
-    signingConfigs {
-        getByName("debug") {
-            storeFile = file("debug.keystore")
-        }
     }
 
     buildTypes {

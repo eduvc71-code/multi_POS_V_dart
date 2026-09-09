@@ -35,6 +35,8 @@ dependencies:
   timeago: 3.7.1
   url_launcher: 6.3.1
   cupertino_icons: ^1.0.8
+  speech_to_text: ^7.3.0  # ✅ CAMBIA ESTA LÍNEA (de 6.6.0 a 7.3.0)
+  permission_handler: ^11.3.1  # ✅ AGREGA ESTA LÍNEA
 
   http: ^1.1.0
   supabase_flutter: ^2.8.0
@@ -44,6 +46,7 @@ dev_dependencies:
   lints: 4.0.0
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: ^0.13.1
 
 flutter:
   uses-material-design: true
@@ -54,3 +57,9 @@ flutter:
     - assets/rive_animations/
     - assets/pdfs/
     - assets/jsons/
+
+flutter_launcher_icons:
+  android: true
+  ios: false
+  image_path: "assets/images/icon.png"
+  min_sdk_android: 21

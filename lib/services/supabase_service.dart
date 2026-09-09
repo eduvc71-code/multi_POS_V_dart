@@ -53,11 +53,11 @@ class SupabaseService {
     final empresaResponse = await client
         .from('empresas')
         .insert({
-          'nombre': businessName,
-          'tipo': businessType,
-          'nit': nit.isEmpty ? null : nit,
-          'telefono': phone.isEmpty ? null : phone,
-        })
+      'nombre': businessName,
+      'tipo': businessType,
+      'nit': nit.isEmpty ? null : nit,
+      'telefono': phone.isEmpty ? null : phone,
+    })
         .select('id')
         .single();
 
@@ -112,9 +112,9 @@ class SupabaseService {
 
   /// Inicia sesión verificando credenciales en Supabase
   Future<Map<String, dynamic>?> loginUsuario(
-    String username,
-    String password,
-  ) async {
+      String username,
+      String password,
+      ) async {
     final response = await client
         .from('usuarios')
         .select()
@@ -159,13 +159,13 @@ class SupabaseService {
     final response = await client
         .from('usuarios')
         .insert({
-          'username': username,
-          'password': password,
-          'nombre': nombre,
-          'rol': rol,
-          'empresa_id': empresaId,
-          'activo': true,
-        })
+      'username': username,
+      'password': password,
+      'nombre': nombre,
+      'rol': rol,
+      'empresa_id': empresaId,
+      'activo': true,
+    })
         .select('id')
         .single();
 
@@ -226,6 +226,13 @@ class SupabaseService {
         stockMinimo: (json['stock_minimo'] as num? ?? 12).toInt(),
         categoria: json['categoria'] ?? 'General',
         imagen: json['imagen'],
+        // ✅ PROPIEDADES DE FARMACIA AGREGADAS (FEFO Y SENASAG)
+        requiereReceta: json['requiere_receta'] ?? false,
+        esPsicotropico: json['es_psicotropico'] ?? false,
+        principioActivo: json['principio_activo'],
+        registroSanitario: json['registro_sanitario'],
+        unidadesPorCaja: (json['unidades_por_caja'] as num? ?? 1).toInt(),
+        unidadesPorBlister: (json['unidades_por_blister'] as num? ?? 10).toInt(),
       );
     }).toList();
   }
@@ -251,6 +258,13 @@ class SupabaseService {
       stockMinimo: (response['stock_minimo'] as num? ?? 12).toInt(),
       categoria: response['categoria'] ?? 'General',
       imagen: response['imagen'],
+      // ✅ PROPIEDADES DE FARMACIA AGREGADAS (FEFO Y SENASAG)
+      requiereReceta: response['requiere_receta'] ?? false,
+      esPsicotropico: response['es_psicotropico'] ?? false,
+      principioActivo: response['principio_activo'],
+      registroSanitario: response['registro_sanitario'],
+      unidadesPorCaja: (response['unidades_por_caja'] as num? ?? 1).toInt(),
+      unidadesPorBlister: (response['unidades_por_blister'] as num? ?? 10).toInt(),
     );
   }
 
@@ -265,6 +279,13 @@ class SupabaseService {
       'stock_minimo': producto.stockMinimo <= 0 ? 12 : producto.stockMinimo,
       'categoria': producto.categoria,
       'empresa_id': empresaId,
+      // Propiedades de farmacia (opcionales al crear manualmente)
+      'requiere_receta': producto.requiereReceta,
+      'es_psicotropico': producto.esPsicotropico,
+      'principio_activo': producto.principioActivo,
+      'registro_sanitario': producto.registroSanitario,
+      'unidades_por_caja': producto.unidadesPorCaja,
+      'unidades_por_blister': producto.unidadesPorBlister,
     };
     if (producto.imagen != null && producto.imagen!.isNotEmpty) {
       data['imagen'] = producto.imagen;
@@ -290,6 +311,13 @@ class SupabaseService {
       'stock': producto.stock,
       'stock_minimo': producto.stockMinimo,
       'categoria': producto.categoria,
+      // Propiedades de farmacia
+      'requiere_receta': producto.requiereReceta,
+      'es_psicotropico': producto.esPsicotropico,
+      'principio_activo': producto.principioActivo,
+      'registro_sanitario': producto.registroSanitario,
+      'unidades_por_caja': producto.unidadesPorCaja,
+      'unidades_por_blister': producto.unidadesPorBlister,
     };
     if (producto.imagen != null && producto.imagen!.isNotEmpty) {
       updates['imagen'] = producto.imagen;
@@ -387,8 +415,8 @@ class SupabaseService {
 
   /// Lee el historial Kardex de un producto desde Supabase.
   Future<List<Map<String, dynamic>>> readMovimientosInventario(
-    int productoId,
-  ) async {
+      int productoId,
+      ) async {
     final response = await client
         .from('movimientos_inventario')
         .select()
@@ -425,14 +453,14 @@ class SupabaseService {
     final response = await client
         .from('clientes')
         .insert({
-          'nombre': nombre,
-          'nit': nit,
-          'telefono': telefono,
-          'email': email,
-          'dirección': direccion,
-          'deuda': 0.0,
-          'empresa_id': empresaId,
-        })
+      'nombre': nombre,
+      'nit': nit,
+      'telefono': telefono,
+      'email': email,
+      'dirección': direccion,
+      'deuda': 0.0,
+      'empresa_id': empresaId,
+    })
         .select('id')
         .single();
 
@@ -495,13 +523,13 @@ class SupabaseService {
     final response = await client
         .from('caja_sesiones')
         .insert({
-          'empresa_id': empresaId,
-          'usuario_id': usuarioId,
-          'monto_inicial': montoInicial,
-          'monto_final': 0.0,
-          'estado': 'ABIERTA',
-          'fecha_apertura': DateTime.now().toIso8601String(),
-        })
+      'empresa_id': empresaId,
+      'usuario_id': usuarioId,
+      'monto_inicial': montoInicial,
+      'monto_final': 0.0,
+      'estado': 'ABIERTA',
+      'fecha_apertura': DateTime.now().toIso8601String(),
+    })
         .select('id')
         .single();
 
@@ -542,21 +570,21 @@ class SupabaseService {
 
   /// Lee todos los movimientos de caja de Supabase.
   Future<List<Map<String, dynamic>>> fetchMovimientosCaja(
-    int empresaId, {
-    int? cajaSesionId,
-  }) async {
+      int empresaId, {
+        int? cajaSesionId,
+      }) async {
     final response = cajaSesionId != null
         ? await client
-            .from('movimientos_caja')
-            .select()
-            .eq('empresa_id', empresaId)
-            .eq('caja_sesión_id', cajaSesionId)
-            .order('id', ascending: false)
+        .from('movimientos_caja')
+        .select()
+        .eq('empresa_id', empresaId)
+        .eq('caja_sesión_id', cajaSesionId)
+        .order('id', ascending: false)
         : await client
-            .from('movimientos_caja')
-            .select()
-            .eq('empresa_id', empresaId)
-            .order('id', ascending: false);
+        .from('movimientos_caja')
+        .select()
+        .eq('empresa_id', empresaId)
+        .order('id', ascending: false);
 
     return List<Map<String, dynamic>>.from(response);
   }
@@ -580,22 +608,23 @@ class SupabaseService {
     final ventaResponse = await client
         .from('ventas')
         .insert({
-          'empresa_id': empresaId,
-          'usuario_id': usuarioId,
-          'cliente_id': clienteId,
-          'total': total,
-          'subtotal': subtotal == 0.0 ? total : subtotal,
-          'descuento': descuento,
-          'metodo_pago': metodoPago,
-          'estado': 'COMPLETADA',
-          'fecha': DateTime.now().toIso8601String(),
-        })
+      'empresa_id': empresaId,
+      'usuario_id': usuarioId,
+      'cliente_id': clienteId,
+      'total': total,
+      'subtotal': subtotal == 0.0 ? total : subtotal,
+      'descuento': descuento,
+      'metodo_pago': metodoPago,
+      'estado': 'COMPLETADA',
+      'fecha': DateTime.now().toIso8601String(),
+    })
         .select('id')
         .single();
 
     final int ventaId = (ventaResponse['id'] as num).toInt();
 
-    // 2. Insertar detalles de la venta (El Trigger de Supabase actualizará el stock automáticamente)
+    // 2. Insertar detalles de la venta
+    // ✅ CORRECCIÓN: Ahora incluimos lote_id y unidad_venta
     final List<Map<String, dynamic>> detallesToInsert = [];
     for (var item in items) {
       detallesToInsert.add({
@@ -605,6 +634,9 @@ class SupabaseService {
         'precio_unitario': item['precio_unitario'],
         'subtotal': item['subtotal'],
         'empresa_id': empresaId,
+        // Datos de Farmacia / FEFO
+        if (item.containsKey('lote_id')) 'lote_id': item['lote_id'],
+        if (item.containsKey('unidad_venta')) 'unidad_venta': item['unidad_venta'],
       });
     }
 

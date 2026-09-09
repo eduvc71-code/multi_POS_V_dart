@@ -12,6 +12,12 @@ class Producto {
   final int unidadesPorCaja;
   final int unidadesPorBlister;
 
+  // ✅ PROPIEDADES DE FARMACIA Y VALIDACIÓN SENASAG
+  final String? principioActivo;
+  final bool requiereReceta;
+  final bool esPsicotropico;
+  final String? registroSanitario;
+
   Producto({
     this.id,
     required this.codigo,
@@ -25,6 +31,10 @@ class Producto {
     this.permiteFraccionamiento = false,
     this.unidadesPorCaja = 1,
     this.unidadesPorBlister = 10,
+    this.principioActivo,
+    this.requiereReceta = false,
+    this.esPsicotropico = false,
+    this.registroSanitario,
   });
 
   Map<String, dynamic> toMap() {
@@ -41,6 +51,10 @@ class Producto {
       'permite_fraccionamiento': permiteFraccionamiento,
       'unidades_por_caja': unidadesPorCaja,
       'unidades_por_blister': unidadesPorBlister,
+      'principio_activo': principioActivo,
+      'requiere_receta': requiereReceta,
+      'es_psicotropico': esPsicotropico,
+      'registro_sanitario': registroSanitario,
     };
   }
 
@@ -58,6 +72,10 @@ class Producto {
       permiteFraccionamiento: map['permite_fraccionamiento'] ?? false,
       unidadesPorCaja: map['unidades_por_caja'] ?? 1,
       unidadesPorBlister: map['unidades_por_blister'] ?? 10,
+      principioActivo: map['principio_activo'] ?? map['principioActivo'],
+      requiereReceta: map['requiere_receta'] ?? map['requiereReceta'] ?? false,
+      esPsicotropico: map['es_psicotropico'] ?? map['esPsicotropico'] ?? false,
+      registroSanitario: map['registro_sanitario'] ?? map['registroSanitario'],
     );
   }
 
@@ -74,6 +92,10 @@ class Producto {
     bool? permiteFraccionamiento,
     int? unidadesPorCaja,
     int? unidadesPorBlister,
+    String? principioActivo,
+    bool? requiereReceta,
+    bool? esPsicotropico,
+    String? registroSanitario,
   }) {
     return Producto(
       id: id ?? this.id,
@@ -88,6 +110,10 @@ class Producto {
       permiteFraccionamiento: permiteFraccionamiento ?? this.permiteFraccionamiento,
       unidadesPorCaja: unidadesPorCaja ?? this.unidadesPorCaja,
       unidadesPorBlister: unidadesPorBlister ?? this.unidadesPorBlister,
+      principioActivo: principioActivo ?? this.principioActivo,
+      requiereReceta: requiereReceta ?? this.requiereReceta,
+      esPsicotropico: esPsicotropico ?? this.esPsicotropico,
+      registroSanitario: registroSanitario ?? this.registroSanitario,
     );
   }
 }

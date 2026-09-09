@@ -8,15 +8,24 @@ import 'punto_de_venta_widget.dart' show PuntoDeVentaWidget;
 import 'package:flutter/material.dart';
 
 class PosCartItem {
+  // ✅ CONSTANTES PARA TIPOS DE UNIDAD (FARMACIA)
+  static const String TIPO_CAJA = 'Caja';
+  static const String TIPO_BLISTER = 'Blíster';
+  static const String TIPO_PASTILLA = 'Pastilla';
+  static const String TIPO_UNIDAD = 'Unidad';
+
   final int? productoId;
   String nombre;
   String codigo;
   double precioUnitario;
   int cantidad;
   int stockDisponible;
-  String unidadVenta; // 'Caja', 'Blíster', 'Pastilla'
-  String? numeroLote;
-  DateTime? fechaVencimiento;
+  String unidadVenta;
+
+  // ✅ CORREGIDO: Agregado loteId y fechaVencimiento como String? para coincidir con el Widget
+  final int? loteId;
+  final String? numeroLote;
+  final String? fechaVencimiento;
 
   PosCartItem({
     this.productoId,
@@ -25,12 +34,39 @@ class PosCartItem {
     required this.precioUnitario,
     required this.cantidad,
     this.stockDisponible = 999999,
-    this.unidadVenta = 'Caja',
+    this.unidadVenta = TIPO_CAJA,
+    this.loteId, // ✅ AGREGADO
     this.numeroLote,
-    this.fechaVencimiento,
+    this.fechaVencimiento, // ✅ AGREGADO (Como String? para evitar errores de tipo)
   });
 
   double get subtotal => precioUnitario * cantidad;
+
+  PosCartItem copyWith({
+    int? productoId,
+    String? nombre,
+    String? codigo,
+    double? precioUnitario,
+    int? cantidad,
+    int? stockDisponible,
+    String? unidadVenta,
+    int? loteId, // ✅ AGREGADO
+    String? numeroLote,
+    String? fechaVencimiento, // ✅ AGREGADO
+  }) {
+    return PosCartItem(
+      productoId: productoId ?? this.productoId,
+      nombre: nombre ?? this.nombre,
+      codigo: codigo ?? this.codigo,
+      precioUnitario: precioUnitario ?? this.precioUnitario,
+      cantidad: cantidad ?? this.cantidad,
+      stockDisponible: stockDisponible ?? this.stockDisponible,
+      unidadVenta: unidadVenta ?? this.unidadVenta,
+      loteId: loteId ?? this.loteId, // ✅ AGREGADO
+      numeroLote: numeroLote ?? this.numeroLote,
+      fechaVencimiento: fechaVencimiento ?? this.fechaVencimiento, // ✅ AGREGADO
+    );
+  }
 }
 
 class PuntoDeVentaModel extends FlutterFlowModel<PuntoDeVentaWidget> {
@@ -40,7 +76,7 @@ class PuntoDeVentaModel extends FlutterFlowModel<PuntoDeVentaWidget> {
   List<PosCartItem> cartItems = [];
   bool isLoading = false;
 
-  Future searchProducts(String query) async {
+  Future<void> searchProducts(String query) async {
     isLoading = true;
     final prefs = await SharedPreferences.getInstance();
     final empresaId = prefs.getInt('empresa_id') ?? 1;
@@ -50,10 +86,13 @@ class PuntoDeVentaModel extends FlutterFlowModel<PuntoDeVentaWidget> {
       if (query.trim().isEmpty) {
         searchResults = all;
       } else {
-        searchResults = all.where((p) => 
-          p.nombre.toLowerCase().contains(query.toLowerCase()) || 
-          p.codigo.contains(query)
-        ).toList();
+        searchResults = all
+            .where(
+              (p) =>
+                  p.nombre.toLowerCase().contains(query.toLowerCase()) ||
+                  p.codigo.contains(query),
+            )
+            .toList();
       }
     } catch (e) {
       debugPrint('Error al buscar productos en Supabase: $e');
@@ -61,8 +100,16 @@ class PuntoDeVentaModel extends FlutterFlowModel<PuntoDeVentaWidget> {
     isLoading = false;
   }
 
-  String addProductoToCart(Producto producto) {
-    final existingIndex = cartItems.indexWhere((item) => item.productoId == producto.id);
+  // ✅ CORREGIDO: Agregados los parámetros nombrados que el Widget está enviando
+  String addProductoToCart(
+    Producto producto, {
+    int? loteId,
+    String? numeroLote,
+    String? fechaVencimiento,
+  }) {
+    final existingIndex = cartItems.indexWhere(
+      (item) => item.productoId == producto.id,
+    );
     if (existingIndex >= 0) {
       final currentItem = cartItems[existingIndex];
       if (currentItem.cantidad + 1 > producto.stock) {
@@ -73,27 +120,35 @@ class PuntoDeVentaModel extends FlutterFlowModel<PuntoDeVentaWidget> {
       if (producto.stock < 1) {
         return 'Sin stock disponible para ${producto.nombre}';
       }
-      cartItems.add(PosCartItem(
-        productoId: producto.id,
-        nombre: producto.nombre,
-        codigo: producto.codigo,
-        precioUnitario: producto.precio,
-        cantidad: 1,
-        stockDisponible: producto.stock,
-      ));
+      cartItems.add(
+        PosCartItem(
+          productoId: producto.id,
+          nombre: producto.nombre,
+          codigo: producto.codigo,
+          precioUnitario: producto.precio,
+          cantidad: 1,
+          stockDisponible: producto.stock,
+          // ✅ CORREGIDO: Pasar los datos del lote al crear el ítem
+          loteId: loteId,
+          numeroLote: numeroLote,
+          fechaVencimiento: fechaVencimiento,
+        ),
+      );
     }
     return '';
   }
 
   void addManualItemToCart(String nombre, double precio, int cantidad) {
-    cartItems.add(PosCartItem(
-      productoId: null,
-      nombre: nombre.trim().isEmpty ? 'Ítem Manual' : nombre.trim(),
-      codigo: 'MANUAL',
-      precioUnitario: precio,
-      cantidad: cantidad <= 0 ? 1 : cantidad,
-      stockDisponible: 999999,
-    ));
+    cartItems.add(
+      PosCartItem(
+        productoId: null,
+        nombre: nombre.trim().isEmpty ? 'Ítem Manual' : nombre.trim(),
+        codigo: 'MANUAL',
+        precioUnitario: precio,
+        cantidad: cantidad <= 0 ? 1 : cantidad,
+        stockDisponible: 999999,
+      ),
+    );
   }
 
   void updateCartItemQuantity(int index, int newQty) {

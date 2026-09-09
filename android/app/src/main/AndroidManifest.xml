@@ -1,7 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.multi_p_o_s">
 
-    <!-- Permisos necesarios -->
+    <!-- ✅ PERMISOS NECESARIOS (Se agregó RECORD_AUDIO) -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
 

@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart';
+import 'package:multi_p_o_s/pages/inicio_de_sesi_n/inicio_de_sesi_n_widget.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_icon_button.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
@@ -6,7 +8,6 @@ import 'package:multi_p_o_s/components/stat_card/stat_card_widget.dart';
 import 'package:multi_p_o_s/components/bottom_nav/bottom_nav_widget.dart';
 import 'package:multi_p_o_s/components/bottom_nav_child/bottom_nav_child_widget.dart';
 import 'package:multi_p_o_s/pages/inventario_de_productos/inventario_de_productos_widget.dart';
-import 'dart:io';
 import 'package:multi_p_o_s/pages/historial_de_ventas/historial_de_ventas_widget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
@@ -87,7 +88,11 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
           ),
         );
         if (confirm == true) {
-          SystemNavigator.pop();
+          if (kIsWeb) {
+            context.goNamed(InicioDeSesionWidget.routeName);
+          } else {
+            SystemNavigator.pop();
+          }
         }
       },
       child: GestureDetector(
@@ -218,8 +223,11 @@ class _PanelPrincipalWidgetState extends State<PanelPrincipalWidget> {
                                         size: 18,
                                       ),
                                       onPressed: () {
-                                        SystemNavigator.pop();
-                                        exit(0); // Cierra completamente la app
+                                        if (kIsWeb) {
+                                          context.goNamed(InicioDeSesionWidget.routeName);
+                                        } else {
+                                          SystemNavigator.pop();
+                                        }
                                       },
                                     ),
                                   ].divide(const SizedBox(width: 4)),

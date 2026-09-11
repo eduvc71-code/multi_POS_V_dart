@@ -212,7 +212,8 @@ class SupabaseService {
         .from('productos')
         .select()
         .eq('empresa_id', empresaId)
-        .order('id', ascending: false);
+        .order('id', ascending: false)
+        .range(0, 9999);
 
     final List list = response as List;
     return list.map((json) {

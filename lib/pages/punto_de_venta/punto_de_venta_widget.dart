@@ -14,7 +14,6 @@ import 'package:multi_p_o_s/services/open_food_facts_service.dart';
 import 'package:multi_p_o_s/services/supabase_service.dart';
 import 'package:pluto_grid/pluto_grid.dart';
 import 'package:speech_to_text/speech_to_text.dart';
-
 import 'punto_de_venta_model.dart';
 export 'punto_de_venta_model.dart';
 
@@ -42,7 +41,6 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
 
   // ✅ VARIABLES PARA RECONOCIMIENTO DE VOZ
   final _speech = SpeechToText();
-  bool _isListening = false;
 
   @override
   void initState() {
@@ -57,6 +55,8 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
     final empresa = await SupabaseService.instance.getEmpresa(empresaId);
     if (empresa != null) {
       _empresaTipo = (empresa['tipo'] ?? 'Tienda').toString().trim().toLowerCase();
+    } else {
+      _empresaTipo = (prefs.getString('selectedBusinessType') ?? 'Tienda').toString().trim().toLowerCase();
     }
     await _model.searchProducts('');
     if (mounted) {
@@ -65,7 +65,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
   }
 
   // ✅ CAPTURA DE DATOS DEL LOTE FEFO PARA EL CARRITO
-  Future<void> _handleAddToCart(Producto producto) async {
+  Future<void> _handleAddToCart(Producto producto, {int cantidad = 1}) async {
     final prefs = await SharedPreferences.getInstance();
     final empresaId = prefs.getInt('empresa_id') ?? 1;
 
@@ -82,7 +82,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
           SnackBar(
             content: Text(
               loteFEFO != null && loteFEFO.esVencido
-                  ? '🔴 MEDICAMENTO VENCIDO (Lote ${loteFEFO.numeroLote}): Venta bloqueada.'
+                  ? ' MEDICAMENTO VENCIDO (Lote ${loteFEFO.numeroLote}): Venta bloqueada.'
                   : '🔴 SIN LOTE ACTIVO VIGENTE: Registre un lote no vencido en Inventario.',
             ),
             backgroundColor: FlutterFlowTheme.of(context).error,
@@ -94,7 +94,6 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
       loteIdAsignado = loteFEFO.id;
       numeroLoteAsignado = loteFEFO.numeroLote;
 
-      // ✅ CORRECCIÓN: Convertir DateTime a String de forma segura
       fechaVencimientoAsignada = loteFEFO.fechaVencimiento != null
           ? loteFEFO.fechaVencimiento.toString().split(' ')[0]
           : 'N/A';
@@ -102,6 +101,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
 
     final error = _model.addProductoToCart(
       producto,
+      cantidad: cantidad,
       loteId: loteIdAsignado,
       numeroLote: numeroLoteAsignado,
       fechaVencimiento: fechaVencimientoAsignada,
@@ -117,7 +117,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('✓ ${producto.nombre} agregado al carrito'),
+          content: Text('✓ ${cantidad > 1 ? '$cantidad x ' : ''}${producto.nombre} agregado al carrito'),
           duration: const Duration(milliseconds: 700),
           behavior: SnackBarBehavior.floating,
         ),
@@ -154,62 +154,48 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
     if (mounted) setState(() {});
   }
 
-  // ✅ FUNCIÓN DE VOZ CON SOLICITUD DE PERMISO AUTOMÁTICA
-  Future<void> _handleVoiceManualItem() async {
-    final tiposPermitidosVoz = ['tienda', 'ferreteria', 'autopartes', 'motopartes'];
-    if (!tiposPermitidosVoz.contains(_empresaTipo)) return;
+  bool get _isVoiceAllowed {
+    final tipoClean = _empresaTipo
+        .replaceAll('í', 'i')
+        .replaceAll('Í', 'i')
+        .trim()
+        .toLowerCase();
+    return ['tienda', 'ferreteria', 'autopartes', 'motopartes'].contains(tipoClean);
+  }
 
-    // 1. SOLICITAR PERMISO AL USUARIO (Igual que el escáner)
+  Future<bool> _initSpeechEngine() async {
     var status = await Permission.microphone.request();
-
-    if (status.isDenied) {
-      if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Permiso de micrófono denegado.'), backgroundColor: Colors.red),
-      );
-      return;
+    if (status.isDenied || status.isPermanentlyDenied) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Permiso de micrófono requerido. Habilítalo en Ajustes.'), backgroundColor: Colors.orange),
+        );
+        openAppSettings();
+      }
+      return false;
     }
 
-    if (status.isPermanentlyDenied) {
-      if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Permiso denegado permanentemente. Habilítalo en Ajustes.'), backgroundColor: Colors.orange),
-      );
-      openAppSettings();
-      return;
-    }
-
-    // 2. INICIAR EL MICRÓFONO
     final bool available = await _speech.initialize(
       onStatus: (val) => debugPrint('Estado micrófono: $val'),
       onError: (val) => debugPrint('Error micrófono: $val'),
     );
 
-    if (!available) {
-      if (!mounted) return;
+    if (!available && mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Micrófono no disponible.'), backgroundColor: Colors.red),
       );
-      return;
     }
+    return available;
+  }
 
-    setState(() => _isListening = true);
+  // ✅ FUNCIÓN DE VOZ: SOLO ABRE LA VENTANA Y PREPARA EL MICRÓFONO
+  Future<void> _handleVoiceManualItem() async {
+    if (!_isVoiceAllowed) return;
 
-    _speech.listen(
-      onResult: (val) async {
-        if (val.finalResult) {
-          setState(() => _isListening = false);
-          String spokenText = val.recognizedWords.trim();
-          if (spokenText.isNotEmpty) {
-            _showAddManualItemDialog(preFilledName: spokenText);
-          }
-        }
-      },
-      listenFor: const Duration(seconds: 5),
-      pauseFor: const Duration(seconds: 3),
-      listenOptions: SpeechListenOptions(partialResults: true),
-      localeId: 'es_BO',
-    );
+    final available = await _initSpeechEngine();
+    if (!available) return;
+
+    await _showAddManualItemDialog();
   }
 
   Future<void> _showCatalogModal() async {
@@ -408,44 +394,196 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
     );
   }
 
-  Future<void> _showAddManualItemDialog({String? preFilledName}) async {
-    final nombreCtrl = TextEditingController(text: preFilledName ?? '');
+  // ✅ NUEVA FUNCIÓN DE DIÁLOGO CON MICROFONOS INDEPENDIENTES
+  Future<void> _showAddManualItemDialog() async {
+    final nombreCtrl = TextEditingController();
     final precioCtrl = TextEditingController();
     final cantidadCtrl = TextEditingController(text: '1');
 
+    bool isListeningNombre = false;
+    bool isListeningPrecio = false;
+
     final confirm = await showDialog<bool>(
       context: context,
-      builder: (dialogCtx) => AlertDialog(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        title: Row(
-          children: [
-            Icon(preFilledName != null ? Icons.mic_rounded : Icons.add_shopping_cart_rounded, color: const Color(0xFF0066FF)),
-            const SizedBox(width: 8),
-            Text(preFilledName != null ? 'Agregar Ítem por Voz' : 'Agregar Ítem Manual', style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-          ],
-        ),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            TextField(
-              controller: nombreCtrl,
-              autofocus: preFilledName != null,
-              decoration: const InputDecoration(labelText: 'Nombre / Servicio / Concepto *', border: OutlineInputBorder(), isDense: true),
-            ),
-            const SizedBox(height: 12),
-            Row(
-              children: [
-                Expanded(child: TextField(controller: precioCtrl, keyboardType: const TextInputType.numberWithOptions(decimal: true), decoration: const InputDecoration(labelText: 'Precio Unit. (Bs.) *', border: OutlineInputBorder(), isDense: true))),
-                const SizedBox(width: 8),
-                Expanded(child: TextField(controller: cantidadCtrl, keyboardType: TextInputType.number, decoration: const InputDecoration(labelText: 'Cantidad *', border: OutlineInputBorder(), isDense: true))),
+      builder: (dialogCtx) => StatefulBuilder(
+        builder: (dialogCtx, setDialogState) => AlertDialog(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          title: const Row(
+            children: [
+              Icon(Icons.mic_rounded, color: Color(0xFF0066FF)),
+              SizedBox(width: 8),
+              Text('Agregar Ítem por Voz', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+            ],
+          ),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              // Campo Nombre con micrófono independiente
+              TextField(
+                controller: nombreCtrl,
+                autofocus: true,
+                decoration: InputDecoration(
+                  labelText: 'Nombre / Servicio / Concepto *',
+                  border: const OutlineInputBorder(),
+                  isDense: true,
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      isListeningNombre ? Icons.mic_rounded : Icons.mic_none_rounded,
+                      color: isListeningNombre ? Colors.red : Colors.grey,
+                    ),
+                    onPressed: () async {
+                      if (isListeningNombre) {
+                        _speech.stop();
+                        setDialogState(() => isListeningNombre = false);
+                      } else {
+                        final ready = await _initSpeechEngine();
+                        if (!ready) return;
+                        setDialogState(() {
+                          isListeningNombre = true;
+                          isListeningPrecio = false;
+                        });
+                        _speech.listen(
+                          onResult: (val) {
+                            setDialogState(() {
+                              if (val.recognizedWords.isNotEmpty) {
+                                nombreCtrl.text = val.recognizedWords.trim();
+                              }
+                              if (val.finalResult) {
+                                isListeningNombre = false;
+                                _speech.stop();
+                              }
+                            });
+                          },
+                          listenOptions: SpeechListenOptions(
+                            listenMode: ListenMode.dictation,
+                            partialResults: true,
+                            cancelOnError: true,
+                          ),
+                        );
+                      }
+                    },
+                  ),
+                ),
+              ),
+              const SizedBox(height: 12),
+              // Campos Precio y Cantidad con micrófono independiente en Precio
+              Row(
+                children: [
+                  Expanded(
+                    child: TextField(
+                      controller: precioCtrl,
+                      keyboardType: const TextInputType.numberWithOptions(decimal: true),
+                      decoration: InputDecoration(
+                        labelText: 'Precio Total (Bs.) *',
+                        border: const OutlineInputBorder(),
+                        isDense: true,
+                        suffixIcon: IconButton(
+                          icon: Icon(
+                            isListeningPrecio ? Icons.mic_rounded : Icons.mic_none_rounded,
+                            color: isListeningPrecio ? Colors.red : Colors.grey,
+                          ),
+                          onPressed: () async {
+                            if (isListeningPrecio) {
+                              _speech.stop();
+                              setDialogState(() => isListeningPrecio = false);
+                            } else {
+                              final ready = await _initSpeechEngine();
+                              if (!ready) return;
+                              setDialogState(() {
+                                isListeningPrecio = true;
+                                isListeningNombre = false;
+                              });
+                              _speech.listen(
+                                onResult: (val) {
+                                  setDialogState(() {
+                                    if (val.recognizedWords.isNotEmpty) {
+                                      precioCtrl.text = val.recognizedWords.trim();
+                                    }
+                                    if (val.finalResult) {
+                                      isListeningPrecio = false;
+                                      _speech.stop();
+                                    }
+                                  });
+                                },
+                                listenOptions: SpeechListenOptions(
+                                  listenMode: ListenMode.dictation,
+                                  partialResults: true,
+                                  cancelOnError: true,
+                                ),
+                              );
+                            }
+                          },
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: TextField(
+                      controller: cantidadCtrl,
+                      keyboardType: TextInputType.number,
+                      decoration: const InputDecoration(
+                        labelText: 'Cantidad *',
+                        border: OutlineInputBorder(),
+                        isDense: true,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              // Indicador visual de escucha
+              if (isListeningNombre || isListeningPrecio) ...[
+                const SizedBox(height: 12),
+                Container(
+                  padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+                  decoration: BoxDecoration(
+                    color: Colors.red.shade50,
+                    borderRadius: BorderRadius.circular(8),
+                    border: Border.all(color: Colors.red),
+                  ),
+                  child: Row(
+                    children: [
+                      const Icon(Icons.mic_rounded, color: Colors.red, size: 20),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: Text(
+                          isListeningNombre
+                              ? 'MICROFONO ACTIVO:DICTE EL PRODUCTO'
+                              : 'MICROFONO ACTIVO:DICTE EL PRECIO TOTAL',
+                          style: const TextStyle(
+                            color: Colors.red,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 12,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ],
+            ],
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                _speech.stop();
+                Navigator.pop(dialogCtx, false);
+              },
+              child: const Text('Cancelar'),
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: FlutterFlowTheme.of(context).primary,
+                foregroundColor: Colors.white,
+              ),
+              onPressed: () {
+                _speech.stop();
+                Navigator.pop(dialogCtx, true);
+              },
+              child: const Text('Agregar a la Venta'),
             ),
           ],
         ),
-        actions: [
-          TextButton(onPressed: () => Navigator.pop(dialogCtx, false), child: const Text('Cancelar')),
-          ElevatedButton(style: ElevatedButton.styleFrom(backgroundColor: FlutterFlowTheme.of(context).primary, foregroundColor: Colors.white), onPressed: () => Navigator.pop(dialogCtx, true), child: const Text('Agregar a la Venta')),
-        ],
       ),
     );
 
@@ -748,7 +886,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                     decoration: const InputDecoration(labelText: 'Forma de Pago', border: OutlineInputBorder(), isDense: true),
                     items: const [
                       DropdownMenuItem(value: 'EFECTIVO', child: Text('💵 Efectivo (Calculadora de Vueltas)')),
-                      DropdownMenuItem(value: 'TRANSFERENCIA', child: Text('📲 Transferencia QR / Banco')),
+                      DropdownMenuItem(value: 'TRANSFERENCIA', child: Text(' Transferencia QR / Banco')),
                       DropdownMenuItem(value: 'QR_EFECTIVO', child: Text('💵📲 QR + Efectivo')),
                       DropdownMenuItem(value: 'TARJETA', child: Text('💳 Tarjeta Débito / Crédito')),
                       DropdownMenuItem(value: 'CREDITO', child: Text('📑 Venta a Crédito / Fiado')),
@@ -797,7 +935,7 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                       decoration: const InputDecoration(labelText: 'Cliente *', border: OutlineInputBorder(), isDense: true),
                       items: clientes.map((c) => DropdownMenuItem<int>(
                           value: c['id'] as int,
-                          child: Text('${c['nombre']} (${c['nit'] ?? 'CI'})') // ✅ CORREGIDO: Paréntesis cerrado correctamente
+                          child: Text('${c['nombre']} (${c['nit'] ?? 'CI'})')
                       )).toList(),
                       onChanged: (val) { if (val != null) setStateDialog(() => selectedClienteId = val); },
                     ),
@@ -927,14 +1065,14 @@ class _PuntoDeVentaWidgetState extends State<PuntoDeVentaWidget> {
                             icon: const Icon(Icons.add_rounded, size: 16),
                             label: const Text('Ítem', style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold)),
                           ),
-                          if (['tienda', 'ferreteria', 'autopartes', 'motopartes'].contains(_empresaTipo)) ...[
+                          if (_isVoiceAllowed) ...[
                             const SizedBox(width: 4),
                             FlutterFlowIconButton(
                               borderRadius: 8,
                               buttonSize: 34,
-                              fillColor: _isListening ? Colors.red.shade100 : FlutterFlowTheme.of(context).primary10,
-                              icon: Icon(Icons.mic_rounded, color: _isListening ? Colors.red : FlutterFlowTheme.of(context).primary, size: 18),
-                              onPressed: _isListening ? null : _handleVoiceManualItem,
+                              fillColor: FlutterFlowTheme.of(context).primary10,
+                              icon: Icon(Icons.mic_rounded, color: FlutterFlowTheme.of(context).primary, size: 18),
+                              onPressed: _handleVoiceManualItem,
                             ),
                           ],
                           const SizedBox(width: 4),

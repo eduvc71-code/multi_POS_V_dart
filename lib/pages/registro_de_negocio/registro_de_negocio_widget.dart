@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:multi_p_o_s/components/business_type_card/business_type_card_widget.dart';
 import 'package:multi_p_o_s/components/button/button_widget.dart';
 import 'package:multi_p_o_s/components/checkbox/checkbox_widget.dart';
@@ -5,7 +6,6 @@ import 'package:multi_p_o_s/components/form_field/form_field_widget.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_theme.dart';
 import 'package:multi_p_o_s/flutter_flow/flutter_flow_util.dart';
 import 'package:multi_p_o_s/pages/inicio_de_sesi_n/inicio_de_sesi_n_widget.dart';
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widget_previews.dart';
@@ -700,16 +700,22 @@ class _RegistroDeNegocioWidgetState extends State<RegistroDeNegocioWidget> {
                                         ElevatedButton(
                                           onPressed: () {
                                             Navigator.pop(dialogContext);
-                                            SystemNavigator.pop();
-                                            exit(0);
+                                            if (kIsWeb) {
+                                              context.goNamed(InicioDeSesionWidget.routeName);
+                                            } else {
+                                              SystemNavigator.pop();
+                                            }
                                           },
-                                          child: const Text('Aceptar y Salir'),
+                                          child: const Text('Aceptar e Iniciar Sesión'),
                                         ),
                                       ],
                                     ),
                                   );
-                                  SystemNavigator.pop();
-                                  exit(0);
+                                  if (kIsWeb) {
+                                    context.goNamed(InicioDeSesionWidget.routeName);
+                                  } else {
+                                    SystemNavigator.pop();
+                                  }
                                 } catch (e) {
                                   debugPrint('Error registrando empresa: $e');
                                   if (!currentContext.mounted) return;

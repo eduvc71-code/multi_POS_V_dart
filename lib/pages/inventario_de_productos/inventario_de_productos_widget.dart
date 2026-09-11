@@ -57,6 +57,14 @@ class _InventarioDeProductosWidgetState
   void _initColumns() {
     columns = [
       PlutoColumn(
+        title: 'N.º',
+        field: 'num',
+        type: PlutoColumnType.number(),
+        enableEditingMode: false,
+        width: 65,
+        textAlign: PlutoColumnTextAlign.center,
+      ),
+      PlutoColumn(
         title: 'Nombre',
         field: 'nombre',
         type: PlutoColumnType.text(),
@@ -414,9 +422,12 @@ class _InventarioDeProductosWidgetState
   }
 
   void _updateRows() {
-    rows = _model.productos.map((p) {
+    rows = _model.productos.asMap().entries.map((entry) {
+      final index = entry.key + 1;
+      final p = entry.value;
       return PlutoRow(
         cells: {
+          'num': PlutoCell(value: index),
           'id': PlutoCell(value: p.id),
           'nombre': PlutoCell(value: p.nombre),
           'codigo': PlutoCell(value: p.codigo),
@@ -989,6 +1000,19 @@ class _InventarioDeProductosWidgetState
                         children: [
                           Row(
                             children: [
+                              FlutterFlowIconButton(
+                                borderRadius: 8,
+                                buttonSize: 32,
+                                fillColor: Colors.transparent,
+                                icon: Icon(
+                                  Icons.arrow_back_rounded,
+                                  color: FlutterFlowTheme.of(context).primaryText,
+                                  size: 20,
+                                ),
+                                onPressed: () =>
+                                    context.goNamed(PanelPrincipalWidget.routeName),
+                              ),
+                              const SizedBox(width: 4),
                               Text(
                                 'Inventario',
                                 style: FlutterFlowTheme.of(context).titleMedium

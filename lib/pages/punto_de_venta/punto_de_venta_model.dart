@@ -35,9 +35,9 @@ class PosCartItem {
     required this.cantidad,
     this.stockDisponible = 999999,
     this.unidadVenta = TIPO_CAJA,
-    this.loteId, // ✅ AGREGADO
+    this.loteId,
     this.numeroLote,
-    this.fechaVencimiento, // ✅ AGREGADO (Como String? para evitar errores de tipo)
+    this.fechaVencimiento,
   });
 
   double get subtotal => precioUnitario * cantidad;
@@ -50,9 +50,9 @@ class PosCartItem {
     int? cantidad,
     int? stockDisponible,
     String? unidadVenta,
-    int? loteId, // ✅ AGREGADO
+    int? loteId,
     String? numeroLote,
-    String? fechaVencimiento, // ✅ AGREGADO
+    String? fechaVencimiento,
   }) {
     return PosCartItem(
       productoId: productoId ?? this.productoId,
@@ -62,9 +62,9 @@ class PosCartItem {
       cantidad: cantidad ?? this.cantidad,
       stockDisponible: stockDisponible ?? this.stockDisponible,
       unidadVenta: unidadVenta ?? this.unidadVenta,
-      loteId: loteId ?? this.loteId, // ✅ AGREGADO
+      loteId: loteId ?? this.loteId,
       numeroLote: numeroLote ?? this.numeroLote,
-      fechaVencimiento: fechaVencimiento ?? this.fechaVencimiento, // ✅ AGREGADO
+      fechaVencimiento: fechaVencimiento ?? this.fechaVencimiento,
     );
   }
 }
@@ -89,9 +89,9 @@ class PuntoDeVentaModel extends FlutterFlowModel<PuntoDeVentaWidget> {
         searchResults = all
             .where(
               (p) =>
-                  p.nombre.toLowerCase().contains(query.toLowerCase()) ||
-                  p.codigo.contains(query),
-            )
+          p.nombre.toLowerCase().contains(query.toLowerCase()) ||
+              p.codigo.contains(query),
+        )
             .toList();
       }
     } catch (e) {
@@ -100,25 +100,26 @@ class PuntoDeVentaModel extends FlutterFlowModel<PuntoDeVentaWidget> {
     isLoading = false;
   }
 
-  // ✅ CORREGIDO: Agregados los parámetros nombrados que el Widget está enviando
+  // ✅ ACTUALIZADO: Agregado parámetro 'cantidad' con valor por defecto 1 para compatibilidad
   String addProductoToCart(
-    Producto producto, {
-    int? loteId,
-    String? numeroLote,
-    String? fechaVencimiento,
-  }) {
+      Producto producto, {
+        int cantidad = 1,
+        int? loteId,
+        String? numeroLote,
+        String? fechaVencimiento,
+      }) {
     final existingIndex = cartItems.indexWhere(
-      (item) => item.productoId == producto.id,
+          (item) => item.productoId == producto.id,
     );
     if (existingIndex >= 0) {
       final currentItem = cartItems[existingIndex];
-      if (currentItem.cantidad + 1 > producto.stock) {
-        return 'Stock insuficiente para ${producto.nombre} (${producto.stock} disponibles)';
+      if (currentItem.cantidad + cantidad > producto.stock) {
+        return 'Stock insuficiente para ${producto.nombre} (Solo ${producto.stock} disponibles)';
       }
-      currentItem.cantidad += 1;
+      currentItem.cantidad += cantidad;
     } else {
-      if (producto.stock < 1) {
-        return 'Sin stock disponible para ${producto.nombre}';
+      if (producto.stock < cantidad) {
+        return 'Sin stock suficiente para ${producto.nombre} (Disponible: ${producto.stock})';
       }
       cartItems.add(
         PosCartItem(
@@ -126,9 +127,8 @@ class PuntoDeVentaModel extends FlutterFlowModel<PuntoDeVentaWidget> {
           nombre: producto.nombre,
           codigo: producto.codigo,
           precioUnitario: producto.precio,
-          cantidad: 1,
+          cantidad: cantidad, // ✅ Ahora usa la cantidad solicitada
           stockDisponible: producto.stock,
-          // ✅ CORREGIDO: Pasar los datos del lote al crear el ítem
           loteId: loteId,
           numeroLote: numeroLote,
           fechaVencimiento: fechaVencimiento,
@@ -199,6 +199,117 @@ class PuntoDeVentaModel extends FlutterFlowModel<PuntoDeVentaWidget> {
     }
     return sum;
   }
+
+  // ========================================================================
+  // ✅ NUEVO: LÓGICA DE PROCESAMIENTO DE COMANDOS DE VOZ
+  // ========================================================================
+
+  String processVoiceCommand(String spokenText, List<Producto> catalog) {
+    String text = spokenText.toLowerCase().trim();
+    if (text.isEmpty) return "No se escuchó nada.";
+
+    // 1. Comandos de gestión del carrito
+    if (text.contains('eliminar último') || text.contains('borrar último') || text.contains('quitar último')) {
+      if (cartItems.isNotEmpty) {
+        removeCartItem(cartItems.length - 1);
+        return "✓ Último producto eliminado.";
+      }
+      return "El carrito ya está vacío.";
+    }
+
+    if (text.contains('vaciar carrito') || text.contains('limpiar carrito') || text.contains('cancelar venta')) {
+      clearCart();
+      return "✓ Carrito vaciado.";
+    }
+
+    // 2. Comando de Total Manual (Ej: "total 50", "total cincuenta bolivianos")
+    RegExp totalRegex = RegExp(r'(?:total|cobrar)\s+(?:de\s+)?(\d+|uno|dos|tres|cuatro|cinco|seis|siete|ocho|nueve|diez|veinte|treinta|cuarenta|cincuenta|cien|ciento)\s*(?:bolivianos|bs)?', caseSensitive: false);
+    Match? totalMatch = totalRegex.firstMatch(text);
+    if (totalMatch != null) {
+      String amountStr = totalMatch.group(1)!.toLowerCase();
+      double amount = _parseSpanishNumber(amountStr).toDouble();
+      if (amount > 0) {
+        addManualItemToCart('Venta Varios / Total', amount, 1);
+        return "✓ Agregado monto manual de Bs. ${amount.toStringAsFixed(2)}";
+      }
+    }
+
+    // 3. Comando de Agregar Producto (Ej: "agregar dos coca colas", "dame un pan", "coca cola")
+    int qty = 1;
+    String productName = text;
+
+    RegExp addRegex = RegExp(r'^(?:agregar|ponme|dame|busca|quiero|añadir)\s+(?:un|una|dos|tres|cuatro|cinco|seis|siete|ocho|nueve|diez|veinte|treinta|cuarenta|cincuenta|cien)?\s*(.+)$', caseSensitive: false);
+    Match? addMatch = addRegex.firstMatch(text);
+
+    if (addMatch != null) {
+      String remainder = addMatch.group(1)!.trim();
+      List<String> words = remainder.split(' ');
+      if (words.isNotEmpty) {
+        int parsedQty = _parseSpanishNumber(words.first);
+        if (parsedQty > 1) {
+          qty = parsedQty;
+          // Eliminar la palabra del número del nombre del producto
+          productName = remainder.replaceFirst(RegExp(r'^\w+\s+'), '').trim();
+        } else {
+          productName = remainder;
+        }
+      }
+    } else {
+      // Si no empieza con verbo, asumimos que es solo el nombre (Ej: el usuario solo dice "coca cola")
+      productName = text;
+    }
+
+    // Buscar en el catálogo (priorizando coincidencias en nombre o código exacto)
+    List<Producto> matches = catalog.where((p) =>
+    p.nombre.toLowerCase().contains(productName) ||
+        p.codigo.toLowerCase() == productName
+    ).toList();
+
+    if (matches.isEmpty) {
+      return "✗ No encontré '$productName' en el inventario.";
+    }
+
+    // Tomar la mejor coincidencia (la primera que aparezca)
+    Producto targetProduct = matches.first;
+
+    // Validar stock antes de agregar
+    if (targetProduct.stock < qty) {
+      return "✗ Stock insuficiente para ${targetProduct.nombre}. Solo hay ${targetProduct.stock}.";
+    }
+
+    // Agregar al carrito
+    String error = addProductoToCart(targetProduct, cantidad: qty);
+    if (error.isNotEmpty) {
+      return "✗ $error";
+    }
+
+    return "✓ Agregado: $qty x ${targetProduct.nombre}";
+  }
+
+  // ✅ Helper para convertir palabras en números
+  int _parseSpanishNumber(String word) {
+    switch (word) {
+      case 'un': case 'una': case 'uno': return 1;
+      case 'dos': return 2;
+      case 'tres': return 3;
+      case 'cuatro': return 4;
+      case 'cinco': return 5;
+      case 'seis': return 6;
+      case 'siete': return 7;
+      case 'ocho': return 8;
+      case 'nueve': return 9;
+      case 'diez': return 10;
+      case 'veinte': return 20;
+      case 'treinta': return 30;
+      case 'cuarenta': return 40;
+      case 'cincuenta': return 50;
+      case 'cien': case 'ciento': return 100;
+      default:
+        int? parsed = int.tryParse(word);
+        return parsed ?? 1;
+    }
+  }
+  // ========================================================================
 
   // Model for TextField.
   late TextFieldModel textFieldModel;
